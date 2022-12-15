@@ -1,0 +1,68 @@
+@model Bank_App.Models.Customer
+@using MobileBankApp.Enum
+@using Bank_App.Models.Enum
+
+
+<h3>Edit Customer</h3>
+<div asp-controller= "Customer" asp-action="UpdateCustomer" style="font-size: 130%;">
+    <hr />
+    <form asp-action="UpdateCustomer">
+        <input asp-for = "AccountNumber" hidden/>
+        <div> 
+            <div>
+                <label asp-for = "AccountNumber"></label>
+                <input asp-for = "AccountNumber" readonly  class= "form-control"/>
+                
+            </div><br>
+             <div>
+                <label asp-for="MaritalStatus" class="control-label"></label>
+                 <select asp-for = "MaritalStatus" asp-items="Html.GetEnumSelectList<MaritalStatusType>()"></select>
+            </div><br>
+            <div class="form-row">
+                <label asp-for="AccountType" class="control-label"></label>
+                 <select asp-for = "AccountType" asp-items="Html.GetEnumSelectList<AccountType>()"></select>
+            </div><br>
+             <div>
+                <label asp-for = "Pin"></label>
+                <input asp-for = "Pin" readonly  class= "form-control"/>
+                
+            </div>
+            <div>
+                <label asp-for = "FirstName"></label>
+                <input asp-for = "FirstName"  class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "LastName"></label>
+                <input asp-for = "LastName"  class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Address"></label>
+                <input asp-for = "Address"  class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Age"></label>
+                <input asp-for = "Age"  class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Gender"></label>
+                <input asp-for = "Gender" readonly class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Email"></label>
+                <input asp-for = "Email"  class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "PassWord"></label>
+                <input asp-for = "PassWord"  class= "form-control"/>
+            </div><br>
+            <div>
+                <label asp-for = "DateCreated"></label>
+                <input asp-for = "DateCreated"  class= "form-control"/>
+            </div> <br> <br>
+  
+     <div class="form-group ">
+            <input href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal" />
+        </div><br>
+        <a asp-controller="Customer" asp-action="Customers">Back to List</a>
+    </form>
+</div>

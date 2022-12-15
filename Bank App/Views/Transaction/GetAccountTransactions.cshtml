@@ -1,0 +1,93 @@
+@model IList<Transaction>
+    @if(ViewData["Title"] != null)
+    {
+        <h2>
+            @TempData["success"]
+        </h2>
+
+    }
+    <div class="container p-3">
+        <div class ="row pt-4">
+            <div class = "col-6">
+                <h2 calss = "text-primary">All Transactions</h2>
+            </div>
+            <div>
+                <table class= "table table-bordered table-striped" style= "width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                Ref number
+                            </th>
+                            <th>
+                                Transaction Type
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                             <th>
+                                Account Number
+                            </th>
+                             <th>
+                                Amount
+                            </th>
+                             <th>
+                                Account Balance
+                            </th>
+                             <th>
+                                Date Created
+                            </th>
+                             <th>
+                                Recipient Account Number
+                            </th>
+                            
+                        </tr>    
+                        
+                    </thead>
+                    @foreach (var transaction in Model)
+                    {
+                        <tr>
+                            <td>
+                                @transaction.RefNum
+                            </td>
+                             <td>
+                                @transaction.TransactType
+                            </td>
+                             <td>
+                                @transaction.Description
+                            </td>
+                             <td>
+                                @transaction.AccountNumber
+                            </td>
+                             <td>
+                                @transaction.Amount
+                            </td>
+                             <td>
+                                @transaction.AccountBalance
+                            </td>
+                             <td>
+                                @transaction.DateCreated
+                            </td>
+                             <td>
+                               @transaction.RecipientAccountNumber
+                            </td>
+                            
+
+                             <td>
+                                <a asp-controller = "Transaction" asp-action="DeleteTransaction" asp-route-refNum="@transaction.RefNum"><i class="bi bi-trash"></i>Delete</a>
+                            </td>
+                            <td>
+                                <a asp-controller = "Transaction" asp-action="TransactionDetails" asp-route-refNum="@transaction.RefNum"><i class="bi bi-info-lg"></i>Details</a>
+                            </td>
+                            <td>
+                                <a asp-controller = "Transaction" asp-action="GetAccountTransactions" asp-route-accountNumber="@transaction.AccountNumber"><i class="bi bi-info-lg"></i>Transactions</a>
+                            </td>
+                        </tr>
+                        
+                    }
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>

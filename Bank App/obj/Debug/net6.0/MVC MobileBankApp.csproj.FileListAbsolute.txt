@@ -1,0 +1,202 @@
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\MVC MobileBankApp.exe
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\MVC MobileBankApp.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\appsettings.json
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\MVC MobileBankApp.staticwebassets.runtime.json
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Humanizer.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\Desktop\MVC MobileBankApp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\MVC MobileBankApp.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\MVC MobileBankApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\MVC MobileBankApp.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\MVC MobileBankApp.AssemblyInfo.cs
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\MVC MobileBankApp.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\MVC MobileBankApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\MVC MobileBankApp.RazorAssemblyInfo.cache
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\MVC MobileBankApp.RazorAssemblyInfo.cs
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\staticwebassets\msbuild.MVC MobileBankApp.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\staticwebassets\msbuild.build.MVC MobileBankApp.props
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MVC MobileBankApp.props
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MVC MobileBankApp.props
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\scopedcss\bundle\MVC MobileBankApp.styles.css
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\scopedcss\projectbundle\MVC MobileBankApp.bundle.scp.css
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\MVC MobileBankApp.csproj.CopyComplete
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\MVC MobileBankApp.dll
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\refint\MVC MobileBankApp.dll
+C:\Users\user\Desktop\MVC MobileBankApp\obj\Debug\net6.0\MVC MobileBankApp.pdb
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\appsettings.json
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\MVC MobileBankApp.staticwebassets.runtime.json
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\MVC MobileBankApp.exe
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\MVC MobileBankApp.deps.json
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\MVC MobileBankApp.runtimeconfig.json
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\MVC MobileBankApp.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\MVC MobileBankApp.pdb
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Humanizer.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\Desktop\Bank App\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\MVC MobileBankApp.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\MVC MobileBankApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\MVC MobileBankApp.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\MVC MobileBankApp.AssemblyInfo.cs
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\MVC MobileBankApp.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\MVC MobileBankApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\MVC MobileBankApp.RazorAssemblyInfo.cache
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\MVC MobileBankApp.RazorAssemblyInfo.cs
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\staticwebassets\msbuild.MVC MobileBankApp.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\staticwebassets\msbuild.build.MVC MobileBankApp.props
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MVC MobileBankApp.props
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MVC MobileBankApp.props
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\scopedcss\bundle\MVC MobileBankApp.styles.css
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\scopedcss\projectbundle\MVC MobileBankApp.bundle.scp.css
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\MVC MobileBankApp.csproj.CopyComplete
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\MVC MobileBankApp.dll
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\refint\MVC MobileBankApp.dll
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\MVC MobileBankApp.pdb
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\MVC MobileBankApp.genruntimeconfig.cache
+C:\Users\user\Desktop\Bank App\obj\Debug\net6.0\ref\MVC MobileBankApp.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\appsettings.json
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\MVC MobileBankApp.staticwebassets.runtime.json
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\MVC MobileBankApp.exe
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\MVC MobileBankApp.deps.json
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\MVC MobileBankApp.runtimeconfig.json
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\MVC MobileBankApp.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\MVC MobileBankApp.pdb
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Humanizer.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.AssemblyInfo.cs
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.RazorAssemblyInfo.cache
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.RazorAssemblyInfo.cs
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\staticwebassets\msbuild.MVC MobileBankApp.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\staticwebassets\msbuild.build.MVC MobileBankApp.props
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MVC MobileBankApp.props
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MVC MobileBankApp.props
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\scopedcss\bundle\MVC MobileBankApp.styles.css
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\scopedcss\projectbundle\MVC MobileBankApp.bundle.scp.css
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.csproj.CopyComplete
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\refint\MVC MobileBankApp.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.pdb
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.genruntimeconfig.cache
+C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\ref\MVC MobileBankApp.dll

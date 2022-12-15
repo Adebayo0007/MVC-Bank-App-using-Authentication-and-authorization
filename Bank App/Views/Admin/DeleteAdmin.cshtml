@@ -1,0 +1,114 @@
+@model Admin
+
+<h3>Are you sure you want to Delete this Admin?</h3>
+@* <div asp-controller= "Admin" asp-action="DeleteAdminConfirmed" style="font-size: 130%;"> *@
+    <hr />
+    <form asp-controller= "Admin" asp-action="DeleteAdmin">
+        <input asp-for = "StaffId" hidden/>
+        <div> 
+            <div>
+                <label asp-for = "StaffId"></label>
+                <input asp-for = "StaffId" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "FirstName"></label>
+                <input asp-for = "FirstName" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "LastName"></label>
+                <input asp-for = "LastName" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Address"></label>
+                <input asp-for = "Address" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Age"></label>
+                <input asp-for = "Age" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Gender"></label>
+                <input asp-for = "Gender" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Email"></label>
+                <input asp-for = "Email" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "PassWord"></label>
+                <input asp-for = "PassWord" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "DateCreated"></label>
+                <input asp-for = "DateCreated" disabled class= "form-control"/>
+            </div>
+    @* <dl class="row">
+        <dt class="col-sm-2">
+            Staff Id :
+        </dt>
+        <dd class="col-sm-10">
+            @Model.StaffId
+        </dd>
+        <dt class="col-sm-2">
+            First Name:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FirstName
+        </dd>
+          <dt class="col-sm-2">
+            Last Name:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.LastName
+        </dd>
+         <dt class="col-sm-2">
+            Address:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Address
+        </dd>
+         <dt class="col-sm-2">
+            Age:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Age
+        </dd>
+         <dt class="col-sm-2">
+            Gender:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.MaritalStatus
+        </dd>
+         <dt class="col-sm-2">
+            Email:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.PhoneNumber
+        </dd>
+         <dt class="col-sm-2">
+            Password:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.PassWord
+        </dd>
+         <dt class="col-sm-2">
+            Date Created:
+        </dt>
+        <dd class="col-sm-10">
+            @Model.DateCreated
+        </dd> *@
+        
+    @* </dl>  *@
+    <br><br>
+    </div>
+     @* <a  asp-controller = "Admin" asp-action="DeleteAdmin" asp-route-staffId = "StaffId" >Delete</a>  *@
+     <button asp-controller = "Admin" type="submit" asp-action="DeleteAdmin" asp-route-staffId=@Model.StaffId><i class="bi bi-trash"></i>Yes</button>&nbsp;
+      @* <div class="form-group ">
+            <input href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal" /> &nbsp;
+        </div> *@
+
+        @* <button asp-controller="Admin" asp-action="DeleteAdmin" type = "Submit" class = "btn btn-danger" style = "width:150px">Delete</button> *@
+        @* <input type="submit" value="DeleteAdmin" class="btn btn-danger" /> | *@
+        <a asp-controller="Admin" asp-action="Admins"><i class="bi bi-card-checklist"></i>Back to List</a>
+    </form>
+@* </div> *@

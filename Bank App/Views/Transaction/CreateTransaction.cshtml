@@ -1,0 +1,71 @@
+@using MVC_MobileBankApp.Models
+@model Transaction
+@using MobileBankApp.Enum
+@using Bank_App.Models.Enum
+
+
+@if(ViewData != null)
+{
+    <h2>@TempData["success"]</h2>
+}
+
+
+<head>
+     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]MobileBankApp</title>
+  
+</head>
+
+
+<h3 style = "font-family:cabri;font-size : 20px;">Welcome to Transaction<br><marquee direction = "left">Page</marquee></h3>
+<div style="font-size: 130%;">
+    <hr />
+    <div id = "reg-form">
+    <form enctype="multipart/form-data" asp-action="CreateTransaction" method="post">
+          <div class="form-row">
+                <label asp-for="TransactType" class="control-label"></label>
+                 <select asp-for = "TransactType" asp-items="Html.GetEnumSelectList<TransactionType>()"></select>
+        </div><br>
+
+         <div class = "form-row">
+          
+            <label asp-for = "AccountNumber" class = "control-label"></label>
+            <input asp-for = "AccountNumber"   class = "form-control" placeholder="0123456789"/>
+            <span asp-validation-for="AccountNumber" class="text-danger"></span>
+
+        </div><br>
+         <div class = "form-row">
+          
+            <label  class = "control-label">Recipient Account Number if Transfer</label>
+            <input asp-for = "RecipientAccountNumber"  class = "form-control" placeholder="0123456789" />
+            <span asp-validation-for="AccountNumber" class="text-danger"></span>
+
+        </div><br>
+        <div class = "form-row">
+            <label asp-for = "Description" class = "control-label"></label>
+            <input asp-for = "Description" class = "form-control" placeholder="Payment"/>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div><br>
+          <div class = "form-row">
+            <label asp-for = "Amount" class = "control-label"></label>
+            <input asp-for = "Amount" class = "form-control"  placeholder="1500"/>
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div><br>
+        <div>
+            <label asp-for = "Pin" class = "control-label"></label>
+            <input asp-for = "Pin" class = "form-control"  placeholder="1234"/>
+            <span asp-validation-for="Pin" class="text-danger"></span>
+        </div><br><br><br>
+        <div>
+            
+            <button href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Submit</button>
+        </div>
+       
+    </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

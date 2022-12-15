@@ -1,0 +1,131 @@
+@model IEnumerable<Bank_App.Models.Customer>
+
+    @if(ViewData["Title"] != null)
+    {
+        <h2>
+            @TempData["success"]
+        </h2>
+
+    }
+   
+    <div class="container p-3">
+        <div class ="row pt-4">
+            <div class = "col-6">
+                <h2 calss = "text-primary">All Customer</h2>
+            </div>
+            <div>
+                <table class= "table table-bordered table-striped" style= "width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                Account Number
+                            </th>
+                            <th>
+                                First Name
+                            </th>
+                            <th>
+                                Last Name
+                            </th>
+                             <th>
+                                Address
+                            </th>
+                             <th>
+                                Age
+                            </th>
+                             <th>
+                                Gender
+                            </th>
+                             <th>
+                                Marital Status
+                            </th>
+                             <th>
+                                Email
+                            </th>
+                             <th>
+                                Phone number
+                            </th>
+                             <th>
+                                Password
+                            </th>
+                            <th>
+                                Account Type
+                            </th>
+                            <th>
+                                Pin
+                            </th>
+                             <th>
+                                Balance
+                            </th>
+                             <th>
+                                Date Created
+                            </th>
+                        </tr>    
+                        
+                    </thead>
+                    @foreach (var customer in Model)
+                    {
+                        <tr>
+                            <td>
+                                @customer.AccountNumber
+                            </td>
+                             <td>
+                                @customer.FirstName
+                            </td>
+                             <td>
+                                @customer.LastName
+                            </td>
+                             <td>
+                                @customer.Address
+                            </td>
+                             <td>
+                                @customer.Age
+                            </td>
+                             <td>
+                                @customer.Gender
+                            </td>
+                             <td>
+                                @customer.MaritalStatus
+                            </td>
+                             <td>
+                                @customer.Email
+                            </td>
+                             <td>
+                                @customer.PhoneNumber
+                            </td>
+                             <td>
+                                @customer.PassWord
+                            </td>
+                            <td>
+                                @customer.AccountType
+                            </td>
+                            <td>
+                                @customer.Pin
+                            </td>
+                             <td>
+                                @customer.AccountBalance
+                            </td>
+                            
+                             <td>
+                                @customer.DateCreated
+                            </td>
+
+                             <td>
+                                <a asp-controller = "Customer" asp-action="DeleteCustomer" asp-route-accountNumber="@customer.AccountNumber"><i class="bi bi-trash"></i>Delete</a>
+                            </td>
+                            
+                             <td>
+                                <a asp-controller = "Customer" asp-action="UpdateCustomer" asp-route-accountNumber="@customer.AccountNumber"><i class="bi bi-pencil-fill"></i>Edit</a>
+                            </td>
+                            <td>
+                                <a asp-controller = "Customer" asp-action="Details" asp-route-accountNumber="@customer.AccountNumber"><i class="bi bi-info-lg"></i>Details</a>
+                            </td>
+                        </tr>
+                        
+                    }
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>

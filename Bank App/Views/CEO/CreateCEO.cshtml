@@ -1,0 +1,80 @@
+@* @model IEnumerable<Admin> *@
+@using MVC_MobileBankApp.Models
+@model Bank_App.Models.CEO
+@using MobileBankApp.Enum
+@if(ViewData != null)
+{
+    <h2>@TempData["success"]</h2>
+}
+
+<head>
+     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] MobileBankApp</title>
+  
+</head>
+
+
+<h3 style = "font-family:cabri;font-size : 20px;">Welcome to CEO<br><marquee direction = "left">Registration Portal</marquee></h3>
+<div style="font-size: 130%;">
+    <hr />
+    <div id = "reg-form">
+    <form enctype="multipart/form-data" asp-action="CreateCEO" method="post">
+        <div class = "form-row">
+             <label asp-for = "FirstName" class = "control-label"></label>
+            <input asp-for = "FirstName" class = "form-control" placeholder="Alexander"/>
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+
+        </div><br>
+         <div class = "form-row">
+          
+            <label asp-for = "LastName" class = "control-label"></label>
+            <input asp-for = "LastName"   class = "form-control" placeholder="Williams"/>
+            <span asp-validation-for="LastName" class="text-danger"></span>
+
+        </div><br>
+        <div class = "form-row">
+            <label asp-for = "Address" class = "control-label"></label>
+            <input asp-for = "Address" class = "form-control" placeholder="Number,street,City,LG,State,County"/>
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div><br>
+          <div class = "form-row">
+            <label asp-for = "Age" class = "control-label"></label>
+            <input asp-for = "Age" class = "form-control"  placeholder="30"/>
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div><br>
+        <div class="form-row">
+                <label asp-for="Gender" class="control-label"></label>
+                 <select asp-for = "Gender" asp-items="Html.GetEnumSelectList<GenderType>()"></select>
+        </div><br>
+         <div class="form-row">
+                <label asp-for="MaritalStatus" class="control-label"></label>
+                 <select asp-for = "MaritalStatus" asp-items="Html.GetEnumSelectList<MaritalStatusType>()"></select>
+        </div><br>
+        <div class = "form-row">
+            <label asp-for = "Email" class = "control-label"></label>
+            <input asp-for = "Email" class = "form-control"  placeholder="williams@gmail.com"/>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div><br>
+         <div class = "form-row">
+            <label asp-for = "PhoneNumber" class = "control-label"></label>
+            <input asp-for = "PhoneNumber" class = "form-control"  placeholder="+2348034254356"/>
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div><br>
+         <div class = "form-row">
+            <label asp-for = "PassWord" class = "control-label"></label>
+            <input asp-for = "PassWord" type="password" id="pass" name="password" class = "form-control"  placeholder="Starting With capital letter,adding number and a character"/>
+            <span asp-validation-for="PassWord" class="text-danger"></span>
+        </div><br><br><br>
+        <div>
+            
+            <button href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Submit</button>
+        </div>
+       
+    </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

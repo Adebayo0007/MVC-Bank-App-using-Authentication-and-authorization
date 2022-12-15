@@ -1,0 +1,58 @@
+@model Bank_App.Models.CEO
+@using MobileBankApp.Enum
+
+
+<h3>Edit CEO</h3>
+<div asp-controller= "CEO" asp-action="UpdateCEO" style="font-size: 130%;">
+    <hr />
+    <form asp-action="UpdateCEO">
+        <input asp-for = "CEOId" hidden/>
+        <div> 
+            <div>
+                <label asp-for = "CEOId"></label>
+                <input asp-for = "CEOId"  readonly class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "FirstName"></label>
+                <input asp-for = "FirstName"  class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "LastName"></label>
+                <input asp-for = "LastName"  class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Address"></label>
+                <input asp-for = "Address"  class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Age"></label>
+                <input asp-for = "Age"  class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Gender"></label>
+                <input asp-for = "Gender"  class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Email"></label>
+                <input asp-for = "Email"  class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "PassWord"></label>
+                <input asp-for = "PassWord"  class= "form-control"/>
+            </div>
+             <div >
+                <label asp-for="MaritalStatus" ></label>
+                 <input asp-for = "MaritalStatus" class= "form-control">
+        </div>
+            <div>
+                <label asp-for = "DateCreated"></label>
+                <input asp-for = "DateCreated"  class= "form-control"/>
+            </div> <br> <br>
+    
+     <div class="form-group ">
+            <input href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal" />
+        </div><br>
+
+        <a asp-controller="CEO" asp-action="CEOs">Back to List</a>
+    </form>
+</div>

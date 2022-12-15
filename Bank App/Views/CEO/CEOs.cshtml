@@ -1,0 +1,110 @@
+  @* @model IEnumerable<CEO>
+  @if(ViewData["Title"] != null)
+    {
+        <h2>
+            @TempData["success"]
+        </h2>
+
+    }
+    <div class="container p-3">
+        <div class ="row pt-4">
+            <div class = "col-6">
+                <h2 calss = "text-primary">All Managers</h2>
+            </div>
+            <div>
+                <table class= "table table-bordered table-striped" style= "width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                Manager Id
+                            </th>
+                            <th>
+                                First Name
+                            </th>
+                            <th>
+                                Last Name
+                            </th>
+                             <th>
+                                Address
+                            </th>
+                             <th>
+                                Age
+                            </th>
+                             <th>
+                                Gender
+                            </th>
+                             <th>
+                                Marital Status
+                            </th>
+                             <th>
+                                Email
+                            </th>
+                             <th>
+                                Phone number
+                            </th>
+                             <th>
+                                Password
+                            </th>
+                             <th>
+                                Date Created
+                            </th>
+                        </tr>    
+                        
+                    </thead>
+                    @foreach (var manager in Model)
+                    {
+                        <tr>
+                            <td>
+                                @manager.ManagerId
+                            </td>
+                             <td>
+                                @manager.FirstName
+                            </td>
+                             <td>
+                                @manager.LastName
+                            </td>
+                             <td>
+                                @manager.Address
+                            </td>
+                             <td>
+                                @manager.Age
+                            </td>
+                             <td>
+                                @manager.Gender
+                            </td>
+                             <td>
+                                @manager.MaritalStatus
+                            </td>
+                             <td>
+                                @manager.Email
+                            </td>
+                             <td>
+                                @manager.PhoneNumber
+                            </td>
+                             <td>
+                                @manager.PassWord
+                            </td>
+                             <td>
+                                @manager.DateCreated
+                            </td>
+
+                             <td>
+                                <a asp-controller = "Manager" asp-action="DeleteManager" asp-route-managerId="@manager.ManagerId"><i class="bi bi-trash"></i>Delete</a>
+                            </td>
+                            
+                             <td>
+                                <a asp-controller = "Manager" asp-action="UpdateManager" asp-route-managerId="@manager.ManagerId"><i class="bi bi-pencil-fill"></i>Edit</a>
+                            </td>
+                            <td>
+                                <a asp-controller = "Manager" asp-action="ManagerDetails" asp-route-managerId="@manager.ManagerId"><i class="bi bi-info-lg"></i>Details</a>
+                            </td>
+                        </tr>
+                        
+                    }
+
+                </table>
+            </div>
+
+        </div>
+
+    </div> *@

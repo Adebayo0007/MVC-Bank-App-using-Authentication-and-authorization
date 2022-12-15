@@ -1,0 +1,110 @@
+@model IList<Admin>
+    @if(ViewData["Title"] != null)
+    {
+        <h2>
+            @TempData["success"]
+        </h2>
+
+    }
+    <div class="container p-3">
+        <div class ="row pt-4">
+            <div class = "col-6">
+                <h2 calss = "text-primary">All Admins</h2>
+            </div>
+            <div>
+                <table class= "table table-bordered table-striped" style= "width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                Staff Id
+                            </th>
+                            <th>
+                                First Name
+                            </th>
+                            <th>
+                                Last Name
+                            </th>
+                             <th>
+                                Address
+                            </th>
+                             <th>
+                                Age
+                            </th>
+                             <th>
+                                Gender
+                            </th>
+                             <th>
+                                Marital Status
+                            </th>
+                             <th>
+                                Email
+                            </th>
+                             <th>
+                                Phone number
+                            </th>
+                             <th>
+                                Password
+                            </th>
+                             <th>
+                                Date Created
+                            </th>
+                        </tr>    
+                        
+                    </thead>
+                    @foreach (var admin in Model)
+                    {
+                        <tr>
+                            <td>
+                                @admin.StaffId
+                            </td>
+                             <td>
+                                @admin.FirstName
+                            </td>
+                             <td>
+                                @admin.LastName
+                            </td>
+                             <td>
+                                @admin.Address
+                            </td>
+                             <td>
+                                @admin.Age
+                            </td>
+                             <td>
+                                @admin.Gender
+                            </td>
+                             <td>
+                                @admin.MaritalStatus
+                            </td>
+                             <td>
+                                @admin.Email
+                            </td>
+                             <td>
+                                @admin.PhoneNumber
+                            </td>
+                             <td>
+                                @admin.PassWord
+                            </td>
+                             <td>
+                                @admin.DateCreated
+                            </td>
+
+                             <td>
+                                <a asp-controller = "Admin" asp-action="DeleteAdmin" asp-route-staffId="@admin.StaffId"><i class="bi bi-trash"></i>Delete</a>
+                            </td>
+                            
+                             <td>
+                                <a asp-controller = "Admin" asp-action="UpdateAdmin" asp-route-staffId="@admin.StaffId"><i class="bi bi-pencil-fill"></i>Edit</a>
+                            </td>
+                            <td>
+                                <a asp-controller = "Admin" asp-action="Details" asp-route-staffId="@admin.StaffId"><i class="bi bi-info-lg"></i>Details</a>
+                            </td>
+                        </tr>
+                        
+                    }
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>

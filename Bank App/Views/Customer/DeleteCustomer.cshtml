@@ -1,0 +1,55 @@
+@model Bank_App.Models.Customer
+
+
+<h3>Are you sure you want to Delete this Admin?</h3>
+
+    <hr />
+    <form asp-controller= "Customer" asp-action="DeleteCustomer">
+        <input asp-for = "AccountNumber" hidden/>
+        <div> 
+            <div>
+                <label asp-for = "AccountNumber"></label>
+                <input asp-for = "AccountNumber" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "FirstName"></label>
+                <input asp-for = "FirstName" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "LastName"></label>
+                <input asp-for = "LastName" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Address"></label>
+                <input asp-for = "Address" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Age"></label>
+                <input asp-for = "Age" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Gender"></label>
+                <input asp-for = "Gender" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Email"></label>
+                <input asp-for = "Email" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "PassWord"></label>
+                <input asp-for = "PassWord" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "AccountType"></label>
+                <input asp-for = "AccountType" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "DateCreated"></label>
+                <input asp-for = "DateCreated" disabled class= "form-control"/>
+            </div>
+    
+    <br><br>
+    </div>
+     <button asp-controller = "Customer" type="submit" asp-action="DeleteCustomer" asp-route-accountNumber=@Model.AccountNumber><i class="bi bi-trash"></i>Yes</button>&nbsp;
+        <a asp-controller="Customer" asp-action="Customers"><i class="bi bi-card-checklist"></i>Back to List</a>
+    </form>

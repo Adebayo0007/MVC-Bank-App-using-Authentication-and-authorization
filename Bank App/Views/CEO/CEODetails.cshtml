@@ -1,0 +1,85 @@
+@using MVC_MobileBankApp
+@model Bank_App.Models.CEO
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] CEO Profile</title>
+</head>
+
+   <dl>
+    <br><br>
+    <h2><marquee direction = "left">CEO Details</marquee></h2>
+
+       <dt>
+            <h4>@Html.DisplayNameFor(model => model.CEOId) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.CEOId)</h4>
+        </dd><br>
+    
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.FirstName) :</h4>
+        </dt>
+         <dd>
+            <h4>@Html.DisplayFor(model => model.FirstName) </h4>
+        </dd><br>
+        <dt>
+            <h4>@Html.DisplayNameFor(model => model.LastName) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.LastName) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.Email) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.Email) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.PassWord) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.PassWord) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.Age) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.Age) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.Address) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.Address) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.PhoneNumber) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.PhoneNumber) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.Gender) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.Gender) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.MaritalStatus) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.MaritalStatus) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.DateCreated) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.DateCreated) </h4>
+        </dd><br>
+   </dl><br><br>
+
+   <button style="background-color:darkblue;"><a asp-controller= "CEO" asp-action="CEOs">Back to List</a></button>

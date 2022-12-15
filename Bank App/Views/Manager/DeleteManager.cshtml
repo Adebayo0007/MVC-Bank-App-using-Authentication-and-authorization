@@ -1,0 +1,51 @@
+@model Manager
+
+
+<h3>Are you sure you want to Delete this Manager?</h3>
+    <hr />
+    <form asp-controller= "Manager" asp-action="DeleteManager">
+        <input asp-for = "ManagerId" hidden/>
+        <div> 
+            <div>
+                <label asp-for = "ManagerId"></label>
+                <input asp-for = "ManagerId" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "FirstName"></label>
+                <input asp-for = "FirstName" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "LastName"></label>
+                <input asp-for = "LastName" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Address"></label>
+                <input asp-for = "Address" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Age"></label>
+                <input asp-for = "Age" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Gender"></label>
+                <input asp-for = "Gender" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Email"></label>
+                <input asp-for = "Email" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "PassWord"></label>
+                <input asp-for = "PassWord" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "DateCreated"></label>
+                <input asp-for = "DateCreated" disabled class= "form-control"/>
+            </div>
+   
+    <br><br>
+    </div>
+     <button asp-controller = "Manager" type="submit" asp-action="DeleteManager" asp-route-staffId=@Model.ManagerId><i class="bi bi-trash"></i>Yes</button>&nbsp;
+    
+        <a asp-controller="Manager" asp-action="Managers"><i class="bi bi-card-checklist"></i>Back to List</a>
+    </form>

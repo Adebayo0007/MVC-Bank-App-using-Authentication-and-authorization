@@ -1,0 +1,67 @@
+@using MVC_MobileBankApp
+@model Transaction
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Transaction Profile</title>
+</head>
+
+   <dl>
+    <br><br>
+    <h2><marquee direction = "left">Transaction Details</marquee></h2>
+
+       <dt>
+            <h4>@Html.DisplayNameFor(model => model.RefNum):</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.RefNum)</h4>
+        </dd><br>
+    
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.TransactType) :</h4>
+        </dt>
+         <dd>
+            <h4>@Html.DisplayFor(model => model.TransactType) </h4>
+        </dd><br>
+        <dt>
+            <h4>@Html.DisplayNameFor(model => model.Description) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.Description) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.AccountNumber) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.AccountNumber) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.Amount) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.Amount) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.AccountBalance) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.AccountBalance) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.DateCreated) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.DateCreated) </h4>
+        </dd><br>
+         <dt>
+            <h4>@Html.DisplayNameFor(model => model.RecipientAccountNumber) :</h4>
+        </dt>
+          <dd>
+            <h4>@Html.DisplayFor(model => model.RecipientAccountNumber) </h4>
+        </dd>
+   </dl><br><br>
+
+   <button style="background-color:darkblue;"><a asp-controller= "Transaction" asp-action="Transactions">Back to List</a></button>

@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Admin Portal";
+}
+
+    
+
+<h3 style = "font-family:cabri;font-size : 20px;">@ViewData["Title"]</h3>
+
+<div class="text-center">
+    <h1  style = "font-family:cabri;font-size : 60px;"class="display-4">Welcome</br>Manage Your customers</h1>
+     <h1  style = "font-family:cabri;font-size : 30px;"class="display-4"><marquee direction = "left">Thanks for coming</marquee></h1>
+</div>
+<br><br><br>
+<div style="display: flex;gap:41%;">
+     <div >
+            <a asp-controller = "Customer" asp-action = "Customers" class = "btn btn-primary">
+                <i class="bi bi-pencil-fill"></i>Manage Customer
+
+            </a>
+</div>
+
+ <div  >
+            <a asp-controller = "Customer" asp-action = "CreateCustomer"  class = "btn btn-primary">
+                <i class = "bi bi-plus-circle"></i>Add Customer
+
+            </a>
+</div>
+<div  >
+            <a asp-controller = "Transaction" asp-action = "IndexTransactionPage"  class = "btn btn-primary">
+                 <i class="bi bi-pencil-fill"></i>Manage Transaction
+
+            </a>
+</div>
+</div>
+ 
