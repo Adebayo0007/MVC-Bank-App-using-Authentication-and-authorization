@@ -27,10 +27,15 @@ namespace Bank_App.Services.Implementations
              return  _userRepository.CreateUser(user);  
         }
 
-        public void DeleteUserUsingEmail(User user)
+        public User DeleteUserUsingId(int userId)
         {
-           var userr = _userRepository.GetUserByEmail(user.Email);
-           _userRepository.DeleteUserUsingEmail(userr);
+           var userr = _userRepository.GetUserById(userId);
+            if(userr == null )
+            {
+                throw new DirectoryNotFoundException();
+            }
+            userr.IsActive = false;
+            return _userRepository.DeleteUser(userr);
         }
 
         public IList<User> GetAllUser()
@@ -40,37 +45,14 @@ namespace Bank_App.Services.Implementations
 
         public User Login(string email, string passWord)
         {
-            var ceo = _ceoRepository.Login(email,passWord);
-            var customer = _customerRepository.Login(email,passWord);
-            var admin = _adminRepository.Login(email,passWord);
-            var manager = _managerRepository.Login(email,passWord);
+           
             var user = _userRepository.Login(email,passWord);
-            if(user != null )
-            {
-                if(ceo != null)
-                {
-                    user.Ceo = _ceoRepository.Login(email,passWord);
-                }
-                
-                if(customer != null)
-                {
-                    user.Customer = _customerRepository.Login(email,passWord);
-                }
-                if(admin != null)
-                {
-                    user.Admin = _adminRepository.Login(email,passWord);
-                }
-                 if(manager != null)
-                {
-                    user.Manager = _managerRepository.Login(email,passWord);
-                }
-            }
                 return user;
         }
 
-        public User UpdateUser(User user)
+        public User UpdateUser(User user,int userId)
         {
-             var userr = _userRepository.GetUserByEmail(user.Email);
+             var userr = _userRepository.GetUserById(userId);
             if(userr == null )
             {
                 throw new DirectoryNotFoundException();

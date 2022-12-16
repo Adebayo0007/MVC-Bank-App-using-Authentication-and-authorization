@@ -5,8 +5,8 @@ namespace Bank_App.Services.Interfaces
 {
     public interface IUserService
     {
-        User UpdateUser(User user);
-       void DeleteUserUsingEmail(User user);
+        User UpdateUser(User user,int userId);
+       User DeleteUserUsingId(int userId);
         User CreateUser(User user);
         User Login(string email,string passWord);
        IList<User> GetAllUser(); 

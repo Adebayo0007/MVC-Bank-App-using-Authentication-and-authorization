@@ -6,7 +6,7 @@ namespace Bank_App.Services.Interfaces
     {
         Manager CreateManager (Manager manager);
        Manager UpdateManager (Manager manager);
-       void DeleteManagerUsingId(string managerId);
+       Manager DeleteManager(string managerId);
        Manager Login (string email, string passWord);
        Manager GetManagerById(string managerId);
        IList<Manager> GetAllManager();

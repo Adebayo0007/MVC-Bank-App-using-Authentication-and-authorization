@@ -22,12 +22,12 @@ namespace MVC_MobileBankApp.Controllers
         {
             return View();
         }
-           [Authorize(Roles = "Admin, Manager, CEO")]
+           [Authorize(Roles = "Admin, Manager, CEO,User")]
           public IActionResult ManageCustomer()
         {
             return View();
         }
-        [Authorize(Roles = "Manager,CEO")]
+        [Authorize(Roles = "Manager,CEO,User")]
         public IActionResult CreateAdmin()
         {
             return View();
@@ -52,7 +52,7 @@ namespace MVC_MobileBankApp.Controllers
            
             
         }
-         [Authorize(Roles = "Manager, CEO")]
+         [Authorize(Roles = "Manager, CEO, User")]
         // [HttpGet]
          public IActionResult DeleteAdmin(string staffId)
         {       
@@ -86,7 +86,7 @@ namespace MVC_MobileBankApp.Controllers
             _service.DeleteAdminUsingId(staffId);
             return RedirectToAction(nameof(Admins));
         }
-          [Authorize(Roles = "Manager, CEO")]
+          [Authorize(Roles = "Manager, CEO, User")]
           [HttpGet]
          public IActionResult UpdateAdmin(string staffId)
         {       
@@ -172,7 +172,7 @@ namespace MVC_MobileBankApp.Controllers
         }
 
 
-          [Authorize(Roles = "Manager, CEO")] 
+          [Authorize(Roles = "Manager, CEO, User")] 
          public IActionResult Admins()
         {
             var admins = _service.GetAllAdmin();
@@ -187,7 +187,7 @@ namespace MVC_MobileBankApp.Controllers
         //     return View(adminn);
         //     // return RedirectToAction(nameof(Admins));
         // }
-           [Authorize(Roles = "Manager, CEO")]
+           [Authorize(Roles = "Manager, CEO, User")]
           [HttpGet("{staffId}")]
          public IActionResult Details([FromRoute]string staffId)
         {       

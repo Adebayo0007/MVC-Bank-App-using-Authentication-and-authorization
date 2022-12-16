@@ -15,6 +15,7 @@ namespace Bank_App.Models
         public string LastName {get;set;}
         [Required]
         public string Address {get;set;}
+        public int UserId {get;set;}
         [DisplayName("CEO ID")]
         [Key]
         public string CEOId  {get; set;}
@@ -31,6 +32,7 @@ namespace Bank_App.Models
         [DisplayName("Password")]
         [Required]
         public string PassWord {get;set;}
+         public bool IsActive {get;set;} 
         public DateTime DateCreated {get; set;} = DateTime.Now;
         
     }

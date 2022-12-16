@@ -6,7 +6,7 @@ namespace Bank_App.Services.Interfaces
     {
         Customer CreateCustomer(Customer customer);
         Customer UpdateCustomer(Customer customer);
-       void DeleteCustomerUsingAccountNumber(string accountNumber);
+       Customer DeleteCustomer(string customerId);
        Customer Login(string email, string passWord);
        Customer GetCustomerByAccountnumber(string accountNumber);
        IList<Customer> GetAllCustomer(); 

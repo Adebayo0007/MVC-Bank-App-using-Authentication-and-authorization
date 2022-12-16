@@ -20,10 +20,11 @@ namespace Bank_App.Repositories.Implementations
             return customer;
         }
 
-        public void DeleteCustomerUsingAccountNumber(Customer accountNumber)
+        public Customer DeleteCustomer(Customer customer)
         {
-             _context.Customers.Remove(accountNumber);
-             _context.SaveChanges();
+              _context.Customers.Update(customer);
+            _context.SaveChanges();
+            return customer;
         }
 
         public IList<Customer> GetAllCustomer()

@@ -1,4 +1,5 @@
 using Bank_App.Models;
+using Bank_App.Repositories.Interfaces;
 using Bank_App.Services.Interfaces;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Repositories;
@@ -8,28 +9,36 @@ namespace Bank_App.Services.Implementations
     public class CEOService : ICEOService
     {
          private readonly ICEORepository _repo;
+          private readonly IUserService _userRepo;
 
-        public CEOService(ICEORepository repo)
+        public CEOService(ICEORepository repo,IUserService userRepo)
         {
             _repo = repo;
+            _userRepo = userRepo;
         }
         public CEO CreateCEO(CEO ceo)
         {
-            //   var user = new User
-            // {
-            //     Email = ceo.Email,
-            //     PassWord = ceo.PassWord
-            // };
-            
+              var user = new User
+            {
+                Email = ceo.Email,
+                PassWord = ceo.PassWord,
+                IsActive = true,
+                Role = "CEO"
+            };
+            var use = _userRepo.CreateUser(user);
              var rand = new Random();
              ceo.CEOId= "ZENITH-CEO-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +ceo.FirstName[0]+ceo.FirstName[1]+ceo.FirstName[2]+rand.Next(0,9).ToString();
+             ceo.UserId = use.Id;
+             ceo.IsActive = true;
              return  _repo.CreateCEO(ceo); 
         }
 
-        public void DeleteCEOUsingId(string ceoId)
+        public CEO DeleteCEO(string ceoId)
         {
-            var manager = _repo.GetCEOById(ceoId);
-           _repo.DeleteCEOUsingCEOId(manager);
+            var ceo = _repo.GetCEOById(ceoId);
+            _userRepo.DeleteUserUsingId(ceo.UserId);
+            ceo.IsActive = false;
+           return _repo.DeleteCEO(ceo);
         }
 
         public IList<CEO> GetAllCEO()
@@ -54,6 +63,13 @@ namespace Bank_App.Services.Implementations
             {
                 throw new DirectoryNotFoundException();
             }
+              var user = new User
+            {
+                Email = ceo.Email,
+                PassWord = ceo.PassWord
+            
+            };
+            _userRepo.UpdateUser(user,ceoo.UserId);
             
             ceoo.FirstName = ceo.FirstName ?? ceoo.FirstName;
             ceoo.LastName = ceo.LastName ?? ceoo.LastName;

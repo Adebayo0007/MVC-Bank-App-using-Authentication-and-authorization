@@ -18,10 +18,11 @@ namespace Bank_App.Repositories.Implementations
            return ceo;
         }
 
-        public void DeleteCEOUsingCEOId(CEO ceoId)
+        public CEO DeleteCEO(CEO ceo)
         {
-            _context.CEOs.Remove(ceoId);
+             _context.CEOs.Update(ceo);
             _context.SaveChanges();
+            return ceo;
             
         }
 

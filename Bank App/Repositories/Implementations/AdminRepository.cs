@@ -19,10 +19,11 @@ namespace MVC_MobileBankApp.Repositories.Implementations
             return admin;
         }
 
-        public void DeleteAdminUsingId(Admin adminId)
+        public Admin DeleteAdminUsingId(Admin admin)
         {
-             _context.Admins.Remove(adminId);
+             _context.Admins.Update(admin);
             _context.SaveChanges();
+            return admin;
         }
 
         public Admin GetAdminById(string adminId)

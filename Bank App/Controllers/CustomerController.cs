@@ -24,7 +24,7 @@ namespace Bank_App.Controllers
         {
             return View();
         }
-         [Authorize(Roles = "Customer")]
+         [Authorize(Roles = "Customer,User")]
          public IActionResult ManageTransaction()
         {
             return View();
@@ -55,7 +55,7 @@ namespace Bank_App.Controllers
            
             
         }
-         [Authorize(Roles = "Admin,Manager, CEO")]
+         [Authorize(Roles = "Admin,Manager, CEO, User")]
          public IActionResult DeleteCustomer(string accountNumber)
         {       
           
@@ -68,10 +68,10 @@ namespace Bank_App.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult DeleteCustomerConfirmed(string accountNumber)
         {
-            _service.DeleteCustomerUsingAccountNumber(accountNumber);
+            _service.DeleteCustomer(accountNumber);
             return RedirectToAction(nameof(Customers));
         }
-           [Authorize(Roles = "Admin,Manager, CEO")]
+           [Authorize(Roles = "Admin,Manager, CEO, User")]
           [HttpGet]
          public IActionResult UpdateCustomer(string accountNumber)
         {       
@@ -156,14 +156,14 @@ namespace Bank_App.Controllers
             return RedirectToAction(nameof(ManageTransaction));
             
         }
-         [Authorize(Roles = "Admin,Manager, CEO")]
+         [Authorize(Roles = "Admin,Manager, CEO, User")]
          public IActionResult Customers()
         {
             var customers = _service.GetAllCustomer();
             return View(customers);
         }
 
-        [Authorize(Roles = "Customer,Admin,Manager, CEO")]
+        [Authorize(Roles = "Customer,Admin,Manager, CEO, User")]
 
           [HttpGet]
          public IActionResult Details(string accountNumber)

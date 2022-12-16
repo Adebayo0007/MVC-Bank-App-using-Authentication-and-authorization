@@ -6,10 +6,10 @@ namespace Bank_App.Repositories.Interfaces
     public interface IUserRepository
     {
         User UpdateUser(User user);
-       void DeleteUserUsingEmail(User user);
+       User DeleteUser(User user);
         User CreateUser(User user);
         User Login(string email,string passWord);
-        User GetUserByEmail(string email);
+        User GetUserById(int id);
        IList<User> GetAllUser(); 
 
     }

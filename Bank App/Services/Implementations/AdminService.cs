@@ -1,4 +1,5 @@
 using Bank_App.Repositories.Interfaces;
+using Bank_App.Services.Interfaces;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Repositories;
 using MVC_MobileBankApp.Services.Interfaces;
@@ -8,32 +9,37 @@ namespace MVC_MobileBankApp.Services.Implementations
     public class AdminService : IAdminService
     {
         private readonly IAdminRepository _repo;
-         private readonly IUserRepository _userRepo;
+         private readonly IUserService _userRepo;
 
-        public AdminService(IAdminRepository repo,IUserRepository userRepo)
+        public AdminService(IAdminRepository repo,IUserService userRepo)
         {
             _repo = repo;
             _userRepo = userRepo;
         }
         public Admin CreateAdmin(Admin admin)
         {
-            //  var user = new User
-            // {
-            //     Email = admin.Email,
-            //     PassWord = admin.PassWord
-            
-            // };
-            // _userRepo.CreateUser(user);
+             var user = new User
+            {
+                Email = admin.Email,
+                PassWord = admin.PassWord,
+                IsActive = true,
+                Role = "Admin" 
+            };
+            var use = _userRepo.CreateUser(user);
              var rand = new Random();
              admin.StaffId = "ZENITH-ADMIN-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +admin.FirstName[0]+admin.FirstName[1]+admin.FirstName[2]+rand.Next(0,9).ToString();
+             admin.UserId = use.Id;
+             admin.IsActive = true;
              return  _repo.CreateAdmin(admin);  
         }
 
-        public void DeleteAdminUsingId(string adminId)
+        public Admin DeleteAdminUsingId(string adminId)
         {
             // var obj = _repo.DeleteAdminUsingId(adminId.StaffId);
             var admin = _repo.GetAdminById(adminId);
-           _repo.DeleteAdminUsingId(admin);
+            _userRepo.DeleteUserUsingId(admin.UserId);
+            admin.IsActive = false;
+           return _repo.DeleteAdminUsingId(admin);
         }
 
         public Admin GetAdminById(string adminId)
@@ -59,6 +65,14 @@ namespace MVC_MobileBankApp.Services.Implementations
             {
                 throw new DirectoryNotFoundException();
             }
+
+             var user = new User
+            {
+                Email = admin.Email,
+                PassWord = admin.PassWord
+            
+            };
+            _userRepo.UpdateUser(user,adminn.UserId);
             
             adminn.FirstName = admin.FirstName ?? adminn.FirstName;
             adminn.LastName = admin.LastName ?? adminn.LastName;

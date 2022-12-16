@@ -24,7 +24,7 @@ namespace Bank_App.Controllers
         {
             return View();
         }
-         [Authorize(Roles = "CEO")] 
+         [Authorize(Roles = "CEO,User")] 
           public IActionResult ManageManagers()
         {
             return View();
@@ -64,10 +64,10 @@ namespace Bank_App.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult DeleteCEOConfirmed(string ceoId)
         {
-            _service.DeleteCEOUsingId(ceoId);
+            _service.DeleteCEO(ceoId);
             return RedirectToAction(nameof(CEOs));
         }
-         [Authorize(Roles = "CEO")] 
+         [Authorize(Roles = "CEO,User")] 
           [HttpGet]
          public IActionResult UpdateCEO(string ceoId)
         {       
@@ -151,7 +151,7 @@ namespace Bank_App.Controllers
             
         }
 
-         [Authorize(Roles = "CEO")] 
+         [Authorize(Roles = "CEO,User")] 
         
          public IActionResult CEOs()
         {
@@ -159,7 +159,7 @@ namespace Bank_App.Controllers
             return View(ceos);
         }
 
-          [Authorize(Roles = "CEO")] 
+          [Authorize(Roles = "CEO,User")] 
          public IActionResult CEODetails(string ceoId)
         {       
             

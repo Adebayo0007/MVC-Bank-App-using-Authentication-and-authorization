@@ -18,10 +18,11 @@ namespace Bank_App.Repositories.Implementations
             return manager;
         }
 
-        public void DeleteManagerUsingId(Manager managerId)
+        public Manager DeleteManager(Manager manager)
         {
-              _context.Managers.Remove(managerId);
+             _context.Managers.Update(manager);
             _context.SaveChanges();
+            return manager;
         }
 
         public IList<Manager> GetAllManager()
@@ -37,7 +38,8 @@ namespace Bank_App.Repositories.Implementations
 
         public Manager Login(string email, string passWord)
         {
-            return _context.Managers.SingleOrDefault(a => a.Email == email && a.PassWord == passWord);
+            var manager = _context.Managers.SingleOrDefault(a => a.Email == email && a.PassWord == passWord);
+            return manager;
         }
 
         public Manager UpdateManager(Manager manager)

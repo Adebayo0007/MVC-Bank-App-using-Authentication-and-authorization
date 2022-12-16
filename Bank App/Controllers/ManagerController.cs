@@ -22,12 +22,12 @@ namespace Bank_App.Controllers
         {
             return View();
         }
-          [Authorize(Roles = "Manager, CEO")] 
+          [Authorize(Roles = "Manager, CEO, User")] 
           public IActionResult ManageAdmins()
         {
             return View();
         }
-          [Authorize(Roles = "CEO")] 
+          [Authorize(Roles = "CEO, User")] 
         public IActionResult CreateManager()
         {
             return View();
@@ -50,7 +50,7 @@ namespace Bank_App.Controllers
             }
         }
 
-           [Authorize(Roles = "CEO")] 
+           [Authorize(Roles = "CEO, User")] 
          public IActionResult DeleteManager(string managerId)
         {            
             var manager = _service.GetManagerById(managerId);
@@ -62,10 +62,10 @@ namespace Bank_App.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult DeleteManagerConfirmed(string managerId)
         {
-            _service.DeleteManagerUsingId(managerId);
+            _service.DeleteManager(managerId);
             return RedirectToAction(nameof(Managers));
         }
-            [Authorize(Roles = "CEO")] 
+            [Authorize(Roles = "CEO, User")] 
           [HttpGet]
          public IActionResult UpdateManager(string managerId)
         {       
@@ -153,14 +153,14 @@ namespace Bank_App.Controllers
         }
 
 
-           [Authorize(Roles = "CEO")] 
+           [Authorize(Roles = "CEO, User")] 
          public IActionResult Managers()
         {
             var managers = _service.GetAllManager();
             return View(managers);
         }
 
-           [Authorize(Roles = "CEO")] 
+           [Authorize(Roles = "CEO, User")] 
          public IActionResult ManagerDetails(string managerId)
         {       
             

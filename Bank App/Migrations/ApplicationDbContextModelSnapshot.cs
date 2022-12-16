@@ -45,6 +45,9 @@ namespace MVC_MobileBankApp.Migrations
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -60,7 +63,13 @@ namespace MVC_MobileBankApp.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("CEOId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("CEOs");
                 });
@@ -97,6 +106,9 @@ namespace MVC_MobileBankApp.Migrations
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -116,7 +128,13 @@ namespace MVC_MobileBankApp.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("AccountNumber");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Customers");
                 });
@@ -147,6 +165,9 @@ namespace MVC_MobileBankApp.Migrations
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -162,7 +183,13 @@ namespace MVC_MobileBankApp.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("StaffId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Admins");
                 });
@@ -193,6 +220,9 @@ namespace MVC_MobileBankApp.Migrations
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -208,7 +238,13 @@ namespace MVC_MobileBankApp.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("ManagerId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Managers");
                 });
@@ -261,39 +297,60 @@ namespace MVC_MobileBankApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("AdminStaffId")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("CEOId")
-                        .IsRequired()
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("CustomerAccountNumber")
-                        .HasColumnType("varchar(255)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ManagerId")
-                        .IsRequired()
-                        .HasColumnType("varchar(255)");
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("PassWord")
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AdminStaffId");
-
-                    b.HasIndex("CEOId");
-
-                    b.HasIndex("CustomerAccountNumber");
-
-                    b.HasIndex("ManagerId");
-
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Bank_App.Models.CEO", b =>
+                {
+                    b.HasOne("MVC_MobileBankApp.Models.User", null)
+                        .WithOne("Ceo")
+                        .HasForeignKey("Bank_App.Models.CEO", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Bank_App.Models.Customer", b =>
+                {
+                    b.HasOne("MVC_MobileBankApp.Models.User", null)
+                        .WithOne("Customer")
+                        .HasForeignKey("Bank_App.Models.Customer", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MVC_MobileBankApp.Models.Admin", b =>
+                {
+                    b.HasOne("MVC_MobileBankApp.Models.User", null)
+                        .WithOne("Admin")
+                        .HasForeignKey("MVC_MobileBankApp.Models.Admin", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MVC_MobileBankApp.Models.Manager", b =>
+                {
+                    b.HasOne("MVC_MobileBankApp.Models.User", null)
+                        .WithOne("Manager")
+                        .HasForeignKey("MVC_MobileBankApp.Models.Manager", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MVC_MobileBankApp.Models.Transaction", b =>
@@ -307,33 +364,17 @@ namespace MVC_MobileBankApp.Migrations
 
             modelBuilder.Entity("MVC_MobileBankApp.Models.User", b =>
                 {
-                    b.HasOne("MVC_MobileBankApp.Models.Admin", "Admin")
-                        .WithMany()
-                        .HasForeignKey("AdminStaffId");
-
-                    b.HasOne("Bank_App.Models.CEO", "Ceo")
-                        .WithMany()
-                        .HasForeignKey("CEOId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.Navigation("Admin")
                         .IsRequired();
 
-                    b.HasOne("Bank_App.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerAccountNumber");
-
-                    b.HasOne("MVC_MobileBankApp.Models.Manager", "Manager")
-                        .WithMany()
-                        .HasForeignKey("ManagerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.Navigation("Ceo")
                         .IsRequired();
 
-                    b.Navigation("Admin");
+                    b.Navigation("Customer")
+                        .IsRequired();
 
-                    b.Navigation("Ceo");
-
-                    b.Navigation("Customer");
-
-                    b.Navigation("Manager");
+                    b.Navigation("Manager")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

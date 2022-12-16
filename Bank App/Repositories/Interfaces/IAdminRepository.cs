@@ -6,7 +6,7 @@ namespace MVC_MobileBankApp.Repositories
     {
        Admin CreateAdmin (Admin admin);
        Admin UpdateAdmin (Admin admin);
-       void DeleteAdminUsingId(Admin adminId);
+       Admin DeleteAdminUsingId(Admin admin);
        Admin Login (string email, string passWord);
        Admin GetAdminById(string adminId);
        IList<Admin> GetAllAdmin();

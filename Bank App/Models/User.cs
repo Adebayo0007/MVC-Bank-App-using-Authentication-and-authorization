@@ -17,7 +17,10 @@ namespace MVC_MobileBankApp.Models
          public Admin Admin {get; set;} =  null;
          public Manager Manager {get; set;}  = null;
          public CEO Ceo {get; set;}
+          public bool IsActive {get;set;} 
           public string PassWord {get; set;}
+           public string Role {get; set;}
+          
 
     }
 }

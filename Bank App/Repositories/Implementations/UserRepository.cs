@@ -1,4 +1,5 @@
 using Bank_App.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using MVC_MobileBankApp.ApplicationContext;
 using MVC_MobileBankApp.Models;
 
@@ -18,10 +19,11 @@ namespace Bank_App.Repositories.Implementations
             return user;
         }
 
-        public void DeleteUserUsingEmail(User user)
+        public User DeleteUser(User user)
         {
-             _context.Users.Remove(user);
+             _context.Users.Update(user);
             _context.SaveChanges();
+            return user;
         }
 
         public IList<User> GetAllUser()
@@ -40,9 +42,10 @@ namespace Bank_App.Repositories.Implementations
             _context.SaveChanges();
             return user;
         }
-         public User GetUserByEmail(string email)
+         public User GetUserById(int id)
         {
-            var user =_context.Users.SingleOrDefault(a => a.Email == email);
+            var user =_context.Users.SingleOrDefault(a => a.Admin.UserId == id || a.Ceo.UserId == id || a.Manager.UserId == id || a.Customer.UserId == id);
+            // var use =_context.Users.Include(x => x.Ceo.CEOId);
             return user;
         }
     }
