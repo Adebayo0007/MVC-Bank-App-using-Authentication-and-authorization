@@ -13,13 +13,13 @@ namespace Bank_App.Controllers
         
         }
 
-        [Authorize(Roles = "Admin, Manager, CEO")]
+        [Authorize(Roles = "Admin, Manager, CEO, User")]
          [HttpGet]
         public IActionResult IndexTransactionPage()
         {
             return View();
         }
-         [Authorize(Roles = "Customer")]
+         [Authorize(Roles = "Customer, User")]
         public IActionResult CreateTransaction()
         {
             return View();
@@ -51,7 +51,7 @@ namespace Bank_App.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin,Manager, CEO")]
+        [Authorize(Roles = "Admin,Manager, CEO, User")]
          public IActionResult DeleteTransaction(string refNum)
         {            
             var transaction = _transactionService.GetTransactionByRefNum(refNum);
@@ -65,13 +65,13 @@ namespace Bank_App.Controllers
             _transactionService.DeleteTransactionUsingRefNum(refNum);
             return RedirectToAction(nameof(Transactions));
         }
-         [Authorize(Roles = "Admin,Manager, CEO")]
+         [Authorize(Roles = "Admin,Manager, CEO, User")]
          public IActionResult Transactions()
         {
             var transaction = _transactionService.GetAllTransaction ();
             return View(transaction);
         }
-         [Authorize(Roles = "Admin,Manager, CEO")]
+         [Authorize(Roles = "Admin,Manager, CEO, User")]
          public IActionResult GetAccountTransactions(string  accountNumber)
         {
             var transaction = _transactionService.GetAllTransactionUsingAccountNumber(accountNumber);
@@ -79,7 +79,7 @@ namespace Bank_App.Controllers
             
         }
 
-          [Authorize(Roles = "Admin,Manager, CEO")]
+          [Authorize(Roles = "Admin,Manager, CEO, User")]
          public IActionResult TransactionDetails(string refNum)
         {       
             
