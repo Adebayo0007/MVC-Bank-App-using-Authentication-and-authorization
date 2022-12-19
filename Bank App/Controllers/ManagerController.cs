@@ -45,7 +45,8 @@ namespace Bank_App.Controllers
             }
             else
             {
-                ViewBag.Error = "Wrong Input";
+                // ViewBag.Error = "Wrong Input";
+                 TempData["error"] = "wrong input"; 
                return View();
             }
         }
@@ -76,6 +77,7 @@ namespace Bank_App.Controllers
             var manager = _service.GetManagerById(managerId);
             if(manager == null)
             {
+                 TempData["error"] = "Not found"; 
                 return NotFound();
             }
             return View(manager);

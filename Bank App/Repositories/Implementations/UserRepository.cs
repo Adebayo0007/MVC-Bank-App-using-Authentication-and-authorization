@@ -33,7 +33,7 @@ namespace Bank_App.Repositories.Implementations
 
         public MVC_MobileBankApp.Models.User Login(string email, string passWord)
         { 
-            return _context.Users.SingleOrDefault(a => a.Email  == email && a.PassWord == passWord);
+            return _context.Users.Include(x => x.Customer).SingleOrDefault(a => a.Email  == email && a.PassWord == passWord);
         }
 
         public User UpdateUser(User user)

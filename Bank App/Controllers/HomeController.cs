@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Security.Claims;
+using Bank_App.Models;
 using Bank_App.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -49,6 +50,7 @@ public class HomeController : Controller
                  ViewBag.Error = "Invalid Email or PassWord";
                 return NotFound();
             }
+         
             // else
             // {
             // return RedirectToAction(nameof(ManageTransaction));
@@ -70,6 +72,8 @@ public class HomeController : Controller
                 //new Claim(ClaimTypes.Name , lecturer.LastName + " " +lecturer.FirstName),
                 new Claim(ClaimTypes.Email , user.Email),
                  new Claim(ClaimTypes.Name , user.PassWord),
+                 new Claim(ClaimTypes.NameIdentifier , (user.Role == "Customer") ? user.Customer.AccountNumber:""),
+                 
                 new Claim(ClaimTypes.Role , "User"),
                 // new Claim(ClaimTypes.NameIdentifier , 2.ToString()),
                 new Claim(ClaimTypes.NameIdentifier , user.Id.ToString())
@@ -87,21 +91,25 @@ public class HomeController : Controller
             // }
              if(user.Role == "CEO")
             {
+                TempData["success"] = "Login Successfully";
                  return RedirectToAction("ManageManagers", "CEO");
 
             }
              if(user.Role == "Manager")
             {
+                TempData["success"] = "Login Successfully";
                  return RedirectToAction("ManageAdmins", "Manager");
 
             }
             if(user.Role == "Admin")
             {
+                TempData["success"] = "Login Successfully";
                  return RedirectToAction("ManageCustomer", "Admin");
 
             }
              if(user.Role == "Customer")
             {
+                TempData["success"] = "Login Successfully";
                  return RedirectToAction("ManageTransaction", "Customer");
 
             }

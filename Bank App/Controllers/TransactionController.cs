@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Bank_App.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -29,24 +30,27 @@ namespace Bank_App.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult CreateTransaction(Transaction transaction)
         {
+            transaction.AccountNumber = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             if(transaction != null)
             {
                 var transact = _transactionService.CreateTransaction(transaction);
                 if(transact != null)
                 {
                     TempData["success"] = "Transaction Successfully";
-                    TempData.Keep();
+                    TempData.Peek("success");
                 }
                 else
                 {
-                   TempData["invalid"] = "Invalid Transaction"; 
-                   TempData.Keep();
+                   TempData["error"] = "Invalid Transaction"; 
+                   TempData.Peek("error");
                 }
                 return RedirectToAction("ManageTransaction", "Customer");
             }
             else
             {
-                ViewBag.Error = "Wrong Input";
+                // ViewBag.Error = "Wrong Input";
+                 TempData["error"] = "Invalid Transaction"; 
+                 TempData.Peek("error");
                return View();
             }
         }

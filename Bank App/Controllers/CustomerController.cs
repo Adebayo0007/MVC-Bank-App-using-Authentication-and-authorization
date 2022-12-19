@@ -51,8 +51,7 @@ namespace Bank_App.Controllers
                 ViewBag.Error = "Wrong Input";
                return View();
             }
-
-           
+            
             
         }
          [Authorize(Roles = "Admin,Manager, CEO, User")]

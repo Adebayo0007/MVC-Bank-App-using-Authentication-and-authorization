@@ -9,15 +9,19 @@ namespace Bank_App.Services.Implementations
     {
          private readonly ITransactionRepository _transactionRepo;
          private readonly ICustomerRepository _customerRepo;
+          private readonly IUserService _service;
 
-        public TransactionService(ITransactionRepository transactionRepo, ICustomerRepository customerRepo)
+
+        public TransactionService(ITransactionRepository transactionRepo, ICustomerRepository customerRepo,IUserService service)
         {
             _transactionRepo = transactionRepo;
              _customerRepo = customerRepo;
+             _service = service;
         }
 
         public Transaction CreateTransaction(Transaction transaction)
         {
+            
             double charges;
             var reciever = _customerRepo.GetCustomerByAccountnumber(transaction.RecipientAccountNumber);
            var customer = _customerRepo.GetCustomerByAccountnumber(transaction.AccountNumber);
