@@ -1,5 +1,8 @@
-@model Admin
+@using Bank_App.Models.RequestModel
+@* @model AdminUpdateRequestModel *@
+@model Bank_App.Models.RequestModel.AdminUpdateRequestModel
 @using MobileBankApp.Enum
+
 
 
 <h3>Edit Admin</h3>
@@ -47,7 +50,7 @@
         </div><br>
             <div>
                 <label asp-for = "DateCreated"></label>
-                <input asp-for = "DateCreated"  class= "form-control"/>
+                <input asp-for = "DateCreated"  readonly class= "form-control"/>
             </div> <br> <br>
     @* <dl class="row">
         <dt class="col-sm-2">

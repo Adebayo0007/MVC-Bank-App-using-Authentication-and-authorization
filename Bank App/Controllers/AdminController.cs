@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Bank_App.Models.RequestModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -35,7 +36,7 @@ namespace MVC_MobileBankApp.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public IActionResult CreateAdmin(Admin admin)
+         public IActionResult CreateAdmin(AdminRequestModel admin)
         {
             if(admin != null)
             {
@@ -104,7 +105,7 @@ namespace MVC_MobileBankApp.Controllers
            [Authorize]
         [HttpPost , ActionName("UpdateAdmin")]
         [ValidateAntiForgeryToken]
-         public IActionResult UpdateAdmin(Admin admin)
+         public IActionResult UpdateAdmin(AdminUpdateRequestModel admin)
         {
             _service.UpdateAdmin(admin);
             return RedirectToAction(nameof(Admins));

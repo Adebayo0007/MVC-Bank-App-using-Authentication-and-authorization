@@ -1,3 +1,4 @@
+using Bank_App.Models.RequestModel;
 using Bank_App.Repositories.Interfaces;
 using Bank_App.Services.Interfaces;
 using MVC_MobileBankApp.Models;
@@ -16,7 +17,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             _repo = repo;
             _userRepo = userRepo;
         }
-        public Admin CreateAdmin(Admin admin)
+        public Admin CreateAdmin(AdminRequestModel admin)
         {
              var user = new User
             {
@@ -30,7 +31,23 @@ namespace MVC_MobileBankApp.Services.Implementations
              admin.StaffId = "ZENITH-ADMIN-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +admin.FirstName[0]+admin.FirstName[1]+admin.FirstName[2]+rand.Next(0,9).ToString();
              admin.UserId = use.Id;
              admin.IsActive = true;
-             return  _repo.CreateAdmin(admin);  
+             var legitAdmin = new Admin {
+                StaffId = admin.StaffId,
+                IsActive = admin.IsActive,
+                FirstName = admin.FirstName,
+                LastName = admin.LastName,
+                Address = admin.Address,
+                Age = admin.Age,
+                Gender = admin.Gender,
+                MaritalStatus = admin.MaritalStatus,
+                Email = admin.Email,
+                PhoneNumber = admin.PhoneNumber,
+                PassWord = admin.PassWord,
+                DateCreated = admin.DateCreated
+                
+             };
+             legitAdmin.UserId = admin.UserId;
+             return  _repo.CreateAdmin(legitAdmin);  
         }
 
         public Admin DeleteAdminUsingId(string adminId)
@@ -57,7 +74,7 @@ namespace MVC_MobileBankApp.Services.Implementations
               return _repo.Login(email,passWord);
         }
 
-        public Admin UpdateAdmin(Admin admin)
+        public Admin UpdateAdmin(AdminUpdateRequestModel admin)
         { 
             
             var adminn = _repo.GetAdminById(admin.StaffId);
