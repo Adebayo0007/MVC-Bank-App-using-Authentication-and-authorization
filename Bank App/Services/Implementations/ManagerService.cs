@@ -1,4 +1,5 @@
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Repositories.Interfaces;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -15,7 +16,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             _userRepo = userRepo;
 
         }
-        public Manager CreateManager(Manager manager)
+        public Manager CreateManager(ManagerDTO manager)
         {
               var user = new User
             {
@@ -29,7 +30,23 @@ namespace MVC_MobileBankApp.Services.Implementations
              manager.ManagerId = "ZENITH-MANAGER-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +manager.FirstName[0]+manager.FirstName[1]+manager.FirstName[2]+rand.Next(0,9).ToString();
              manager.UserId = use.Id;
              manager.IsActive = true;
-             return  _repo.CreateManager(manager);  
+
+              var legitManager = new Manager {
+                ManagerId = manager.ManagerId,
+                IsActive = manager.IsActive,
+                FirstName = manager.FirstName,
+                LastName = manager.LastName,
+                Address = manager.Address,
+                Age = manager.Age,
+                Gender = manager.Gender,
+                MaritalStatus = manager.MaritalStatus,
+                Email = manager.Email,
+                PhoneNumber = manager.PhoneNumber,
+                PassWord = manager.PassWord,
+                DateCreated = manager.DateCreated,
+                UserId = use.Id    
+             };
+             return  _repo.CreateManager(legitManager);  
         }
 
         public Manager DeleteManager(string managerId)
@@ -46,9 +63,24 @@ namespace MVC_MobileBankApp.Services.Implementations
              return _repo.GetAllManager();
         }
 
-        public Manager GetManagerById(string managerId)
+        public ManagerRequestModel GetManagerById(string managerId)
         {
-            return _repo.GetManagerById(managerId);
+            var manager =  _repo.GetManagerById(managerId);
+                return new ManagerRequestModel {
+                 ManagerId = manager.ManagerId,
+                FirstName = manager.FirstName,
+                LastName = manager.LastName,
+                Address = manager.Address,
+                Age = manager.Age,
+                Gender = manager.Gender,
+                MaritalStatus = manager.MaritalStatus,
+                Email = manager.Email,
+                PhoneNumber = manager.PhoneNumber,
+                PassWord = manager.PassWord,
+                DateCreated = manager.DateCreated,
+                IsActive = manager.IsActive
+
+            };
         }
 
         public Manager Login(string email, string passWord)
@@ -57,7 +89,7 @@ namespace MVC_MobileBankApp.Services.Implementations
              return manager;
         }
 
-        public Manager UpdateManager(Manager manager)
+        public void UpdateManager(ManagerRequestModel manager)
         {
                var managerr = _repo.GetManagerById(manager.ManagerId);
             if(managerr == null )
@@ -80,7 +112,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             managerr.Age = manager.Age != managerr.Age? manager.Age : managerr.Age;
             managerr.Address = manager.Address ?? managerr.Address;
             managerr.MaritalStatus = manager.MaritalStatus;
-            return _repo.UpdateManager(managerr);
+             _repo.UpdateManager(managerr);
         }
     }
 }

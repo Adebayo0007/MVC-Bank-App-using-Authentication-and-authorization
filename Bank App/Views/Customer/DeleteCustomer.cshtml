@@ -1,7 +1,10 @@
-@model MVC_MobileBankApp.Models.Customer
+@* @model MVC_MobileBankApp.Models.Customer *@
+
+@using MVC_MobileBankApp.Models.DTOs
+@model CustomerRequestModel
 
 
-<h3>Are you sure you want to Delete this Admin?</h3>
+<h3>Are you sure you want to Delete this Customer?</h3>
 
     <hr />
     <form asp-controller= "Customer" asp-action="DeleteCustomer">

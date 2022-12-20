@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Services.Interfaces;
 
 namespace MVC_MobileBankApp.Controllers
@@ -37,7 +38,7 @@ namespace MVC_MobileBankApp.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public IActionResult CreateCustomer(Customer customer)
+         public IActionResult CreateCustomer(CustomerDTO customer)
         {
             if(customer != null)
             {
@@ -87,7 +88,7 @@ namespace MVC_MobileBankApp.Controllers
          [Authorize]
         [HttpPost , ActionName("UpdateCustomer")]
         [ValidateAntiForgeryToken]
-         public IActionResult UpdateCustomer(Customer customer)
+         public IActionResult UpdateCustomer(CustomerRequestModel customer)
         {
             _service.UpdateCustomer(customer);
             return RedirectToAction(nameof(Customers));

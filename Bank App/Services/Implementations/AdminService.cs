@@ -42,10 +42,10 @@ namespace MVC_MobileBankApp.Services.Implementations
                 Email = admin.Email,
                 PhoneNumber = admin.PhoneNumber,
                 PassWord = admin.PassWord,
-                DateCreated = admin.DateCreated
-                
+                DateCreated = admin.DateCreated,
+                UserId = use.Id    
              };
-             legitAdmin.UserId = admin.UserId;
+           
              return  _repo.CreateAdmin(legitAdmin);  
         }
 
@@ -72,7 +72,8 @@ namespace MVC_MobileBankApp.Services.Implementations
                 Email = admin.Email,
                 PhoneNumber = admin.PhoneNumber,
                 PassWord = admin.PassWord,
-                DateCreated = admin.DateCreated
+                DateCreated = admin.DateCreated,
+                IsActive = admin.IsActive
 
             };
         }

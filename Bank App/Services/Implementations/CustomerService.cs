@@ -1,4 +1,5 @@
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Repositories.Interfaces;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -15,7 +16,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             _repo = repo;
             _userRepo = userRepo;
         }
-        public Customer CreateCustomer(Customer customer)
+        public Customer CreateCustomer(CustomerDTO customer)
         {
               var user = new User
             {
@@ -30,7 +31,28 @@ namespace MVC_MobileBankApp.Services.Implementations
                 customer.AccountNumber = $"{random.Next(300,700).ToString()}{random.Next(100, 900).ToString()}{rand.Next(100,400).ToString()}0";
                 customer.UserId = use.Id;
                 customer.IsActive = true;
-             return  _repo.CreateCustomer(customer);  
+
+                 var legitCustomer = new Customer {
+
+                IsActive = customer.IsActive,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                Address = customer.Address,
+                Age = customer.Age,
+                Gender = customer.Gender,
+                MaritalStatus = customer.MaritalStatus,
+                Email = customer.Email,
+                PhoneNumber = customer.PhoneNumber,
+                PassWord = customer.PassWord,
+                DateCreated = customer.DateCreated,
+                UserId = use.Id,
+                AccountNumber = customer.AccountNumber,
+                Pin = customer.Pin,
+                AccountType = customer.AccountType
+                
+             };
+            
+             return  _repo.CreateCustomer(legitCustomer);  
         }
 
         public Customer DeleteCustomer(string customerId)
@@ -47,9 +69,27 @@ namespace MVC_MobileBankApp.Services.Implementations
               return _repo.GetAllCustomer();
         }
 
-        public Customer GetCustomerByAccountnumber(string accountNumber)
+        public CustomerRequestModel GetCustomerByAccountnumber(string accountNumber)
         {
-            return _repo.GetCustomerByAccountnumber(accountNumber);
+            var customer = _repo.GetCustomerByAccountnumber(accountNumber);
+            return new CustomerRequestModel {
+           
+                IsActive = customer.IsActive,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                Address = customer.Address,
+                Age = customer.Age,
+                Gender = customer.Gender,
+                MaritalStatus = customer.MaritalStatus,
+                Email = customer.Email,
+                PhoneNumber = customer.PhoneNumber,
+                PassWord = customer.PassWord,
+                DateCreated = customer.DateCreated,
+                AccountNumber = customer.AccountNumber,
+                Pin = customer.Pin,
+                AccountType = customer.AccountType
+
+            };
         }
 
         public Customer Login(string email, string passWord)
@@ -57,7 +97,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             return _repo.Login(email,passWord);
         }
 
-        public Customer UpdateCustomer(Customer customer)
+        public void UpdateCustomer(CustomerRequestModel customer)
         {
                 var customerr = _repo.GetCustomerByAccountnumber(customer.AccountNumber);
             if(customerr == null )
@@ -81,7 +121,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             customerr.MaritalStatus = customer.MaritalStatus;
             customerr.AccountType = customer.AccountType;
             customerr.Pin = customer.Pin ?? customerr.Pin; 
-            return _repo.UpdateCustomer(customerr);
+            _repo.UpdateCustomer(customerr);
         }
     }
 }

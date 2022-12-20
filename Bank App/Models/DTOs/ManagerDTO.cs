@@ -1,17 +1,12 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using MVC_MobileBankApp.Enum;
-using MVC_MobileBankApp.Models.Enum;
 
 namespace MVC_MobileBankApp.Models.DTOs
 {
-    public class CustomerDTO
-    {    
-       
-        [DisplayName("Account Balance")]
-        [Required]
-        public double AccountBalance {get; set;}
-         [DisplayName("First Name")]
+    public class ManagerDTO
+    {
+        [DisplayName("First Name")]
         [Required]
         public string FirstName {get;set;}
         [DisplayName("Last Name")]
@@ -20,36 +15,30 @@ namespace MVC_MobileBankApp.Models.DTOs
         [Required]
         public string Address {get;set;}
         public int UserId {get;set;}
-         [DisplayName("Account Number")]
-        public string AccountNumber {get; set;}
-        [Required]
-        public string Pin           {get; set;}
-         [Required]
+        public string ManagerId  {get; set;}   
         public int Age {get;set;}
         [Required]
         public GenderType Gender {get;set;}
-         [DisplayName("Marital Status")]
+        [DisplayName("Marital Status")]
         [Required]
         public MaritalStatusType MaritalStatus {get;set;}
         public string Email {get;set;}
          [DisplayName("Phone Number")]
         [Required]
         public string PhoneNumber {get;set;}
-          [DisplayName("Account Type")]
-        [Required]
-        public AccountType AccountType   {get; set;}
         [DisplayName("Password")]
         [Required]
         public string PassWord {get;set;}
-         public bool IsActive {get;set;} 
+        public bool IsActive {get;set;} 
         public DateTime DateCreated {get; set;} = DateTime.Now;
         
     }
 
-     public class CustomerRequestModel
+
+
+         public class ManagerRequestModel
     {
-   
-         [DisplayName("First Name")]
+        [DisplayName("First Name")]
         [Required]
         public string FirstName {get;set;}
         [DisplayName("Last Name")]
@@ -58,13 +47,13 @@ namespace MVC_MobileBankApp.Models.DTOs
         [Required]
         public string Address {get;set;}
         public int UserId {get;set;}
+        public string ManagerId  {get; set;}   
         public int Age {get;set;}
         [Required]
         public GenderType Gender {get;set;}
-         [DisplayName("Marital Status")]
+        [DisplayName("Marital Status")]
         [Required]
         public MaritalStatusType MaritalStatus {get;set;}
-        [Required]
         public string Email {get;set;}
          [DisplayName("Phone Number")]
         [Required]
@@ -72,19 +61,9 @@ namespace MVC_MobileBankApp.Models.DTOs
         [DisplayName("Password")]
         [Required]
         public string PassWord {get;set;}
-          [DisplayName("Account Number")]
-        public string AccountNumber {get; set;}
-        [Required]
-        public string Pin           {get; set;}
-         [DisplayName("Account Type")]
-        [Required]
-        public AccountType AccountType   {get; set;}
-        [DisplayName("Account Balance")]
-        [Required]
-        public double AccountBalance {get; set;}
-         public bool IsActive {get;set;} 
-        public DateTime DateCreated {get; set;} 
+        public bool IsActive {get;set;} 
+        public DateTime DateCreated {get; set;}
+
+
     }
-    
-        
 }

@@ -64,6 +64,7 @@ namespace MVC_MobileBankApp.Models.DTOs
         [DisplayName("Password")]
         [Required]
         public string PassWord {get;set;}
+         public bool IsActive {get;set;} 
         public DateTime DateCreated {get; set;} 
     
         
