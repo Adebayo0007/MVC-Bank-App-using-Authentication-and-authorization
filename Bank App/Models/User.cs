@@ -1,7 +1,3 @@
-using Bank_App.Models;
-using Bank_App.Models.Enum;
-using MobileBankApp;
-using MobileBankApp.Enum;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

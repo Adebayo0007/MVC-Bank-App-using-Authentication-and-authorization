@@ -1,6 +1,6 @@
-using Bank_App.Models;
+using MVC_MobileBankApp.Models;
 
-namespace Bank_App.Services.Interfaces
+namespace MVC_MobileBankApp.Services.Interfaces
 {
     public interface ICustomerService
     {

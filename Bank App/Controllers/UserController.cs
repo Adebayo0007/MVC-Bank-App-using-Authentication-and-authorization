@@ -1,9 +1,8 @@
-using Bank_App.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Services.Interfaces;
 
-namespace Bank_App.Controllers
+namespace MVC_MobileBankApp.Controllers
 {
     public class UserController : Controller
     {

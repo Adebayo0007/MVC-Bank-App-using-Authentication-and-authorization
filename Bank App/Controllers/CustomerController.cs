@@ -1,13 +1,12 @@
 using System.Security.Claims;
-using Bank_App.Models;
-using Bank_App.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Services.Interfaces;
 
-namespace Bank_App.Controllers
+namespace MVC_MobileBankApp.Controllers
 {
     public class CustomerController : Controller
     {

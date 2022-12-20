@@ -1,8 +1,8 @@
-using Bank_App.Models;
 using MVC_MobileBankApp.ApplicationContext;
+using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Repositories;
 
-namespace Bank_App.Repositories.Implementations
+namespace MVC_MobileBankApp.Repositories.Implementations
 {
     public class CEORepository : ICEORepository
     {

@@ -1,6 +1,7 @@
-using Bank_App.Models;
 
-namespace Bank_App.Services.Interfaces
+using MVC_MobileBankApp.Models;
+
+namespace MVC_MobileBankApp.Services.Interfaces
 {
     public interface ICEOService
     {

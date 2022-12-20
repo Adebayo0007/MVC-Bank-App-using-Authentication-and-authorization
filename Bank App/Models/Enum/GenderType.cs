@@ -1,4 +1,4 @@
-namespace MobileBankApp.Enum
+namespace MVC_MobileBankApp.Enum
 {
     public enum GenderType
     {

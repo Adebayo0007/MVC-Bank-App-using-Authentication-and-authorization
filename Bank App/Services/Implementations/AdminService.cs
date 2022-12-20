@@ -1,6 +1,4 @@
-using Bank_App.Models.RequestModel;
-using Bank_App.Repositories.Interfaces;
-using Bank_App.Services.Interfaces;
+using MVC_MobileBankApp.Models.RequestModel;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Repositories;
 using MVC_MobileBankApp.Services.Interfaces;
@@ -31,6 +29,7 @@ namespace MVC_MobileBankApp.Services.Implementations
              admin.StaffId = "ZENITH-ADMIN-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +admin.FirstName[0]+admin.FirstName[1]+admin.FirstName[2]+rand.Next(0,9).ToString();
              admin.UserId = use.Id;
              admin.IsActive = true;
+             
              var legitAdmin = new Admin {
                 StaffId = admin.StaffId,
                 IsActive = admin.IsActive,

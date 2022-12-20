@@ -1,8 +1,8 @@
-using Bank_App.Repositories.Interfaces;
-using Bank_App.Services.Interfaces;
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Repositories.Interfaces;
+using MVC_MobileBankApp.Services.Interfaces;
 
-namespace Bank_App.Services.Implementations
+namespace MVC_MobileBankApp.Services.Implementations
 {
     public class ManagerService : IManagerService
     {

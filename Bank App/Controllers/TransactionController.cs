@@ -1,9 +1,10 @@
 using System.Security.Claims;
-using Bank_App.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models;
-namespace Bank_App.Controllers
+using MVC_MobileBankApp.Services.Interfaces;
+
+namespace MVC_MobileBankApp.Controllers
 {
     public class TransactionController : Controller
     {

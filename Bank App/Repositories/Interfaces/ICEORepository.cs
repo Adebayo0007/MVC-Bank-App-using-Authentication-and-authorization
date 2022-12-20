@@ -1,4 +1,6 @@
-using Bank_App.Models;
+
+using MVC_MobileBankApp.Models;
+
 namespace MVC_MobileBankApp.Repositories
 {
     public interface ICEORepository

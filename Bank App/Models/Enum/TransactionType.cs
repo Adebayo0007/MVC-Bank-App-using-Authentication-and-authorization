@@ -1,4 +1,4 @@
-namespace Bank_App.Models.Enum
+namespace MVC_MobileBankApp.Models.Enum
 {
     public enum TransactionType
     {

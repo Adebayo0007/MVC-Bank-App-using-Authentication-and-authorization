@@ -1,7 +1,7 @@
-using MobileBankApp;
-using MobileBankApp.Enum;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using MVC_MobileBankApp.Enum;
+
 namespace MVC_MobileBankApp.Models
 
 {

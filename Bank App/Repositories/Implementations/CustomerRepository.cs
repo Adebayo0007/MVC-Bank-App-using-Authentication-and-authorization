@@ -1,9 +1,8 @@
-using Bank_App.Models;
-using Bank_App.Repositories.Interfaces;
 using MVC_MobileBankApp.ApplicationContext;
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Repositories.Interfaces;
 
-namespace Bank_App.Repositories.Implementations
+namespace MVC_MobileBankApp.Repositories.Implementations
 {
     public class CustomerRepository : ICustomerRepository 
     {

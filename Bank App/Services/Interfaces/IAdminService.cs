@@ -1,5 +1,5 @@
-using Bank_App.Models.RequestModel;
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Models.RequestModel;
 
 namespace MVC_MobileBankApp.Services.Interfaces
 {

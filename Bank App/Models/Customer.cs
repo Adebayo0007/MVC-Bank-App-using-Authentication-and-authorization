@@ -1,11 +1,9 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using Bank_App.Models.Enum;
-using MobileBankApp;
-using MobileBankApp.Enum;
-using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Enum;
+using MVC_MobileBankApp.Models.Enum;
 
-namespace Bank_App.Models
+namespace MVC_MobileBankApp.Models
 {
     public class Customer
     {

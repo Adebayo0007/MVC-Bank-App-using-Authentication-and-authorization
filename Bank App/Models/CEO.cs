@@ -1,9 +1,9 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using MobileBankApp.Enum;
+using MVC_MobileBankApp.Enum;
 using MVC_MobileBankApp.Models;
 
-namespace Bank_App.Models
+namespace MVC_MobileBankApp.Models
 {
     public class CEO
     {

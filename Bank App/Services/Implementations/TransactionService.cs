@@ -1,9 +1,9 @@
-using Bank_App.Models;
-using MVC_MobileBankApp.Models;
-using Bank_App.Repositories.Interfaces;
-using Bank_App.Services.Interfaces;
 
-namespace Bank_App.Services.Implementations
+using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Repositories.Interfaces;
+using MVC_MobileBankApp.Services.Interfaces;
+
+namespace MVC_MobileBankApp.Services.Implementations
 {
     public class TransactionService : ITransactionService
     {

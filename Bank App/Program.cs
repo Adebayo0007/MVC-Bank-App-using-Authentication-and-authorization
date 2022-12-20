@@ -1,12 +1,9 @@
-// using Bank_App.Repositories.Implementations;
-using Bank_App.Repositories.Interfaces;
-using Bank_App.Services.Implementations;
-using Bank_App.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using MVC_MobileBankApp.ApplicationContext;
 using MVC_MobileBankApp.Repositories;
 using MVC_MobileBankApp.Repositories.Implementations;
+using MVC_MobileBankApp.Repositories.Interfaces;
 using MVC_MobileBankApp.Services.Implementations;
 using MVC_MobileBankApp.Services.Interfaces;
 

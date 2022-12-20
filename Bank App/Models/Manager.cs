@@ -1,5 +1,5 @@
-using MobileBankApp;
-using MobileBankApp.Enum;
+
+using MVC_MobileBankApp.Enum;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 namespace MVC_MobileBankApp.Models

@@ -1,8 +1,8 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using MobileBankApp.Enum;
+using MVC_MobileBankApp.Enum;
 
-namespace Bank_App.Models.RequestModel
+namespace MVC_MobileBankApp.Models.RequestModel
 {
     public class AdminRequestModel
     {

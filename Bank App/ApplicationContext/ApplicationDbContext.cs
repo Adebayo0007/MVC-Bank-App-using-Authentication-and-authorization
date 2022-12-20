@@ -1,4 +1,3 @@
-using Bank_App.Models;
 using Microsoft.EntityFrameworkCore;
 using MVC_MobileBankApp.Models;
 

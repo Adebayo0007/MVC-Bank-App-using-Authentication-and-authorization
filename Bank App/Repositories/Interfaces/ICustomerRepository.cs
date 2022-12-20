@@ -1,7 +1,7 @@
-using Bank_App.Models;
+
 using MVC_MobileBankApp.Models;
 
-namespace Bank_App.Repositories.Interfaces
+namespace MVC_MobileBankApp.Repositories.Interfaces
 {
     public interface ICustomerRepository
     {
