@@ -1,15 +1,15 @@
 using MVC_MobileBankApp.Models;
-using MVC_MobileBankApp.Models.RequestModel;
+using MVC_MobileBankApp.Models.DTOs;
 
 namespace MVC_MobileBankApp.Services.Interfaces
 {
     public interface IAdminService
     {
-       Admin CreateAdmin (AdminRequestModel admin);
-       Admin UpdateAdmin (AdminUpdateRequestModel admin);
+       Admin CreateAdmin (AdminDTO admin);
+       void UpdateAdmin (AdminRequestModel admin);
        Admin DeleteAdminUsingId(string adminId);
        Admin Login (string email, string passWord);
-       Admin GetAdminById(string adminId);
+       AdminRequestModel GetAdminById(string adminId);
        IList<Admin> GetAllAdmin();
          
     }

@@ -1,4 +1,4 @@
-using MVC_MobileBankApp.Models.RequestModel;
+using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Repositories;
 using MVC_MobileBankApp.Services.Interfaces;
@@ -15,7 +15,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             _repo = repo;
             _userRepo = userRepo;
         }
-        public Admin CreateAdmin(AdminRequestModel admin)
+        public Admin CreateAdmin(AdminDTO admin)
         {
              var user = new User
             {
@@ -58,9 +58,23 @@ namespace MVC_MobileBankApp.Services.Implementations
            return _repo.DeleteAdminUsingId(admin);
         }
 
-        public Admin GetAdminById(string adminId)
+        public AdminRequestModel GetAdminById(string adminId)
         {
-            return _repo.GetAdminById(adminId);
+            var admin = _repo.GetAdminById(adminId);
+            return new AdminRequestModel {
+                StaffId = admin.StaffId,
+                FirstName = admin.FirstName,
+                LastName = admin.LastName,
+                Address = admin.Address,
+                Age = admin.Age,
+                Gender = admin.Gender,
+                MaritalStatus = admin.MaritalStatus,
+                Email = admin.Email,
+                PhoneNumber = admin.PhoneNumber,
+                PassWord = admin.PassWord,
+                DateCreated = admin.DateCreated
+
+            };
         }
 
         public IList<Admin> GetAllAdmin()
@@ -73,7 +87,7 @@ namespace MVC_MobileBankApp.Services.Implementations
               return _repo.Login(email,passWord);
         }
 
-        public Admin UpdateAdmin(AdminUpdateRequestModel admin)
+        public void UpdateAdmin(AdminRequestModel admin)
         { 
             
             var adminn = _repo.GetAdminById(admin.StaffId);
@@ -97,7 +111,9 @@ namespace MVC_MobileBankApp.Services.Implementations
             adminn.Age = admin.Age != adminn.Age? admin.Age : adminn.Age;
             adminn.Address = admin.Address ?? adminn.Address;
             adminn.MaritalStatus = admin.MaritalStatus;
-            return _repo.UpdateAdmin(adminn);
+            _repo.UpdateAdmin(adminn);
         }
+
+       
     }
 }
