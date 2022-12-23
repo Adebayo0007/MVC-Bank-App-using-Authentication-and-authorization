@@ -1,5 +1,6 @@
 using MVC_MobileBankApp.ApplicationContext;
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Repositories.Interfaces;
 
 namespace MVC_MobileBankApp.Repositories.Implementations
@@ -35,20 +36,48 @@ namespace MVC_MobileBankApp.Repositories.Implementations
              _context.SaveChanges();
         }
 
-        public IList<Transaction> GetAllTransaction()
+        public IList<TransactionDTO> GetAllTransaction()
         {
-            return _context.Transactions.ToList();
+               return _context.Transactions.Select(a => new TransactionDTO
+                            {
+                                AccountBalance = a.AccountBalance,
+                                AccountNumber = a.AccountNumber,
+                                RefNum = a.RefNum,
+                                Amount = a.Amount,
+                                RecipientAccountNumber = a.RecipientAccountNumber,
+                                Pin = a.Pin,
+                                DateCreated = a.DateCreated,
+                                Description = a.Description,
+                                TransactType = a.TransactType
+                              }).ToList();
+        
         }
 
         public IList<Transaction> GetAllTransactionUsingAccountNumber(string accountNumber)
         {
             return _context.Transactions.Where(a => a.AccountNumber == accountNumber).ToList();
+
+            
         }
 
-        public Transaction GetTransactionByRefNum(string refNum)
+        public TransactionDTO GetTransactionByRefNum(string refNum)
         {
              var transaction =_context.Transactions.SingleOrDefault(a => a.RefNum == refNum);
-            return transaction;
+
+            return new TransactionDTO
+            {
+                                AccountBalance = transaction.AccountBalance,
+                                AccountNumber = transaction.AccountNumber,
+                                RefNum = transaction.RefNum,
+                                Amount = transaction.Amount,
+                                RecipientAccountNumber = transaction.RecipientAccountNumber,
+                                Pin = transaction.Pin,
+                                DateCreated = transaction.DateCreated,
+                                Description = transaction.Description,
+                                TransactType = transaction.TransactType
+
+            };
+        
         }
     }
 }

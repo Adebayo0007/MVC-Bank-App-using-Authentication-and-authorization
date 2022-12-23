@@ -1,4 +1,5 @@
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Repositories;
 using MVC_MobileBankApp.Repositories.Interfaces;
 using MVC_MobileBankApp.Services.Interfaces;
@@ -42,11 +43,22 @@ namespace MVC_MobileBankApp.Services.Implementations
             return _userRepository.GetAllUser();
         }
 
-        public User Login(string email, string passWord)
+        public UserDTO Login(string email, string passWord)
         {
            
             var user = _userRepository.Login(email,passWord);
-                return user;
+            return new UserDTO{
+                    Id  = user.Id,
+                    Email  = user.Email,
+                    Customer = user.Customer,
+                    Admin = user.Admin,
+                    Manager = user.Manager,
+                    Ceo = user.Ceo,
+                    IsActive = user.IsActive,
+                    PassWord = user.PassWord,
+                    Role  = user.Role
+            };
+                
         }
 
         public User UpdateUser(User user,int userId)

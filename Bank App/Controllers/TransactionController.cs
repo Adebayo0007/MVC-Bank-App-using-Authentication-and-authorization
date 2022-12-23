@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Services.Interfaces;
 
 namespace MVC_MobileBankApp.Controllers
@@ -29,7 +30,7 @@ namespace MVC_MobileBankApp.Controllers
           [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public IActionResult CreateTransaction(Transaction transaction)
+         public IActionResult CreateTransaction(TransactionDTO transaction)
         {
             transaction.AccountNumber = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             if(transaction != null)
@@ -56,20 +57,20 @@ namespace MVC_MobileBankApp.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin,Manager, CEO, User")]
-         public IActionResult DeleteTransaction(string refNum)
-        {            
-            var transaction = _transactionService.GetTransactionByRefNum(refNum);
-            return View(transaction);          
-        }
-          [Authorize]
-        [HttpPost , ActionName("DeleteTransaction")]
-        [ValidateAntiForgeryToken]
-         public IActionResult DeleteTransactionConfirmed(string refNum)
-        {
-            _transactionService.DeleteTransactionUsingRefNum(refNum);
-            return RedirectToAction(nameof(Transactions));
-        }
+        // [Authorize(Roles = "Admin,Manager, CEO, User")]
+        //  public IActionResult DeleteTransaction(string refNum)
+        // {            
+        //     var transaction = _transactionService.GetTransactionByRefNum(refNum);
+        //     return View(transaction);          
+        // }
+        //   [Authorize]
+        // [HttpPost , ActionName("DeleteTransaction")]
+        // [ValidateAntiForgeryToken]
+        //  public IActionResult DeleteTransactionConfirmed(string refNum)
+        // {
+        //     _transactionService.DeleteTransactionUsingRefNum(refNum);
+        //     return RedirectToAction(nameof(Transactions));
+        // }
          [Authorize(Roles = "Admin,Manager, CEO, User")]
          public IActionResult Transactions()
         {

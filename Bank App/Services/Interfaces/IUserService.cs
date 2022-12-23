@@ -1,4 +1,5 @@
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Models.DTOs;
 
 namespace MVC_MobileBankApp.Services.Interfaces
 {
@@ -7,7 +8,7 @@ namespace MVC_MobileBankApp.Services.Interfaces
         User UpdateUser(User user,int userId);
        User DeleteUserUsingId(int userId);
         User CreateUser(User user);
-        User Login(string email,string passWord);
+        UserDTO Login(string email,string passWord);
        IList<User> GetAllUser(); 
     }
 }

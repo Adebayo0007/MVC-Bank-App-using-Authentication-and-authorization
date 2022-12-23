@@ -1,4 +1,5 @@
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Models.DTOs;
 
 namespace MVC_MobileBankApp.Repositories.Interfaces
 {
@@ -7,8 +8,8 @@ namespace MVC_MobileBankApp.Repositories.Interfaces
         Transaction CreateTransfer(Transaction transfer);
         Transaction CreateTransaction(Transaction transaction);
        void DeleteTransactionUsingRefNum(Transaction refNum);
-       Transaction GetTransactionByRefNum(string refNum);
+       TransactionDTO GetTransactionByRefNum(string refNum);
        IList<Transaction> GetAllTransactionUsingAccountNumber(string accountNumber);
-       IList<Transaction> GetAllTransaction(); 
+       IList<TransactionDTO> GetAllTransaction(); 
     }
 }

@@ -16,7 +16,7 @@ namespace MVC_MobileBankApp.Models
         public string Description {get;set;}
 
         [ForeignKey("AccountNumber")]
-         [DisplayName("Account Number")]
+        [DisplayName("Account Number")]
         public string AccountNumber{get;set;}
 
         public Customer Customer {get;set;}

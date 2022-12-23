@@ -1,5 +1,6 @@
 
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Repositories.Interfaces;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -19,13 +20,15 @@ namespace MVC_MobileBankApp.Services.Implementations
              _service = service;
         }
 
-        public Transaction CreateTransaction(Transaction transaction)
+        public Transaction CreateTransaction(TransactionDTO transaction)
         {
             
             double charges;
             var reciever = _customerRepo.GetCustomerByAccountnumber(transaction.RecipientAccountNumber);
            var customer = _customerRepo.GetCustomerByAccountnumber(transaction.AccountNumber);
            object check = null;
+           if(customer.Pin == transaction.Pin)
+           {
              if((int)transaction.TransactType == 1)
             {
                 customer.AccountBalance+=transaction.Amount;
@@ -35,7 +38,18 @@ namespace MVC_MobileBankApp.Services.Implementations
                 var j = new Random().Next(25);
                 var k = new Random().Next(25,99);
                 transaction.RefNum= $"Ref{k}{i}{j}{alpha[i]}{alpha[j]}" ;
-               check =  _transactionRepo.CreateTransaction(transaction);   
+                var transact = new Transaction{
+                   AccountBalance = customer.AccountBalance,
+                   AccountNumber = customer.AccountNumber,
+                   RefNum = transaction.RefNum,
+                   Amount = transaction.Amount,
+                   RecipientAccountNumber = transaction.RecipientAccountNumber,
+                   Pin = transaction.Pin,
+                   DateCreated = transaction.DateCreated,
+                   Description = transaction.Description,
+                   TransactType = transaction.TransactType
+                };
+               check =  _transactionRepo.CreateTransaction(transact);   
 
             }
             else if((int)transaction.TransactType == 2)
@@ -52,14 +66,25 @@ namespace MVC_MobileBankApp.Services.Implementations
                                 customer.AccountBalance-=charges;
                                 
                             }
-                             customer.AccountBalance-=transaction.Amount;
-                             transaction.AccountBalance = customer.AccountBalance;
-                            string alpha  ="abcdefghijklmnopqrstuvwxyz".ToUpper();
-                            var i = new Random().Next(25);
-                            var j = new Random().Next(25);
-                            var k = new Random().Next(25,99);
-                            transaction.RefNum= $"Ref{k}{i}{j}{alpha[i]}{alpha[j]}" ;
-                             check =  _transactionRepo.CreateTransaction(transaction); 
+                                    customer.AccountBalance-=transaction.Amount;
+                                    transaction.AccountBalance = customer.AccountBalance;
+                                    string alpha  ="abcdefghijklmnopqrstuvwxyz".ToUpper();
+                                    var i = new Random().Next(25);
+                                    var j = new Random().Next(25);
+                                    var k = new Random().Next(25,99);
+                                    transaction.RefNum= $"Ref{k}{i}{j}{alpha[i]}{alpha[j]}" ;
+                                        var transact = new Transaction{
+                                        AccountBalance = customer.AccountBalance,
+                                        AccountNumber = customer.AccountNumber,
+                                        RefNum = transaction.RefNum,
+                                        Amount = transaction.Amount,
+                                        RecipientAccountNumber = transaction.RecipientAccountNumber,
+                                        Pin = transaction.Pin,
+                                        DateCreated = transaction.DateCreated,
+                                        Description = transaction.Description,
+                                        TransactType = transaction.TransactType
+                             };
+                             check =  _transactionRepo.CreateTransaction(transact); 
 
                         }
                            
@@ -77,14 +102,25 @@ namespace MVC_MobileBankApp.Services.Implementations
                                 customer.AccountBalance-=charges;
 
                         }
-                        customer.AccountBalance-=transaction.Amount;
-                             transaction.AccountBalance = customer.AccountBalance;
-                            string alpha  ="abcdefghijklmnopqrstuvwxyz".ToUpper();
-                            var i = new Random().Next(25);
-                            var j = new Random().Next(25);
-                            var k = new Random().Next(25,99);
-                            transaction.RefNum= $"Ref{k}{i}{j}{alpha[i]}{alpha[j]}" ;
-                             check =  _transactionRepo.CreateTransaction(transaction); 
+                            customer.AccountBalance-=transaction.Amount;
+                                transaction.AccountBalance = customer.AccountBalance;
+                                string alpha  ="abcdefghijklmnopqrstuvwxyz".ToUpper();
+                                var i = new Random().Next(25);
+                                var j = new Random().Next(25);
+                                var k = new Random().Next(25,99);
+                                transaction.RefNum= $"Ref{k}{i}{j}{alpha[i]}{alpha[j]}" ;
+                                    var transact = new Transaction{
+                                AccountBalance = customer.AccountBalance,
+                                AccountNumber = customer.AccountNumber,
+                                RefNum = transaction.RefNum,
+                                Amount = transaction.Amount,
+                                RecipientAccountNumber = transaction.RecipientAccountNumber,
+                                Pin = transaction.Pin,
+                                DateCreated = transaction.DateCreated,
+                                Description = transaction.Description,
+                                TransactType = transaction.TransactType
+                           };
+                             check =  _transactionRepo.CreateTransaction(transact); 
                     }
                 }
 
@@ -114,7 +150,18 @@ namespace MVC_MobileBankApp.Services.Implementations
                             var j = new Random().Next(25);
                             var k = new Random().Next(25,99);
                             transaction.RefNum= $"Ref{k}{i}{j}{alpha[i]}{alpha[j]}" ;
-                             check =  _transactionRepo.CreateTransfer(transaction); 
+                              var transact = new Transaction{
+                                AccountBalance = customer.AccountBalance,
+                                AccountNumber = customer.AccountNumber,
+                                RefNum = transaction.RefNum,
+                                Amount = transaction.Amount,
+                                RecipientAccountNumber = transaction.RecipientAccountNumber,
+                                Pin = transaction.Pin,
+                                DateCreated = transaction.DateCreated,
+                                Description = transaction.Description,
+                                TransactType = transaction.TransactType
+                           };
+                             check =  _transactionRepo.CreateTransfer(transact); 
 
                         }
                            
@@ -140,7 +187,18 @@ namespace MVC_MobileBankApp.Services.Implementations
                             var j = new Random().Next(25);
                             var k = new Random().Next(25,99);
                             transaction.RefNum= $"Ref{k}{i}{j}{alpha[i]}{alpha[j]}" ;
-                             check =  _transactionRepo.CreateTransfer(transaction); 
+                              var transact = new Transaction{
+                                AccountBalance = customer.AccountBalance,
+                                AccountNumber = customer.AccountNumber,
+                                RefNum = transaction.RefNum,
+                                Amount = transaction.Amount,
+                                RecipientAccountNumber = transaction.RecipientAccountNumber,
+                                Pin = transaction.Pin,
+                                DateCreated = transaction.DateCreated,
+                                Description = transaction.Description,
+                                TransactType = transaction.TransactType
+                             };
+                             check =  _transactionRepo.CreateTransfer(transact); 
                     }
                 }
 
@@ -162,7 +220,18 @@ namespace MVC_MobileBankApp.Services.Implementations
                             var j = new Random().Next(25);
                             var k = new Random().Next(25,99);
                             transaction.RefNum= $"Ref{k}{i}{j}{alpha[i]}{alpha[j]}" ;
-                             check =  _transactionRepo.CreateTransaction(transaction); 
+                              var transact = new Transaction{
+                                AccountBalance = customer.AccountBalance,
+                                AccountNumber = customer.AccountNumber,
+                                RefNum = transaction.RefNum,
+                                Amount = transaction.Amount,
+                                RecipientAccountNumber = transaction.RecipientAccountNumber,
+                                Pin = transaction.Pin,
+                                DateCreated = transaction.DateCreated,
+                                Description = transaction.Description,
+                                TransactType = transaction.TransactType
+                            };
+                             check =  _transactionRepo.CreateTransaction(transact); 
 
                         }
                            
@@ -181,12 +250,28 @@ namespace MVC_MobileBankApp.Services.Implementations
                             var j = new Random().Next(25);
                             var k = new Random().Next(25,99);
                             transaction.RefNum= $"Ref{k}{i}{j}{alpha[i]}{alpha[j]}" ;
-                             check =  _transactionRepo.CreateTransaction(transaction); 
+                              var transact = new Transaction{
+                                AccountBalance = customer.AccountBalance,
+                                AccountNumber = customer.AccountNumber,
+                                RefNum = transaction.RefNum,
+                                Amount = transaction.Amount,
+                                RecipientAccountNumber = transaction.RecipientAccountNumber,
+                                Pin = transaction.Pin,
+                                DateCreated = transaction.DateCreated,
+                                Description = transaction.Description,
+                                TransactType = transaction.TransactType
+                             };
+                             check =  _transactionRepo.CreateTransaction(transact); 
                     }
                 }
 
                 
              }
+           }
+           else
+           {
+             throw new DirectoryNotFoundException();
+           }
            
              return (Transaction)check;
         }
@@ -194,10 +279,22 @@ namespace MVC_MobileBankApp.Services.Implementations
         public void DeleteTransactionUsingRefNum(string refNum)
         {
             var transaction = _transactionRepo.GetTransactionByRefNum(refNum);
-           _transactionRepo.DeleteTransactionUsingRefNum(transaction);
+            var transact = new Transaction {
+                               AccountBalance = transaction.AccountBalance,
+                                AccountNumber = transaction.AccountNumber,
+                                RefNum = refNum,
+                                Amount = transaction.Amount,
+                                RecipientAccountNumber = transaction.RecipientAccountNumber,
+                                Pin = transaction.Pin,
+                                DateCreated = transaction.DateCreated,
+                                Description = transaction.Description,
+                                TransactType = transaction.TransactType
+
+                               };
+           _transactionRepo.DeleteTransactionUsingRefNum(transact);
         }
 
-        public IList<Transaction> GetAllTransaction()
+        public IList<TransactionDTO> GetAllTransaction()
         {
            return _transactionRepo.GetAllTransaction();
         }
@@ -208,10 +305,21 @@ namespace MVC_MobileBankApp.Services.Implementations
             return _transactionRepo.GetAllTransactionUsingAccountNumber(customer.AccountNumber);
         }
 
-        public Transaction GetTransactionByRefNum(string refNum)
+        public TransactionRequestModel GetTransactionByRefNum(string refNum)
         {
             var transaction = _transactionRepo.GetTransactionByRefNum(refNum);
-            return _transactionRepo.GetTransactionByRefNum(transaction.RefNum);
+                               return new TransactionRequestModel{
+                                AccountBalance = transaction.AccountBalance,
+                                AccountNumber = transaction.AccountNumber,
+                                RefNum = transaction.RefNum,
+                                Amount = transaction.Amount,
+                                RecipientAccountNumber = transaction.RecipientAccountNumber,
+                                Pin = transaction.Pin,
+                                DateCreated = transaction.DateCreated,
+                                Description = transaction.Description,
+                                TransactType = transaction.TransactType
+                           };
+            // return _transactionRepo.GetTransactionByRefNum(transaction.RefNum);
         }
 
     }

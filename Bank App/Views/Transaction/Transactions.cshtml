@@ -1,4 +1,4 @@
-@model IList<Transaction>
+@model IList<MVC_MobileBankApp.Models.DTOs.TransactionDTO>
     @if(ViewData["Title"] != null)
     {
         <h2>
@@ -72,9 +72,9 @@
                             </td>
                             
 
-                             <td>
+                             @* <td>
                                 <a asp-controller = "Transaction" asp-action="DeleteTransaction" asp-route-refNum="@transaction.RefNum"><i class="bi bi-trash"></i>Delete</a>
-                            </td>
+                            </td> *@
                             <td>
                                 <a asp-controller = "Transaction" asp-action="TransactionDetails" asp-route-refNum="@transaction.RefNum"><i class="bi bi-info-lg"></i>Details</a>
                             </td>
