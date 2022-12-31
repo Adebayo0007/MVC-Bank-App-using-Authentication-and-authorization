@@ -44,9 +44,9 @@
                              <th>
                                 Phone number
                             </th>
-                             <th>
+                             @* <th>
                                 Password
-                            </th>
+                            </th> *@
                             <th>
                                 Account Type
                             </th>
@@ -95,9 +95,9 @@
                              <td>
                                 @customer.PhoneNumber
                             </td>
-                             <td>
+                             @* <td>
                                 @customer.PassWord
-                            </td>
+                            </td> *@
                             <td>
                                 @customer.AccountType
                             </td>
@@ -124,6 +124,9 @@
                             </td>
                             <td>
                                 <a asp-controller = "Customer" asp-action="Details" asp-route-accountNumber="@customer.AccountNumber"><i class="bi bi-info-lg"></i>Details</a>
+                            </td>
+                             <td>
+                                <a asp-controller = "Transaction" asp-action="GetAccountTransactions" asp-route-accountNumber="@customer.AccountNumber"><i class="bi bi-info-lg"></i>Transactions</a>
                             </td>
                         </tr>
                         

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -23,12 +22,12 @@ namespace MVC_MobileBankApp.Controllers
         {
             return View();
         }
-           [Authorize(Roles = "Admin, Manager, CEO,User")]
+           [Authorize(Roles = "Admin, Manager, CEO")]
           public IActionResult ManageCustomer()
         {
             return View();
         }
-        [Authorize(Roles = "Manager,CEO,User")]
+        [Authorize(Roles = "Manager,CEO")]
         public IActionResult CreateAdmin()
         {
             return View();
@@ -53,7 +52,7 @@ namespace MVC_MobileBankApp.Controllers
            
             
         }
-         [Authorize(Roles = "Manager, CEO, User")]
+         [Authorize(Roles = "Manager, CEO")]
         // [HttpGet]
          public IActionResult DeleteAdmin(string staffId)
         {       
@@ -87,7 +86,7 @@ namespace MVC_MobileBankApp.Controllers
             _service.DeleteAdminUsingId(staffId);
             return RedirectToAction(nameof(Admins));
         }
-          [Authorize(Roles = "Manager, CEO, User")]
+          [Authorize(Roles = "Manager, CEO")]
           [HttpGet]
          public IActionResult UpdateAdmin(string staffId)
         {       
@@ -173,7 +172,7 @@ namespace MVC_MobileBankApp.Controllers
         }
 
 
-          [Authorize(Roles = "Manager, CEO, User")] 
+          [Authorize(Roles = "Manager, CEO")] 
          public IActionResult Admins()
         {
             var admins = _service.GetAllAdmin();
@@ -188,7 +187,7 @@ namespace MVC_MobileBankApp.Controllers
         //     return View(adminn);
         //     // return RedirectToAction(nameof(Admins));
         // }
-           [Authorize(Roles = "Manager, CEO, User")]
+           [Authorize(Roles = "Manager, CEO")]
           [HttpGet("{staffId}")]
          public IActionResult Details([FromRoute]string staffId)
         {       

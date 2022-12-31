@@ -61,15 +61,21 @@
             <span asp-validation-for="Email" class="text-danger"></span>
         </div><br>
          <div class = "form-row">
-            <label asp-for = "PhoneNumber" class = "control-label"></label>
-            <input asp-for = "PhoneNumber" class = "form-control"  placeholder="+2348034254356"/>
-            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-        </div><br>
-         <div class = "form-row">
+            <label asp-for = "ConfirmEmail" class = "control-label"></label>
+            <input type = "email" asp-for = "ConfirmEmail" class = "form-control"  placeholder="williams@gmail.com"/>
+            <span asp-validation-for="ConfirmEmail" class="text-danger"></span>
+         </div><br>
+          <div class = "form-row">
             <label asp-for = "PassWord" class = "control-label"></label>
             <input asp-for = "PassWord" type="password" id="pass" name="password" class = "form-control"  placeholder="Starting With capital letter,adding number and a character"/>
             <span asp-validation-for="PassWord" class="text-danger"></span>
-        </div><br><br><br>
+        </div><br>
+         <div class = "form-row">
+            <label asp-for = "PhoneNumber" class = "control-label"></label>
+            <input asp-for = "PhoneNumber" class = "form-control"  placeholder="+2348034254356"/>
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <br><br><br>
         <div>
             
             <button href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Submit</button>

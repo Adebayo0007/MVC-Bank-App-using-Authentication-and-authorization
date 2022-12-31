@@ -23,12 +23,12 @@ namespace MVC_MobileBankApp.Controllers
         {
             return View();
         }
-          [Authorize(Roles = "Manager, CEO, User")] 
+          [Authorize(Roles = "Manager, CEO")] 
           public IActionResult ManageAdmins()
         {
             return View();
         }
-          [Authorize(Roles = "CEO, User")] 
+          [Authorize(Roles = "CEO")] 
         public IActionResult CreateManager()
         {
             return View();
@@ -52,7 +52,7 @@ namespace MVC_MobileBankApp.Controllers
             }
         }
 
-           [Authorize(Roles = "CEO, User")] 
+           [Authorize(Roles = "CEO")] 
          public IActionResult DeleteManager(string managerId)
         {            
             var manager = _service.GetManagerById(managerId);
@@ -67,7 +67,7 @@ namespace MVC_MobileBankApp.Controllers
             _service.DeleteManager(managerId);
             return RedirectToAction(nameof(Managers));
         }
-            [Authorize(Roles = "CEO, User")] 
+            [Authorize(Roles = "CEO")] 
           [HttpGet]
          public IActionResult UpdateManager(string managerId)
         {       
@@ -156,14 +156,14 @@ namespace MVC_MobileBankApp.Controllers
         }
 
 
-           [Authorize(Roles = "CEO, User")] 
+           [Authorize(Roles = "CEO")] 
          public IActionResult Managers()
         {
             var managers = _service.GetAllManager();
             return View(managers);
         }
 
-           [Authorize(Roles = "CEO, User")] 
+           [Authorize(Roles = "CEO")] 
          public IActionResult ManagerDetails(string managerId)
         {       
             

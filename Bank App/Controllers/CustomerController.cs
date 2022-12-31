@@ -24,7 +24,7 @@ namespace MVC_MobileBankApp.Controllers
         {
             return View();
         }
-         [Authorize(Roles = "Customer,User")]
+         [Authorize(Roles = "Customer")]
          public IActionResult ManageTransaction()
         {
             return View();
@@ -54,7 +54,7 @@ namespace MVC_MobileBankApp.Controllers
             
             
         }
-         [Authorize(Roles = "Admin,Manager, CEO, User")]
+         [Authorize(Roles = "Admin,Manager, CEO")]
          public IActionResult DeleteCustomer(string accountNumber)
         {       
           
@@ -70,7 +70,7 @@ namespace MVC_MobileBankApp.Controllers
             _service.DeleteCustomer(accountNumber);
             return RedirectToAction(nameof(Customers));
         }
-           [Authorize(Roles = "Admin,Manager, CEO, User")]
+           [Authorize(Roles = "Admin,Manager, CEO")]
           [HttpGet]
          public IActionResult UpdateCustomer(string accountNumber)
         {       
@@ -155,14 +155,14 @@ namespace MVC_MobileBankApp.Controllers
             return RedirectToAction(nameof(ManageTransaction));
             
         }
-         [Authorize(Roles = "Admin,Manager, CEO, User")]
+         [Authorize(Roles = "Admin,Manager, CEO")]
          public IActionResult Customers()
         {
             var customers = _service.GetAllCustomer();
             return View(customers);
         }
 
-        [Authorize(Roles = "Customer,Admin,Manager, CEO, User")]
+        [Authorize(Roles = "Customer,Admin,Manager, CEO")]
 
           [HttpGet]
          public IActionResult Details(string accountNumber)

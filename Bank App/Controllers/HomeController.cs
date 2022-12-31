@@ -47,22 +47,18 @@ public class HomeController : Controller
             if (user == null || user.IsActive == false)
             {
                  ViewBag.Error = "Invalid Email or PassWord";
-                return NotFound();
+                return View();
+                
             }
-         
-            // else
-            // {
-            // return RedirectToAction(nameof(ManageTransaction));
-            // }
 
             //session
         //     HttpContext.Session.SetString("Email", customer.Email);
         //    HttpContext.Session.SetString("PassWord", customer.PassWord);
         //     return RedirectToAction(nameof(ManageTransaction));
 
-        //cookies
 
-          //cookies
+
+              //cookies
 
             var roles = new List<string>();
             var claims = new List<Claim>
@@ -72,8 +68,12 @@ public class HomeController : Controller
                 new Claim(ClaimTypes.Email , user.Email),
                  new Claim(ClaimTypes.Name , user.PassWord),
                  new Claim(ClaimTypes.NameIdentifier , (user.Role == "Customer") ? user.Customer.AccountNumber:""),
-                 
-                new Claim(ClaimTypes.Role , "User"),
+                    // new Claim(ClaimTypes.NameIdentifier , (user.Role == "Manager") ? user.Manager.ManagerId:""),
+                    
+                new Claim(ClaimTypes.Role , (user.Role == "Customer") ? "Customer":""),
+                new Claim(ClaimTypes.Role , (user.Role == "Admin") ? "Admin":""),
+                 new Claim(ClaimTypes.Role , (user.Role == "Manager") ? "Manager":""),
+                  new Claim(ClaimTypes.Role , (user.Role == "CEO") ? "CEO":""),
                 // new Claim(ClaimTypes.NameIdentifier , 2.ToString()),
                 new Claim(ClaimTypes.NameIdentifier , user.Id.ToString())
         

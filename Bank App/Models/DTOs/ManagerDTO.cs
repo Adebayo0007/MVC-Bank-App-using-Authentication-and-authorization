@@ -22,8 +22,14 @@ namespace MVC_MobileBankApp.Models.DTOs
         [DisplayName("Marital Status")]
         [Required]
         public MaritalStatusType MaritalStatus {get;set;}
+         [EmailAddress]
+        [Required]
         public string Email {get;set;}
+        [DisplayName("Confirm Email")]
+        [Compare("Email")]
+        public string ConfirmEmail {get;set;}
          [DisplayName("Phone Number")]
+         [Phone]
         [Required]
         public string PhoneNumber {get;set;}
         [DisplayName("Password")]

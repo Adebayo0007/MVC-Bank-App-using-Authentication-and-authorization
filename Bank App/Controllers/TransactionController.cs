@@ -16,13 +16,13 @@ namespace MVC_MobileBankApp.Controllers
         
         }
 
-        [Authorize(Roles = "Admin, Manager, CEO, User")]
+        [Authorize(Roles = "Admin, Manager, CEO")]
          [HttpGet]
         public IActionResult IndexTransactionPage()
         {
             return View();
         }
-         [Authorize(Roles = "Customer, User")]
+         [Authorize(Roles = "Customer")]
         public IActionResult CreateTransaction()
         {
             return View();
@@ -71,13 +71,13 @@ namespace MVC_MobileBankApp.Controllers
         //     _transactionService.DeleteTransactionUsingRefNum(refNum);
         //     return RedirectToAction(nameof(Transactions));
         // }
-         [Authorize(Roles = "Admin,Manager, CEO, User")]
+         [Authorize(Roles = "Admin,Manager, CEO")]
          public IActionResult Transactions()
         {
             var transaction = _transactionService.GetAllTransaction ();
             return View(transaction);
         }
-         [Authorize(Roles = "Admin,Manager, CEO, User")]
+         [Authorize(Roles = "Admin,Manager, CEO")]
          public IActionResult GetAccountTransactions(string  accountNumber)
         {
             var transaction = _transactionService.GetAllTransactionUsingAccountNumber(accountNumber);
@@ -85,7 +85,7 @@ namespace MVC_MobileBankApp.Controllers
             
         }
 
-          [Authorize(Roles = "Admin,Manager, CEO, User")]
+          [Authorize(Roles = "Admin,Manager, CEO")]
          public IActionResult TransactionDetails(string refNum)
         {       
             

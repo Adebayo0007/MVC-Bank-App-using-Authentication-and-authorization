@@ -24,7 +24,7 @@ namespace MVC_MobileBankApp.Controllers
         {
             return View();
         }
-         [Authorize(Roles = "CEO,User")] 
+         [Authorize(Roles = "CEO")] 
           public IActionResult ManageManagers()
         {
             return View();
@@ -67,7 +67,7 @@ namespace MVC_MobileBankApp.Controllers
             _service.DeleteCEO(ceoId);
             return RedirectToAction(nameof(CEOs));
         }
-         [Authorize(Roles = "CEO,User")] 
+         [Authorize(Roles = "CEO")] 
           [HttpGet]
          public IActionResult UpdateCEO(string ceoId)
         {       
@@ -151,7 +151,7 @@ namespace MVC_MobileBankApp.Controllers
             
         }
 
-         [Authorize(Roles = "CEO,User")] 
+         [Authorize(Roles = "CEO")] 
         
          public IActionResult CEOs()
         {
@@ -159,7 +159,7 @@ namespace MVC_MobileBankApp.Controllers
             return View(ceos);
         }
 
-          [Authorize(Roles = "CEO,User")] 
+          [Authorize(Roles = "CEO")] 
          public IActionResult CEODetails(string ceoId)
         {       
             

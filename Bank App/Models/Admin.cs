@@ -9,7 +9,7 @@ namespace MVC_MobileBankApp.Models
     {
            
         [DisplayName("First Name")]
-        [Required]
+        [Required(ErrorMessage = "The Admin's name is required")]
         public string FirstName {get;set;}
         [DisplayName("Last Name")]
         [Required]

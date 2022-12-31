@@ -5,11 +5,11 @@
     <title>@ViewData["Title"] MobileBankApp</title>
 </head>
 <div>
-    <h1  class="text-center" style = "font-family:cabri;font-size : 60px;"class="display-4">Welcome</br>To Our Banking System</h1>
+    <h1  class="text-center" style = "font-family:cabri;font-size : 60px; color: #b58900;"class="display-4">Welcome</br>To Our Banking System</h1>
 </div>
  <br><br><br> <br>
   
-<body>
+<body style="background-image: url('https://ceoworld.biz/wp-content/uploads/2016/07/Financial-Services-Companies.jpg');"width="200" height="200">
     <h3 style="text-align: center ;color :Red;"> @ViewBag.Error</h3>
  
 <div class="container">
@@ -21,12 +21,12 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-row">
                          </div>
-                        <div style="color:orange; font-family:cabri; text-align:center; font-size: 25px;" class="form-group col-sm-6">
+                        <div style="color:green; font-family:cabri; text-align:center; font-size: 25px;" class="form-group col-sm-6">
                             <label asp-for="Email" class="control-label"></label>
                             <input type = "email" asp-for="Email" class="form-control" />
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div><br>
-                        <div style="color:yellow; font-family:cabri; text-align:center; font-size: 25px;" class="form-group col-sm-6">
+                        <div style="color:orange; font-family:cabri; text-align:center; font-size: 25px;" class="form-group col-sm-6">
                             <label asp-for="PassWord" class="control-label"></label>
                             <input asp-for="PassWord" type="password" id="pass" name="password" class="form-control" />
                             <span asp-validation-for="PassWord" class="text-danger"></span>

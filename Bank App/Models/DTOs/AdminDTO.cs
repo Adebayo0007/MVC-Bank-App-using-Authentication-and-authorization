@@ -8,6 +8,7 @@ namespace MVC_MobileBankApp.Models.DTOs
     {
         [DisplayName("First Name")]
         [Required]
+        [StringLength(225)]
         public string FirstName {get;set;}
         [DisplayName("Last Name")]
         [Required]
@@ -17,14 +18,21 @@ namespace MVC_MobileBankApp.Models.DTOs
         public int UserId {get;set;}
         [Key]
         public string StaffId  {get; set;}
+        // [Range(1,200)]
         public int Age {get;set;}
         [Required]
         public GenderType Gender {get;set;}
          [DisplayName("Marital Status")]
         [Required]
         public MaritalStatusType MaritalStatus {get;set;}
+        [EmailAddress]
+        [Required]
         public string Email {get;set;}
-         [DisplayName("Phone Number")]
+        [DisplayName("Confirm Email")]
+        [Compare("Email")]
+        public string ConfirmEmail {get;set;}
+        [DisplayName("Phone Number")]
+        [Phone]
         [Required]
         public string PhoneNumber {get;set;}
         [DisplayName("Password")]
