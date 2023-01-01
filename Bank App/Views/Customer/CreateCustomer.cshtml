@@ -88,6 +88,8 @@
             <label asp-for = "Pin" class = "control-label"></label>
             <input asp-for = "Pin" class = "form-control"  placeholder="Enter four secrete number"/>
             <span asp-validation-for="Pin" class="text-danger"></span>
+                 @* @Html.ValidationMessageFor(c => c.Pin) *@
+
         </div><br>
         <br><br>
         <div>

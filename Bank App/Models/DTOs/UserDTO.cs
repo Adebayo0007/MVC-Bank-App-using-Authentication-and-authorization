@@ -15,4 +15,5 @@ namespace MVC_MobileBankApp.Models.DTOs
            public string Role {get; set;}
         
     }
+   
 }

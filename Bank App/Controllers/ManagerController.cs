@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -42,7 +41,7 @@ namespace MVC_MobileBankApp.Controllers
             {
                 _service.CreateManager(manager);
                 TempData["success"] = "Manager Created Successfully";
-                return RedirectToAction(nameof(IndexManagerPage));
+                return RedirectToAction("LogIn", "Home");
             }
             else
             {

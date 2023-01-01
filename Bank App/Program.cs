@@ -39,10 +39,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseMySql(
 
     // //session
 
-    // builder.Services.AddSession(options => {
-    // options.Cookie.Name = "BankApp.Session";
-    // options.IdleTimeout = TimeSpan.FromSeconds(10);
-    // });
+    builder.Services.AddSession(options => {
+    options.Cookie.Name = "BankApp.Session";
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    });
   
   
   // builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
@@ -66,7 +66,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-// app.UseSession();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

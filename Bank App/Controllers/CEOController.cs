@@ -43,7 +43,7 @@ namespace MVC_MobileBankApp.Controllers
             { 
                 _service.CreateCEO(ceo);
                 TempData["success"] = "Manager Created Successfully";
-                return RedirectToAction(nameof(IndexCEOPage));
+                return RedirectToAction("LogIn", "Home");
             }
             else
             {

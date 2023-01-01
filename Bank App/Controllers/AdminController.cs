@@ -37,11 +37,19 @@ namespace MVC_MobileBankApp.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult CreateAdmin(AdminDTO admin)
         {
+            //Validation condition
+
+            // if(!ModelState.IsValid)
+            // {
+            //     return View("CreateAdmin", admin);
+            // }
+
+
             if(admin != null)
             {
                 _service.CreateAdmin(admin);
                 TempData["success"] = "Admin Created Successfully";
-                return RedirectToAction(nameof(IndexPage));
+                return RedirectToAction("LogIn", "Home");
             }
             else
             {

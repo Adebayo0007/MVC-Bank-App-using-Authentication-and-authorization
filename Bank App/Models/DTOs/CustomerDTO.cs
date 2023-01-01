@@ -22,7 +22,7 @@ namespace MVC_MobileBankApp.Models.DTOs
         public int UserId {get;set;}
          [DisplayName("Account Number")]
         public string AccountNumber {get; set;}
-        [Required]
+        [PinValidation]
         public string Pin           {get; set;}
          [Required]
         public int Age {get;set;}

@@ -53,16 +53,22 @@
         </li> *@
 
         <li class="nav-item dropdown">
-          <a  style = "color:white" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Enter as</a>
+          <a  style = "color:white" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Customer Application Form</a>
           <div class="dropdown-menu">
-             <a class="nav-link text-white" asp-area="" asp-controller="CEO" asp-action="IndexCEOPage">CEO</a>
+             @* <a class="nav-link text-white" asp-area="" asp-controller="CEO" asp-action="IndexCEOPage">CEO</a>
              <a class="nav-link text-white" asp-area="" asp-controller="Manager" asp-action="IndexManagerPage">Manager</a>
-             <a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="IndexPage">Admin</a>
-             <a class="nav-link text-white" asp-area="" asp-controller="Customer" asp-action="CustomerIndexPage">Customer</a>
+             <a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="IndexPage">Admin</a> *@
+             <a class="nav-link text-white" asp-area="" asp-controller="Customer" asp-action="CreateCustomer">Enter as Customer</a>
             <div class="dropdown-divider"></div>
           </div>
         </li> 
       </ul>
+      
+      <div>
+          <a asp-controller = "Home" asp-action = "LogOut" class = "btn btn-primary"><i class="bi bi-box-arrow-in-right"></i> Log out
+
+            </a>
+      </div>
        @* <form >
         <input class="form-control me-sm-2" type="text" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>

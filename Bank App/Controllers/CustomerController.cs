@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MVC_MobileBankApp.Models;
+// using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -44,7 +44,7 @@ namespace MVC_MobileBankApp.Controllers
             {
                 _service.CreateCustomer(customer);
                 TempData["success"] = "Registration Successfully";
-                return RedirectToAction(nameof(CustomerIndexPage));
+                return RedirectToAction("LogIn", "Home");
             }
             else
             {
@@ -54,14 +54,14 @@ namespace MVC_MobileBankApp.Controllers
             
             
         }
-         [Authorize(Roles = "Admin,Manager, CEO")]
+
+         [Authorize(Roles = "Admin, Manager, CEO")]
          public IActionResult DeleteCustomer(string accountNumber)
         {       
-          
             var admin = _service.GetCustomerByAccountnumber(accountNumber);
-
             return View(admin);          
         }
+
          [Authorize]
         [HttpPost , ActionName("DeleteCustomer")]
         [ValidateAntiForgeryToken]
@@ -70,8 +70,9 @@ namespace MVC_MobileBankApp.Controllers
             _service.DeleteCustomer(accountNumber);
             return RedirectToAction(nameof(Customers));
         }
-           [Authorize(Roles = "Admin,Manager, CEO")]
-          [HttpGet]
+
+        [Authorize(Roles = "Admin,Manager, CEO")]
+        [HttpGet]
          public IActionResult UpdateCustomer(string accountNumber)
         {       
             if(accountNumber == null)
@@ -85,23 +86,22 @@ namespace MVC_MobileBankApp.Controllers
             }
             return View(customer);
         }
-         [Authorize]
+
+
+        [Authorize]
         [HttpPost , ActionName("UpdateCustomer")]
         [ValidateAntiForgeryToken]
          public IActionResult UpdateCustomer(CustomerRequestModel customer)
         {
             _service.UpdateCustomer(customer);
-            return RedirectToAction(nameof(Customers));
-
-            
+            return RedirectToAction(nameof(Customers)); 
             // return RedirectToAction(nameof(Customers), new Object{id = customer});
         }
 
 
          public IActionResult LogIn()
         {
-           return View();
-           
+           return View(); 
         }
 
         [HttpPost , ActionName("LogIn")]
@@ -152,9 +152,9 @@ namespace MVC_MobileBankApp.Controllers
             // {
             //     claims.Add(new Claim(ClaimTypes.Role , item));
             // }
-            return RedirectToAction(nameof(ManageTransaction));
-            
+            return RedirectToAction(nameof(ManageTransaction));       
         }
+
          [Authorize(Roles = "Admin,Manager, CEO")]
          public IActionResult Customers()
         {
@@ -162,8 +162,8 @@ namespace MVC_MobileBankApp.Controllers
             return View(customers);
         }
 
-        [Authorize(Roles = "Customer,Admin,Manager, CEO")]
 
+        [Authorize(Roles = "Customer,Admin,Manager, CEO")]
           [HttpGet]
          public IActionResult Details(string accountNumber)
         {   

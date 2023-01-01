@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MVC_MobileBankApp.Models.Enum;
 
@@ -10,6 +11,7 @@ namespace MVC_MobileBankApp.Models.DTOs
         [DisplayName("Ref Number")]
         public string RefNum{get;set;}
         [DisplayName("Transaction Type")]
+         [Required]
         public TransactionType TransactType {get; set;}
         public string Description {get;set;}
 
@@ -17,7 +19,9 @@ namespace MVC_MobileBankApp.Models.DTOs
         public string AccountNumber{get;set;}
 
         public Customer Customer {get;set;}
+         [Required]
         public double Amount{get;set;}
+        [Required]
         public string Pin{get;set;}
          [DisplayName("Account Balance")]
         public double AccountBalance{get;set;}

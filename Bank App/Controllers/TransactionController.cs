@@ -1,7 +1,6 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Services.Interfaces;
 

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Services.Interfaces;
 
 namespace MVC_MobileBankApp.Controllers;
@@ -114,6 +115,12 @@ public class HomeController : Controller
             }
             return RedirectToAction(nameof(Index));
             
+        }
+         public IActionResult LogOut(UserDTO request)
+        {
+            HttpContext.Session.Clear();
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction(nameof(LogIn));
         }
 
 
