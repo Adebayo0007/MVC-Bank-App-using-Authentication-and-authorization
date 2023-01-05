@@ -7,6 +7,8 @@ using MVC_MobileBankApp.Repositories.Interfaces;
 using MVC_MobileBankApp.Services.Implementations;
 using MVC_MobileBankApp.Services.Interfaces;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -32,8 +34,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseMySql(
     .AddCookie(config => {
     config.LoginPath = "/Home/Index";
     config.LogoutPath = "/Home/Index";
-    config.Cookie.Name = "bankApplication";
-           
+    config.Cookie.Name = "bankApplication";         
     });
     builder.Services.AddAuthorization();
 
