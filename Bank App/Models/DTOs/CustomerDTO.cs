@@ -24,6 +24,9 @@ namespace MVC_MobileBankApp.Models.DTOs
         public string AccountNumber {get; set;}
         [PinValidation]
         public string Pin           {get; set;}
+        [DisplayName("Date Of Birth")] 
+        [Required]
+         public DateTime DOB  {get; set;}
          [Required]
         public int Age {get;set;}
         [Required]

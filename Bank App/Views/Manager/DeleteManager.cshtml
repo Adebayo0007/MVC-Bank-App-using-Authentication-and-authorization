@@ -46,7 +46,12 @@
    
     <br><br>
     </div>
-     <button asp-controller = "Manager" type="submit" asp-action="DeleteManager" asp-route-staffId=@Model.ManagerId><i class="bi bi-trash"></i>Yes</button>&nbsp;
+     <button onclick="myFunction()" asp-controller = "Manager" type="submit" asp-action="DeleteManager" asp-route-staffId=@Model.ManagerId><i class="bi bi-trash"></i>Yes</button>&nbsp;
     
         <a asp-controller="Manager" asp-action="Managers"><i class="bi bi-card-checklist"></i>Back to List</a>
+        <script>
+            function myFunction(){
+                    alert("Do you want to proceed ?")
+              }
+          </script>
     </form>

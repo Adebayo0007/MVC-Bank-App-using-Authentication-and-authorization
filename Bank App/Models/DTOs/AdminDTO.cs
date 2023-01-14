@@ -18,6 +18,9 @@ namespace MVC_MobileBankApp.Models.DTOs
         public int UserId {get;set;}
         [Key]
         public string StaffId  {get; set;}
+        [DisplayName("Date Of Birth")] 
+        [Required]
+        public DateTime DOB  {get; set;}
         // [Range(1,200)]
         public int Age {get;set;}
         [Required]

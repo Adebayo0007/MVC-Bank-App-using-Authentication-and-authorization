@@ -38,7 +38,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
                 Address = customer.Address,
-                Age = customer.Age,
+                Age = DateTime.Now.Year - customer.DOB.Year,
                 Gender = customer.Gender,
                 MaritalStatus = customer.MaritalStatus,
                 Email = customer.Email,

@@ -95,16 +95,23 @@
                             </td>
 
                              <td>
-                                <a asp-controller = "Admin" asp-action="DeleteAdmin" asp-route-staffId="@admin.StaffId"><i class="bi bi-trash"></i>Delete</a>
+                                <a onclick="myFunction()" asp-controller = "Admin" asp-action="DeleteAdmin" asp-route-staffId="@admin.StaffId"><i class="bi bi-trash"></i>Delete</a>
                             </td>
                             
                              <td>
-                                <a asp-controller = "Admin" asp-action="UpdateAdmin" asp-route-staffId="@admin.StaffId"><i class="bi bi-pencil-fill"></i>Edit</a>
+                                <a onclick="muFunction()" asp-controller = "Admin" asp-action="UpdateAdmin" asp-route-staffId="@admin.StaffId"><i class="bi bi-pencil-fill"></i>Edit</a>
                             </td>
                             <td>
                                 <a asp-controller = "Admin" asp-action="Details" asp-route-staffId="@admin.StaffId"><i class="bi bi-info-lg"></i>Details</a>
                             </td>
+                              <script>
+                              function myFunction(){
+                                alert("Do you want to proceed ?")
+                            }
+                        </script>
                         </tr>
+                        
+                        
                         
                     }
 
