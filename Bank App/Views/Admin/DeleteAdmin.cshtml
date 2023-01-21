@@ -1,5 +1,13 @@
 @using MVC_MobileBankApp.Models.DTOs
 @model AdminRequestModel
+<head>
+    <style>
+     
+  #trans:hover{
+    background-color: green;
+  }
+    </style>
+</head>
 <h3>Are you sure you want to Delete this Admin?</h3>
 @* <div asp-controller= "Admin" asp-action="DeleteAdminConfirmed" style="font-size: 130%;"> *@
     <hr />
@@ -102,13 +110,13 @@
     <br><br>
     </div>
      @* <a  asp-controller = "Admin" asp-action="DeleteAdmin" asp-route-staffId = "StaffId" >Delete</a>  *@
-     <button asp-controller = "Admin" type="submit" asp-action="DeleteAdmin" asp-route-staffId=@Model.StaffId><i class="bi bi-trash"></i>Yes</button>&nbsp;
+     <button id="trans" asp-controller = "Admin" type="submit" asp-action="DeleteAdmin" asp-route-staffId=@Model.StaffId><i class="bi bi-trash"></i>Yes</button>&nbsp;
       @* <div class="form-group ">
             <input href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal" /> &nbsp;
         </div> *@
 
         @* <button asp-controller="Admin" asp-action="DeleteAdmin" type = "Submit" class = "btn btn-danger" style = "width:150px">Delete</button> *@
         @* <input type="submit" value="DeleteAdmin" class="btn btn-danger" /> | *@
-        <a asp-controller="Admin" asp-action="Admins"><i class="bi bi-card-checklist"></i>Back to List</a>
+        <a id="trans" asp-controller="Admin" asp-action="Admins"><i class="bi bi-card-checklist"></i>Back to List</a>
     </form>
 @* </div> *@

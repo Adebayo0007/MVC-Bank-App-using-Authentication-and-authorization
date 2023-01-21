@@ -48,12 +48,13 @@ namespace MVC_MobileBankApp.Controllers
             if(admin != null)
             {
                 _service.CreateAdmin(admin);
-                TempData["success"] = "Admin Created Successfully";
+                TempData["success"] = $"{admin.FirstName} {admin.LastName} Created Successfully";
+                TempData.Keep();
                 return RedirectToAction("LogIn", "Home");
             }
             else
             {
-                ViewBag.Error = "Wrong Input";
+                TempData["error"] = "Wrong Input";
                return View();
             }
 

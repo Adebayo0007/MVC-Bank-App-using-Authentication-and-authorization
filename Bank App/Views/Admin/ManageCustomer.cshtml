@@ -1,5 +1,43 @@
+
+<head>
+    <style>
+           .overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1; 
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  #trans{
+    border: solid pink 1px;
+    width: 150px;
+    height: 100px;
+    background-color: #b58900;
+    text-align: center;
+  }
+  #trans:hover{
+    background-color: green;
+  }
+
+    </style>
+</head>
 @{
     ViewData["Title"] = "Admin Portal";
+}
+@if(TempData.Peek("success") != null )
+{
+    <h3 id="overlay" style="color: #b58900;">@TempData.Peek("success")</h3>
+}
+else
+{
+    <h3 id="overlay" style="color: #b58900;">@TempData.Peek("error")</h3>
 }
 
     
@@ -11,22 +49,22 @@
      <h1  style = "font-family:cabri;font-size : 30px;"class="display-4"><marquee direction = "left">Thanks for coming</marquee></h1>
 </div>
 <br><br><br>
-<div style="display: flex;gap:41%;">
+<div style="display: flex;gap:32%;">
      <div >
-            <a asp-controller = "Customer" asp-action = "Customers" class = "btn btn-primary">
+            <a id="trans" asp-controller = "Customer" asp-action = "Customers" class = "btn btn-primary">
                 <i class="bi bi-pencil-fill"></i>Manage Customer
 
             </a>
 </div>
 
  <div  >
-            <a asp-controller = "Customer" asp-action = "CreateCustomer"  class = "btn btn-primary">
+            <a id="trans" asp-controller = "Customer" asp-action = "CreateCustomer"  class = "btn btn-primary">
                 <i class = "bi bi-plus-circle"></i>Add Customer
 
             </a>
 </div>
 <div  >
-            <a asp-controller = "Transaction" asp-action = "IndexTransactionPage"  class = "btn btn-primary">
+            <a id="trans" asp-controller = "Transaction" asp-action = "IndexTransactionPage"  class = "btn btn-primary">
                  <i class="bi bi-pencil-fill"></i>Manage Transaction
 
             </a>

@@ -1,5 +1,38 @@
+<html>
+<head>
+    <style>
+         .overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1; 
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+
+
+    </style>
+
+</head>
+@* <body style="background-image: url('Bank App\wwwroot\back.webp');"> *@
+@* <body background="Bank App\wwwroot\back.webp')"> *@
+<body background="back.webp">
 @{
-    ViewData["Title"] = "Manager Portal";
+    ViewData["Title"] = "Transaction Portal";
+}
+@if(TempData.Peek("success") != null )
+{
+    <h3 id="overlay" style="color: #b58900;">@TempData.Peek("success")</h3>
+}
+else
+{
+    <h3 id="overlay" style="color: #b58900;">@TempData.Peek("error")</h3>
 }
 <h3 style = "font-family:cabri;font-size : 20px;">@ViewData["Title"]</h3>
 
@@ -9,11 +42,14 @@
 </div>
 <br><br><br>
 <div style="display: flex;gap:80%;">
-     <div >
-            <a asp-controller = "Transaction" asp-action = "Transactions" class = "btn btn-primary">
+     <div>
+            <a  asp-controller = "Transaction" asp-action = "Transactions" class = "btn btn-primary">
                 <i class="bi bi-box-arrow-in-right"></i>Manage Transaction
 
             </a>
 </div>
+@* <img style="float: left;" src="../passport.JPG" alt="bank" width="200px" height="200px"/> *@
 </div>
+</body>
+</html>
  

@@ -71,12 +71,12 @@
         </div><br>
          <div class = "form-row">
             <label asp-for = "ConfirmEmail" class = "control-label"></label>
-            <input type = "email" asp-for = "ConfirmEmail" class = "form-control"  placeholder="williams@gmail.com"/>
+            <input type = "email"  asp-for = "ConfirmEmail" class = "form-control"  placeholder="williams@gmail.com"/>
             <span asp-validation-for="ConfirmEmail" class="text-danger"></span>
         </div><br>
          <div class = "form-row">
             <label asp-for = "PassWord" class = "control-label"></label>
-            <input asp-for = "PassWord" type="password" id="pass" name="password" class = "form-control"  placeholder="Starting With capital letter,adding number and a character"/>
+            <input asp-for = "PassWord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" id="pass" name="password" class = "form-control"  placeholder="Password must be 6 characters,consist at least one capital letter,one small letter,and also a number"/>
             <span asp-validation-for="PassWord" class="text-danger"></span>
         </div><br>
          <div class = "form-row">

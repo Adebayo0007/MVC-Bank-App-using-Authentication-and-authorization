@@ -13,6 +13,12 @@
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/myCss/indexcss.css" /> *@
+    <style>
+     
+  #trans:hover{
+    background-color: green;
+  }
+    </style>
 </head>
 
 
@@ -91,7 +97,7 @@
         </dd><br>
    </dl><br><br>
 
-   <button style="background-color:darkblue;"><a asp-controller= "Admin" asp-action="Admins">Back to List</a></button>
+   <button id="trans" style="background-color:darkblue;"><a asp-controller= "Admin" asp-action="Admins">Back to List</a></button>
 
 
 

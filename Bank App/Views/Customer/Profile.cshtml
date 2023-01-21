@@ -1,0 +1,117 @@
+
+@* <h1>@Model.AccountNumber</h1>
+<h1>@Model.Pin</h1>
+<label value = "AccountNumber"></label>
+<input value="@Model.AccountNumber" readonly  class= "form-control"/> *@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        body{
+            background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(35,123,190,1) 35%, rgba(29,183,224,1) 83%, rgba(0,212,255,1) 100%);
+
+        }
+            .head-wrapper{
+                border: solid white 1px;
+                 background-color: #f4f5f7;
+                 height: 75px;
+                line-height: 24px;
+                padding: 0;
+                position: relative;
+                 z-index: 12;
+                 display: flex;
+                 flex-wrap: wrap;        
+
+   
+            }
+            .nav-left{
+                flex: 1 1 30px;
+                flex-wrap: wrap;
+            }
+            .center{
+               
+                width: 100%;
+                margin-top: solid grey 100px;
+                min-height: 1500px;
+                background: rgb(2,0,36);
+                background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(35,123,190,1) 0%, rgba(117,176,44,1) 0%, rgba(122,175,34,1) 14%, rgba(146,218,62,1) 30%, rgba(100,184,59,1) 55%, rgba(95,183,82,1) 80%, rgba(54,195,156,1) 100%, rgba(0,212,255,1) 100%);
+                border-radius: 100px;
+            }
+        </style>
+</head>
+<body>
+     <div class="head-wrapper">
+           <ul class="nav-left">
+            <li><img src="https://3.bp.blogspot.com/-0SybnD09NR4/UPXdOEtKbeI/AAAAAAAAAcM/7n5o2ONrHTU/s1600/Bank.jpg"alt="bank" width="70px" height="60px"></li> 
+           </ul>
+    </div>
+           <div><br></br>
+
+           <div  style="display: flex;gap:40%;">
+            &nbsp;
+            <span>
+                <video width="200" height="150"  autoplay >
+                <source src="https://www.shutterstock.com/shutterstock/videos/1063559872/preview/stock-footage-an-icon-in-the-form-of-a-medical-plaster-appears-and-disappears-unusually-against-the-background-of.webm" type = "video/webm" />
+            </video>
+                 @* <div style="float:  left;"><img src="https://www.shutterstock.com/image-vector/money-care-logo-600w-1233356827.jpg"alt="bank" width="100px" height="100px"></div> *@
+            </span>
+            <span>
+            </span>
+        </div><br><br>
+
+        
+         
+
+         <div  style="display: flex;gap:25%;">
+            <span>
+                <h2 style="color: white;">First Name: @Model.FirstName</h2>
+            </span>
+            <span >
+                  <h2 style="color: white;">Last Name: @Model.LastName</h2>
+            </span>
+        </div><br><br>
+
+        <div  style="display: flex;gap:25%;">
+            <span>
+                <h2 style="color: white;">Account Number: @Model.AccountNumber</h2>
+            </span>
+            <span >
+                  <h2 style="color: white;">Balance: @Model.AccountBalance</h2>
+            </span>
+        </div><br><br>
+
+         <div  style="display: flex;gap:25%;">
+            <span>
+                <h2 style="color: white;">Email: @Model.Email</h2>
+            </span>
+            <span >
+                  <h2 style="color: white;">Password: @Model.PassWord</h2>
+            </span>
+        </div><br><br>
+
+        <div  style="display: flex;gap:25%;">
+            <span>
+                <h2 style="color: white;">Gender: @Model.Gender</h2>
+            </span>
+            <span >
+                  <h2 style="color: white;">Account Type: @Model.AccountType</h2>
+            </span>
+        </div><br><br>
+
+    
+
+
+            @* <div style="float:  left;"><img src="https://www.shutterstock.com/image-vector/money-care-logo-600w-1233356827.jpg"alt="bank" width="100px" height="100px"></div> *@
+        </div>
+           <!-- <div class="center">
+        <div ></div> -->
+    </div>
+    
+</body>
+</html>

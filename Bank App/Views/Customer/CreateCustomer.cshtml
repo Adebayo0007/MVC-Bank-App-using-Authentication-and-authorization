@@ -76,7 +76,7 @@
          </div><br>
           <div class = "form-row">
             <label asp-for = "PassWord" class = "control-label"></label>
-            <input asp-for = "PassWord" type="password" id="pass" name="password" class = "form-control"  placeholder="Starting With capital letter,adding number and a character"/>
+            <input asp-for = "PassWord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" id="pass" name="password" class = "form-control"  placeholder="Password must be 6 characters,consist at least one capital letter,one small letter,and also a number"/>
             <span asp-validation-for="PassWord" class="text-danger"></span>
         </div><br>
          <div class = "form-row">
@@ -86,7 +86,7 @@
         </div><br>
          <div class = "form-row">
             <label asp-for = "Pin" class = "control-label"></label>
-            <input asp-for = "Pin" class = "form-control"  placeholder="Enter four secrete number"/>
+            <input asp-for = "Pin"  minlength="4" maxlength="4" class = "form-control"  placeholder="Enter four secrete number"/>
             <span asp-validation-for="Pin" class="text-danger"></span>
                  @* @Html.ValidationMessageFor(c => c.Pin) *@
 

@@ -1,6 +1,58 @@
+<head>
+    <style>
+            .overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1; 
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+    #trans{
+    border: solid pink 1px;
+    width: 150px;
+    height: 100px;
+    background-color: #b58900;
+    text-align: center;
+  }
+  #trans:hover{
+    background-color: green;
+  }
+  #overlay.test{
+    border: solid black 1px;
+    position: relative;
+    height: 90px;
+    width: 300px;
+    background-color: azure;
+    color: black;
+    font-size: small;
+    test-align: center;
+    border-radius: 20px;
+
+  }
+    </style>
+</head>
+<body>
 @{
     ViewData["Title"] = "Customer Portal";
 }
+@if(TempData.Peek("message") != null )
+{
+    <h3 id="overlay" class="test">@TempData.Peek("message")</h3>
+}
+@if(TempData.Peek("success") != null )
+{
+    <h3 id="overlay" style="color: #b58900;">@TempData.Peek("success")</h3>
+}
+
+
+
 <h3 style = "font-family:cabri;font-size : 20px;">@ViewData["Title"]</h3>
 
 <div class="text-center">
@@ -8,14 +60,22 @@
      <h1  style = "font-family:cabri;font-size : 30px;"class="display-4"><marquee direction = "left">Thanks for coming</marquee></h1>
 </div>
 <br><br><br>
-<div>
+<div style="display: flex;gap:80%;">
      <div >
-            <a asp-controller = "Transaction" asp-action = "CreateTransaction" class = "btn btn-primary">
+            <a id="trans" asp-controller = "Transaction" asp-action = "CreateTransaction" class = "btn btn-primary">
                 <i class="bi bi-pencil-fill"></i>Make Transaction
 
             </a>
 </div>
+<div >
+            <a id="trans" asp-controller = "Customer" asp-action = "Profile" class = "btn btn-primary">
+                <i class="bi bi-pencil-fill"></i>Profile
+
+            </a>
+</div>
+
 
  
 </div>
+</body>
  

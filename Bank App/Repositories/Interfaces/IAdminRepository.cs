@@ -9,7 +9,7 @@ namespace MVC_MobileBankApp.Repositories
        Admin UpdateAdmin (Admin admin);
        Admin DeleteAdminUsingId(Admin admin);
        Admin Login (string email, string passWord);
-       Admin GetAdminById(string adminId);
+       Admin GetAdminById(string staffId);
        IList<Admin> GetAllAdmin();
          
     }

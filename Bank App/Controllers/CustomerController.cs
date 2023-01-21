@@ -43,12 +43,13 @@ namespace MVC_MobileBankApp.Controllers
             if(customer != null)
             {
                 _service.CreateCustomer(customer);
-                TempData["success"] = "Registration Successfully";
+                 TempData["success"] = $"{customer.FirstName} {customer.LastName} Created Successfully";
+                TempData.Keep();
                 return RedirectToAction("LogIn", "Home");
             }
             else
             {
-                ViewBag.Error = "Wrong Input";
+                TempData["error"] = "Wrong Input";
                return View();
             }
             
@@ -174,6 +175,15 @@ namespace MVC_MobileBankApp.Controllers
         //     }     
             var customer = _service.GetCustomerByAccountnumber(accountNumber);
             return View(customer);
+        }
+        [Authorize(Roles="Customer")]
+        [HttpGet]
+        public IActionResult Profile(string accountNumber)
+        {
+            accountNumber = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var customerProfile = _service.GetCustomerByAccountnumber(accountNumber);
+            return View(customerProfile);
+
         }
 
 

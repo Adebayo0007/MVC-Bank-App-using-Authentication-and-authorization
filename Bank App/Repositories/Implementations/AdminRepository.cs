@@ -26,9 +26,9 @@ namespace MVC_MobileBankApp.Repositories.Implementations
             return admin;
         }
 
-        public Admin GetAdminById(string adminId)
+        public Admin GetAdminById(string staffId)
         {
-            var admin =_context.Admins.SingleOrDefault(a => a.StaffId == adminId);
+            var admin =_context.Admins.SingleOrDefault(a => a.StaffId == staffId);
             // return _context.Admins.Find(adminId);
             return admin;
         }

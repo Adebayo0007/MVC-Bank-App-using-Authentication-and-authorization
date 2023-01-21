@@ -45,19 +45,32 @@ namespace MVC_MobileBankApp.Services.Implementations
 
         public UserDTO Login(string email, string passWord)
         {
-           
+           var userDto = new UserDTO();
             var user = _userRepository.Login(email,passWord);
-            return new UserDTO{
-                    Id  = user.Id,
-                    Email  = user.Email,
-                    Customer = user.Customer,
-                    Admin = user.Admin,
-                    Manager = user.Manager,
-                    Ceo = user.Ceo,
-                    IsActive = user.IsActive,
-                    PassWord = user.PassWord,
-                    Role  = user.Role
-            };
+             if(user == null)
+            {
+                userDto.Message = $"Invalid Email or Password";
+                return userDto;
+            }
+            if(user.IsActive == false)
+            {
+                userDto.Message = $"You are not an Active User";
+                return userDto;
+
+            }
+            
+                    userDto.Id  = user.Id;
+                    userDto.Email  = user.Email;
+                    userDto.Customer = user.Customer;
+                    userDto.Admin = user.Admin;
+                    userDto.Manager = user.Manager;
+                    userDto.Ceo = user.Ceo;
+                    userDto.IsActive = user.IsActive;
+                    userDto.PassWord = user.PassWord;
+                    userDto.Role  = user.Role;
+        
+            
+            return userDto;
                 
         }
 

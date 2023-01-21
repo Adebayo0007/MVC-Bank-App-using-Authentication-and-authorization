@@ -3,13 +3,69 @@
      <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] MobileBankApp</title>
+    <style>
+        @* .overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1; 
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+  } *@
+  body {
+    opacity: 0.8;
+  }
+  
+  #email:valid, #pass:valid{
+      color: green;
+      border: solid red 1.5px;
+  }
+  #email:invalid, #pass:invalid{
+      color: red;
+  }
+  @* #email {
+      animation: [animation-1], [animation-2], [animation-3];
+      } *@
+  
+  #email:hover,#pass:hover {
+    background: rgba(255, 99, 71, 0);
+  }
+  #overlay:hover{
+      text-align: center;
+  }
+  #login{
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    border-radius:  15px;
+    box-shadow: 0 9px #999 ;
+    
+  }
+  #login:hover{
+    background-color: green;
+  }
+  #login:active{
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+
+  }
+ 
+    </style>
 </head>
 <div>
     <h1  class="text-center" style = "font-family:cabri;font-size : 60px; color: #b58900;"class="display-4">Welcome</br>To Our Banking System</h1>
 </div>
  <br><br><br> <br>
   
-<body style="background-image: url('https://ceoworld.biz/wp-content/uploads/2016/07/Financial-Services-Companies.jpg');"width="200" height="200">
+<body id="overlay" style="background-image: url('https://ceoworld.biz/wp-content/uploads/2016/07/Financial-Services-Companies.jpg');"width="200" height="200">
     <h3 style="text-align: center ;color :Red;"> @ViewBag.Error</h3>
  
 <div class="container">
@@ -17,29 +73,27 @@
         <div class=" card col-md-6">
             <div class="card-body ">
                 
-                <form asp-action="LogIn" enctype="multipart/form-data">
+                <form asp-action="LogIn" enctype="multipart/form-data" >
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-row">
-                         </div>
+                    @if(TempData.Peek("logmessage") != null )
+                    {
+                        <h3  style="color: red; text-align: center;">@TempData.Peek("logmessage")</h3>
+                    }
+                                        <div class="form-row"> </div>
                         <div style="color:green; font-family:cabri; text-align:center; font-size: 25px;" class="form-group col-sm-6">
                             <label asp-for="Email" class="control-label"></label>
-                            <input type = "email" asp-for="Email" class="form-control" />
+                            <input id="email" type = "email" asp-for="Email" class="form-control" />
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div><br>
                         <div style="color:orange; font-family:cabri; text-align:center; font-size: 25px;" class="form-group col-sm-6">
                             <label asp-for="PassWord" class="control-label"></label>
-                            <input asp-for="PassWord" type="password" id="pass" name="password" class="form-control" />
+                            <input id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" asp-for="PassWord" type="password" id="pass" name="password" class="form-control" />
                             <span asp-validation-for="PassWord" class="text-danger"></span>
                        </div><br><br>
                         <div>
                         
-                               <button onclick="myFunction()" style=" font-family:cabri; font-size: 20px;" href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Login</button>
+                               <button id="login" style=" font-family:cabri; font-size: 20px;" href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Login</button>
                         </div>
-                        <script>
-                            function myFunction(){
-                                alert("Do you want to proceed ?")
-                            }
-                        </script>
                 </form>
             </div>
         </div>

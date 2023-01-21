@@ -32,27 +32,22 @@ namespace MVC_MobileBankApp.Controllers
          public IActionResult CreateTransaction(TransactionDTO transaction)
         {
             transaction.AccountNumber = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            if(transaction != null)
-            {
+            // var transac = _transactionService.CreateTransaction(transaction);
                 var transact = _transactionService.CreateTransaction(transaction);
-                if(transact != null)
-                {
-                    TempData["success"] = "Transaction Successfully";
-                    TempData.Peek("success");
-                }
-                else
-                {
-                   TempData["error"] = "Invalid Transaction"; 
-                   TempData.Peek("error");
-                }
-                return RedirectToAction("ManageTransaction", "Customer");
+            if(transact.Message != null )
+            {
+               TempData["message"] = transaction.Message; 
+                 TempData.Keep();
+               return View();
+                    
             }
             else
             {
                 // ViewBag.Error = "Wrong Input";
-                 TempData["error"] = "Invalid Transaction"; 
-                 TempData.Peek("error");
-               return View();
+                TempData["message"] = $"Transaction Successful {transact.SuccessMessage}";
+                    TempData.Keep("message");
+                     return RedirectToAction("ManageTransaction", "Customer");
+                 
             }
         }
 

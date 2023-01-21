@@ -13,7 +13,7 @@ namespace MVC_MobileBankApp.Models.DTOs
         [DisplayName("Transaction Type")]
          [Required]
         public TransactionType TransactType {get; set;}
-        public string Description {get;set;}
+        public string? Description {get;set;}
 
          [DisplayName("Account Number")]
         public string AccountNumber{get;set;}
@@ -28,7 +28,8 @@ namespace MVC_MobileBankApp.Models.DTOs
          [DisplayName("Date Created")]
         public DateTime DateCreated {get;set;} = DateTime.Now;
         public string? RecipientAccountNumber {get; set;}
-        
+        public string? Message {get; set;}
+        public string? SuccessMessage {get; set;}
     }
 
          public class TransactionRequestModel

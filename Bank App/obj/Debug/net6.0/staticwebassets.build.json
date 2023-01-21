@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QmG+5c5V4HmFT+sU/4OlhdVYmwqGqI3xXemNKtKg1CQ=",
+  "Hash": "ee6RK+BxY44OhyoHbneHuu9nFp868QACV6nr7aHMIAE=",
   "Source": "MVC MobileBankApp",
   "BasePath": "_content/MVC MobileBankApp",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootswatchTheme.css"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\LoginStyle.css",
+      "SourceId": "MVC MobileBankApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\",
+      "BasePath": "_content/MVC MobileBankApp",
+      "RelativePath": "css/LoginStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\LoginStyle.css"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\site.css",

@@ -40,7 +40,8 @@ namespace MVC_MobileBankApp.Controllers
             if(manager != null)
             {
                 _service.CreateManager(manager);
-                TempData["success"] = "Manager Created Successfully";
+              TempData["success"] = $"{manager.FirstName} {manager.LastName} Created Successfully";
+                TempData.Keep();
                 return RedirectToAction("LogIn", "Home");
             }
             else

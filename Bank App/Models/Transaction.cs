@@ -13,7 +13,7 @@ namespace MVC_MobileBankApp.Models
         public string RefNum{get;set;}
         [DisplayName("Transaction Type")]
         public TransactionType TransactType {get; set;}
-        public string Description {get;set;}
+        public string? Description {get;set;}
 
         [ForeignKey("AccountNumber")]
         [DisplayName("Account Number")]

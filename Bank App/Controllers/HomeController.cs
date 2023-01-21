@@ -45,11 +45,16 @@ public class HomeController : Controller
                 return NotFound();
             }
             var user = _service.Login(email,passWord);
-            if (user == null || user.IsActive == false)
-            {
-                 ViewBag.Error = "Invalid Email or PassWord";
-                return View();
+            // if (user == null || user.IsActive == false)
+            // {
+            //       TempData["error"] = "Invalid Email or Password"; 
+            //    return View();
                 
+            // }
+            if(user.Message != null)
+            {
+                 TempData["logmessage"] = user.Message; 
+                  return View();
             }
 
             //session
@@ -120,6 +125,8 @@ public class HomeController : Controller
         {
             HttpContext.Session.Clear();
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+             TempData["success"] = $"{request.Email} Logged out Successfully";
+                TempData.Keep();
             return RedirectToAction(nameof(LogIn));
         }
 

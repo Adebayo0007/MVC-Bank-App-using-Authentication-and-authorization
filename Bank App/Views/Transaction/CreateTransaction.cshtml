@@ -4,11 +4,36 @@
 @using MVC_MobileBankApp.Models.Enum
 
 
-@if(ViewData != null)
-{
-    <h2>@TempData["success"]</h2>
-}
+<head>
+    <style>
+         .overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: red; 
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  #trans:hover{
+    background-color: green;
+  }
+    </style>
 
+</head>
+@if(TempData.Peek("message") != null )
+{
+    <h3 id="overlay" style="color: red;">@TempData.Peek("message")</h3>
+}
+@* else
+{
+    <h3 id="overlay" style="color: #b58900;">@TempData.Peek("error")</h3>
+} *@
 
 <head>
      <meta charset="utf-8" />
@@ -21,6 +46,7 @@
 <h3 style = "font-family:cabri;font-size : 20px;">Welcome to Transaction<br><marquee direction = "left">Page</marquee></h3>
 <div style="font-size: 130%;">
     <hr />
+    
     <div id = "reg-form">
     <form enctype="multipart/form-data" asp-action="CreateTransaction" method="post">
           <div class="form-row">
@@ -39,7 +65,7 @@
           
             <label  class = "control-label">Recipient Account Number if Transfer</label>
             <input asp-for = "RecipientAccountNumber"  class = "form-control" placeholder="0123456789" />
-            <span asp-validation-for="AccountNumber" class="text-danger"></span>
+            <span asp-validation-for="RecipientAccountNumber" class="text-danger"></span>
 
         </div><br>
         <div class = "form-row">
@@ -54,12 +80,12 @@
         </div><br>
         <div>
             <label asp-for = "Pin" class = "control-label"></label>
-            <input asp-for = "Pin" class = "form-control"  placeholder="1234"/>
+            <input type="password" asp-for = "Pin"  minlength="4" maxlength="4" class = "form-control"  placeholder="1234"/>
             <span asp-validation-for="Pin" class="text-danger"></span>
         </div><br><br><br>
         <div>
             
-            <button href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Submit</button>
+            <button id="trans" href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Submit</button>
         </div>
        
     </form>

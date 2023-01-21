@@ -3,6 +3,13 @@
 @using MVC_MobileBankApp.Models.Enum
 @using MVC_MobileBankApp.Models.DTOs
 @model CustomerRequestModel
+<head>
+    <style>
+        #trans:hover{
+    background-color: green;
+  }
+    </style>
+</head>
 
 
 <h3>Edit Customer</h3>
@@ -65,6 +72,6 @@
      <div class="form-group ">
             <input href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal" />
         </div><br>
-        <a asp-controller="Customer" asp-action="Customers">Back to List</a>
+        <a id="trans" asp-controller="Customer" asp-action="Customers">Back to List</a>
     </form>
 </div>

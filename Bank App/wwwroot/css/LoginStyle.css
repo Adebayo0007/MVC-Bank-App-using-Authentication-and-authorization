@@ -1,0 +1,35 @@
+.overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1; 
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  body {
+    opacity: 0.8;
+  }
+  
+  #email:valid, #pass:valid{
+      color: green;
+      border: solid red 1px;
+  }
+  #email:invalid, #pass:invalid{
+      color: red;
+  }
+  #email {
+      animation: [animation-1], [animation-2], [animation-3];
+      }
+  
+  #email:hover,#pass:hover {
+    background: rgba(255, 99, 71, 0);
+  }
+  #overlay:hover{
+      text-align: center;
+  }

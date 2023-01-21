@@ -13,6 +13,11 @@
      <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] MobileBankApp</title>
+    <style>
+        #trans:hover{
+            background-color: green;
+        }
+    </style>
   
 </head>
 
@@ -67,7 +72,7 @@
          </div><br>
           <div class = "form-row">
             <label asp-for = "PassWord" class = "control-label"></label>
-            <input asp-for = "PassWord" type="password" id="pass" name="password" class = "form-control"  placeholder="Starting With capital letter,adding number and a character"/>
+            <input asp-for = "PassWord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" id="pass" name="password" class = "form-control"  placeholder="Password must be 6 characters,consist at least one capital letter,one small letter,and also a number"/>
             <span asp-validation-for="PassWord" class="text-danger"></span>
         </div><br>
          <div class = "form-row">
@@ -78,7 +83,7 @@
         <br><br><br>
         <div>
             
-            <button href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Submit</button>
+            <button id="trans" href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Submit</button>
         </div>
        
     </form>

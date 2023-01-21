@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\MVC MobileBankApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\LoginStyle.css",
+      "PackagePath": "staticwebassets\\css\\LoginStyle.css"
+    },
+    {
       "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\bootswatchTheme.css",
       "PackagePath": "staticwebassets\\css\\bootswatchTheme.css"
     },

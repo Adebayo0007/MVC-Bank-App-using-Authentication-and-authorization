@@ -1,6 +1,12 @@
 @using MVC_MobileBankApp.Models.DTOs
 @model ManagerRequestModel
-
+<head>
+    <style>
+        #trans:hover{
+    background-color: green;
+  }
+    </style>
+</head>
 
 <h3>Are you sure you want to Delete this Manager?</h3>
     <hr />
@@ -46,9 +52,9 @@
    
     <br><br>
     </div>
-     <button onclick="myFunction()" asp-controller = "Manager" type="submit" asp-action="DeleteManager" asp-route-staffId=@Model.ManagerId><i class="bi bi-trash"></i>Yes</button>&nbsp;
+     <button id="trans" onclick="myFunction()" asp-controller = "Manager" type="submit" asp-action="DeleteManager" asp-route-staffId=@Model.ManagerId><i class="bi bi-trash"></i>Yes</button>&nbsp;
     
-        <a asp-controller="Manager" asp-action="Managers"><i class="bi bi-card-checklist"></i>Back to List</a>
+        <a id="trans" asp-controller="Manager" asp-action="Managers"><i class="bi bi-card-checklist"></i>Back to List</a>
         <script>
             function myFunction(){
                     alert("Do you want to proceed ?")
