@@ -216,6 +216,50 @@ namespace MVC_MobileBankApp.Controllers
         }
 
 
+        [Authorize(Roles="Admin")]
+        [HttpGet]
+        public IActionResult Profile(string staffId)
+        {
+            staffId = User.FindFirst(ClaimTypes.PrimarySid).Value;
+            var adminProfile = _service.GetAdminById(staffId);
+            return View(adminProfile);
+
+        }
+
+
+
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+         public IActionResult UpdateProfile(string staffId)
+        {       
+            staffId = User.FindFirst(ClaimTypes.PrimarySid).Value;
+            if(staffId == null)
+            {
+                return NotFound();
+            }
+            var admin = _service.GetAdminById(staffId);
+            if(admin == null)
+            {
+                return NotFound();
+            }
+            return View(admin);
+        }
+
+
+        [Authorize]
+        [HttpPost , ActionName("UpdateProfile")]
+        [ValidateAntiForgeryToken]
+         public IActionResult UpdateProfile(AdminRequestModel admin)
+        {
+            _service.UpdateAdmin(admin);
+            return RedirectToAction(nameof(Profile));
+        }
+
+
+        
+
+
 
         
     }

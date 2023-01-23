@@ -87,7 +87,8 @@ namespace MVC_MobileBankApp.Services.Implementations
                 DateCreated = customer.DateCreated,
                 AccountNumber = customer.AccountNumber,
                 Pin = customer.Pin,
-                AccountType = customer.AccountType
+                AccountType = customer.AccountType,
+                AccountBalance = customer.AccountBalance
 
             };
         }

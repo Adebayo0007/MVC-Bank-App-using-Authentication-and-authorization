@@ -188,5 +188,38 @@ namespace MVC_MobileBankApp.Controllers
 
 
 
+
+        [Authorize(Roles = "Customer")]
+        [HttpGet]
+         public IActionResult UpdateProfile(string accountNumber)
+        {       
+            accountNumber = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            if(accountNumber == null)
+            {
+                return NotFound();
+            }
+            var customer = _service.GetCustomerByAccountnumber(accountNumber);
+            if(customer == null)
+            {
+                return NotFound();
+            }
+            return View(customer);
+        }
+
+
+        [Authorize]
+        [HttpPost , ActionName("UpdateProfile")]
+        [ValidateAntiForgeryToken]
+         public IActionResult UpdateProfile(CustomerRequestModel customer)
+        {
+            _service.UpdateCustomer(customer);
+            return RedirectToAction(nameof(Profile));
+        }
+
+
+        
+
+
+
     }
 }

@@ -1,8 +1,8 @@
-@* @model MVC_MobileBankApp.Models.Customer *@
+
 @using MVC_MobileBankApp.Enum
 @using MVC_MobileBankApp.Models.Enum
 @using MVC_MobileBankApp.Models.DTOs
-@model CustomerRequestModel
+@model ManagerRequestModel
 <head>
     <style>
         #trans:hover{
@@ -12,24 +12,19 @@
 </head>
 
 
-<h3>Edit Customer</h3>
-<div asp-controller= "Customer" asp-action="UpdateCustomer" style="font-size: 130%;">
+<h3>Edit Your Profile</h3>
+<div asp-controller= "Manager" asp-action="UpdateProfile" style="font-size: 130%;">
     <hr />
-    <form asp-action="UpdateCustomer">
-        <input asp-for = "AccountNumber" hidden/>
+    <form asp-action="UpdateProfile">
         <div> 
             <div>
-                <label asp-for = "AccountNumber"></label>
-                <input asp-for = "AccountNumber" readonly  class= "form-control"/>
+                <label asp-for = "ManagerId"></label>
+                <input asp-for = "ManagerId" readonly  class= "form-control"/>
                 
             </div><br>
              <div>
                 <label asp-for="MaritalStatus" class="control-label"></label>
                  <select asp-for = "MaritalStatus" asp-items="Html.GetEnumSelectList<MaritalStatusType>()"></select>
-            </div><br>
-            <div class="form-row">
-                <label asp-for="AccountType" class="control-label"></label>
-                 <select asp-for = "AccountType" asp-items="Html.GetEnumSelectList<AccountType>()"></select>
             </div><br>
             <div>
                 <label asp-for = "FirstName"></label>
@@ -52,13 +47,20 @@
                 <input asp-for = "Gender" readonly class= "form-control"/>
             </div><br>
             <div>
+                <label asp-for = "Email"></label>
+                <input asp-for = "Email"  class= "form-control"/>
+            </div><br>
+            <div>
+                <label asp-for = "PassWord"></label>
+                <input asp-for = "PassWord"  class= "form-control"/>
+            </div><br>
+            <div>
                 <label>Registration Date</label>
                 <input asp-for = "DateCreated" readonly class= "form-control"/>
             </div> <br> <br>
-  
      <div class="form-group ">
             <input href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal" />
         </div><br>
-        <a id="trans" asp-controller="Customer" asp-action="Customers">Back to List</a>
+        <a id="trans" asp-controller="Manager" asp-action="Profile">Back to Profile</a>
     </form>
 </div>
