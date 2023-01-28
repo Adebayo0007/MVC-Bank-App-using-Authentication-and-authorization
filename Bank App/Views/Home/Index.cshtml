@@ -1,4 +1,123 @@
-﻿<head>
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+     <link rel="stylesheet" href="~/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,700;0,900;1,400;1,600;1,900&family=Poppins:ital,wght@0,300;0,500;0,600;0,800;1,300;1,700&family=Rufina:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="body">
+
+<div class="con">
+        <div class="top-section">
+        <h2>@ViewData["Title"]</h2>
+        
+
+
+            @* <nav>
+                <div id="logo">foodie.</div>
+                <ul class="nav-items">
+                    <li class="active">Home</li>
+                    <li>About Us</li>
+                    <li>Menu</li>
+                    <li>Contact</li>
+                </ul>
+                <div class="nav-icons">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-pinterest-p"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i id="search" class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </nav> *@
+            <div class="content">
+                <p id="best">
+                    <span id="line"></span>
+                    <span> Banking Service</span>
+                </p>
+                <h1 style="color: #b58900;">Welcome To Our Bank</h1>
+                <p style="color: black;"><strong>&nbsp; Thank For Using Our Service !.</strong></p>
+                 <a asp-controller = "Home" asp-action = "LogIn" ><div id="btn"><i class="bi bi-box-arrow-in-right"></i> Login</div></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="offers">
+            <div>
+                <p>The Perfect Offer for you</p>
+                <p id="text">FROM OUR BANKING SYSTEM</p>
+            </div>
+            <div class="offer-content">
+                <div class="offer-items">
+                    <img src="https://ceoworld.biz/wp-content/uploads/2016/07/Financial-Services-Companies.jpg" alt="" height="500px" width="500px">
+                    <p>Buy Your Airtime</p>
+                    <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the
+                        upper surface of the</p>
+                </div>
+                <div class="offer-items">
+                    <img src="https://ceoworld.biz/wp-content/uploads/2016/07/Financial-Services-Companies.jpg" alt="">
+                    <p>Make Transaction</p>
+                    <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the
+                        upper surface of the</p>
+                </div>
+                <div class="offer-items">
+                    <img src="https://ceoworld.biz/wp-content/uploads/2016/07/Financial-Services-Companies.jpg" alt="">
+                    <p>Banking With Us</p>
+                    <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the
+                        upper surface of the</p>
+                </div>
+            </div>
+        </div>
+        <div class="story-con">
+
+            <div class="story">
+                <div class="story-content">
+                    <div>
+                        <h1>Our Awesome Restaurant</h1>
+                        <p>DISCOVER OUR STORY</p>
+                    </div>
+                    <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the
+                        upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into
+                        the inner sanctuary, I throw myself down among the tall grass by the trickling stream; and,
+                        as I lie close to the earth, a thousand unknown plants are noticed by me.</p>
+                    <div id="btn">READ MORE</div>
+                </div>
+                <div class="gallery">
+                    <div id="frame"></div>
+                    <img id="salad" src="assets/salad.jpg" alt="">
+                    <img id="chicken" src="assets/chicken.png" alt="">
+                </div>
+            </div>
+        </div>
+        </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* 
+
+<head>
     <style>
         .overlay {
   position: absolute; 
@@ -25,7 +144,7 @@ body {
     ViewData["Title"] = "Home Page";
 }
 <body id="overlay" style="background-image: url('https://ceoworld.biz/wp-content/uploads/2016/07/Financial-Services-Companies.jpg');"width="200" height="200">
-@* <body style="background-image: url('https://www.bing.com/images/blob?bcid=qIhpG0D5GAwFrZ94Rg4HX7rwkSEZ.....8w');"width="100%" height="auto"> *@
+
 <div class="text-center">
     <h1  style = "font-family:cabri;font-size : 75px; color: #b58900;"class="display-4">Welcome</br>To Our Banking System</h1>
     <br><br><br><br>
@@ -42,9 +161,9 @@ body {
 </div> <br><br><br><br><br><br>
     <p style = "font-size : 15px;font-family:cabri;color: blue"><b>Click here<a href="https://youtu.be/8Xk3XFz4c1Y"> To Know more on Registration</a>.</b></p>
    
-    @* <img src="https://ceoworld.biz/wp-content/uploads/2016/07/Financial-Services-Companies.jpg"  width="200" height="200"> *@
+    
     <p style = "font-size : 15px;font-family:cabri;color: blue;"><b>Click here<a href="hhttps://youtu.be/0KHZY5kRLYk"> To Know more on USSD Code</a>.</b></p>
     <p style = "font-family:cabri;font-size : 35px;color: #b58900;"class="display-4"><marquee direction = "left"> Thanks for Using Our Services</marquee></p>
 </div>
 </div>
-</body>
+</body> *@

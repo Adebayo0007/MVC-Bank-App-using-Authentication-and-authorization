@@ -1,0 +1,283 @@
+:root {
+    --primary-colour: #ff5d20;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.con {
+    width: 100vw;
+}
+
+
+.body {
+    background-image: url('https://ceoworld.biz/wp-content/uploads/2016/07/Financial-Services-Companies.jpg') !important;
+    background-size: contain;
+    height: 100vh;
+    color: white;
+    padding: 0 30px;
+    /* opacity: 0.8; */
+    
+    
+}
+
+.top-section nav {
+    height: 15%;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+#logo {
+    flex: 1;
+    font-size: 30px;
+    letter-spacing: 5px;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-items {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    font-size: 19px;
+    font-family: 'Poppins', sans-serif;
+
+
+}
+
+.nav-items li {
+    transition: all .3s;
+}
+
+.nav-items li.active {
+    border-bottom: 3px solid white;
+}
+
+.nav-items li:hover {
+    cursor: pointer;
+    border-bottom: 3px solid var(--primary-colour);
+    color: var(--primary-colour);
+}
+
+.nav-icons {
+    flex-basis: 25%;
+    display: flex;
+    gap: 30px;
+    font-size: 20px;
+
+}
+
+#search {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+}
+
+.top-section .content {
+    height: 85%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+#line {
+    border: 1px solid white;
+    width: 100px;
+    height: 1px;
+    margin-right: 15px;
+}
+
+#best {
+    align-items: center;
+    display: flex;
+    letter-spacing: 5px;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.top-section .content h1 {
+    font-size: 89px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.top-section .content p:nth-child(3) {
+    font-size: 19px;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(255 255 255 / 69%);
+}
+
+
+.top-section #btn {
+    margin-left: 70px;
+    letter-spacing: 2px;
+    padding: 20px 40px;
+    background: var(--primary-colour);
+    color: white;
+    width: 200px;
+    font-family: 'Poppins', sans-serif;
+    transition: all .3s;
+}
+
+.top-section #btn:hover {
+    cursor: pointer;
+    background-color: #cf2e2e;
+}
+
+.offers {
+    height: auto;
+    padding: 100px 30px;
+}
+
+.offers>div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.offers div:first-child p:first-child {
+    color: black;
+    font-family: 'Rufina', serif;
+    font-size: 43px;
+}
+
+#text {
+    color: var(--primary-colour);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+.offer-content {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    margin-top: 150px;
+}
+
+.offer-items {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.offer-items img {
+    height: 350px;
+    width: 350px;
+}
+
+.offer-items p:nth-child(2) {
+    color: #1a1a1a;
+    font-family: 'Rufina', serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.offer-items p:last-child {
+    color: #545454;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.story-con{
+    width: 100%;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+.story{
+    padding: 50px 30px 30px;
+    display: flex;
+    gap: 50px;
+    height: 100vh;
+}
+
+.story-content{
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    height: 100%;
+    justify-content: center;
+    padding: 10px;
+    
+}
+
+.story-content h1{
+    color: black;
+    font-size: 43px;
+    font-family: 'Rufina', serif;
+}
+
+.story-content p:nth-child(2){
+    color: var(--primary-colour);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.story-content>p:nth-child(2){
+    color: #545454;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.story-content #btn{
+    letter-spacing: 2px;
+    padding: 15px 40px;
+    color: black;
+    border: 1px solid black;
+    width: 200px;
+    font-family: 'Poppins', sans-serif;
+    transition: all .3s;
+}
+
+.story-content #btn:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.story .gallery{
+    overflow: hidden;
+    flex-basis: 60%;
+    position: relative;
+
+}
+
+#frame{
+    width: 440px;
+    height: 500px;
+    background: #dbdbdb;
+    position: absolute;
+    left: 150px;
+}
+
+#salad{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+}
+
+#chicken{
+    position: absolute;
+    width: 500px;
+    height: 350px;
+    left: 0;
+    bottom: -90px;
+}

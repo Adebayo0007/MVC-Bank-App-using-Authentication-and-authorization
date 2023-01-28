@@ -16,7 +16,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             _userRepo = userRepo;
 
         }
-        public Manager CreateManager(ManagerDTO manager)
+        public ManagerDTO CreateManager(ManagerDTO manager)
         {
               var user = new User
             {
@@ -28,6 +28,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             var use = _userRepo.CreateUser(user);
             var rand = new Random();
              manager.ManagerId = "ZENITH-MANAGER-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +manager.FirstName[0]+manager.FirstName[1]+manager.FirstName[2]+rand.Next(0,9).ToString();
+             manager.AdminRegistrationCode = AdminRegistrationCode();
              manager.UserId = use.Id;
              manager.IsActive = true;
 
@@ -44,9 +45,29 @@ namespace MVC_MobileBankApp.Services.Implementations
                 PhoneNumber = manager.PhoneNumber,
                 PassWord = manager.PassWord,
                 DateCreated = manager.DateCreated,
-                UserId = use.Id    
+                UserId = use.Id,
+                AdminRegistrationCode = manager.AdminRegistrationCode
              };
-             return  _repo.CreateManager(legitManager);  
+             _repo.CreateManager(legitManager);  
+
+              return new ManagerDTO {
+                ManagerId = manager.ManagerId,
+                IsActive = manager.IsActive,
+                FirstName = manager.FirstName,
+                LastName = manager.LastName,
+                Address = manager.Address,
+                Age = DateTime.Now.Year - manager.DOB.Year,
+                Gender = manager.Gender,
+                MaritalStatus = manager.MaritalStatus,
+                Email = manager.Email,
+                PhoneNumber = manager.PhoneNumber,
+                PassWord = manager.PassWord,
+                DateCreated = manager.DateCreated,
+                UserId = use.Id,
+                AdminRegistrationCode = manager.AdminRegistrationCode,
+                Message = $"Your Admin Pass Code is : {manager.AdminRegistrationCode}"
+             };
+              
         }
 
         public Manager DeleteManager(string managerId)
@@ -78,7 +99,9 @@ namespace MVC_MobileBankApp.Services.Implementations
                 PhoneNumber = manager.PhoneNumber,
                 PassWord = manager.PassWord,
                 DateCreated = manager.DateCreated,
-                IsActive = manager.IsActive
+                IsActive = manager.IsActive,
+                AdminRegistrationCode = manager.AdminRegistrationCode
+                
 
             };
         }
@@ -87,6 +110,12 @@ namespace MVC_MobileBankApp.Services.Implementations
         {
              var manager = _repo.Login(email,passWord);
              return manager;
+        }
+        public Manager Code(int code)
+        {
+             var manager = _repo.Code(code);
+             return manager;
+
         }
 
         public void UpdateManager(ManagerRequestModel manager)
@@ -113,6 +142,16 @@ namespace MVC_MobileBankApp.Services.Implementations
             managerr.Address = manager.Address ?? managerr.Address;
             managerr.MaritalStatus = manager.MaritalStatus;
              _repo.UpdateManager(managerr);
+        }
+
+            public int AdminRegistrationCode()
+        {
+             
+                var code = new Random().Next(100,300);
+                return code;
+
+               
+
         }
     }
 }

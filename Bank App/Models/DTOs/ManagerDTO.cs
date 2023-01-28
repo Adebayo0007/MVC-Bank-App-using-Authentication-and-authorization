@@ -39,6 +39,9 @@ namespace MVC_MobileBankApp.Models.DTOs
         [Required]
         public string PassWord {get;set;}
         public bool IsActive {get;set;} 
+        public int AdminRegistrationCode {get;set;} 
+        public List<Admin> Admins = new List<Admin>();
+        public string? Message {get; set;}
         public DateTime DateCreated {get; set;} = DateTime.Now;
         
     }
@@ -71,6 +74,9 @@ namespace MVC_MobileBankApp.Models.DTOs
         [Required]
         public string PassWord {get;set;}
         public bool IsActive {get;set;} 
+        public int AdminRegistrationCode {get;set;} 
+        public List<Admin> Admins = new List<Admin>();
+        public string? Message {get; set;}
         public DateTime DateCreated {get; set;}
 
 

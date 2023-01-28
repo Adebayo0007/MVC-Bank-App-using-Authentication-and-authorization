@@ -1,11 +1,14 @@
 @using MVC_MobileBankApp.Models.DTOs
 @model TransactionDTO
-@* @using MVC_MobileBankApp.Enum *@
 @using MVC_MobileBankApp.Models.Enum
 
 
 <head>
-    <style>
+     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]MobileBankApp</title>
+       <style>
+        
          .overlay {
     position: absolute; 
     bottom: 0; 
@@ -26,21 +29,10 @@
     </style>
 
 </head>
-@if(TempData.Peek("message") != null )
+@* @if(TempData.Peek("message") != null )
 {
     <h3 id="overlay" style="color: red;">@TempData.Peek("message")</h3>
-}
-@* else
-{
-    <h3 id="overlay" style="color: #b58900;">@TempData.Peek("error")</h3>
 } *@
-
-<head>
-     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]MobileBankApp</title>
-  
-</head>
 
 
 <h3 style = "font-family:cabri;font-size : 20px;">Welcome to Transaction<br><marquee direction = "left">Page</marquee></h3>
@@ -53,14 +45,6 @@
                 <label asp-for="TransactType" class="control-label"></label>
                  <select asp-for = "TransactType" asp-items="Html.GetEnumSelectList<TransactionType>()"></select>
         </div><br>
-
-         @* <div class = "form-row">
-          
-            <label asp-for = "AccountNumber" class = "control-label"></label>
-            <input asp-for = "AccountNumber"   class = "form-control" placeholder="0123456789"/>
-            <span asp-validation-for="AccountNumber" class="text-danger"></span>
-
-        </div><br> *@
          <div class = "form-row">
           
             <label  class = "control-label">Recipient Account Number if Transfer</label>
@@ -91,6 +75,14 @@
     </form>
     </div>
 </div>
+@if(TempData.Peek("message") != null )
+{
+  <script type="text/javascript">
+  window.onload = function(){
+    alert("@TempData.Peek("message")")
+  }
+  </script>
+}
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -15,6 +15,9 @@ namespace MVC_MobileBankApp.Models.DTOs
         public string LastName {get;set;}
         [Required]
         public string Address {get;set;}
+        public int ManagerId {get; set;}
+        //public string? Identity {get; set;}
+        
         public int UserId {get;set;}
         [Key]
         public string StaffId  {get; set;}
@@ -42,6 +45,12 @@ namespace MVC_MobileBankApp.Models.DTOs
         [Required]
         public string PassWord {get;set;}
          public bool IsActive {get;set;} 
+          [DisplayName("Admin Pass Code")]
+         [Required]
+         public int ManagerPass {get;set;}
+          [DisplayName("Confirm Pass")]
+        [Compare("ManagerPass")]
+        public int ConfirmManagerPass {get;set;}
         public DateTime DateCreated {get; set;} = DateTime.Now;
          
         
@@ -58,6 +67,8 @@ namespace MVC_MobileBankApp.Models.DTOs
         public string LastName {get;set;}
         [Required]
         public string Address {get;set;}
+         public int ManagerId {get; set;}
+        public string Identity {get; set;}
         public int UserId {get;set;}
         [Key]
         public string StaffId  {get; set;}
@@ -76,6 +87,7 @@ namespace MVC_MobileBankApp.Models.DTOs
         [Required]
         public string PassWord {get;set;}
          public bool IsActive {get;set;} 
+         public int ManagerPass {get;set;}
         public DateTime DateCreated {get; set;} 
     
         

@@ -5,10 +5,11 @@ namespace MVC_MobileBankApp.Services.Interfaces
 {
     public interface IManagerService
     {
-        Manager CreateManager (ManagerDTO manager);
+        ManagerDTO CreateManager (ManagerDTO manager);
        void UpdateManager (ManagerRequestModel manager);
        Manager DeleteManager(string managerId);
        Manager Login (string email, string passWord);
+       Manager Code(int code);
        ManagerRequestModel GetManagerById(string managerId);
        IList<Manager> GetAllManager();
          

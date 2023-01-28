@@ -42,10 +42,8 @@
 @{
     ViewData["Title"] = "Customer Portal";
 }
-@if(TempData.Peek("message") != null )
-{
-    <h3 id="overlay" class="test">@TempData.Peek("message")</h3>
-}
+@* <h3 id="demo"></h3> *@
+
 @if(TempData.Peek("success") != null )
 {
     <h3 id="overlay" style="color: #b58900;">@TempData.Peek("success")</h3>
@@ -73,9 +71,14 @@
 
             </a>
 </div>
-
-
- 
 </div>
+@if(TempData.Peek("message") != null )
+{
+  <script type="text/javascript">
+  window.onload = function(){
+    alert("@TempData.Peek("message")")
+  }
+  </script>
+}
 </body>
  

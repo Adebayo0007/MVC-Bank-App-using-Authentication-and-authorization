@@ -41,6 +41,11 @@ namespace MVC_MobileBankApp.Repositories.Implementations
             var manager = _context.Managers.SingleOrDefault(a => a.Email == email && a.PassWord == passWord);
             return manager;
         }
+          public Manager Code(int code)
+        {
+            var manager = _context.Managers.SingleOrDefault(a => a.AdminRegistrationCode == code);
+            return manager;
+        }
 
         public Manager UpdateManager(Manager manager)
         {
@@ -48,5 +53,6 @@ namespace MVC_MobileBankApp.Repositories.Implementations
             _context.SaveChanges();
             return manager;
         }
+
     }
 }

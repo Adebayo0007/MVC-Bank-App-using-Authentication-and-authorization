@@ -5,6 +5,38 @@
       "PackagePath": "staticwebassets\\MVC MobileBankApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\appbg.webp",
+      "PackagePath": "staticwebassets\\assets\\appbg.webp"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\bj.jpeg",
+      "PackagePath": "staticwebassets\\assets\\bj.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\chicken.png",
+      "PackagePath": "staticwebassets\\assets\\chicken.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\food1.png",
+      "PackagePath": "staticwebassets\\assets\\food1.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\food2.png",
+      "PackagePath": "staticwebassets\\assets\\food2.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\food3.png",
+      "PackagePath": "staticwebassets\\assets\\food3.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\foodiebg.jpg",
+      "PackagePath": "staticwebassets\\assets\\foodiebg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\salad.jpg",
+      "PackagePath": "staticwebassets\\assets\\salad.jpg"
+    },
+    {
       "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\LoginStyle.css",
       "PackagePath": "staticwebassets\\css\\LoginStyle.css"
     },
@@ -15,6 +47,10 @@
     {
       "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
       "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\favicon.ico",

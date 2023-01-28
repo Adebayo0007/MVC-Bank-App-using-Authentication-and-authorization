@@ -47,7 +47,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                    Description = transaction.Description,
                    TransactType = transaction.TransactType
                 };
-                transaction.SuccessMessage = $"Tnx: Credit Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}* Amt: NGN {transaction.Amount} Your Ref Number: {transaction.RefNum} Your balance is: # {customer.AccountBalance} Date: {transaction.DateCreated}";
+                transaction.SuccessMessage = $"Tnx: Credit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n Amt: NGN {transaction.Amount}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
                check =  _transactionRepo.CreateTransaction(transact);   
 
             }
@@ -78,13 +78,13 @@ namespace MVC_MobileBankApp.Services.Implementations
                                         Description = transaction.Description,
                                         TransactType = transaction.TransactType
                              };
-                              transaction.SuccessMessage = $"\n\tTnx: Debit\n\tAcc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}* \n\tVAT: NGN {charges} Amt: NGN {transaction.Amount}\n\tFrom: {transaction.AccountNumber}\n\t Your Ref Number: {transaction.RefNum}\n\tYour balance is: # {customer.AccountBalance}\n\tDate: {transaction.DateCreated}";
+                              transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
                             _transactionRepo.CreateTransaction(transact); 
 
                         }
                         else
                         {
-                             transaction.Message = $"You are having low balance";
+                             transaction.Message = $"Oops!\\nYou are having low balance";
                               return transaction;
                         }
                            
@@ -92,7 +92,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                     }
                     else
                     {
-                         transaction.Message = $"Go to the bank and Upgrade your account";
+                         transaction.Message = $"Oops!\\nGo to the bank and Upgrade your account";
                          return transaction;
                     }
 
@@ -121,12 +121,12 @@ namespace MVC_MobileBankApp.Services.Implementations
                                 Description = transaction.Description,
                                 TransactType = transaction.TransactType
                            };
-                            transaction.SuccessMessage = $"\n\tTnx: Debit\n\tAcc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}* \n\tVAT: NGN {charges} Amt: NGN {transaction.Amount}\n\tFrom: {transaction.AccountNumber}\n\t Your Ref Number: {transaction.RefNum}\n\tYour balance is: # {customer.AccountBalance}\n\tDate: {transaction.DateCreated}";
+                            transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
                              _transactionRepo.CreateTransaction(transact); 
                     }
                      else
                         {
-                             transaction.Message = $"You are having low balance";
+                             transaction.Message = $"Oops!\\nYou are having low balance";
                               return transaction;
                         }
                 }
@@ -142,35 +142,35 @@ namespace MVC_MobileBankApp.Services.Implementations
                     if(customer.AccountBalance <= 200000)
                     {
                         if(transaction.Amount <= customer.AccountBalance)
-                        {
-                            if(transaction.Amount >= 2000)
-                            {
-                                charges = transaction.Amount*0.005;
-                                customer.AccountBalance-=charges;
-                                
-                            }
-                             customer.AccountBalance-=transaction.Amount;
-                             reciever.AccountBalance+=transaction.Amount;
-                             transaction.AccountBalance = customer.AccountBalance;
-                            transaction.RefNum= RefNum();
-                              var transact = new Transaction{
-                                AccountBalance = customer.AccountBalance,
-                                AccountNumber = customer.AccountNumber,
-                                RefNum = transaction.RefNum,
-                                Amount = transaction.Amount,
-                                RecipientAccountNumber = transaction.RecipientAccountNumber,
-                                Pin = transaction.Pin,
-                                DateCreated = transaction.DateCreated,
-                                Description = transaction.Description,
-                                TransactType = transaction.TransactType
-                           };
-                           transaction.SuccessMessage = $"\n\tTnx: Debit\n\tAcc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}* \n\tVAT: NGN {charges} Amt: NGN {transaction.Amount}\n\tFrom: {transaction.AccountNumber}\n\t To: {reciever.AccountNumber}\n\t Your Ref Number: {transaction.RefNum}\n\tYour balance is: # {customer.AccountBalance}\n\tDate: {transaction.DateCreated}";
-                            _transactionRepo.CreateTransfer(transact); 
+                        { 
+                                    if(transaction.Amount >= 2000)
+                                    {
+                                        charges = transaction.Amount*0.005;
+                                        customer.AccountBalance-=charges;
+                                        
+                                    }
+                                    customer.AccountBalance-=transaction.Amount;
+                                    reciever.AccountBalance+=transaction.Amount;
+                                    transaction.AccountBalance = customer.AccountBalance;
+                                    transaction.RefNum= RefNum();
+                                    var transact = new Transaction{
+                                        AccountBalance = customer.AccountBalance,
+                                        AccountNumber = customer.AccountNumber,
+                                        RefNum = transaction.RefNum,
+                                        Amount = transaction.Amount,
+                                        RecipientAccountNumber = transaction.RecipientAccountNumber,
+                                        Pin = transaction.Pin,
+                                        DateCreated = transaction.DateCreated,
+                                        Description = transaction.Description,
+                                        TransactType = transaction.TransactType
+                                };
+                                transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n To: {reciever.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
+                                _transactionRepo.CreateTransfer(transact); 
 
                         }
                         else
                         {
-                             transaction.Message = $"You are having low balance";
+                             transaction.Message = $"Oops!\\nYou are having low balance";
                               return transaction;
                         }
                            
@@ -178,7 +178,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                     }
                      else
                     {
-                         transaction.Message = $"Go to the bank and Upgrade your account";
+                         transaction.Message = $"Oops!\\nGo to the bank and Upgrade your account";
                          return transaction;
                     }
 
@@ -208,12 +208,12 @@ namespace MVC_MobileBankApp.Services.Implementations
                                 Description = transaction.Description,
                                 TransactType = transaction.TransactType
                              };
-                              transaction.SuccessMessage = $"\n\tTnx: Debit\n\tAcc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}* \n\tVAT: NGN {charges} Amt: NGN {transaction.Amount}\n\tFrom: {transaction.AccountNumber}\n\t To: {reciever.AccountNumber}\n\t Your Ref Number: {transaction.RefNum}\n\tYour balance is: # {customer.AccountBalance}\n\tDate: {transaction.DateCreated}";
+                              transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n  VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n To: {reciever.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
                             _transactionRepo.CreateTransfer(transact); 
                     }
                      else
                         {
-                             transaction.Message = $"You are having low balance";
+                             transaction.Message = $"Oops!\\nYou are having low balance";
                               return transaction;
                         }
                 }
@@ -243,13 +243,13 @@ namespace MVC_MobileBankApp.Services.Implementations
                                 Description = transaction.Description,
                                 TransactType = transaction.TransactType
                             };
-                            transaction.SuccessMessage = $"\n\tTnx: Debit\n\tAcc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}* \n\t Amt: NGN {transaction.Amount}\n\tFrom: {transaction.AccountNumber} \n\t Your Ref Number: {transaction.RefNum}\n\tYour balance is: # {customer.AccountBalance}\n\tDate: {transaction.DateCreated}";
+                            transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n  Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Your balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
                              _transactionRepo.CreateTransaction(transact); 
 
                         }
                         else
                         {
-                             transaction.Message = $"You are having low balance";
+                             transaction.Message = $"Oops!\\nYou are having low balance";
                               return transaction;
                         }
                            
@@ -257,7 +257,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                     }
                         else
                     {
-                         transaction.Message = $"Go to the bank and Upgrade your account";
+                         transaction.Message = $"Oops!\\nGo to the bank and Upgrade your account";
                          return transaction;
                     }
 
@@ -280,12 +280,12 @@ namespace MVC_MobileBankApp.Services.Implementations
                                 Description = transaction.Description,
                                 TransactType = transaction.TransactType
                              };
-                             transaction.SuccessMessage = $"\n\tTnx: Debit\n\tAcc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}* \n\t Amt: NGN {transaction.Amount}\n\tFrom: {transaction.AccountNumber} \n\t Your Ref Number: {transaction.RefNum}\n\tYour balance is: # {customer.AccountBalance}\n\tDate: {transaction.DateCreated}";
+                             transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
                              _transactionRepo.CreateTransaction(transact); 
                     }
                      else
                         {
-                             transaction.Message = $"You are having low balance";
+                             transaction.Message = $"Oops!\\nYou are having low balance";
                               return transaction;
                         }
                 }  
@@ -293,7 +293,7 @@ namespace MVC_MobileBankApp.Services.Implementations
            }
            else
            {
-            transaction.Message = $"wrong pin";
+            transaction.Message = $"Oops!\\nWrong pin";
              return transaction;
            }
            

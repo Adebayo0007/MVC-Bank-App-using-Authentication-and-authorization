@@ -83,7 +83,7 @@
                 <h2 style="color: white;">Account Number: @Model.AccountNumber</h2>
             </span>
             <span >
-                  <h2 style="color: white;">Balance: @Model.AccountBalance</h2>
+                  <h2 style="color: white;">Balance:# @Model.AccountBalance</h2>
             </span>
         </div><br><br>
 
@@ -91,8 +91,8 @@
             <span>
                 <h2 style="color: white;">Email: @Model.Email</h2>
             </span>
-            <span >
-                  <h2 style="color: white;">Password: @Model.PassWord</h2>
+           <span>
+                <a style=" color: white;" id="trans" asp-controller="Customer" asp-action="CustomerTransactions"><h2 style="color: white;">Statement Of Account</h2></a>
             </span>
         </div><br><br>
 
@@ -114,10 +114,6 @@
             </span>
             
         </div><br><br>
-    </div>
-
-
-
      <div  style="display: flex;gap:25%;">
         &nbsp;
             <span>

@@ -16,6 +16,8 @@ namespace MVC_MobileBankApp.Models
         public string LastName {get;set;}
         [Required]
         public string Address {get;set;}
+        public int ManagerId {get; set;}
+       // public string? Identity {get; set;}
         public int UserId {get;set;}
         [Key]
         public string StaffId  {get; set;}
@@ -33,6 +35,7 @@ namespace MVC_MobileBankApp.Models
         [Required]
         public string PassWord {get;set;}
          public bool IsActive {get;set;} 
+          public int ManagerPass {get;set;}
         public DateTime DateCreated {get; set;} = DateTime.Now;
          
         

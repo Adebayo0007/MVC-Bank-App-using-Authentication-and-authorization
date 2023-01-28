@@ -1,10 +1,8 @@
 @using MVC_MobileBankApp.Models.DTOs
 @model AdminDTO
 @using MVC_MobileBankApp.Enum
-@if(ViewData != null)
-{
-    <h2>@TempData["success"]</h2>
-}
+
+
 
 <head>
      <meta charset="utf-8" />
@@ -20,6 +18,10 @@
     <hr />
     <div id = "reg-form">
     <form enctype="multipart/form-data" asp-action="CreateAdmin" method="post">
+    @if(TempData.Peek("error") != null )
+{
+    <h2 style="color: red; text-align: center;">@TempData.Peek("error")</h2>
+}
         <div class = "form-row">
             @* <label><b>First Name</b></label>
             <input type = "text" name="FirstName"/> *@
@@ -83,6 +85,16 @@
             <label asp-for = "PhoneNumber" class = "control-label"></label>
             <input asp-for = "PhoneNumber" class = "form-control"  placeholder="+2348034254356"/>
             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div><br>
+        <div class = "form-row">
+            <label asp-for = "ManagerPass" class = "control-label"></label>
+            <input asp-for = "ManagerPass" class = "form-control"  placeholder="Input Your Admin Pass Code"/>
+            <span asp-validation-for="ManagerPass" class="text-danger"></span>
+        </div><br>
+        <div class = "form-row">
+            <label asp-for = "ConfirmManagerPass" class = "control-label"></label>
+            <input asp-for = "ConfirmManagerPass" class = "form-control"  placeholder="Input Your Admin Pass Code"/>
+            <span asp-validation-for="ConfirmManagerPass" class="text-danger"></span>
         </div><br>
         <br><br>
         @Html.AntiForgeryToken()

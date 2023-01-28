@@ -9,17 +9,9 @@ namespace MVC_MobileBankApp.Services.Implementations
     public class UserService : IUserService
     {
          private readonly IUserRepository _userRepository;
-         private readonly ICustomerRepository _customerRepository;
-         private readonly IAdminRepository _adminRepository;
-         private readonly IManagerRepository _managerRepository;
-         private readonly ICEORepository _ceoRepository;
-        public UserService(IUserRepository userRepository,ICustomerRepository customerRepository,IAdminRepository adminRepository,IManagerRepository managerRepository,ICEORepository ceoRepository)
+        public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _ceoRepository = ceoRepository;
-            _customerRepository = customerRepository;
-            _adminRepository = adminRepository;
-            _managerRepository = managerRepository;
         }
 
         public User CreateUser(User user)

@@ -4,7 +4,7 @@ namespace MVC_MobileBankApp.Models.Enum
     {
         Student = 1,
         Savings,
-        Current,
+        Current ,
         Business,
         Joint,
     }

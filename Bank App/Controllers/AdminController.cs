@@ -11,10 +11,12 @@ namespace MVC_MobileBankApp.Controllers
     public class AdminController : Controller
     {
         private readonly IAdminService _service;
+        private readonly IManagerService _managerService;
 
-        public AdminController(IAdminService service)
+        public AdminController(IAdminService service, IManagerService managerService)
         {
             _service = service;
+            _managerService = managerService;
         }
         //  [Authorize(Roles = "Admin,Manager,CEO")]
         [HttpGet]
@@ -37,13 +39,20 @@ namespace MVC_MobileBankApp.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult CreateAdmin(AdminDTO admin)
         {
+            
             //Validation condition
 
             // if(!ModelState.IsValid)
             // {
             //     return View("CreateAdmin", admin);
             // }
-
+           var manager = _managerService.Code(admin.ManagerPass);
+           if(manager == null)
+           {
+              TempData["error"] = "Wrong Pass Code";
+              TempData.Keep();
+               return View();
+           }
 
             if(admin != null)
             {
@@ -223,11 +232,7 @@ namespace MVC_MobileBankApp.Controllers
             staffId = User.FindFirst(ClaimTypes.PrimarySid).Value;
             var adminProfile = _service.GetAdminById(staffId);
             return View(adminProfile);
-
         }
-
-
-
 
         [Authorize(Roles = "Admin")]
         [HttpGet]
@@ -255,12 +260,6 @@ namespace MVC_MobileBankApp.Controllers
             _service.UpdateAdmin(admin);
             return RedirectToAction(nameof(Profile));
         }
-
-
-        
-
-
-
-        
+    
     }
 }

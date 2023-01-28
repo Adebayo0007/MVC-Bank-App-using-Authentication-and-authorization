@@ -8,7 +8,9 @@ namespace MVC_MobileBankApp.Repositories.Interfaces
         Manager UpdateManager(Manager manager);
         Manager DeleteManager(Manager manager);
        Manager Login(string email, string passWord);
+        Manager Code(int code);
        Manager GetManagerById(string managerId);
        IList<Manager> GetAllManager(); 
+    //    IList<Admin>   ManagerAdmins();
     }
 }

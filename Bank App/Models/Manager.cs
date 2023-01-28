@@ -34,6 +34,8 @@ namespace MVC_MobileBankApp.Models
         [Required]
         public string PassWord {get;set;}
          public bool IsActive {get;set;} 
+         public int AdminRegistrationCode {get;set;} 
+         public List<Admin> Admins = new List<Admin>();
 
         public DateTime DateCreated {get; set;} = DateTime.Now;
          

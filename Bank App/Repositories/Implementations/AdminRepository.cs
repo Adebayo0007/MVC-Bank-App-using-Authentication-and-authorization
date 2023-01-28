@@ -50,6 +50,10 @@ namespace MVC_MobileBankApp.Repositories.Implementations
             _context.SaveChanges();
             return admin;
         }
+        public IList<Admin> GetAdmins(int adminPass)
+        {
+             return _context.Admins.Where(a => a.ManagerPass == adminPass).ToList();
+        }
 
         // Admin IAdminRepository.CreateAdmin(Admin admin)
         // {

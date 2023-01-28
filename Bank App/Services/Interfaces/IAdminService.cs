@@ -11,6 +11,7 @@ namespace MVC_MobileBankApp.Services.Interfaces
        Admin Login (string email, string passWord);
        AdminRequestModel GetAdminById(string adminId);
        IList<Admin> GetAllAdmin();
+        IList<Admin> GetAdmins(int adminPass);
          
     }
 }

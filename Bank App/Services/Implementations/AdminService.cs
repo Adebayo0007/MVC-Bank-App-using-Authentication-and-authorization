@@ -43,7 +43,8 @@ namespace MVC_MobileBankApp.Services.Implementations
                 PhoneNumber = admin.PhoneNumber,
                 PassWord = admin.PassWord,
                 DateCreated = admin.DateCreated,
-                UserId = use.Id    
+                UserId = use.Id,
+                ManagerPass = admin.ManagerPass
              };
            
              return  _repo.CreateAdmin(legitAdmin);  
@@ -114,6 +115,13 @@ namespace MVC_MobileBankApp.Services.Implementations
             adminn.MaritalStatus = admin.MaritalStatus;
             _repo.UpdateAdmin(adminn);
         }
+
+         public IList<Admin> GetAdmins(int adminPass)
+         {
+             return _repo.GetAdmins(adminPass);
+            
+            
+         }
 
        
     }

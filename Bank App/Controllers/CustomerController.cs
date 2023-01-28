@@ -12,10 +12,12 @@ namespace MVC_MobileBankApp.Controllers
     public class CustomerController : Controller
     {
          private readonly ICustomerService _service;
+         private readonly ITransactionService _transactionService;
 
-        public CustomerController(ICustomerService service)
+        public CustomerController(ICustomerService service, ITransactionService transactionService)
         {
             _service = service;
+            _transactionService = transactionService;
         }
 
        
@@ -215,6 +217,17 @@ namespace MVC_MobileBankApp.Controllers
             _service.UpdateCustomer(customer);
             return RedirectToAction(nameof(Profile));
         }
+
+
+        [Authorize(Roles = "Customer")]
+         public IActionResult CustomerTransactions(string  accountNumber)
+        {
+            accountNumber = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var transaction = _transactionService.GetAllTransactionUsingAccountNumber(accountNumber);
+            return View(transaction);
+            
+        }
+
 
 
         

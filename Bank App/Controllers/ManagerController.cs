@@ -11,10 +11,12 @@ namespace MVC_MobileBankApp.Controllers
     public class ManagerController : Controller
     {
          private readonly IManagerService _service;
+           private readonly IAdminService _adminService;
 
-        public ManagerController(IManagerService service)
+        public ManagerController(IManagerService service, IAdminService adminService)
         {
             _service = service;
+            _adminService = adminService;
         }
         //   [Authorize(Roles = "Manager, CEO")] 
         [HttpGet]
@@ -39,8 +41,9 @@ namespace MVC_MobileBankApp.Controllers
         {
             if(manager != null)
             {
-                _service.CreateManager(manager);
+               var manage = _service.CreateManager(manager);
               TempData["success"] = $"{manager.FirstName} {manager.LastName} Created Successfully";
+              TempData["message"] = manage.Message;
                 TempData.Keep();
                 return RedirectToAction("LogIn", "Home");
             }
@@ -182,7 +185,7 @@ namespace MVC_MobileBankApp.Controllers
 
         }
 
-         [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager")]
         [HttpGet]
          public IActionResult UpdateProfile(string managerId)
         {       
@@ -208,6 +211,14 @@ namespace MVC_MobileBankApp.Controllers
             _service.UpdateManager(manager);
             return RedirectToAction(nameof(Profile));
         }
+
+         public IActionResult MyAdmins(string passCode)
+         {
+             passCode = User.FindFirst(ClaimTypes.Hash).Value;
+              var admins =_adminService.GetAdmins(int.Parse(passCode));
+            return View(admins);
+
+         }
 
 
         

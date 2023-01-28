@@ -76,6 +76,7 @@ public class HomeController : Controller
                  new Claim(ClaimTypes.NameIdentifier , (user.Role == "Customer") ? user.Customer.AccountNumber:""),
                  new Claim(ClaimTypes.PrimarySid , (user.Role == "Admin") ? user.Admin.StaffId:""),
                    new Claim(ClaimTypes.PrimaryGroupSid , (user.Role == "Manager") ? user.Manager.ManagerId:""),
+                   new Claim(ClaimTypes.Hash , (user.Role == "Manager") ? user.Manager.AdminRegistrationCode.ToString():""),
                     // new Claim(ClaimTypes.NameIdentifier , (user.Role == "Manager") ? user.Manager.ManagerId:""),
                     
                 new Claim(ClaimTypes.Role , (user.Role == "Customer") ? "Customer":""),
