@@ -9,7 +9,7 @@
     <div class="container p-3">
         <div class ="row pt-4">
             <div class = "col-6">
-                <h2 calss = "text-primary">All Managers</h2>
+                <h2 calss = "text-primary">All Managers (@TempData.Peek("managers").ToString())</h2>
             </div>
             <div>
                 <table class= "table table-bordered table-striped" style= "width:100%">
@@ -98,9 +98,9 @@
                                 <a  asp-controller = "Manager" asp-action="DeleteManager" asp-route-managerId="@manager.ManagerId"><i class="bi bi-trash"></i>Delete</a>
                             </td>
                             
-                             <td>
+                             @* <td>
                                 <a asp-controller = "Manager" asp-action="UpdateManager" asp-route-managerId="@manager.ManagerId"><i class="bi bi-pencil-fill"></i>Edit</a>
-                            </td>
+                            </td> *@
                             <td>
                                 <a asp-controller = "Manager" asp-action="ManagerDetails" asp-route-managerId="@manager.ManagerId"><i class="bi bi-info-lg"></i>Details</a>
                             </td>
@@ -114,4 +114,7 @@
 
         </div>
 
+    </div>
+    <div>
+         <button onclick="window.print()">Print this page</button>
     </div>

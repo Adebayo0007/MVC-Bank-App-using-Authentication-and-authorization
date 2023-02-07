@@ -49,6 +49,17 @@
 
 
 }
+/* #tool{
+    display: flex;
+    border: solid red 1px; 
+    width: 50px;
+    height: 20px;
+   
+}
+#tool a{
+    flex-direction: column;
+
+} */
 
 .nav-items li {
     transition: all .3s;

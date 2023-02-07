@@ -55,8 +55,7 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public IList<Transaction> GetAllTransactionUsingAccountNumber(string accountNumber)
         {
-            return _context.Transactions.Where(a => a.AccountNumber == accountNumber).ToList();
-
+            return _context.Transactions.Where(a => a.AccountNumber == accountNumber || a.RecipientAccountNumber == accountNumber).ToList();
             
         }
 

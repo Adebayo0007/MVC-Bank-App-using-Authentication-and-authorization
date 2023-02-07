@@ -2,6 +2,7 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs;
@@ -13,11 +14,17 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
      private readonly IUserService _service;
+       private readonly IAdminService _adminService;
+       private readonly ICustomerService _customerService;
+        private readonly IManagerService _managerService;
 
-    public HomeController(ILogger<HomeController> logger,IUserService service)
+    public HomeController(ILogger<HomeController> logger,IUserService service, IAdminService adminService, ICustomerService customerService, IManagerService managerService)
     {
         _logger = logger;
         _service = service;
+        _adminService = adminService;
+        _customerService = customerService;
+        _managerService = managerService;
     }
 
     public IActionResult Index()
@@ -45,6 +52,9 @@ public class HomeController : Controller
                 return NotFound();
             }
             var user = _service.Login(email,passWord);
+            var admin = _adminService.GetAdminByEmail(user.Email);
+            var customer = _customerService.GetCustomerByEmail(user.Email);
+            var manager = _managerService.GetManagerByEmail(user.Email);
             // if (user == null || user.IsActive == false)
             // {
             //       TempData["error"] = "Invalid Email or Password"; 
@@ -54,6 +64,7 @@ public class HomeController : Controller
             if(user.Message != null)
             {
                  TempData["logmessage"] = user.Message; 
+                 TempData.Keep();
                   return View();
             }
 
@@ -73,10 +84,14 @@ public class HomeController : Controller
                 //new Claim(ClaimTypes.Name , lecturer.LastName + " " +lecturer.FirstName),
                 new Claim(ClaimTypes.Email , user.Email),
                  new Claim(ClaimTypes.Name , user.PassWord),
-                 new Claim(ClaimTypes.NameIdentifier , (user.Role == "Customer") ? user.Customer.AccountNumber:""),
-                 new Claim(ClaimTypes.PrimarySid , (user.Role == "Admin") ? user.Admin.StaffId:""),
-                   new Claim(ClaimTypes.PrimaryGroupSid , (user.Role == "Manager") ? user.Manager.ManagerId:""),
-                   new Claim(ClaimTypes.Hash , (user.Role == "Manager") ? user.Manager.AdminRegistrationCode.ToString():""),
+                 new Claim(ClaimTypes.NameIdentifier , (user.Role == "Customer") ? customer.AccountNumber:""),
+                  new Claim(ClaimTypes.Country , (user.Role == "Customer") ? customer.FirstName:""),
+                   new Claim(ClaimTypes.CookiePath , (user.Role == "Customer") ? customer.LastName:""),
+                    new Claim(ClaimTypes.PrimarySid , (user.Role == "Admin") ? admin.StaffId:""),
+                      new Claim(ClaimTypes.PrimaryGroupSid , (user.Role == "Manager") ? manager.ManagerId:""),
+                      new Claim(ClaimTypes.Hash , (user.Role == "Manager") ? manager.AdminRegistrationCode.ToString():""),
+
+                    new Claim(ClaimTypes.Anonymous , user.Email.ToString()),
                     // new Claim(ClaimTypes.NameIdentifier , (user.Role == "Manager") ? user.Manager.ManagerId:""),
                     
                 new Claim(ClaimTypes.Role , (user.Role == "Customer") ? "Customer":""),
@@ -133,6 +148,16 @@ public class HomeController : Controller
             return RedirectToAction(nameof(LogIn));
         }
 
+            [Authorize(Roles = "CEO")] 
+         public IActionResult Users()
+        {
+            var users = _service.GetAllUser();
+            string user = _service.NumberOfUsers();
+             TempData["users"] = user;
+                TempData.Keep();
+            return View(users);
+        }
+
 
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -140,4 +165,5 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    
 }

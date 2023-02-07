@@ -11,5 +11,7 @@ namespace MVC_MobileBankApp.Repositories.Interfaces
        Customer Login(string email, string passWord);
        Customer GetCustomerByAccountnumber(string accountNumber);
        IList<Customer> GetAllCustomer(); 
+       string NumberOfCustomer();
+       Customer GetCustomerByEmail(string email);
     }
 }

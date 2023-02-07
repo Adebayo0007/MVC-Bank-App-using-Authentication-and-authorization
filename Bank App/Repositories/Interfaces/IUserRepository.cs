@@ -9,7 +9,9 @@ namespace MVC_MobileBankApp.Repositories.Interfaces
         User CreateUser(User user);
         User Login(string email,string passWord);
         User GetUserById(int id);
+        User GetUserByEmail(string email);
        IList<User> GetAllUser(); 
+       string NumberOfUsers();
 
     }
 }

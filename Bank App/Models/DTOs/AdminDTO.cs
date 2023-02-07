@@ -51,6 +51,7 @@ namespace MVC_MobileBankApp.Models.DTOs
           [DisplayName("Confirm Pass")]
         [Compare("ManagerPass")]
         public int ConfirmManagerPass {get;set;}
+        public string? Message { get; set;}
         public DateTime DateCreated {get; set;} = DateTime.Now;
          
         

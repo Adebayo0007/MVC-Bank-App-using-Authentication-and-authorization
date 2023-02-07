@@ -5,12 +5,14 @@ namespace MVC_MobileBankApp.Services.Interfaces
 {
     public interface ICustomerService
     {
-        Customer CreateCustomer(CustomerDTO customer);
+        CustomerDTO CreateCustomer(CustomerDTO customer);
         void UpdateCustomer(CustomerRequestModel customer);
-       Customer DeleteCustomer(string customerId);
+       CustomerRequestModel DeleteCustomer(string customerId);
        Customer Login(string email, string passWord);
        CustomerRequestModel GetCustomerByAccountnumber(string accountNumber);
        IList<Customer> GetAllCustomer(); 
+       Customer GetCustomerByEmail(string email);
+       string NumberOfCustomer();
          
     }
 }

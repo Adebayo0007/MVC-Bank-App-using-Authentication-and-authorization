@@ -22,6 +22,10 @@
 {
     <h2 style="color: red; text-align: center;">@TempData.Peek("error")</h2>
 }
+         @if(TempData["age"] != null)
+             {
+                <h3 style="color: red;">@TempData["age"]</h3>
+               }
         <div class = "form-row">
             @* <label><b>First Name</b></label>
             <input type = "text" name="FirstName"/> *@
@@ -86,21 +90,19 @@
             <input asp-for = "PhoneNumber" class = "form-control"  placeholder="+2348034254356"/>
             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
         </div><br>
-        <div class = "form-row">
-            <label asp-for = "ManagerPass" class = "control-label"></label>
-            <input asp-for = "ManagerPass" class = "form-control"  placeholder="Input Your Admin Pass Code"/>
-            <span asp-validation-for="ManagerPass" class="text-danger"></span>
-        </div><br>
-        <div class = "form-row">
-            <label asp-for = "ConfirmManagerPass" class = "control-label"></label>
-            <input asp-for = "ConfirmManagerPass" class = "form-control"  placeholder="Input Your Admin Pass Code"/>
-            <span asp-validation-for="ConfirmManagerPass" class="text-danger"></span>
-        </div><br>
         <br><br>
         @Html.AntiForgeryToken()
         <div>
             <button href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Submit</button>
         </div>
+          @if(TempData.Peek("exist") != null )
+                        {
+                        <script type="text/javascript">
+                        window.onload = function(){
+                            alert("@TempData.Peek("exist")")
+                        }
+                        </script>
+                        }
        
     </form>
     </div>

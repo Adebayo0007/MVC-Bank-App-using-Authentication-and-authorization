@@ -19,6 +19,7 @@ namespace MVC_MobileBankApp.Models.DTOs
         public string AccountNumber{get;set;}
 
         public Customer Customer {get;set;}
+          [DisplayName("Amount (#)")]
          [Required]
         public double Amount{get;set;}
         [Required]
@@ -44,6 +45,8 @@ namespace MVC_MobileBankApp.Models.DTOs
         public string AccountNumber{get;set;}
 
         public Customer Customer {get;set;}
+         [DisplayName("Account (#)")]
+         [Required]
         public double Amount{get;set;}
         public string Pin{get;set;}
          [DisplayName("Account Balance")]

@@ -18,6 +18,15 @@ namespace MVC_MobileBankApp.Services.Implementations
         }
         public ManagerDTO CreateManager(ManagerDTO manager)
         {
+             var legitManagerr = new ManagerDTO ();
+              legitManagerr.Age = DateTime.Now.Year - manager.DOB.Year;
+              
+              if(legitManagerr.Age < 18)
+             {
+                legitManagerr.Message = $"Manager under 18 Years old are not allowed in this Application";
+                return legitManagerr;
+             }
+
               var user = new User
             {
                 Email = manager.Email,
@@ -50,33 +59,47 @@ namespace MVC_MobileBankApp.Services.Implementations
              };
              _repo.CreateManager(legitManager);  
 
-              return new ManagerDTO {
-                ManagerId = manager.ManagerId,
-                IsActive = manager.IsActive,
-                FirstName = manager.FirstName,
-                LastName = manager.LastName,
-                Address = manager.Address,
-                Age = DateTime.Now.Year - manager.DOB.Year,
-                Gender = manager.Gender,
-                MaritalStatus = manager.MaritalStatus,
-                Email = manager.Email,
-                PhoneNumber = manager.PhoneNumber,
-                PassWord = manager.PassWord,
-                DateCreated = manager.DateCreated,
-                UserId = use.Id,
-                AdminRegistrationCode = manager.AdminRegistrationCode,
-                Message = $"Your Admin Pass Code is : {manager.AdminRegistrationCode}"
-             };
+              legitManagerr.IsActive = manager.IsActive;
+               legitManagerr.FirstName = manager.FirstName;
+               legitManagerr.LastName = manager.LastName;
+               legitManagerr.Address = manager.Address;
+               legitManagerr.ManagerId = manager.ManagerId;
+               legitManagerr.Gender = manager.Gender;
+               legitManagerr.MaritalStatus = manager.MaritalStatus;
+                legitManagerr.Email = manager.Email;
+                legitManagerr.PhoneNumber = manager.PhoneNumber;
+               legitManagerr.PassWord = manager.PassWord;
+               legitManagerr.DateCreated = manager.DateCreated;
+                 legitManagerr.UserId = manager.UserId;
+
+                 return legitManagerr;
               
         }
 
-        public Manager DeleteManager(string managerId)
+        public ManagerRequestModel DeleteManager(string managerId)
         {
 
               var manager = _repo.GetManagerById(managerId);
                _userRepo.DeleteUserUsingId(manager.UserId);
                manager.IsActive = false;
-              return _repo.DeleteManager(manager);
+              var managerr = _repo.DeleteManager(manager);
+              return new ManagerRequestModel {
+                 ManagerId = managerr.ManagerId,
+                FirstName = managerr.FirstName,
+                LastName = managerr.LastName,
+                Address = managerr.Address,
+                Age = managerr.Age,
+                Gender = managerr.Gender,
+                MaritalStatus = managerr.MaritalStatus,
+                Email = managerr.Email,
+                PhoneNumber = managerr.PhoneNumber,
+                PassWord = managerr.PassWord,
+                DateCreated = managerr.DateCreated,
+                IsActive = managerr.IsActive,
+                AdminRegistrationCode = managerr.AdminRegistrationCode
+                
+
+            };
         }
 
         public IList<Manager> GetAllManager()
@@ -153,5 +176,15 @@ namespace MVC_MobileBankApp.Services.Implementations
                
 
         }
+        public string NumberOfManager()
+        {
+           return  _repo.NumberOfManager();
+        }
+
+          public Manager  GetManagerByEmail(string email)
+         {
+            return _repo.GetManagerByEmail(email);
+         }
+
     }
 }

@@ -7,11 +7,13 @@ namespace MVC_MobileBankApp.Services.Interfaces
     {
         ManagerDTO CreateManager (ManagerDTO manager);
        void UpdateManager (ManagerRequestModel manager);
-       Manager DeleteManager(string managerId);
+       ManagerRequestModel DeleteManager(string managerId);
        Manager Login (string email, string passWord);
        Manager Code(int code);
        ManagerRequestModel GetManagerById(string managerId);
        IList<Manager> GetAllManager();
+        string NumberOfManager();
+        Manager  GetManagerByEmail(string email);
          
     }
 }

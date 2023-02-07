@@ -27,7 +27,7 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public IList<Manager> GetAllManager()
         {
-           return _context.Managers.ToList();
+           return _context.Managers.Where( m => m.IsActive == true).ToList();
         }
 
         public Manager GetManagerById(string managerId)
@@ -51,6 +51,17 @@ namespace MVC_MobileBankApp.Repositories.Implementations
         {
                _context.Managers.Update(manager);
             _context.SaveChanges();
+            return manager;
+        }
+        public string NumberOfManager()
+        {
+             return _context.Managers.Where( m => m.IsActive == true).Count().ToString();
+        }
+
+         public Manager GetManagerByEmail(string email)
+        {
+            var manager =_context.Managers.SingleOrDefault(a => a.Email == email);
+            // var use =_context.Users.Include(x => x.Ceo.CEOId);
             return manager;
         }
 

@@ -50,7 +50,11 @@ namespace MVC_MobileBankApp.Models.DTOs
         [DisplayName("Password")]
         [Required]
         public string PassWord {get;set;}
+         [DisplayName("Confirm Password")]
+        [Compare("PassWord")]
+        public string ConfirmPassWord {get;set;}
          public bool IsActive {get;set;} 
+         public string Message{get; set;}
         public DateTime DateCreated {get; set;} = DateTime.Now;
         
     }

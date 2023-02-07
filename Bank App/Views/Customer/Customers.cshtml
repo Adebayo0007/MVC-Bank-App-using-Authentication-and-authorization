@@ -11,7 +11,7 @@
     <div class="container p-3">
         <div class ="row pt-4">
             <div class = "col-6">
-                <h2 calss = "text-primary">All Customer</h2>
+                <h2 calss = "text-primary">All Customer (@TempData.Peek("customers").ToString())</h2>
             </div>
             <div>
                 <table class= "table table-bordered table-striped" style= "width:100%">
@@ -119,9 +119,9 @@
                                 <a onclick="myFunction()" asp-controller = "Customer" asp-action="DeleteCustomer" asp-route-accountNumber="@customer.AccountNumber"><i class="bi bi-trash"></i>Delete</a>
                             </td>
                             
-                             <td>
+                             @* <td>
                                 <a onclick="myFunction()" asp-controller = "Customer" asp-action="UpdateCustomer" asp-route-accountNumber="@customer.AccountNumber"><i class="bi bi-pencil-fill"></i>Edit</a>
-                            </td>
+                            </td> *@
                             <td>
                                 <a  asp-controller = "Customer" asp-action="Details" asp-route-accountNumber="@customer.AccountNumber"><i class="bi bi-info-lg"></i>Details</a>
                             </td>
@@ -143,4 +143,7 @@
 
         </div>
 
+    </div>
+    <div>
+         <button onclick="window.print()">Print this page</button>
     </div>

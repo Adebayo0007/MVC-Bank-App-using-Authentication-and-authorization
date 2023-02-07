@@ -1,10 +1,10 @@
 @* @model IEnumerable<Admin> *@
 
-@* @using MVC_MobileBankApp.Models
+@using MVC_MobileBankApp.Models
 @model MVC_MobileBankApp.Models.CEO
-@using MVC_MobileBankApp.Enum *@
+@using MVC_MobileBankApp.Enum
 
-@* @if(ViewData != null)
+@if(ViewData != null)
 {
     <h2>@TempData["success"]</h2>
 }
@@ -20,9 +20,9 @@
 <h3 style = "font-family:cabri;font-size : 20px;">Welcome to CEO<br><marquee direction = "left">Registration Portal</marquee></h3>
 <div style="font-size: 130%;">
     <hr />
-    <div id = "reg-form"> *@
+    <div id = "reg-form">
         
-    @* <form enctype="multipart/form-data" asp-action="CreateCEO" method="post">
+    <form enctype="multipart/form-data" asp-action="CreateCEO" method="post">
         <div class = "form-row">
              <label asp-for = "FirstName" class = "control-label"></label>
             <input asp-for = "FirstName" class = "form-control" placeholder="Alexander"/>
@@ -74,11 +74,11 @@
             <button href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Submit</button>
         </div>
        
-    </form> *@
+    </form>
 
-    @* </div>
+    </div>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-} *@
+}

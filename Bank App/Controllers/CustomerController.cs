@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-// using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -13,11 +12,13 @@ namespace MVC_MobileBankApp.Controllers
     {
          private readonly ICustomerService _service;
          private readonly ITransactionService _transactionService;
+         private readonly IUserService _userService;
 
-        public CustomerController(ICustomerService service, ITransactionService transactionService)
+        public CustomerController(ICustomerService service, ITransactionService transactionService, IUserService userService)
         {
             _service = service;
             _transactionService = transactionService;
+            _userService = userService;
         }
 
        
@@ -31,6 +32,24 @@ namespace MVC_MobileBankApp.Controllers
         {
             return View();
         }
+
+         [Authorize(Roles = "Customer")]
+         public IActionResult Template()
+        {
+            return View();
+        }
+
+          [Authorize(Roles = "Customer")]
+         public IActionResult Card()
+        {
+            string accNumber = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+               string first = User.FindFirst(ClaimTypes.Country).Value;
+               string last = User.FindFirst(ClaimTypes.CookiePath).Value;
+            TempData["acc"] = accNumber;
+             TempData["first"] = first;
+              TempData["last"] = last ;
+            return View();
+        }
       
         public IActionResult CreateCustomer()
         {
@@ -42,18 +61,40 @@ namespace MVC_MobileBankApp.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult CreateCustomer(CustomerDTO customer)
         {
+             var user = _userService.GetUserByEmail(customer.Email);
+           if(user == null)
+           {
             if(customer != null)
             {
-                _service.CreateCustomer(customer);
+               var inner = _service.CreateCustomer(customer);
+                if(inner.Message == null)
+                {
                  TempData["success"] = $"{customer.FirstName} {customer.LastName} Created Successfully";
                 TempData.Keep();
                 return RedirectToAction("LogIn", "Home");
+                }
+                else
+                {
+                  TempData["age"] = inner.Message;
+                TempData.Keep();
+                return View();
+                }
+
             }
             else
             {
                 TempData["error"] = "Wrong Input";
                return View();
             }
+           }
+             else
+           {
+           
+                TempData["exist"] = $" Dear Mr/Mrs {customer.FirstName} {customer.LastName}!\\n Go to your Profile to Update your Profile";
+                TempData.Keep();
+                return View();
+
+           }
             
             
         }
@@ -162,6 +203,9 @@ namespace MVC_MobileBankApp.Controllers
          public IActionResult Customers()
         {
             var customers = _service.GetAllCustomer();
+            var customer = _service.NumberOfCustomer();
+             TempData["customers"] = customer;
+                TempData.Keep();
             return View(customers);
         }
 

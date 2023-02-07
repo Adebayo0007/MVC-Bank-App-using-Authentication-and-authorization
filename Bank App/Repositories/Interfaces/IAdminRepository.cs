@@ -11,7 +11,9 @@ namespace MVC_MobileBankApp.Repositories
        Admin Login (string email, string passWord);
        Admin GetAdminById(string staffId);
        IList<Admin> GetAllAdmin();
+        string NumberOfAdmin();
         IList<Admin> GetAdmins(int adminPass);
+        Admin GetAdminByEmail(string email);
          
     }
 }

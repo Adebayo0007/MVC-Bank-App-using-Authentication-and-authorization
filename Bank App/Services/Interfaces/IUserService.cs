@@ -9,6 +9,8 @@ namespace MVC_MobileBankApp.Services.Interfaces
        User DeleteUserUsingId(int userId);
         User CreateUser(User user);
         UserDTO Login(string email,string passWord);
-       IList<User> GetAllUser(); 
+         User GetUserByEmail(string email);
+       IList<User> GetAllUser();
+       string NumberOfUsers();
     }
 }

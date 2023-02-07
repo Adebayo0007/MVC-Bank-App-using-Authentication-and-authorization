@@ -12,11 +12,13 @@ namespace MVC_MobileBankApp.Controllers
     {
          private readonly IManagerService _service;
            private readonly IAdminService _adminService;
+           private readonly IUserService _userService;
 
-        public ManagerController(IManagerService service, IAdminService adminService)
+        public ManagerController(IManagerService service, IAdminService adminService, IUserService userService)
         {
             _service = service;
             _adminService = adminService;
+            _userService = userService;
         }
         //   [Authorize(Roles = "Manager, CEO")] 
         [HttpGet]
@@ -39,13 +41,28 @@ namespace MVC_MobileBankApp.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult CreateManager(ManagerDTO manager)
         {
+              var user = _userService.GetUserByEmail(manager.Email);
+           if(user == null)
+           {
             if(manager != null)
             {
                var manage = _service.CreateManager(manager);
+               if(manage.Message == null)
+               {
+
               TempData["success"] = $"{manager.FirstName} {manager.LastName} Created Successfully";
               TempData["message"] = manage.Message;
                 TempData.Keep();
                 return RedirectToAction("LogIn", "Home");
+               }
+               else
+               {
+                
+                      TempData["age"] = manage.Message;
+                      TempData.Keep();
+                     return View();
+
+               }
             }
             else
             {
@@ -53,6 +70,17 @@ namespace MVC_MobileBankApp.Controllers
                  TempData["error"] = "wrong input"; 
                return View();
             }
+           }
+              else
+           {
+           
+                TempData["exist"] = $" Dear Mr/Mrs {manager.FirstName} {manager.LastName}!\\n Go to your Profile to Update your Profile";
+                TempData.Keep();
+                return View();
+
+           }
+            
+
         }
 
            [Authorize(Roles = "CEO")] 
@@ -163,6 +191,9 @@ namespace MVC_MobileBankApp.Controllers
          public IActionResult Managers()
         {
             var managers = _service.GetAllManager();
+            string manager = _service.NumberOfManager();
+             TempData["managers"] = manager; 
+            TempData.Keep();
             return View(managers);
         }
 

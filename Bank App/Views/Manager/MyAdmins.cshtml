@@ -104,23 +104,25 @@
                             <td>
                                 <a asp-controller = "Admin" asp-action="Details" asp-route-staffId="@admin.StaffId"><i class="bi bi-info-lg"></i>Details</a>
                             </td>
-                            <td>
-                                <a id="trans" asp-controller="Manager" asp-action="Profile">Back to Profile</a>
-                            </td>
+
+                            
                               <script>
                               function myFunction(){
                                 alert("Do you want to proceed ?")
                             }
                         </script>
-                        </tr>
-                        
-                        
-                        
+                        </tr>     
                     }
 
                 </table>
+                <div>
+                     <a id="trans" asp-controller="Manager" asp-action="ManageAdmins">Back</a>
+                </div>
             </div>
 
         </div>
 
+    </div>
+    <div>
+         <button onclick="window.print()">Print this page</button>
     </div>

@@ -155,19 +155,20 @@ button{
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
-          @if(TempData.Peek("success") != null )
-            {
-                <h3 id="overlay" style="color: red;">@TempData.Peek("success")</h3>
-            }
+         
 
     </div>
     <form asp-action="LogIn" enctype="multipart/form-data">
+     @if(TempData.Peek("success") != null )
+            {
+                <h4 id="overlay"><i style="color: green;">@TempData["success"]</i></h4>
+            }
         <h3>Login</h3>
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         
              @if(TempData.Peek("logmessage") != null )
                     {
-                        <h3  style="color: red; text-align: center;">@TempData.Peek("logmessage")</h3>
+                        <h4  style="color: red; text-align: center;">@TempData["logmessage"]</h4>
                     }
 
             
@@ -182,7 +183,8 @@ button{
 
         <button type="submit" value="Submit">Log In</button>
         <div class="social">
-          <div class="go"><a asp-controller="Customer" asp-action="CreateCustomer"> Sign Up</a></div>
+          <div class="go"><a asp-controller="Customer" asp-action="CreateCustomer"> Sign Up</a></div> &nbsp; &nbsp;
+           <div class="go"><a asp-controller="Home" asp-action="Index">Home</a></div>
         </div>
           @if(TempData.Peek("message") != null )
                         {

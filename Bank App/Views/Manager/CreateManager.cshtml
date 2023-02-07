@@ -27,6 +27,10 @@
     <hr />
     <div id = "reg-form">
     <form enctype="multipart/form-data" asp-action="CreateManager" method="post">
+      @if(TempData["age"] != null)
+             {
+                <h3 style="color: red;">@TempData["age"]</h3>
+               }
         <div class = "form-row">
           
                
@@ -85,6 +89,14 @@
             
             <button id="trans" href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Submit</button>
         </div>
+         @if(TempData.Peek("exist") != null )
+                        {
+                        <script type="text/javascript">
+                        window.onload = function(){
+                            alert("@TempData.Peek("exist")")
+                        }
+                        </script>
+                        }
        
     </form>
     </div>

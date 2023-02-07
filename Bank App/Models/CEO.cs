@@ -1,10 +1,12 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 using MVC_MobileBankApp.Enum;
 using MVC_MobileBankApp.Models;
 
 namespace MVC_MobileBankApp.Models
 {
+    // [Index(nameof(Email), IsUnique = true)]
     public class CEO
     {
         [DisplayName("First Name")]

@@ -35,7 +35,11 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public IList<Admin> GetAllAdmin()
         {
-            return _context.Admins.ToList();
+            return _context.Admins.Where(a => a.IsActive == true).ToList();
+        }
+         public string NumberOfAdmin()
+        {
+            return _context.Admins.Where(a => a.IsActive == true).Count().ToString();
         }
 
         public Admin Login(string email, string passWord)
@@ -52,12 +56,21 @@ namespace MVC_MobileBankApp.Repositories.Implementations
         }
         public IList<Admin> GetAdmins(int adminPass)
         {
-             return _context.Admins.Where(a => a.ManagerPass == adminPass).ToList();
+             return _context.Admins.Where(a => a.ManagerPass == adminPass && a.IsActive == true).ToList();
         }
 
         // Admin IAdminRepository.CreateAdmin(Admin admin)
         // {
         //     throw new NotImplementedException();
         // }
+
+        
+      public Admin GetAdminByEmail(string email)
+        {
+            var admin =_context.Admins.SingleOrDefault(a => a.Email == email);
+            // var use =_context.Users.Include(x => x.Ceo.CEOId);
+            return admin;
+        }
     }
+
 }

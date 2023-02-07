@@ -202,3 +202,6 @@ C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.ge
 C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\ref\MVC MobileBankApp.dll
 C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Docker.DotNet.dll
 C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\MailKit.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\MimeKit.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\BouncyCastle.Crypto.dll

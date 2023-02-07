@@ -1,10 +1,13 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 using MVC_MobileBankApp.Enum;
 
 namespace MVC_MobileBankApp.Models
 
 {
+   
+    // [Index(nameof(Email), IsUnique = true)]
     public class Admin 
     {
            
@@ -17,7 +20,7 @@ namespace MVC_MobileBankApp.Models
         [Required]
         public string Address {get;set;}
         public int ManagerId {get; set;}
-       // public string? Identity {get; set;}
+
         public int UserId {get;set;}
         [Key]
         public string StaffId  {get; set;}
@@ -36,7 +39,7 @@ namespace MVC_MobileBankApp.Models
         public string PassWord {get;set;}
          public bool IsActive {get;set;} 
           public int ManagerPass {get;set;}
-        public DateTime DateCreated {get; set;} = DateTime.Now;
+         public DateTime DateCreated {get; set;} = DateTime.Now;
          
         
         

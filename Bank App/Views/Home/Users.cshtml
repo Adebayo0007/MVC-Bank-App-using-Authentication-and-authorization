@@ -1,0 +1,55 @@
+@model IEnumerable<MVC_MobileBankApp.Models.User>
+
+    @if(ViewData["Title"] != null)
+    {
+        <h2>
+            @TempData["success"]
+        </h2>
+
+    }
+   
+    <div class="container p-3">
+        <div class ="row pt-4">
+            <div class = "col-6">
+                <h2 calss = "text-primary">All Active Users of The Application (@TempData.Peek("users").ToString())</h2>
+            </div>
+            <div>
+                <table class= "table table-bordered table-striped" style= "width:100%">
+                    <thead>
+                        <tr>
+                             <th>
+                                S/N
+                            </th>
+                             <th>
+                                Email
+                            </th>
+                             <th>
+                                Role
+                            </th>
+                           
+                        </tr>    
+                        
+                    </thead>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>
+                                @user.Id
+                            </td>
+                             <td>
+                                @user.Email
+                            </td>
+                             <td>
+                                @user.Role
+                            </td>
+                        </tr>
+                        
+                        
+                    }
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>

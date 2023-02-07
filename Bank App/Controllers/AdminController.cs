@@ -12,11 +12,13 @@ namespace MVC_MobileBankApp.Controllers
     {
         private readonly IAdminService _service;
         private readonly IManagerService _managerService;
+         private readonly IUserService _userService;
 
-        public AdminController(IAdminService service, IManagerService managerService)
+        public AdminController(IAdminService service, IManagerService managerService,IUserService userService)
         {
             _service = service;
             _managerService = managerService;
+            _userService = userService;
         }
         //  [Authorize(Roles = "Admin,Manager,CEO")]
         [HttpGet]
@@ -39,15 +41,12 @@ namespace MVC_MobileBankApp.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult CreateAdmin(AdminDTO admin)
         {
-            
-            //Validation condition
-
-            // if(!ModelState.IsValid)
-            // {
-            //     return View("CreateAdmin", admin);
-            // }
-           var manager = _managerService.Code(admin.ManagerPass);
-           if(manager == null)
+             admin.ManagerPass = int.Parse(User.FindFirst(ClaimTypes.Hash).Value);
+           var user = _userService.GetUserByEmail(admin.Email);
+           if(user == null)
+           {
+             var adminn = _managerService.Code(admin.ManagerPass);
+           if(adminn == null)
            {
               TempData["error"] = "Wrong Pass Code";
               TempData.Keep();
@@ -56,10 +55,20 @@ namespace MVC_MobileBankApp.Controllers
 
             if(admin != null)
             {
-                _service.CreateAdmin(admin);
-                TempData["success"] = $"{admin.FirstName} {admin.LastName} Created Successfully";
-                TempData.Keep();
-                return RedirectToAction("LogIn", "Home");
+                var check =_service.CreateAdmin(admin);
+                if(check.Message == null)
+                {
+                   TempData["success"] = $"{admin.FirstName} {admin.LastName} Created Successfully";
+                   TempData.Keep();
+                    return RedirectToAction("LogIn", "Home");
+                }
+                else
+                {
+                      TempData["age"] = check.Message;
+                      TempData.Keep();
+                     return View();
+
+                }
             }
             else
             {
@@ -68,6 +77,23 @@ namespace MVC_MobileBankApp.Controllers
             }
 
            
+
+           }
+           else
+           {
+                TempData["exist"] = $" Dear Mr/Mrs {admin.FirstName} {admin.LastName}!\\n Go to your Profile to Update your Profile";
+                TempData.Keep();
+                return View();
+
+           }
+            
+            //Validation condition
+
+            // if(!ModelState.IsValid)
+            // {
+            //     return View("CreateAdmin", admin);
+            // }
+          
             
         }
          [Authorize(Roles = "Manager, CEO")]
@@ -102,7 +128,7 @@ namespace MVC_MobileBankApp.Controllers
          public IActionResult DeleteAdminConfirmed(string staffId)
         {
             _service.DeleteAdminUsingId(staffId);
-            return RedirectToAction(nameof(Admins));
+            return RedirectToAction("MyAdmins", "Manager");
         }
           [Authorize(Roles = "Manager, CEO")]
           [HttpGet]
@@ -193,7 +219,10 @@ namespace MVC_MobileBankApp.Controllers
           [Authorize(Roles = "Manager, CEO")] 
          public IActionResult Admins()
         {
-            var admins = _service.GetAllAdmin();
+            var admins = _service.GetAllAdmin(); 
+            string value = _service.NumberOfAdmin();
+            TempData["admins"] = value;
+                TempData.Keep();
             return View(admins);
         }
 

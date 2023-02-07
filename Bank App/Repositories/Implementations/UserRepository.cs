@@ -28,18 +28,21 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public IList<User> GetAllUser()
         {
-            return _context.Users.ToList();
+            return _context.Users.Where(u => u.IsActive == true).ToList();
         }
 
         public MVC_MobileBankApp.Models.User Login(string email, string passWord)
         { 
-            return _context.Users
-                   .Include(x => x.Customer)
-                   .Include(x => x.Manager)
-                   .Include(x => x.Admin)
-                   .Include(x =>x.Ceo)
-                   .SingleOrDefault(a => a.Email  == email && a.PassWord == passWord);
+            // return _context.Users
+            //        .Include(x => x.Customer)
+            //        .Include(x => x.Manager)
+            //        .Include(x => x.Admin)
+            //        .Include(x =>x.Ceo)
+            //        .SingleOrDefault(a => a.Email  == email && a.PassWord == passWord);
+
+                     return _context.Users.SingleOrDefault(a => a.Email  == email && a.PassWord == passWord);
         }
+        
 
         public User UpdateUser(User user)
         {
@@ -52,6 +55,17 @@ namespace MVC_MobileBankApp.Repositories.Implementations
             var user =_context.Users.SingleOrDefault(a => a.Admin.UserId == id || a.Ceo.UserId == id || a.Manager.UserId == id || a.Customer.UserId == id);
             // var use =_context.Users.Include(x => x.Ceo.CEOId);
             return user;
+        }
+          public User GetUserByEmail(string email)
+        {
+            var user =_context.Users.SingleOrDefault(a => a.Email == email);
+            // var use =_context.Users.Include(x => x.Ceo.CEOId);
+            return user;
+        }
+
+        public string NumberOfUsers()
+        {
+             return _context.Users.Where( m => m.IsActive == true).Count().ToString();
         }
     }
 }

@@ -28,7 +28,7 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public IList<Customer> GetAllCustomer()
         {
-             return _context.Customers.ToList();
+             return _context.Customers.Where(c => c.IsActive == true).ToList();
         }
 
         public Customer GetCustomerByAccountnumber(string accountNumber)
@@ -46,6 +46,18 @@ namespace MVC_MobileBankApp.Repositories.Implementations
         {
             _context.Customers.Update(customer);
             _context.SaveChanges();
+            return customer;
+        }
+
+         public string NumberOfCustomer()
+        {
+             return _context.Customers.Where(c => c.IsActive == true).Count().ToString();
+        }
+
+          public Customer GetCustomerByEmail(string email)
+        {
+            var customer =_context.Customers.SingleOrDefault(a => a.Email == email);
+            // var use =_context.Users.Include(x => x.Ceo.CEOId);
             return customer;
         }
     }

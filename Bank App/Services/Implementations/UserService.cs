@@ -77,5 +77,15 @@ namespace MVC_MobileBankApp.Services.Implementations
             userr.PassWord = user.PassWord ?? userr.PassWord;
             return _userRepository.UpdateUser(userr);
         }
+         public User GetUserByEmail(string email)
+         {
+            return _userRepository.GetUserByEmail(email);
+         }
+         public string NumberOfUsers()
+         {
+            return _userRepository.NumberOfUsers();
+
+         }
+         
     }
 }

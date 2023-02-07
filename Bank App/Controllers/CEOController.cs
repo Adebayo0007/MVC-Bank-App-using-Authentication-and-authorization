@@ -29,6 +29,11 @@ namespace MVC_MobileBankApp.Controllers
         {
             return View();
         }
+         [Authorize(Roles = "CEO")] 
+          public IActionResult AllUsers()
+        {
+            return View();
+        }
         // [Authorize(Roles = "CEO")] 
         public IActionResult CreateCEO()
         {

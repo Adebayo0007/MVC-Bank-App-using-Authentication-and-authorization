@@ -1,18 +1,355 @@
-@* @using MVC_MobileBankApp.Models
-@model MVC_MobileBankApp.Models.Customer
-@using MVC_MobileBankApp.Enum
-@using MVC_MobileBankApp.Models.Enum *@
 
-@using MVC_MobileBankApp.Models
 @using MVC_MobileBankApp.Models.DTOs
 @model CustomerDTO
 @using MVC_MobileBankApp.Models.Enum
 @using MVC_MobileBankApp.Enum
 
-@if(ViewData != null)
-{
-    <h2>@TempData["success"]</h2>
+
+@{
+    Layout = null;
 }
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,700;0,900;1,400;1,600;1,900&family=Poppins:ital,wght@0,300;0,500;0,600;0,800;1,300;1,700&family=Rufina:wght@400;700&display=swap"
+        rel="stylesheet">
+    <title>Registration</title>
+    <style>
+
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 1300px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(130, 178, 226);
+    background: linear-gradient(45deg, rgba(130, 178, 226, 1) 0%, rgba(197, 98, 240, 1) 100%);
+}
+
+.form-wrapper {
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    width: 500px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px 40px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.form-wrapper h1 {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.738);
+}
+
+.form-wrapper form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-wrapper label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.592);
+}
+.input-wrapper input::placeholder,
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea,
+.input-wrapper textarea::placeholder {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+}
+
+.input-wrapper input::placeholder,
+.input-wrapper textarea::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea {
+    border: none;
+    padding: 10px 0 15px 0;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+    outline: none;
+}
+
+.input-wrapper textarea {
+    resize: none;
+}
+
+#btn {
+    margin-top: 10px;
+    padding: 10px 0;
+    border-radius: 140px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    background: rgb(197, 98, 240);
+    background: linear-gradient(25deg, rgba(197, 98, 240, 1) 0%, rgba(130, 178, 226, 1) 100%);
+}
+input:valid{
+    text-decoration-color: green;
+}
+input:invalid{
+    text-decoration-color: red;
+}
+button{
+    background-color: none;
+}
+input::placeholder{
+    font-style: italic;
+    font-size: smaller;
+    font-weight: lighter;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <h1>Registration Form!</h1>
+            <form enctype="multipart/form-data" asp-action="CreateCustomer" method="post">
+            @if(TempData["success"] != null)
+             
+             {
+                <h2>@TempData["success"]</h2>
+               }
+
+               @if(TempData["age"] != null)
+             {
+                <h3 style="color: red;">@TempData["age"]</h3>
+               }
+                <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+
+                     <label asp-for = "FirstName" class = "control-label"></label>
+                     <input asp-for = "FirstName" class = "form-control" placeholder="Alexander" required/>
+                     <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                  <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+
+                     <label asp-for = "LastName" class = "control-label"></label>
+                     <input asp-for = "LastName"   class = "form-control" placeholder="Williams" required/>
+                      <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                   <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+
+                     <label asp-for = "Address" class = "control-label"></label>
+                     <input asp-for = "Address" class = "form-control" placeholder="Number,street,City,LG,State,County" required/>
+                     <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                 <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+
+                       <label asp-for = "DOB" class = "control-label"></label>
+                       <input type="date" asp-for = "DOB" class = "form-control" required />
+                       <span asp-validation-for="DOB" class="text-danger"></span>
+                </div>
+                      <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+
+                        <label asp-for="Gender" class="control-label"></label>
+                       <select asp-for = "Gender" asp-items="Html.GetEnumSelectList<GenderType>()"></select>
+                </div>
+
+                   <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+
+                      <label asp-for="MaritalStatus" class="control-label"></label>
+                 <select asp-for = "MaritalStatus" asp-items="Html.GetEnumSelectList<MaritalStatusType>()"></select>
+                </div>
+
+                  <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+
+                       <label asp-for="AccountType" class="control-label"></label>
+                 <select asp-for = "AccountType" asp-items="Html.GetEnumSelectList<AccountType>()"></select>
+                </div>
+
+                   <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+
+                       <label asp-for = "Email" class = "control-label"></label>
+                       <input type = "email" asp-for = "Email" class = "form-control"  placeholder="williams@gmail.com" required/>
+                       <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+
+                      <label asp-for = "ConfirmEmail" class = "control-label"></label>
+                       <input type = "email" asp-for = "ConfirmEmail" class = "form-control"  placeholder="williams@gmail.com" required/>
+                      <span asp-validation-for="ConfirmEmail" class="text-danger"></span>
+                </div>
+
+                
+                <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+
+                       <label asp-for = "PassWord" class = "control-label"></label>
+                    <input asp-for = "PassWord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" id="pass" name="password" class = "form-control"  placeholder="Password must be 6 characters,consist at least one capital letter,one small letter,and also a number" required/>
+                   <span asp-validation-for="PassWord" class="text-danger"></span>
+                </div>
+                  <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+
+                       <label asp-for = "ConfirmPassWord" class = "control-label"></label>
+                    <input asp-for = "ConfirmPassWord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" id="pass" name="password" class = "form-control"  placeholder="Password must be 6 characters,consist at least one capital letter,one small letter,and also a number" required/>
+                   <span asp-validation-for="ConfirmPassWord" class="text-danger"></span>
+                </div>
+
+                 <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+
+                       <label asp-for = "PhoneNumber" class = "control-label"></label>
+                      <input asp-for = "PhoneNumber" class = "form-control"  placeholder="+2348034254356" required/>
+                  <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                 <div class="input-wrapper">
+                    @* <label for="">Your Name</label>
+                    <input type="text" name="" id="" placeholder="Enter your name"> *@
+              <label asp-for = "Pin" class = "control-label"></label>
+            <input asp-for = "Pin"  minlength="4" maxlength="4" class = "form-control"  placeholder="Enter four secrete number" required/>
+            <span asp-validation-for="Pin" class="text-danger"></span>
+                </div>
+
+
+                @* <div class="input-wrapper">
+                    <label for="">Email</label>
+                    <input type="text" name="" id="" placeholder="Enter your email address">
+                </div>
+                <div class="input-wrapper">
+                    <label for="">Needed Services</label>
+                    <select name="" id="">
+                        <option value="1" selected >Choose Services</option>
+                        <option value="2">Bricklayer</option>
+                        <option value="2">Tailor</option>
+                    </select>
+                </div>
+                <div class="input-wrapper">
+                    <label for="">Budget</label>
+                    <select name="" id="">
+                        <option value="1" selected>Select Budget</option>
+                        <option value="2">$5,000</option>
+                        <option value="3">$10,000</option>
+                    </select>
+                </div>
+                <div class="input-wrapper">
+                    <label for="">Message</label>
+                    <textarea name="" id="" rows="4" placeholder="Your message here.."></textarea>
+                </div> *@
+              
+                <div  id="btn">
+                    <button type="submit" value="Submit">Submit</button>
+                    @* <a href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Submit</a> *@
+                    
+                    </span>
+                     @if(TempData.Peek("exist") != null )
+                        {
+                        <script type="text/javascript">
+                        window.onload = function(){
+                            alert("@TempData.Peek("exist")")
+                        }
+                        </script>
+                        }
+            </form>
+        </div>
+    </div>
+      </div>
+                @section Scripts {
+             @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                }
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* 
+
+
+
+
 
 <head>
      <meta charset="utf-8" />
@@ -88,7 +425,7 @@
             <label asp-for = "Pin" class = "control-label"></label>
             <input asp-for = "Pin"  minlength="4" maxlength="4" class = "form-control"  placeholder="Enter four secrete number"/>
             <span asp-validation-for="Pin" class="text-danger"></span>
-                 @* @Html.ValidationMessageFor(c => c.Pin) *@
+                
 
         </div><br>
         <br><br>
@@ -103,4 +440,4 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+} *@

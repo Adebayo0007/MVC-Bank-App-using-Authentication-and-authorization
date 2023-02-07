@@ -1,10 +1,11 @@
-
+using Microsoft.EntityFrameworkCore;
 using MVC_MobileBankApp.Enum;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 namespace MVC_MobileBankApp.Models
 
 {
+     //[Index(nameof(Email), IsUnique = true)]
     public class Manager
     {
            

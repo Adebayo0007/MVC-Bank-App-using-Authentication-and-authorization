@@ -11,6 +11,8 @@ namespace MVC_MobileBankApp.Repositories.Interfaces
         Manager Code(int code);
        Manager GetManagerById(string managerId);
        IList<Manager> GetAllManager(); 
+       string NumberOfManager();
     //    IList<Admin>   ManagerAdmins();
+      Manager GetManagerByEmail(string email);
     }
 }

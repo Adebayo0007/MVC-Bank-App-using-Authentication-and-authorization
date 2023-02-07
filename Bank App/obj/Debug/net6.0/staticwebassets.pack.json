@@ -33,6 +33,18 @@
       "PackagePath": "staticwebassets\\assets\\foodiebg.jpg"
     },
     {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\image1.jpg",
+      "PackagePath": "staticwebassets\\assets\\image1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\image2.jpg",
+      "PackagePath": "staticwebassets\\assets\\image2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\profile.webp",
+      "PackagePath": "staticwebassets\\assets\\profile.webp"
+    },
+    {
       "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\salad.jpg",
       "PackagePath": "staticwebassets\\assets\\salad.jpg"
     },
@@ -51,6 +63,10 @@
     {
       "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\template.css",
+      "PackagePath": "staticwebassets\\css\\template.css"
     },
     {
       "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\favicon.ico",

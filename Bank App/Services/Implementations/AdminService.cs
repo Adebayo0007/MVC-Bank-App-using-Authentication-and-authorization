@@ -15,8 +15,16 @@ namespace MVC_MobileBankApp.Services.Implementations
             _repo = repo;
             _userRepo = userRepo;
         }
-        public Admin CreateAdmin(AdminDTO admin)
+        public AdminDTO CreateAdmin(AdminDTO admin)
         {
+            var legitAdminn = new AdminDTO ();
+              legitAdminn.Age = DateTime.Now.Year - admin.DOB.Year;
+              
+              if(legitAdminn.Age < 18)
+             {
+                legitAdminn.Message = $"Admin under 18 Years old are not allowed in this Application";
+                return legitAdminn;
+             }
              var user = new User
             {
                 Email = admin.Email,
@@ -29,8 +37,24 @@ namespace MVC_MobileBankApp.Services.Implementations
              admin.StaffId = "ZENITH-ADMIN-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +admin.FirstName[0]+admin.FirstName[1]+admin.FirstName[2]+rand.Next(0,9).ToString();
              admin.UserId = use.Id;
              admin.IsActive = true;
+
+              legitAdminn.IsActive = admin.IsActive;
+               legitAdminn.FirstName = admin.FirstName;
+               legitAdminn.LastName = admin.LastName;
+               legitAdminn.Address = admin.Address;
+               legitAdminn.StaffId = admin.StaffId;
+               legitAdminn.Gender = admin.Gender;
+               legitAdminn.MaritalStatus = admin.MaritalStatus;
+                legitAdminn.Email = admin.Email;
+                legitAdminn.PhoneNumber = admin.PhoneNumber;
+               legitAdminn.PassWord = admin.PassWord;
+               legitAdminn.DateCreated = admin.DateCreated;
+                 legitAdminn.UserId = use.Id;
+               legitAdminn.ManagerPass= admin.ManagerPass;
+            
+                
              
-             var legitAdmin = new Admin {
+               var legitAdmin = new Admin {
                 StaffId = admin.StaffId,
                 IsActive = admin.IsActive,
                 FirstName = admin.FirstName,
@@ -45,18 +69,36 @@ namespace MVC_MobileBankApp.Services.Implementations
                 DateCreated = admin.DateCreated,
                 UserId = use.Id,
                 ManagerPass = admin.ManagerPass
+                
              };
            
-             return  _repo.CreateAdmin(legitAdmin);  
+             _repo.CreateAdmin(legitAdmin);  
+             
+             return legitAdminn; 
+             
         }
 
-        public Admin DeleteAdminUsingId(string adminId)
+        public AdminRequestModel DeleteAdminUsingId(string adminId)
         {
             // var obj = _repo.DeleteAdminUsingId(adminId.StaffId);
             var admin = _repo.GetAdminById(adminId);
             _userRepo.DeleteUserUsingId(admin.UserId);
             admin.IsActive = false;
-           return _repo.DeleteAdminUsingId(admin);
+           var adminn = _repo.DeleteAdminUsingId(admin);
+           return new AdminRequestModel{
+                StaffId = admin.StaffId,
+                FirstName = admin.FirstName,
+                LastName = admin.LastName,
+                Address = admin.Address,
+                Age = admin.Age,
+                Gender = admin.Gender,
+                MaritalStatus = admin.MaritalStatus,
+                Email = admin.Email,
+                PhoneNumber = admin.PhoneNumber,
+                PassWord = admin.PassWord,
+                DateCreated = admin.DateCreated,
+                IsActive = admin.IsActive
+           };
         }
 
         public AdminRequestModel GetAdminById(string adminId)
@@ -118,9 +160,17 @@ namespace MVC_MobileBankApp.Services.Implementations
 
          public IList<Admin> GetAdmins(int adminPass)
          {
-             return _repo.GetAdmins(adminPass);
-            
-            
+             return _repo.GetAdmins(adminPass);  
+         }
+
+         public  string NumberOfAdmin()
+         {
+            return _repo.NumberOfAdmin();
+         }
+
+           public Admin  GetAdminByEmail(string email)
+         {
+            return _repo.GetAdminByEmail(email);
          }
 
        
