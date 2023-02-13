@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\assets\\image2.jpg"
     },
     {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\image3.jpg",
+      "PackagePath": "staticwebassets\\assets\\image3.jpg"
+    },
+    {
       "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\assets\\profile.webp",
       "PackagePath": "staticwebassets\\assets\\profile.webp"
     },
@@ -67,6 +71,26 @@
     {
       "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\template.css",
       "PackagePath": "staticwebassets\\css\\template.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\template2.css",
+      "PackagePath": "staticwebassets\\css\\template2.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\template3.css",
+      "PackagePath": "staticwebassets\\css\\template3.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\template4.css",
+      "PackagePath": "staticwebassets\\css\\template4.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\template5.css",
+      "PackagePath": "staticwebassets\\css\\template5.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\css\\template6.css",
+      "PackagePath": "staticwebassets\\css\\template6.css"
     },
     {
       "Id": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\wwwroot\\favicon.ico",

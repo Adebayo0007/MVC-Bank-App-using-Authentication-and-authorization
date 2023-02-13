@@ -149,6 +149,24 @@ input::placeholder{
              {
                 <h3 style="color: red;">@TempData["age"]</h3>
                }
+                  @if(TempData["pix"] != null)
+             {
+                <h3 style="color: red;">@TempData["pix"]</h3>
+               }
+
+                <div class="input-wrapper">
+                    <label asp-for="ProfilePicture" style="width: 100%;"></label>           
+                     <input type="file"
+                       id="profilePicture"
+                       accept=".png,.jpg,.jpeg,.gif,.tif"
+                       asp-for="ProfilePicture"
+                       class="form-control"
+                       style="border:0px!important;padding: 0px;padding-top: 10px;padding-bottom: 30px;"
+                       onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])" />
+                <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+                </div>
+
+
                 <div class="input-wrapper">
                     @* <label for="">Your Name</label>
                     <input type="text" name="" id="" placeholder="Enter your name"> *@

@@ -51,6 +51,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                legitAdminn.DateCreated = admin.DateCreated;
                  legitAdminn.UserId = use.Id;
                legitAdminn.ManagerPass= admin.ManagerPass;
+               legitAdminn.ProfilePicture = admin.ProfilePicture;
             
                 
              
@@ -68,7 +69,8 @@ namespace MVC_MobileBankApp.Services.Implementations
                 PassWord = admin.PassWord,
                 DateCreated = admin.DateCreated,
                 UserId = use.Id,
-                ManagerPass = admin.ManagerPass
+                ManagerPass = admin.ManagerPass,
+                ProfilePicture = admin.ProfilePicture
                 
              };
            
@@ -116,7 +118,8 @@ namespace MVC_MobileBankApp.Services.Implementations
                 PhoneNumber = admin.PhoneNumber,
                 PassWord = admin.PassWord,
                 DateCreated = admin.DateCreated,
-                IsActive = admin.IsActive
+                IsActive = admin.IsActive,
+                ProfilePicture = admin.ProfilePicture
 
             };
         }

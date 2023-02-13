@@ -3,6 +3,7 @@ using System;
 using MVC_MobileBankApp.ApplicationContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_MobileBankApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230208130448_pixMigration")]
+    partial class pixMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,10 +192,6 @@ namespace MVC_MobileBankApp.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<byte[]>("ProfilePicture")
-                        .IsRequired()
-                        .HasColumnType("longblob");
-
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -250,10 +248,6 @@ namespace MVC_MobileBankApp.Migrations
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<byte[]>("ProfilePicture")
-                        .IsRequired()
-                        .HasColumnType("longblob");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");

@@ -66,6 +66,21 @@ namespace MVC_MobileBankApp.Controllers
            {
             if(customer != null)
             {
+                  //profile pix
+                IFormFile file = Request.Form.Files.FirstOrDefault();
+                using (var dataStream = new MemoryStream())
+                {
+                    file.CopyToAsync(dataStream);
+                    customer.ProfilePicture = dataStream.ToArray();
+                }
+                if(customer.ProfilePicture == null)
+                {
+                     TempData["pix"] = "Profile Picture can not be empty";
+                      TempData.Keep();
+                     return View();
+                }
+
+                
                var inner = _service.CreateCustomer(customer);
                 if(inner.Message == null)
                 {
@@ -269,6 +284,15 @@ namespace MVC_MobileBankApp.Controllers
             accountNumber = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var transaction = _transactionService.GetAllTransactionUsingAccountNumber(accountNumber);
             return View(transaction);
+            
+        }
+
+        [Authorize(Roles = "Customer")]
+         public IActionResult Reciept(string  accountNumber)
+        {
+            accountNumber = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var customer = _transactionService.GetTransactionByAccount(accountNumber);
+            return View(customer);
             
         }
 

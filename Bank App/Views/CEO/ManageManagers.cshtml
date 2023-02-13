@@ -1,3 +1,100 @@
+@{
+  Layout= null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/template6.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEO Potal</title>
+</head>
+<body>
+  @{
+    ViewData["Title"] = "Customer Portal";
+}
+  @if(TempData.Peek("success") != null )
+{
+    <h3 id="overlay" style="color: #b58900;">@TempData.Peek("success")</h3>
+}
+
+
+
+<h3 style = "font-family:cabri;font-size : 20px;">@ViewData["Title"]</h3>
+
+    <div class="container">
+        <nav>
+                <ul class="mcd-menu">
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">
+                            <i class="fa fa-home"></i>
+                            <strong>Home</strong>
+                            <small>sweet home</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Manager" asp-action="Managers" class="active">
+                            <i class="fa fa-edit"></i>
+                            <strong>Manage mangers</strong>
+                            <small>your managers</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Manager" asp-action="CreateManager">
+                            <i class="fa fa-gift"></i>
+                            <strong>Register Manager</strong>
+                            <small>manager registration</small>
+                        </a>
+                    </li>
+                   
+                    <li>
+                        <a href="">
+                            <i class="fa fa-comments-o"></i>
+                            <strong>Manage Users</strong>
+                            <small>application users</small>
+                        </a>
+                        <ul>
+                            <li><a asp-controller="Home" asp-action="Users"><i class="fa fa-globe"></i>All users</a></li>
+                            <li>
+                                <a href="#"><i class="fa fa-group"></i>Manage Users</a>
+                                <ul>
+                                    <li><a asp-controller="Manager" asp-action="Managers"><i class="fa fa-female"></i>Managers</a></li>
+                                   
+                                    <li><a asp-controller="Admin" asp-action="Admins"><i class="fa fa-female"></i>Admins</a></li>
+                                    <li><a asp-controller="Customer" asp-action="Customers"><i class="fa fa-female"></i>Customer</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a asp-controller="Home" asp-action="LogOut" >
+                            <i class="fa fa-globe"></i>
+                            <strong>Log out</strong>
+                            <small>after program</small>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+@* 
+
+
+
 <head>
 @{
     ViewData["Title"] = "CEO Portal";
@@ -44,4 +141,4 @@
             </a>
 </div>
 </div>
- 
+  *@

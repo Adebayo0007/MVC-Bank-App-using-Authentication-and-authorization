@@ -55,7 +55,22 @@ namespace MVC_MobileBankApp.Controllers
 
             if(admin != null)
             {
-                var check =_service.CreateAdmin(admin);
+                 //profile pix
+                IFormFile file = Request.Form.Files.FirstOrDefault();
+                using (var dataStream = new MemoryStream())
+                {
+                    file.CopyToAsync(dataStream);
+                    admin.ProfilePicture = dataStream.ToArray();
+                }
+                
+                if(admin.ProfilePicture == null)
+                {
+                     TempData["pix"] = "Profile Picture can not be empty";
+                      TempData.Keep();
+                     return View();
+                }
+
+                var check = _service.CreateAdmin(admin);
                 if(check.Message == null)
                 {
                    TempData["success"] = $"{admin.FirstName} {admin.LastName} Created Successfully";

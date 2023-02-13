@@ -17,15 +17,48 @@
 <div style="font-size: 130%;">
     <hr />
     <div id = "reg-form">
-    <form enctype="multipart/form-data" asp-action="CreateAdmin" method="post">
-    @if(TempData.Peek("error") != null )
-{
-    <h2 style="color: red; text-align: center;">@TempData.Peek("error")</h2>
-}
+    <form enctype="multipart/form-data" asp-action="CreateAdmin" method="post" enctype="multipart/form-data">
+                @if(TempData.Peek("error") != null )
+            {
+                <h2 style="color: red; text-align: center;">@TempData.Peek("error")</h2>
+            }
          @if(TempData["age"] != null)
              {
                 <h3 style="color: red;">@TempData["age"]</h3>
                }
+                @if(TempData["pix"] != null)
+             {
+                <h3 style="color: red;">@TempData["pix"]</h3>
+               }
+
+                <div class="form-group">
+                <label asp-for="ProfilePicture" style="width: 100%;"></label>
+                @* @if (Model.ProfilePicture != null)
+                {
+                    <img id="profilePicture" style="width:350px;height:350px; object-fit:cover" src="data:image/*;base64,@(Convert.ToBase64String(Model.ProfilePicture))">
+                }
+                else
+                {
+                    <img id="profilePicture" style="width:350px;height:350px; object-fit:cover" src="">
+                } *@
+                
+                <input type="file"
+                       id="profilePicture"
+                       accept=".png,.jpg,.jpeg,.gif,.tif"
+                       asp-for="ProfilePicture"
+                       class="form-control"
+                       style="border:0px!important;padding: 0px;padding-top: 10px;padding-bottom: 30px;"
+                       onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])" />
+                <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+            </div>
+
+
+
+
+
+
+
+               
         <div class = "form-row">
             @* <label><b>First Name</b></label>
             <input type = "text" name="FirstName"/> *@

@@ -91,7 +91,7 @@ public class HomeController : Controller
                       new Claim(ClaimTypes.PrimaryGroupSid , (user.Role == "Manager") ? manager.ManagerId:""),
                       new Claim(ClaimTypes.Hash , (user.Role == "Manager") ? manager.AdminRegistrationCode.ToString():""),
 
-                    new Claim(ClaimTypes.Anonymous , user.Email.ToString()),
+                    new Claim(ClaimTypes.Anonymous, (user.Role == "Customer") ? customer.ProfilePicture.ToString():""),
                     // new Claim(ClaimTypes.NameIdentifier , (user.Role == "Manager") ? user.Manager.ManagerId:""),
                     
                 new Claim(ClaimTypes.Role , (user.Role == "Customer") ? "Customer":""),

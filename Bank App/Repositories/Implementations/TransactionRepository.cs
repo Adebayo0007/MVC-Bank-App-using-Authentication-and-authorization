@@ -78,5 +78,24 @@ namespace MVC_MobileBankApp.Repositories.Implementations
             };
         
         }
+        public TransactionDTO GetTransactionByAccountNumber(string accountNumber)
+        {
+            var transaction =_context.Transactions.OrderByDescending(a => a.DateCreated).FirstOrDefault(a => a.AccountNumber == accountNumber);
+
+            return new TransactionDTO
+            {
+                                AccountBalance = transaction.AccountBalance,
+                                AccountNumber = transaction.AccountNumber,
+                                RefNum = transaction.RefNum,
+                                Amount = transaction.Amount,
+                                RecipientAccountNumber = transaction.RecipientAccountNumber,
+                                Pin = transaction.Pin,
+                                DateCreated = transaction.DateCreated,
+                                Description = transaction.Description,
+                                TransactType = transaction.TransactType
+
+            };
+
+        }
     }
 }

@@ -357,6 +357,22 @@ namespace MVC_MobileBankApp.Services.Implementations
                            };
             // return _transactionRepo.GetTransactionByRefNum(transaction.RefNum);
         }
+       public TransactionRequestModel GetTransactionByAccount(string accountNumber)
+       {
+           var transaction = _transactionRepo.GetTransactionByAccountNumber(accountNumber);
+                               return new TransactionRequestModel{
+                                AccountBalance = transaction.AccountBalance,
+                                AccountNumber = transaction.AccountNumber,
+                                RefNum = transaction.RefNum,
+                                Amount = transaction.Amount,
+                                RecipientAccountNumber = transaction.RecipientAccountNumber,
+                                Pin = transaction.Pin,
+                                DateCreated = transaction.DateCreated,
+                                Description = transaction.Description,
+                                TransactType = transaction.TransactType
+                           };
+
+       }
 
         public string RefNum()
         {

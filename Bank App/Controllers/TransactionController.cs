@@ -46,7 +46,7 @@ namespace MVC_MobileBankApp.Controllers
                 // ViewBag.Error = "Wrong Input";
                 TempData["message"] = $"Transaction Successful\\n {transact.SuccessMessage}";
                     TempData.Keep("message");
-                     return RedirectToAction("ManageTransaction", "Customer");
+                     return RedirectToAction("Reciept", "Customer");
                  
             }
         }

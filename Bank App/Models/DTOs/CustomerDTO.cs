@@ -18,6 +18,8 @@ namespace MVC_MobileBankApp.Models.DTOs
         [Required]
         public string LastName {get;set;}
         [Required]
+        public byte[]? ProfilePicture {get; set;}
+        [Required]
         public string Address {get;set;}
         public int UserId {get;set;}
          [DisplayName("Account Number")]
@@ -68,6 +70,8 @@ namespace MVC_MobileBankApp.Models.DTOs
         [DisplayName("Last Name")]
         [Required]
         public string LastName {get;set;}
+         [Required]
+        public byte[]? ProfilePicture {get; set;}
         [Required]
         public string Address {get;set;}
         public int UserId {get;set;}

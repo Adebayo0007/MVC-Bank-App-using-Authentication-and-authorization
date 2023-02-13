@@ -55,7 +55,8 @@ namespace MVC_MobileBankApp.Services.Implementations
                 PassWord = manager.PassWord,
                 DateCreated = manager.DateCreated,
                 UserId = use.Id,
-                AdminRegistrationCode = manager.AdminRegistrationCode
+                AdminRegistrationCode = manager.AdminRegistrationCode,
+                ProfilePicture = manager.ProfilePicture
              };
              _repo.CreateManager(legitManager);  
 
@@ -71,6 +72,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                legitManagerr.PassWord = manager.PassWord;
                legitManagerr.DateCreated = manager.DateCreated;
                  legitManagerr.UserId = manager.UserId;
+                 legitManagerr.ProfilePicture = manager.ProfilePicture;
 
                  return legitManagerr;
               
@@ -123,7 +125,8 @@ namespace MVC_MobileBankApp.Services.Implementations
                 PassWord = manager.PassWord,
                 DateCreated = manager.DateCreated,
                 IsActive = manager.IsActive,
-                AdminRegistrationCode = manager.AdminRegistrationCode
+                AdminRegistrationCode = manager.AdminRegistrationCode,
+                ProfilePicture = manager.ProfilePicture
                 
 
             };

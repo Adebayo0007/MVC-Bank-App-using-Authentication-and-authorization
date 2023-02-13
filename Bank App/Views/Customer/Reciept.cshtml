@@ -1,0 +1,100 @@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/template3.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="container">
+    @* <div class="card">
+      <button class="proceed"><svg class="sendicon" width="24" height="24" viewBox="0 0 24 24">
+    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+  </svg></button>
+     <img src="https://seeklogo.com/images/V/VISA-logo-62D5B26FE1-seeklogo.com.png" class="logo-card">
+   <label>Card number:</label>
+   <input id="user" type="text" class="input cardnumber"  placeholder="1234 5678 9101 1121">
+   <label>Name:</label>
+   <input class="input name"  placeholder="Edgar Pérez">
+   <label class="toleft">CCV:</label>
+   <input class="input toleft ccv" placeholder="321">
+    </div> *@
+    
+
+
+    <div class="receipt">
+      <div class="col">
+        <p>Amount:</p>
+      <h2 class="cost"># @Model.Amount</h2><br>
+    
+         <p> Account Balance:</p>
+         <h2 class="seller"> # @Model.AccountBalance</h2>
+         @if((int)Model.TransactType == 2 || (int)Model.TransactType == 3)
+         {
+            if(Model.Amount > 2000)
+            {
+
+             var charges = Model.Amount*0.005;
+              <p> VAT:</p>
+              <h2 class="seller"> # @charges</h2>
+            }
+            else
+            {
+                  <p> VAT:</p>
+              <h2 class="seller"> # 0</h2>
+            }
+         }
+         
+      </div>
+      <div class="col">
+        
+
+        <p>Date:</p>
+        <h3 class="bought-items">@Model.DateCreated</h3>
+        @* <p class="bought-items description">Gaming mouse with shiny lights</p>
+        <p class="bought-items price">$200 (50% discount)</p><br> *@
+         @if(@Model.RecipientAccountNumber != null)
+         {
+             <h3 class="bought-items">To:</h3>
+            <p class="bought-items description">@Model.RecipientAccountNumber</p>
+            
+
+         }
+          <h3 class="bought-items">Type of Transaction:</h3>
+            <p class="bought-items description">@Model.TransactType</p> <br>
+         <h3 class="bought-items">Description:</h3>
+            <p class="bought-items description">@Model.Description</p><br>
+            <h3 class="bought-items">Ref Number:</h3>
+            <p class="bought-items description">@Model.RefNum</p><br>
+            
+       
+      </div>
+      <p class="comprobe">Thanks for Banking With us</p>
+     
+    </div>
+  </div>
+   <div style="display:flex;margin-top: 20px; flex-direction: row; justify-content: center; gap:15px;">
+        <div style=" border: 1px solid rgb(32, 111, 172); background-color: rgb(32, 172, 67);  border-radius: 18px;  width: 200px;  height: 23px; text-align: center; ">
+             <button onclick="window.print()">Print Your Reciept</button>
+        </div>
+       
+    <div style=" border: 1px solid rgb(32, 111, 172); background-color: rgb(32, 172, 67);  border-radius: 18px;  width: 200px;  height: 23px; text-align: center; " >
+    <a style="color: white;" asp-controller="Transaction" asp-action="CreateTransaction">Make Transaction</a>
+    </div>
+    <div style=" border: 1px solid rgb(32, 111, 172); background-color:  rgb(32, 172, 67);  border-radius: 18px;  width: 100px;  height: 23px; text-align: center;">
+        <a style="color: white;" asp-controller="Customer" asp-action="ManageTransaction">Back</a>     
+    </div>
+
+  </div>
+  
+    
+</body>
+</html>

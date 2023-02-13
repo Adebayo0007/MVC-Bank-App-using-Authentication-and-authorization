@@ -16,6 +16,8 @@ namespace MVC_MobileBankApp.Models
         [Required]
         public string LastName {get;set;}
         [Required]
+        public byte[]? ProfilePicture {get; set;}
+        [Required]
         public string Address {get;set;}
          public int UserId {get;set;}
         [Key]

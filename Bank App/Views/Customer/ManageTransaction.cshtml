@@ -1,3 +1,146 @@
+@{
+  Layout= null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/template2.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Potal</title>
+</head>
+<body>
+  @{
+    ViewData["Title"] = "Customer Portal";
+}
+  @if(TempData.Peek("success") != null )
+{
+    <h3 id="overlay" style="color: #b58900;">@TempData.Peek("success")</h3>
+}
+
+
+
+<h3 style = "font-family:cabri;font-size : 20px;">@ViewData["Title"]</h3>
+
+    <div class="container">
+        <nav>
+                <ul class="mcd-menu">
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">
+                            <i class="fa fa-home"></i>
+                            <strong>Home</strong>
+                            <small>sweet home</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Customer" asp-action="Profile" class="active">
+                            <i class="fa fa-edit"></i>
+                            <strong>Profile</strong>
+                            <small>your profile</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Transaction" asp-action="CreateTransaction">
+                            <i class="fa fa-gift"></i>
+                            <strong>Bank with us</strong>
+                            <small>make transaction</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="LogOut" >
+                            <i class="fa fa-globe"></i>
+                            <strong>Log out</strong>
+                            <small>after banking</small>
+                        </a>
+                    </li>
+                   @* <li>
+                        <a href="">
+                            <i class="fa fa-comments-o"></i>
+                            <strong>Blog</strong>
+                            <small>what they say</small>
+                        </a>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-globe"></i>Mission</a></li>
+                            <li>
+                                <a href="#"><i class="fa fa-group"></i>Our Team</a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-female"></i>Leyla Sparks</a></li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-male"></i>Gleb Ismailov</a>
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
+                                            <li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-female"></i>Viktoria Gibbers</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><i class="fa fa-trophy"></i>Rewards</a></li>
+                            <li><a href="#"><i class="fa fa-certificate"></i>Certificates</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-picture-o"></i>
+                            <strong>Portfolio</strong>
+                            <small>sweet home</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-envelope-o"></i>
+                            <strong>Contacts</strong>
+                            <small>drop a line</small>
+                        </a>
+                    </li>
+                    <li class="float">
+                        <a class="search">
+                            <input type="text" value="search ...">
+                            <button><i class="fa fa-search"></i></button>
+                        </a>
+                        <a href="" class="search-mobile">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </li> *@
+                </ul>
+            </nav>
+        </div>
+  
+    @if(TempData.Peek("message") != null )
+{
+  <script type="text/javascript">
+  window.onload = function(){
+    alert("@TempData["message"]")
+  }
+  </script>
+}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* 
 <head>
     <style>
             .overlay {
@@ -41,10 +184,14 @@
 <body>
 @{
     ViewData["Title"] = "Customer Portal";
-}
-@* <h3 id="demo"></h3> *@
+} *@
 
-@if(TempData.Peek("success") != null )
+
+@* <h3 id="demo"></h3>... *@
+
+
+
+@* @if(TempData.Peek("success") != null )
 {
     <h3 id="overlay" style="color: #b58900;">@TempData.Peek("success")</h3>
 }
@@ -80,5 +227,5 @@
   }
   </script>
 }
-</body>
+</body> *@
  

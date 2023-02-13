@@ -67,12 +67,23 @@
         </li> 
       </ul>
       
-      <div>
-         <span style="color: white;">Hello! @User.FindFirst(ClaimTypes.Anonymous).Value
+      
+      <div style="display:flex;justify-content: right;flex-direction: row; gap:5px;">
+        <div style="border: solid white 1px; border-radius: 100px;height: 30px;width: 40px; background-image: url('@User.FindFirst(ClaimTypes.Anonymous).Value')">
+           
+         @* var pix = @User.FindFirst(ClaimTypes.Anonymous).Value as byte[]; *@
+        </div>
+        <div >
+           <span style="color: white;">Hello! @User.FindFirst(ClaimTypes.Email).Value 
             </span>
+           
 
           <a asp-controller = "Home" asp-action = "LogOut" class = "btn btn-primary"><i class="bi bi-box-arrow-in-right"></i> Log out
             </a>
+
+        </div>
+        
+        
             
       </div>
        @* <form >

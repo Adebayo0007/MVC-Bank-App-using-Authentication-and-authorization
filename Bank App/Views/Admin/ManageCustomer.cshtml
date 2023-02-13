@@ -1,3 +1,142 @@
+@{
+  Layout= null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/template4.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal</title>
+</head>
+<body>
+@{
+    ViewData["Title"] = "Admin Portal";
+}
+@if(TempData.Peek("success") != null )
+{
+    <h3 id="overlay" style="color: #b58900;">@TempData.Peek("success")</h3>
+}
+else
+{
+    <h3 id="overlay" style="color: #b58900;">@TempData.Peek("error")</h3>
+}
+
+    
+
+<h3 style = "font-family:cabri;font-size : 20px;">@ViewData["Title"]</h3>
+
+    <div class="container">
+        <nav>
+                <ul class="mcd-menu">
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">
+                            <i class="fa fa-home"></i>
+                            <strong>Home</strong>
+                            <small>sweet home</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="Profile" class="active">
+                            <i class="fa fa-edit"></i>
+                            <strong>Profile</strong>
+                            <small>your profile</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Customer" asp-action="Customers">
+                            <i class="fa fa-gift"></i>
+                            <strong>Manage Customer</strong>
+                            <small>manager customer</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Customer" asp-action="CreateCustomer" >
+                            <i class="fa fa-globe"></i>
+                            <strong>Add Customer</strong>
+                            <small>registration</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Transaction" asp-action="Transactions" >
+                            <i class="fa fa-globe"></i>
+                            <strong>Manage Transactions</strong>
+                            <small>transactions</small>
+                        </a>
+                    </li>
+                   @* <li>
+                        <a href="">
+                            <i class="fa fa-comments-o"></i>
+                            <strong>Blog</strong>
+                            <small>what they say</small>
+                        </a>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-globe"></i>Mission</a></li>
+                            <li>
+                                <a href="#"><i class="fa fa-group"></i>Our Team</a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-female"></i>Leyla Sparks</a></li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-male"></i>Gleb Ismailov</a>
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
+                                            <li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-female"></i>Viktoria Gibbers</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><i class="fa fa-trophy"></i>Rewards</a></li>
+                            <li><a href="#"><i class="fa fa-certificate"></i>Certificates</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-picture-o"></i>
+                            <strong>Portfolio</strong>
+                            <small>sweet home</small>
+                        </a>
+                    </li>*@
+                    <li>
+                        <a asp-controller="Home" asp-action="LogOut">
+                            <i class="fa fa-envelope-o"></i>
+                            <strong>Log out</strong>
+                            <small>drop a line</small>
+                        </a>
+                    @*</li>
+                    <li class="float">
+                        <a class="search">
+                            <input type="text" value="search ...">
+                            <button><i class="fa fa-search"></i></button>
+                        </a>
+                        <a href="" class="search-mobile">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </li> *@
+                </ul>
+            </nav>
+        </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+@* 
+
+
+
+
+
+
+
 
 
 <head>
@@ -77,4 +216,4 @@ else
             </a>
 </div>
 </div>
- 
+  *@

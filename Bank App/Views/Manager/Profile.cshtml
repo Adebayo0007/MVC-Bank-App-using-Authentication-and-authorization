@@ -57,9 +57,7 @@
            <div  style="display: flex;gap:40%;">
             &nbsp;
             <span>
-                <video width="200" height="150"  autoplay >
-                <source src="https://www.shutterstock.com/shutterstock/videos/1063559872/preview/stock-footage-an-icon-in-the-form-of-a-medical-plaster-appears-and-disappears-unusually-against-the-background-of.webm" type = "video/webm" />
-            </video>
+               <img id="profilePicture" style="width:200px;height:200px; object-fit:cover" src="data:image/*;base64,@(Convert.ToBase64String(Model.ProfilePicture))">
                  @* <div style="float:  left;"><img src="https://www.shutterstock.com/image-vector/money-care-logo-600w-1233356827.jpg"alt="bank" width="100px" height="100px"></div> *@
             </span>
             <span>

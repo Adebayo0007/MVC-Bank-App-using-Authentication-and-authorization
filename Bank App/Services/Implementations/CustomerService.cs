@@ -57,6 +57,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                legitCustomerr.AccountNumber = customer.AccountNumber;
                 legitCustomerr.Pin = customer.Pin;
                  legitCustomerr.AccountType = customer.AccountType;
+                 legitCustomerr.ProfilePicture = customer.ProfilePicture;
                 
         
                  var legitCustomer = new Customer {
@@ -75,7 +76,8 @@ namespace MVC_MobileBankApp.Services.Implementations
                 UserId = use.Id,
                 AccountNumber = customer.AccountNumber,
                 Pin = customer.Pin,
-                AccountType = customer.AccountType
+                AccountType = customer.AccountType,
+                ProfilePicture = customer.ProfilePicture
                 
              };
             
@@ -139,7 +141,9 @@ namespace MVC_MobileBankApp.Services.Implementations
                 AccountNumber = customer.AccountNumber,
                 Pin = customer.Pin,
                 AccountType = customer.AccountType,
-                AccountBalance = customer.AccountBalance
+                AccountBalance = customer.AccountBalance,
+                ProfilePicture = customer.ProfilePicture
+                
 
             };
         }

@@ -46,6 +46,20 @@ namespace MVC_MobileBankApp.Controllers
            {
             if(manager != null)
             {
+                  //profile pix
+                IFormFile file = Request.Form.Files.FirstOrDefault();
+                using (var dataStream = new MemoryStream())
+                {
+                    file.CopyToAsync(dataStream);
+                    manager.ProfilePicture = dataStream.ToArray();
+                }
+                if(manager.ProfilePicture == null)
+                {
+                     TempData["pix"] = "Profile Picture can not be empty";
+                      TempData.Keep();
+                     return View();
+                }
+
                var manage = _service.CreateManager(manager);
                if(manage.Message == null)
                {
