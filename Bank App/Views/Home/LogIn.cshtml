@@ -178,7 +178,8 @@ button{
          <span asp-validation-for="Email" class="text-danger"></span>
 
         <label asp-for="PassWord" for="password">Password</label>
-        <input id="pass" asp-for="PassWord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" placeholder="minimum of 6 characters with capital letter and number" >
+        @* <input id="pass" asp-for="PassWord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" placeholder="minimum of 6 characters with capital letter and number" > *@
+         <input id="pass" asp-for="PassWord" type="password" placeholder="minimum of 6 characters with capital letter and number" >
          <span asp-validation-for="PassWord" class="text-danger"></span>
 
         <button type="submit" value="Submit">Log In</button>
@@ -191,9 +192,11 @@ button{
                         <script type="text/javascript">
                         window.onload = function(){
                             alert("@TempData.Peek("message")")
+                           
                         }
                         </script>
                         }
+                        
     </form>
 </body>
 </html>

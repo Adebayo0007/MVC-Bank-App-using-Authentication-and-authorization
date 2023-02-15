@@ -27,7 +27,7 @@ namespace MVC_MobileBankApp.Models.DTOs
          [DisplayName("Account Balance")]
         public double AccountBalance{get;set;}
          [DisplayName("Date Created")]
-        public DateTime DateCreated {get;set;} = DateTime.Now;
+        public string DateCreated {get;set;} = DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
         public string? RecipientAccountNumber {get; set;}
         public string? Message {get; set;}
         public string? SuccessMessage {get; set;}
@@ -52,7 +52,7 @@ namespace MVC_MobileBankApp.Models.DTOs
          [DisplayName("Account Balance")]
         public double AccountBalance{get;set;}
          [DisplayName("Date Created")]
-        public DateTime DateCreated {get;set;}
+        public string DateCreated {get;set;}
         public string? RecipientAccountNumber {get; set;}
     }
 }

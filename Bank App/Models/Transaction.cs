@@ -25,7 +25,7 @@ namespace MVC_MobileBankApp.Models
          [DisplayName("Account Balance")]
         public double AccountBalance{get;set;}
          [DisplayName("Date Created")]
-        public DateTime DateCreated {get;set;} = DateTime.Now;
+        public string DateCreated {get;set;} 
         public string? RecipientAccountNumber {get; set;}
     }
 }
