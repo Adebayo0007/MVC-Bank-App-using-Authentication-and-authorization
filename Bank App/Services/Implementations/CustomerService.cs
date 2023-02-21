@@ -18,13 +18,12 @@ namespace MVC_MobileBankApp.Services.Implementations
         }
         public CustomerDTO CreateCustomer(CustomerDTO customer)
         {
-              var legitCustomerr = new CustomerDTO ();
-              legitCustomerr.Age = DateTime.Now.Year - customer.DOB.Year;
+             var Age = DateTime.Now.Year - customer.DOB.Year;
               
-              if(legitCustomerr.Age < 10)
+              if(Age < 18)
              {
-                legitCustomerr.Message = $"Customers under 10 Years old are not allowed in this Application";
-                return legitCustomerr;
+                customer.Message = $"Manager under 18 Years old are not allowed in this Application";
+                return customer;
              }
 
               var user = new User
@@ -40,25 +39,6 @@ namespace MVC_MobileBankApp.Services.Implementations
                 customer.AccountNumber = $"{random.Next(300,700).ToString()}{random.Next(100, 900).ToString()}{rand.Next(100,400).ToString()}0";
                 customer.UserId = use.Id;
                 customer.IsActive = true;
-
-
-                 
-               legitCustomerr.IsActive = customer.IsActive;
-               legitCustomerr.FirstName = customer.FirstName;
-               legitCustomerr.LastName = customer.LastName;
-               legitCustomerr.Address = customer.Address;
-               legitCustomerr.Gender = customer.Gender;
-               legitCustomerr.MaritalStatus = customer.MaritalStatus;
-                legitCustomerr.Email = customer.Email;
-                legitCustomerr.PhoneNumber = customer.PhoneNumber;
-               legitCustomerr.PassWord = customer.PassWord;
-               legitCustomerr.DateCreated = customer.DateCreated;
-                 legitCustomerr.UserId = use.Id;
-               legitCustomerr.AccountNumber = customer.AccountNumber;
-                legitCustomerr.Pin = customer.Pin;
-                 legitCustomerr.AccountType = customer.AccountType;
-                 legitCustomerr.ProfilePicture = customer.ProfilePicture;
-                
         
                  var legitCustomer = new Customer {
 
@@ -83,7 +63,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             
               _repo.CreateCustomer(legitCustomer); 
              
-              return legitCustomerr;
+              return customer;
            
             
             

@@ -17,13 +17,12 @@ namespace MVC_MobileBankApp.Services.Implementations
         }
         public AdminDTO CreateAdmin(AdminDTO admin)
         {
-            var legitAdminn = new AdminDTO ();
-              legitAdminn.Age = DateTime.Now.Year - admin.DOB.Year;
+             var Age = DateTime.Now.Year - admin.DOB.Year;
               
-              if(legitAdminn.Age < 18)
+              if(Age < 18)
              {
-                legitAdminn.Message = $"Admin under 18 Years old are not allowed in this Application";
-                return legitAdminn;
+                admin.Message = $"Manager under 18 Years old are not allowed in this Application";
+                return admin;
              }
              var user = new User
             {
@@ -36,24 +35,7 @@ namespace MVC_MobileBankApp.Services.Implementations
              var rand = new Random();
              admin.StaffId = "ZENITH-ADMIN-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +admin.FirstName[0]+admin.FirstName[1]+admin.FirstName[2]+rand.Next(0,9).ToString();
              admin.UserId = use.Id;
-             admin.IsActive = true;
-
-              legitAdminn.IsActive = admin.IsActive;
-               legitAdminn.FirstName = admin.FirstName;
-               legitAdminn.LastName = admin.LastName;
-               legitAdminn.Address = admin.Address;
-               legitAdminn.StaffId = admin.StaffId;
-               legitAdminn.Gender = admin.Gender;
-               legitAdminn.MaritalStatus = admin.MaritalStatus;
-                legitAdminn.Email = admin.Email;
-                legitAdminn.PhoneNumber = admin.PhoneNumber;
-               legitAdminn.PassWord = admin.PassWord;
-               legitAdminn.DateCreated = admin.DateCreated;
-                 legitAdminn.UserId = use.Id;
-               legitAdminn.ManagerPass= admin.ManagerPass;
-               legitAdminn.ProfilePicture = admin.ProfilePicture;
-            
-                
+             admin.IsActive = true;     
              
                var legitAdmin = new Admin {
                 StaffId = admin.StaffId,
@@ -76,7 +58,7 @@ namespace MVC_MobileBankApp.Services.Implementations
            
              _repo.CreateAdmin(legitAdmin);  
              
-             return legitAdminn; 
+             return admin; 
              
         }
 

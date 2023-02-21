@@ -9,253 +9,253 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MVC_MobileBankApp
 build_property.RootNamespace = MVC_MobileBankApp
-build_property.ProjectDir = c:\Users\user\Desktop\BAnk sessio\Bank App\
+build_property.ProjectDir = C:\Users\user\Desktop\BAnk sessio\Bank App\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\user\Desktop\BAnk sessio\Bank App
+build_property.MSBuildProjectDirectory = C:\Users\user\Desktop\BAnk sessio\Bank App
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/Admins.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/Admins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/CreateAdmin.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/CreateAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/DeleteAdmin.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/DeleteAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/Details.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/IndexPage.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/IndexPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXhQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/LogIn.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/LogIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTG9nSW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/ManageCustomer.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/ManageCustomer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlQ3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/Profile.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/UpdateAdmin.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/UpdateAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/UpdateProfile.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/UpdateProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/AllUsers.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/AllUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VPXEFsbFVzZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/CEODetails.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/CEODetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VPXENFT0RldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/CEOs.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/CEOs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VPXENFT3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/CreateCEO.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/CreateCEO.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VPXENyZWF0ZUNFTy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/DeleteCEO.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/DeleteCEO.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VPXERlbGV0ZUNFTy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/IndexCEOPage.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/IndexCEOPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VPXEluZGV4Q0VPUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/LogInCEO.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/LogInCEO.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VPXExvZ0luQ0VPLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/ManageManagers.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/ManageManagers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VPXE1hbmFnZU1hbmFnZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/UpdateCEO.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/UpdateCEO.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VPXFVwZGF0ZUNFTy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Card.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Card.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/CreateCustomer.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/CreateCustomer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ3JlYXRlQ3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/CustomerIndexPage.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/CustomerIndexPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ3VzdG9tZXJJbmRleFBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Customers.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Customers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ3VzdG9tZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/CustomerTransactions.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/CustomerTransactions.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ3VzdG9tZXJUcmFuc2FjdGlvbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/DeleteCustomer.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/DeleteCustomer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRGVsZXRlQ3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Details.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/LogIn.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/LogIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcTG9nSW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/ManageTransaction.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/ManageTransaction.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcTWFuYWdlVHJhbnNhY3Rpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Profile.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Reciept.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Reciept.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcUmVjaWVwdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Template.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Template.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcVGVtcGxhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/UpdateCustomer.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/UpdateCustomer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcVXBkYXRlQ3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/UpdateProfile.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/UpdateProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcVXBkYXRlUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Email/SendEmail.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Email/SendEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxcU2VuZEVtYWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Home/Index.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Home/LogIn.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Home/LogIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dJbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Home/Privacy.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Home/Users.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Home/Users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/CreateManager.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/CreateManager.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxDcmVhdGVNYW5hZ2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/DeleteManager.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/DeleteManager.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxEZWxldGVNYW5hZ2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/IndexManagerPage.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/IndexManagerPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxJbmRleE1hbmFnZXJQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/LogInManager.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/LogInManager.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxMb2dJbk1hbmFnZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/ManageAdmins.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/ManageAdmins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxNYW5hZ2VBZG1pbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/ManagerDetails.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/ManagerDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxNYW5hZ2VyRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/Managers.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/Managers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxNYW5hZ2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/MyAdmins.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/MyAdmins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxNeUFkbWlucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/Profile.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/UpdateManager.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/UpdateManager.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxVcGRhdGVNYW5hZ2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/UpdateProfile.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/UpdateProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxVcGRhdGVQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Shared/Error.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Shared/_Notification.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Shared/_Notification.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Transaction/CreateTransaction.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Transaction/CreateTransaction.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cQ3JlYXRlVHJhbnNhY3Rpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Transaction/DeleteTransaction.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Transaction/DeleteTransaction.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cRGVsZXRlVHJhbnNhY3Rpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Transaction/GetAccountTransactions.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Transaction/GetAccountTransactions.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cR2V0QWNjb3VudFRyYW5zYWN0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Transaction/IndexTransactionPage.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Transaction/IndexTransactionPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cSW5kZXhUcmFuc2FjdGlvblBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Transaction/TransactionDetails.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Transaction/TransactionDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cVHJhbnNhY3Rpb25EZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Transaction/Transactions.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Transaction/Transactions.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cVHJhbnNhY3Rpb25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/_ViewImports.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/_ViewStart.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/BAnk sessio/Bank App/Views/Shared/_Layout.cshtml]
+[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-0g5xqiq57q

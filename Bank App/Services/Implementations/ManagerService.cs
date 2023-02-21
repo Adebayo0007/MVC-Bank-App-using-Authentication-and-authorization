@@ -18,13 +18,12 @@ namespace MVC_MobileBankApp.Services.Implementations
         }
         public ManagerDTO CreateManager(ManagerDTO manager)
         {
-             var legitManagerr = new ManagerDTO ();
-              legitManagerr.Age = DateTime.Now.Year - manager.DOB.Year;
+             var Age = DateTime.Now.Year - manager.DOB.Year;
               
-              if(legitManagerr.Age < 18)
+              if(Age < 18)
              {
-                legitManagerr.Message = $"Manager under 18 Years old are not allowed in this Application";
-                return legitManagerr;
+                manager.Message = $"Manager under 18 Years old are not allowed in this Application";
+                return manager;
              }
 
               var user = new User
@@ -59,23 +58,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                 ProfilePicture = manager.ProfilePicture
              };
              _repo.CreateManager(legitManager);  
-
-              legitManagerr.IsActive = manager.IsActive;
-               legitManagerr.FirstName = manager.FirstName;
-               legitManagerr.LastName = manager.LastName;
-               legitManagerr.Address = manager.Address;
-               legitManagerr.ManagerId = manager.ManagerId;
-               legitManagerr.Gender = manager.Gender;
-               legitManagerr.MaritalStatus = manager.MaritalStatus;
-                legitManagerr.Email = manager.Email;
-                legitManagerr.PhoneNumber = manager.PhoneNumber;
-               legitManagerr.PassWord = manager.PassWord;
-               legitManagerr.DateCreated = manager.DateCreated;
-                 legitManagerr.UserId = manager.UserId;
-                 legitManagerr.ProfilePicture = manager.ProfilePicture;
-
-                 return legitManagerr;
-              
+             return manager;     
         }
 
         public ManagerRequestModel DeleteManager(string managerId)
