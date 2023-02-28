@@ -88,12 +88,14 @@ public class HomeController : Controller
                   new Claim(ClaimTypes.Country , (user.Role == "Customer") ? customer.FirstName:""),
                    new Claim(ClaimTypes.CookiePath , (user.Role == "Customer") ? customer.LastName:""),
                     new Claim(ClaimTypes.PrimarySid , (user.Role == "Admin") ? admin.StaffId:""),
-                      new Claim(ClaimTypes.PrimaryGroupSid , (user.Role == "Manager") ? manager.ManagerId:""),
+                     new Claim(ClaimTypes.PrimaryGroupSid , (user.Role == "Manager") ? manager.ManagerId:""),
                       new Claim(ClaimTypes.Hash , (user.Role == "Manager") ? manager.AdminRegistrationCode.ToString():""),
+                    //    new Claim(ClaimTypes.Dsa , (user.Role == "Manager") ? manager.ManagerId.ToString():""),
 
                     new Claim(ClaimTypes.Anonymous, (user.Role == "Customer") ? customer.ProfilePicture.ToString():""),
-                    // new Claim(ClaimTypes.NameIdentifier , (user.Role == "Manager") ? user.Manager.ManagerId:""),
-                    
+                   
+
+             
                 new Claim(ClaimTypes.Role , (user.Role == "Customer") ? "Customer":""),
                 new Claim(ClaimTypes.Role , (user.Role == "Admin") ? "Admin":""),
                  new Claim(ClaimTypes.Role , (user.Role == "Manager") ? "Manager":""),
