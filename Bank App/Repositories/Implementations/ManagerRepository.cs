@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using MVC_MobileBankApp.ApplicationContext;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Repositories.Interfaces;
@@ -13,15 +14,15 @@ namespace MVC_MobileBankApp.Repositories.Implementations
         }
         public Manager CreateManager(Manager manager)
         {
-              _context.Managers.Add(manager);
-            _context.SaveChanges();
+             _context.Managers.Add(manager);
+             _context.SaveChanges();
             return manager;
         }
 
         public Manager DeleteManager(Manager manager)
         {
              _context.Managers.Update(manager);
-            _context.SaveChanges();
+             _context.SaveChanges();
             return manager;
         }
 
@@ -32,13 +33,7 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public Manager GetManagerById(string managerId)
         {
-            var manager =_context.Managers.SingleOrDefault(a => a.ManagerId == managerId);
-            return manager;
-        }
-
-        public Manager Login(string email, string passWord)
-        {
-            var manager = _context.Managers.SingleOrDefault(a => a.Email == email && a.PassWord == passWord);
+            var manager = _context.Managers.SingleOrDefault(a => a.ManagerId == managerId);
             return manager;
         }
           public Manager Code(int code)
@@ -47,21 +42,21 @@ namespace MVC_MobileBankApp.Repositories.Implementations
             return manager;
         }
 
-        public Manager UpdateManager(Manager manager)
+        public  Manager UpdateManager(Manager manager)
         {
                _context.Managers.Update(manager);
-            _context.SaveChanges();
+              _context.SaveChanges();
             return manager;
         }
         public string NumberOfManager()
         {
-             return _context.Managers.Where( m => m.IsActive == true).Count().ToString();
+             var manager = _context.Managers.Where( m => m.IsActive == true).Count();
+             return manager.ToString();
         }
 
          public Manager GetManagerByEmail(string email)
         {
-            var manager =_context.Managers.SingleOrDefault(a => a.Email == email);
-            // var use =_context.Users.Include(x => x.Ceo.CEOId);
+            var manager = _context.Managers.SingleOrDefault(a => a.Email == email);
             return manager;
         }
 

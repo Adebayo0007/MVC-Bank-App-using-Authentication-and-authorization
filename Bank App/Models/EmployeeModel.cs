@@ -4,8 +4,7 @@ namespace MVC_MobileBankApp.Models
 {  
     public class EmployeeModel  
     {  
-          
-         
+             
         [DataType(DataType.EmailAddress),Display(Name ="To")]  
         [Required]  
         public string ToEmail { get; set; }  

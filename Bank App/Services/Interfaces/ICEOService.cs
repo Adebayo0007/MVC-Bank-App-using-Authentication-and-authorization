@@ -8,7 +8,6 @@ namespace MVC_MobileBankApp.Services.Interfaces
        CEO CreateCEO(CEO ceo);
        CEO UpdateCEO(CEO ceo);
        CEO DeleteCEO(string ceoId);
-       CEO Login(string email, string passWord);
        CEO GetCEOById(string ceoId);
        IList<CEO> GetAllCEO(); 
     }

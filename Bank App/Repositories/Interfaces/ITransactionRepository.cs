@@ -7,10 +7,10 @@ namespace MVC_MobileBankApp.Repositories.Interfaces
     {
         Transaction CreateTransfer(Transaction transfer);
         Transaction CreateTransaction(Transaction transaction);
-       void DeleteTransactionUsingRefNum(Transaction refNum);
-       TransactionDTO GetTransactionByRefNum(string refNum);
+        void DeleteTransactionUsingRefNum(Transaction refNum);
+        TransactionDTO GetTransactionByRefNum(string refNum);
         TransactionDTO GetTransactionByAccountNumber(string accountNumber);
-       IList<Transaction> GetAllTransactionUsingAccountNumber(string accountNumber);
-       IList<TransactionDTO> GetAllTransaction(); 
+        IList<Transaction> GetAllTransactionUsingAccountNumber(string accountNumber);
+        IList<TransactionDTO> GetAllTransaction(); 
     }
 }

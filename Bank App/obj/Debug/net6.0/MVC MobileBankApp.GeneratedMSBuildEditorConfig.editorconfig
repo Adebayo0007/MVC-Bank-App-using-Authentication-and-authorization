@@ -36,10 +36,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXhQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/LogIn.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTG9nSW4uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Admin/ManageCustomer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlQ3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -80,10 +76,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VPXEluZGV4Q0VPUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/LogInCEO.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VPXExvZ0luQ0VPLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/user/Desktop/BAnk sessio/Bank App/Views/CEO/ManageManagers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0VPXE1hbmFnZU1hbmFnZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -118,10 +110,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/LogIn.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcTG9nSW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Customer/ManageTransaction.cshtml]
@@ -178,10 +166,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/IndexManagerPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxJbmRleE1hbmFnZXJQYWdlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/LogInManager.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxMb2dJbk1hbmFnZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/BAnk sessio/Bank App/Views/Manager/ManageAdmins.cshtml]

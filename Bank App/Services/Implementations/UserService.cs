@@ -16,7 +16,7 @@ namespace MVC_MobileBankApp.Services.Implementations
 
         public User CreateUser(User user)
         {
-             return  _userRepository.CreateUser(user);  
+             return _userRepository.CreateUser(user);  
         }
 
         public User DeleteUserUsingId(int userId)
@@ -53,10 +53,6 @@ namespace MVC_MobileBankApp.Services.Implementations
             
                     userDto.Id  = user.Id;
                     userDto.Email  = user.Email;
-                    userDto.Customer = user.Customer;
-                    userDto.Admin = user.Admin;
-                    userDto.Manager = user.Manager;
-                    userDto.Ceo = user.Ceo;
                     userDto.IsActive = user.IsActive;
                     userDto.PassWord = user.PassWord;
                     userDto.Role  = user.Role;

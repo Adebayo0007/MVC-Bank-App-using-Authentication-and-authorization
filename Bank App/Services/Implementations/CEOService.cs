@@ -28,7 +28,7 @@ namespace MVC_MobileBankApp.Services.Implementations
              ceo.CEOId= "ZENITH-CEO-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +ceo.FirstName[0]+ceo.FirstName[1]+ceo.FirstName[2]+rand.Next(0,9).ToString();
              ceo.UserId = use.Id;
              ceo.IsActive = true;
-             return  _repo.CreateCEO(ceo); 
+             return _repo.CreateCEO(ceo); 
         }
 
         public CEO DeleteCEO(string ceoId)
@@ -47,11 +47,6 @@ namespace MVC_MobileBankApp.Services.Implementations
         public CEO GetCEOById(string ceoId)
         {
             return _repo.GetCEOById(ceoId);
-        }
-
-        public CEO Login(string email, string passWord)
-        {
-            return _repo.Login(email,passWord);
         }
 
         public CEO UpdateCEO(CEO ceo)
@@ -76,7 +71,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             ceoo.Age = ceo.Age != ceoo.Age? ceo.Age : ceoo.Age;
             ceoo.Address = ceo.Address ?? ceoo.Address;
             ceoo.MaritalStatus = ceo.MaritalStatus;
-            return _repo.UpdateCEO(ceoo);
+            return  _repo.UpdateCEO(ceoo);
         }
     }
 }

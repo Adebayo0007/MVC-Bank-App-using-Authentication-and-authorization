@@ -6,11 +6,11 @@ namespace MVC_MobileBankApp.Services.Interfaces
     public interface ITransactionService
     {
         TransactionDTO CreateTransaction(TransactionDTO transaction);
-       void DeleteTransactionUsingRefNum(string refNum);
-       TransactionRequestModel GetTransactionByRefNum(string refNum);
+        void DeleteTransactionUsingRefNum(string refNum);
+        TransactionRequestModel GetTransactionByRefNum(string refNum);
         TransactionRequestModel GetTransactionByAccount(string accountNumber);
-       IList<Transaction> GetAllTransactionUsingAccountNumber(string accountNumber);
-       IList<TransactionDTO> GetAllTransaction(); 
+        IList<Transaction> GetAllTransactionUsingAccountNumber(string accountNumber);
+        IList<TransactionDTO> GetAllTransaction(); 
          
     }
 }

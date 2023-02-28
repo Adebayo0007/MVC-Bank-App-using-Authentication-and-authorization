@@ -1,6 +1,4 @@
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models.DTOs;
@@ -67,21 +65,32 @@ namespace MVC_MobileBankApp.Controllers
             if(customer != null)
             {
                   //profile pix
-                IFormFile file = Request.Form.Files.FirstOrDefault();
-                using (var dataStream = new MemoryStream())
-                {
-                    file.CopyToAsync(dataStream);
-                    customer.ProfilePicture = dataStream.ToArray();
-                }
-                if(customer.ProfilePicture == null)
-                {
-                     TempData["pix"] = "Profile Picture can not be empty";
-                      TempData.Keep();
-                     return View();
-                }
+                  try{
+
+                        IFormFile file = Request.Form.Files.FirstOrDefault();
+                        using (var dataStream = new MemoryStream())
+                        {
+                           file.CopyToAsync(dataStream);
+                            customer.ProfilePicture = dataStream.ToArray();
+                        }
+                  }
+                  catch(Exception ex)
+                  {
+                    var mess = ex.Message.ToString();
+                                         TempData["pix"] = $"Profile picture is required";
+                                    TempData.Keep();
+                                    return View();
+
+                  }
+                // if(customer.ProfilePicture == null)
+                // {
+                //      TempData["pix"] = "Profile Picture can not be empty";
+                //       TempData.Keep();
+                //      return View();
+                // }
 
                 
-               var inner = _service.CreateCustomer(customer);
+               var inner =  _service.CreateCustomer(customer);
                 if(inner.Message == null)
                 {
                  TempData["success"] = $"{customer.FirstName} {customer.LastName} Created Successfully";
@@ -126,7 +135,7 @@ namespace MVC_MobileBankApp.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult DeleteCustomerConfirmed(string accountNumber)
         {
-            _service.DeleteCustomer(accountNumber);
+             _service.DeleteCustomer(accountNumber);
             return RedirectToAction(nameof(Customers));
         }
 
@@ -158,67 +167,11 @@ namespace MVC_MobileBankApp.Controllers
         }
 
 
-         public IActionResult LogIn()
-        {
-           return View(); 
-        }
-
-        [HttpPost , ActionName("LogIn")]
-         public IActionResult LogInConfirmed(string email,string passWord)
-        {
-            if(email == null || passWord == null)
-            {
-                return NotFound();
-            }
-            var customer = _service.Login(email,passWord);
-            if (customer == null)
-            {
-                //  ViewBag.Error = "Invalid Email or PassWord";
-                return NotFound();
-            }
-            // else
-            // {
-            // return RedirectToAction(nameof(ManageTransaction));
-            // }
-
-            //session
-        //     HttpContext.Session.SetString("Email", customer.Email);
-        //    HttpContext.Session.SetString("PassWord", customer.PassWord);
-        //     return RedirectToAction(nameof(ManageTransaction));
-
-        //cookies
-
-          //cookies
-
-         var roles = new List<string>();
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name , customer.LastName + " " +customer.FirstName),
-                //new Claim(ClaimTypes.Name , lecturer.LastName + " " +lecturer.FirstName),
-                new Claim(ClaimTypes.Email , customer.Email),
-                new Claim(ClaimTypes.Role , "Customer"),
-                // new Claim(ClaimTypes.NameIdentifier , 2.ToString()),
-                new Claim(ClaimTypes.NameIdentifier , customer.AccountNumber)
-        
-            };
-
-            var claimsIdentity = new ClaimsIdentity(claims , CookieAuthenticationDefaults.AuthenticationScheme);
-            var authenticationProperties = new AuthenticationProperties();
-            var principal = new ClaimsPrincipal(claimsIdentity);
-            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme , principal, authenticationProperties);
-
-            // foreach(var item in roles)
-            // {
-            //     claims.Add(new Claim(ClaimTypes.Role , item));
-            // }
-            return RedirectToAction(nameof(ManageTransaction));       
-        }
-
          [Authorize(Roles = "Admin,Manager, CEO")]
          public IActionResult Customers()
         {
-            var customers = _service.GetAllCustomer();
-            var customer = _service.NumberOfCustomer();
+            var customers =  _service.GetAllCustomer();
+            var customer =  _service.NumberOfCustomer();
              TempData["customers"] = customer;
                 TempData.Keep();
             return View(customers);
@@ -234,7 +187,7 @@ namespace MVC_MobileBankApp.Controllers
         //     {
         //         return BadRequest();
         //     }     
-            var customer = _service.GetCustomerByAccountnumber(accountNumber);
+            var customer =_service.GetCustomerByAccountnumber(accountNumber);
             return View(customer);
         }
         [Authorize(Roles="Customer")]
@@ -246,9 +199,6 @@ namespace MVC_MobileBankApp.Controllers
             return View(customerProfile);
 
         }
-
-
-
 
         [Authorize(Roles = "Customer")]
         [HttpGet]
@@ -291,7 +241,7 @@ namespace MVC_MobileBankApp.Controllers
          public IActionResult Reciept(string  accountNumber)
         {
             accountNumber = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var customer = _transactionService.GetTransactionByAccount(accountNumber);
+            var customer =_transactionService.GetTransactionByAccount(accountNumber);
             return View(customer);
             
         }

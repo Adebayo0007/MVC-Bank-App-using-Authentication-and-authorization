@@ -61,7 +61,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                 
              };
             
-              _repo.CreateCustomer(legitCustomer); 
+               _repo.CreateCustomer(legitCustomer); 
              
               return customer;
            
@@ -97,14 +97,14 @@ namespace MVC_MobileBankApp.Services.Implementations
             };
         }
 
-        public IList<Customer> GetAllCustomer()
+        public  IList<Customer> GetAllCustomer()
         {
-              return _repo.GetAllCustomer();
+              return  _repo.GetAllCustomer();
         }
 
         public CustomerRequestModel GetCustomerByAccountnumber(string accountNumber)
         {
-            var customer = _repo.GetCustomerByAccountnumber(accountNumber);
+            var customer =  _repo.GetCustomerByAccountnumber(accountNumber);
             return new CustomerRequestModel {
            
                 IsActive = customer.IsActive,
@@ -128,10 +128,6 @@ namespace MVC_MobileBankApp.Services.Implementations
             };
         }
 
-        public Customer Login(string email, string passWord)
-        {
-            return _repo.Login(email,passWord);
-        }
 
         public void UpdateCustomer(CustomerRequestModel customer)
         {
@@ -146,7 +142,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                 PassWord = customer.PassWord
             
             };
-           _userRepo.UpdateUser(user,customerr.UserId);
+              _userRepo.UpdateUser(user,customerr.UserId);
             
             customerr.FirstName = customer.FirstName ?? customerr.FirstName;
             customerr.LastName = customer.LastName ?? customerr.LastName;

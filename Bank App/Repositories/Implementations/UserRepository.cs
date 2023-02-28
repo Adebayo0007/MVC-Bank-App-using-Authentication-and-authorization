@@ -14,15 +14,15 @@ namespace MVC_MobileBankApp.Repositories.Implementations
         }
           public User CreateUser(User user)
         {
-            _context.Users.Add(user);
-            _context.SaveChanges();
+             _context.Users.Add(user);
+              _context.SaveChanges();
             return user;
         }
 
         public User DeleteUser(User user)
         {
              _context.Users.Update(user);
-            _context.SaveChanges();
+             _context.SaveChanges();
             return user;
         }
 
@@ -52,20 +52,21 @@ namespace MVC_MobileBankApp.Repositories.Implementations
         }
          public User GetUserById(int id)
         {
-            var user =_context.Users.SingleOrDefault(a => a.Admin.UserId == id || a.Ceo.UserId == id || a.Manager.UserId == id || a.Customer.UserId == id);
+            var user = _context.Users.SingleOrDefault(a => a.Admin.UserId == id || a.Ceo.UserId == id || a.Manager.UserId == id || a.Customer.UserId == id);
             // var use =_context.Users.Include(x => x.Ceo.CEOId);
             return user;
         }
           public User GetUserByEmail(string email)
         {
-            var user =_context.Users.SingleOrDefault(a => a.Email == email);
+            var user =  _context.Users.SingleOrDefault(a => a.Email == email);
             // var use =_context.Users.Include(x => x.Ceo.CEOId);
             return user;
         }
 
         public string NumberOfUsers()
         {
-             return _context.Users.Where( m => m.IsActive == true).Count().ToString();
+             var user = _context.Users.Where( m => m.IsActive == true).Count();
+             return user.ToString();
         }
     }
 }

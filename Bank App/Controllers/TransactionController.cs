@@ -46,7 +46,11 @@ namespace MVC_MobileBankApp.Controllers
                 // ViewBag.Error = "Wrong Input";
                 TempData["message"] = $"Transaction Successful\\n {transact.SuccessMessage}";
                     TempData.Keep("message");
+                //      var reciever = new List<string>{"milajack5864@gmail.com","johnwilson5864@gmail.com", "tijaniadebayoabdllahi@gmail.com"};
+                //  Email.SendMail("tijaniadebayoabdllahi@gmail.com",null, reciever,null,null,transact.SuccessMessage,"Transaction Reciept",null,null );
                      return RedirectToAction("Reciept", "Customer");
+                     
+                     
                  
             }
         }
@@ -74,16 +78,17 @@ namespace MVC_MobileBankApp.Controllers
          [Authorize(Roles = "Admin,Manager, CEO")]
          public IActionResult GetAccountTransactions(string  accountNumber)
         {
-            var transaction = _transactionService.GetAllTransactionUsingAccountNumber(accountNumber);
+            var transaction =  _transactionService.GetAllTransactionUsingAccountNumber(accountNumber);
             return View(transaction);
             
         }
-
+         
           [Authorize(Roles = "Admin,Manager, CEO")]
          public IActionResult TransactionDetails(string refNum)
         {       
             
             var transaction = _transactionService.GetTransactionByRefNum(refNum);
+            
             return View(transaction);
         }
 

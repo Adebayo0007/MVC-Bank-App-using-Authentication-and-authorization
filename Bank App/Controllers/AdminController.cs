@@ -1,6 +1,4 @@
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models.DTOs;
@@ -48,7 +46,7 @@ namespace MVC_MobileBankApp.Controllers
              var adminn = _managerService.Code(admin.ManagerPass);
            if(adminn == null)
            {
-              TempData["error"] = "Wrong Pass Code";
+              TempData["error"] = "You are not authorize to create admin";
               TempData.Keep();
                return View();
            }
@@ -56,19 +54,24 @@ namespace MVC_MobileBankApp.Controllers
             if(admin != null)
             {
                  //profile pix
-                IFormFile file = Request.Form.Files.FirstOrDefault();
-                using (var dataStream = new MemoryStream())
-                {
-                    file.CopyToAsync(dataStream);
-                    admin.ProfilePicture = dataStream.ToArray();
-                }
-                
-                if(admin.ProfilePicture == null)
-                {
-                     TempData["pix"] = "Profile Picture can not be empty";
-                      TempData.Keep();
-                     return View();
-                }
+                    try{
+
+                        IFormFile file = Request.Form.Files.FirstOrDefault();
+                        using (var dataStream = new MemoryStream())
+                        {
+                          file.CopyToAsync(dataStream);
+                            admin.ProfilePicture = dataStream.ToArray();
+                        }
+                  }
+                  catch(Exception ex)
+                  {
+                                          var mess = ex.Message.ToString();
+                                            // TempData["pix"] = mess;
+                                         TempData["pix"] = $"Profile picture is required";
+                                    TempData.Keep();
+                                    return View();
+
+                  }
 
                 var check = _service.CreateAdmin(admin);
                 if(check.Message == null)
@@ -169,68 +172,6 @@ namespace MVC_MobileBankApp.Controllers
             return RedirectToAction(nameof(Admins));
         }
 
-
-         public IActionResult LogIn()
-        {
-           return View();
-           
-        }
-
-        [HttpPost , ActionName("LogIn")]
-         public IActionResult LogInConfirmed(string email,string passWord)
-        {
-            if(email == null || passWord == null)
-            {
-                return NotFound();
-            }
-            var admin = _service.Login(email,passWord);
-            if (admin == null)
-            {
-                //  ViewBag.Error = "Invalid Email or PassWord";
-                // return View();
-                return NotFound();
-            }
-            // else
-            // {
-            // return RedirectToAction(nameof(ManageCustomer));
-            // }
-           
-
-        //    //session
-        //    HttpContext.Session.SetString("Email", admin.Email);
-        //    HttpContext.Session.SetString("PassWord", admin.PassWord);
-        //     return RedirectToAction(nameof(ManageCustomer));
-
-
-        //cookies
-
-         var roles = new List<string>();
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name , admin.LastName + " " +admin.FirstName),
-                //new Claim(ClaimTypes.Name , lecturer.LastName + " " +lecturer.FirstName),
-                new Claim(ClaimTypes.Email , admin.Email),
-                new Claim(ClaimTypes.Role , "Admin"),
-                // new Claim(ClaimTypes.NameIdentifier , 2.ToString()),
-                new Claim(ClaimTypes.NameIdentifier , admin.StaffId)
-        
-            };
-
-            var claimsIdentity = new ClaimsIdentity(claims , CookieAuthenticationDefaults.AuthenticationScheme);
-            var authenticationProperties = new AuthenticationProperties();
-            var principal = new ClaimsPrincipal(claimsIdentity);
-            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme , principal, authenticationProperties);
-
-            // foreach(var item in roles)
-            // {
-            //     claims.Add(new Claim(ClaimTypes.Role , item));
-            // }
-           return RedirectToAction(nameof(ManageCustomer));
-           
-            
-        }
-
-
           [Authorize(Roles = "Manager, CEO")] 
          public IActionResult Admins()
         {
@@ -274,7 +215,7 @@ namespace MVC_MobileBankApp.Controllers
         public IActionResult Profile(string staffId)
         {
             staffId = User.FindFirst(ClaimTypes.PrimarySid).Value;
-            var adminProfile = _service.GetAdminById(staffId);
+            var adminProfile =  _service.GetAdminById(staffId);
             return View(adminProfile);
         }
 
@@ -301,7 +242,7 @@ namespace MVC_MobileBankApp.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult UpdateProfile(AdminRequestModel admin)
         {
-            _service.UpdateAdmin(admin);
+             _service.UpdateAdmin(admin);
             return RedirectToAction(nameof(Profile));
         }
     

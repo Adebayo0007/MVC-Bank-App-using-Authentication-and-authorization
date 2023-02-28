@@ -6,8 +6,9 @@ namespace MVC_MobileBankApp.Models.DTOs
 {
     public class AdminDTO
     {
+       
         [DisplayName("First Name")]
-        [Required]
+        [Required(ErrorMessage = "The Admin's name is required")]
         [StringLength(225)]
         public string FirstName {get;set;}
         [DisplayName("Last Name")]
@@ -20,10 +21,7 @@ namespace MVC_MobileBankApp.Models.DTOs
         [Required]
         public string Address {get;set;}
         public int ManagerId {get; set;}
-        //public string? Identity {get; set;}
-        
         public int UserId {get;set;}
-        [Key]
         public string StaffId  {get; set;}
         [DisplayName("Date Of Birth")] 
         [Required]
@@ -52,9 +50,6 @@ namespace MVC_MobileBankApp.Models.DTOs
           [DisplayName("Admin Pass Code")]
          [Required]
          public int ManagerPass {get;set;}
-          [DisplayName("Confirm Pass")]
-        [Compare("ManagerPass")]
-        public int ConfirmManagerPass {get;set;}
         public string? Message { get; set;}
         public DateTime DateCreated {get; set;} = DateTime.Now;
          

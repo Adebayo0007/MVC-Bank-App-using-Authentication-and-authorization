@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using MVC_MobileBankApp.ApplicationContext;
 using MVC_MobileBankApp.Models;
 
@@ -15,20 +16,20 @@ namespace MVC_MobileBankApp.Repositories.Implementations
         public Admin CreateAdmin(Admin admin)
         {
              _context.Admins.Add(admin);
-            _context.SaveChanges();
+              _context.SaveChanges();
             return admin;
         }
 
         public Admin DeleteAdminUsingId(Admin admin)
         {
-             _context.Admins.Update(admin);
-            _context.SaveChanges();
+                  _context.Admins.Update(admin);
+                 _context.SaveChanges();
             return admin;
         }
 
         public Admin GetAdminById(string staffId)
         {
-            var admin =_context.Admins.SingleOrDefault(a => a.StaffId == staffId);
+            var admin = _context.Admins.SingleOrDefault(a => a.StaffId == staffId);
             // return _context.Admins.Find(adminId);
             return admin;
         }
@@ -39,18 +40,13 @@ namespace MVC_MobileBankApp.Repositories.Implementations
         }
          public string NumberOfAdmin()
         {
-            return _context.Admins.Where(a => a.IsActive == true).Count().ToString();
-        }
-
-        public Admin Login(string email, string passWord)
-        {
-           return _context.Admins.SingleOrDefault(a => a.Email == email && a.PassWord == passWord);
+            var admin =  _context.Admins.Where(a => a.IsActive == true).Count();
+            return admin.ToString();
         }
 
         public Admin UpdateAdmin(Admin admin)
         {
-           
-            _context.Admins.Update(admin);
+             _context.Admins.Update(admin);
             _context.SaveChanges();
             return admin;
         }
@@ -59,16 +55,10 @@ namespace MVC_MobileBankApp.Repositories.Implementations
              return _context.Admins.Where(a => a.ManagerPass == adminPass && a.IsActive == true).ToList();
         }
 
-        // Admin IAdminRepository.CreateAdmin(Admin admin)
-        // {
-        //     throw new NotImplementedException();
-        // }
-
         
       public Admin GetAdminByEmail(string email)
         {
-            var admin =_context.Admins.SingleOrDefault(a => a.Email == email);
-            // var use =_context.Users.Include(x => x.Ceo.CEOId);
+            var admin =  _context.Admins.SingleOrDefault(a => a.Email == email);
             return admin;
         }
     }

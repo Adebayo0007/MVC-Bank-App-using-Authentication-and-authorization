@@ -79,7 +79,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                                         TransactType = transaction.TransactType
                              };
                               transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
-                            _transactionRepo.CreateTransaction(transact); 
+                             _transactionRepo.CreateTransaction(transact); 
 
                         }
                         else
@@ -209,7 +209,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                                 TransactType = transaction.TransactType
                              };
                               transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n  VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n To: {reciever.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
-                            _transactionRepo.CreateTransfer(transact); 
+                              _transactionRepo.CreateTransfer(transact); 
                     }
                      else
                         {
@@ -244,7 +244,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                                 TransactType = transaction.TransactType
                             };
                             transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n  Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Your balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
-                             _transactionRepo.CreateTransaction(transact); 
+                            _transactionRepo.CreateTransaction(transact); 
 
                         }
                         else
@@ -314,7 +314,7 @@ namespace MVC_MobileBankApp.Services.Implementations
 
         public void DeleteTransactionUsingRefNum(string refNum)
         {
-            var transaction = _transactionRepo.GetTransactionByRefNum(refNum);
+            var transaction =_transactionRepo.GetTransactionByRefNum(refNum);
             var transact = new Transaction {
                                AccountBalance = transaction.AccountBalance,
                                 AccountNumber = transaction.AccountNumber,
@@ -327,7 +327,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                                 TransactType = transaction.TransactType
 
                                };
-           _transactionRepo.DeleteTransactionUsingRefNum(transact);
+            _transactionRepo.DeleteTransactionUsingRefNum(transact);
         }
 
         public IList<TransactionDTO> GetAllTransaction()
@@ -359,7 +359,7 @@ namespace MVC_MobileBankApp.Services.Implementations
         }
        public TransactionRequestModel GetTransactionByAccount(string accountNumber)
        {
-           var transaction = _transactionRepo.GetTransactionByAccountNumber(accountNumber);
+           var transaction =  _transactionRepo.GetTransactionByAccountNumber(accountNumber);
                                return new TransactionRequestModel{
                                 AccountBalance = transaction.AccountBalance,
                                 AccountNumber = transaction.AccountNumber,

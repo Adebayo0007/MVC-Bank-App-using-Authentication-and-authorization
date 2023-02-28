@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using MVC_MobileBankApp.ApplicationContext;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs;
@@ -14,7 +15,7 @@ namespace MVC_MobileBankApp.Repositories.Implementations
         }
         public Transaction CreateTransaction(Transaction transaction)
         {
-             _context.Transactions.Add(transaction);
+            _context.Transactions.Add(transaction);
             _context.SaveChanges();
             return transaction;
 
@@ -22,10 +23,10 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public Transaction CreateTransfer(Transaction transaction)
         {
-            _context.Transactions.Add(transaction);
+             _context.Transactions.Add(transaction);
             var reciever = _context.Customers.Find(transaction.RecipientAccountNumber);
             _context.Customers.Update(reciever);
-            _context.SaveChanges();
+             _context.SaveChanges();
             return transaction;
         }
         
@@ -38,7 +39,7 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public IList<TransactionDTO> GetAllTransaction()
         {
-               return _context.Transactions.Select(a => new TransactionDTO
+               return  _context.Transactions.Select(a => new TransactionDTO
                             {
                                 AccountBalance = a.AccountBalance,
                                 AccountNumber = a.AccountNumber,
@@ -55,13 +56,13 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public IList<Transaction> GetAllTransactionUsingAccountNumber(string accountNumber)
         {
-            return _context.Transactions.Where(a => a.AccountNumber == accountNumber || a.RecipientAccountNumber == accountNumber).ToList();
+            return  _context.Transactions.Where(a => a.AccountNumber == accountNumber || a.RecipientAccountNumber == accountNumber).ToList();
             
         }
 
         public TransactionDTO GetTransactionByRefNum(string refNum)
         {
-             var transaction =_context.Transactions.SingleOrDefault(a => a.RefNum == refNum);
+             var transaction = _context.Transactions.SingleOrDefault(a => a.RefNum == refNum);
 
             return new TransactionDTO
             {
@@ -80,7 +81,7 @@ namespace MVC_MobileBankApp.Repositories.Implementations
         }
         public TransactionDTO GetTransactionByAccountNumber(string accountNumber)
         {
-            var transaction =_context.Transactions.OrderByDescending(a => a.DateCreated).FirstOrDefault(a => a.AccountNumber == accountNumber);
+            var transaction = _context.Transactions.OrderByDescending(a => a.DateCreated).FirstOrDefault(a => a.AccountNumber == accountNumber);
 
             return new TransactionDTO
             {

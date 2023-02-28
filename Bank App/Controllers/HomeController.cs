@@ -54,7 +54,7 @@ public class HomeController : Controller
             var user = _service.Login(email,passWord);
             var admin = _adminService.GetAdminByEmail(user.Email);
             var customer = _customerService.GetCustomerByEmail(user.Email);
-            var manager = _managerService.GetManagerByEmail(user.Email);
+            var manager =  _managerService.GetManagerByEmail(user.Email);
             // if (user == null || user.IsActive == false)
             // {
             //       TempData["error"] = "Invalid Email or Password"; 
@@ -106,7 +106,7 @@ public class HomeController : Controller
             var claimsIdentity = new ClaimsIdentity(claims , CookieAuthenticationDefaults.AuthenticationScheme);
             var authenticationProperties = new AuthenticationProperties();
             var principal = new ClaimsPrincipal(claimsIdentity);
-            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme , principal, authenticationProperties);
+             HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme , principal, authenticationProperties);
 
             // foreach(var item in roles)
             // {
@@ -139,10 +139,10 @@ public class HomeController : Controller
             return RedirectToAction(nameof(Index));
             
         }
-         public IActionResult LogOut(UserDTO request)
+         public async Task<IActionResult> LogOut(UserDTO request)
         {
             HttpContext.Session.Clear();
-            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
              TempData["success"] = $"{request.Email} Logged out Successfully";
                 TempData.Keep();
             return RedirectToAction(nameof(LogIn));
@@ -151,8 +151,8 @@ public class HomeController : Controller
             [Authorize(Roles = "CEO")] 
          public IActionResult Users()
         {
-            var users = _service.GetAllUser();
-            string user = _service.NumberOfUsers();
+            var users =  _service.GetAllUser();
+            string user =  _service.NumberOfUsers();
              TempData["users"] = user;
                 TempData.Keep();
             return View(users);

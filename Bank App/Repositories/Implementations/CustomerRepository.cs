@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using MVC_MobileBankApp.ApplicationContext;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Repositories.Interfaces;
@@ -14,15 +15,15 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public Customer CreateCustomer(Customer customer)
         {
-            _context.Customers.Add(customer);
-            _context.SaveChanges();
+              _context.Customers.Add(customer);
+              _context.SaveChanges();
             return customer;
         }
 
         public Customer DeleteCustomer(Customer customer)
         {
               _context.Customers.Update(customer);
-            _context.SaveChanges();
+             _context.SaveChanges();
             return customer;
         }
 
@@ -33,14 +34,10 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public Customer GetCustomerByAccountnumber(string accountNumber)
         {
-            var customer =_context.Customers.SingleOrDefault(a => a.AccountNumber == accountNumber);
+            var customer = _context.Customers.SingleOrDefault(a => a.AccountNumber == accountNumber);
             return customer;
         }
 
-        public Customer Login(string email, string passWord)
-        {
-            return _context.Customers.SingleOrDefault(a => a.Email  == email && a.PassWord == passWord);
-        }
 
         public Customer UpdateCustomer(Customer customer)
         {
@@ -51,12 +48,13 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
          public string NumberOfCustomer()
         {
-             return _context.Customers.Where(c => c.IsActive == true).Count().ToString();
+            var cus = _context.Customers.Where(c => c.IsActive == true).Count();
+            return cus.ToString();
         }
 
           public Customer GetCustomerByEmail(string email)
         {
-            var customer =_context.Customers.SingleOrDefault(a => a.Email == email);
+            var customer = _context.Customers.SingleOrDefault(a => a.Email == email);
             // var use =_context.Users.Include(x => x.Ceo.CEOId);
             return customer;
         }

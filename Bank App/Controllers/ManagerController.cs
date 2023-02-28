@@ -1,6 +1,4 @@
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models.DTOs;
@@ -36,38 +34,43 @@ namespace MVC_MobileBankApp.Controllers
         {
             return View();
         }
-           [Authorize] 
+        [Authorize] 
         [HttpPost]
         [ValidateAntiForgeryToken]
          public IActionResult CreateManager(ManagerDTO manager)
         {
-              var user = _userService.GetUserByEmail(manager.Email);
+              var user =  _userService.GetUserByEmail(manager.Email);
            if(user == null)
            {
             if(manager != null)
             {
                   //profile pix
                 IFormFile file = Request.Form.Files.FirstOrDefault();
+                try{
+                    
                 using (var dataStream = new MemoryStream())
                 {
                     file.CopyToAsync(dataStream);
                     manager.ProfilePicture = dataStream.ToArray();
                 }
-                if(manager.ProfilePicture == null)
-                {
-                     TempData["pix"] = "Profile Picture can not be empty";
-                      TempData.Keep();
-                     return View();
                 }
+                catch(Exception ex)
+                {
+                                      var mess = ex.Message.ToString();
+                                         TempData["pix"] = $"Profile picture is required";
+                                    TempData.Keep();
+                                    return View();
 
-               var manage = _service.CreateManager(manager);
+                }
+               
+               var manage =  _service.CreateManager(manager);
                if(manage.Message == null)
                {
 
-              TempData["success"] = $"{manager.FirstName} {manager.LastName} Created Successfully";
-              TempData["message"] = manage.Message;
-                TempData.Keep();
-                return RedirectToAction("LogIn", "Home");
+                    TempData["success"] = $"{manager.FirstName} {manager.LastName} Created Successfully";
+                    TempData["message"] = manage.Message;
+                        TempData.Keep();
+                        return RedirectToAction("LogIn", "Home");
                }
                else
                {
@@ -80,7 +83,7 @@ namespace MVC_MobileBankApp.Controllers
             }
             else
             {
-                // ViewBag.Error = "Wrong Input";
+                
                  TempData["error"] = "wrong input"; 
                return View();
             }
@@ -100,7 +103,7 @@ namespace MVC_MobileBankApp.Controllers
            [Authorize(Roles = "CEO")] 
          public IActionResult DeleteManager(string managerId)
         {            
-            var manager = _service.GetManagerById(managerId);
+            var manager =  _service.GetManagerById(managerId);
             return View(manager);          
         }
 
@@ -109,10 +112,10 @@ namespace MVC_MobileBankApp.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult DeleteManagerConfirmed(string managerId)
         {
-            _service.DeleteManager(managerId);
+             _service.DeleteManager(managerId);
             return RedirectToAction(nameof(Managers));
         }
-            [Authorize(Roles = "CEO")] 
+          [Authorize(Roles = "CEO")] 
           [HttpGet]
          public IActionResult UpdateManager(string managerId)
         {       
@@ -136,68 +139,6 @@ namespace MVC_MobileBankApp.Controllers
         {
             _service.UpdateManager(manager);
             return RedirectToAction(nameof(Managers));
-        }
-
-
-         public IActionResult LogInManager()
-        {
-           return View();
-           
-        }
-
-        [HttpPost , ActionName("LogInManager")]
-         public IActionResult LogInConfirmed(string email,string passWord)
-        {
-            if(email == null || passWord == null)
-            {
-                return NotFound();
-            }
-            var manager = _service.Login(email,passWord);
-            if (manager == null)
-            {
-                //  ViewBag.Error = "Invalid Email or PassWord";
-                return NotFound();
-            }
-            // else
-            // {
-            // return RedirectToAction(nameof(ManageAdmins));
-            // }
-
-
-            //session
-
-            //   HttpContext.Session.SetString("Email", manager.Email);
-            //    HttpContext.Session.SetString("PassWord", manager.PassWord);
-            //    return RedirectToAction(nameof(ManageAdmins));
-
-
-              //cookies
-
-               var roles = new List<string>();
-              var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name , manager.LastName + " " +manager.FirstName),
-                //new Claim(ClaimTypes.Name , lecturer.LastName + " " +lecturer.FirstName),
-                new Claim(ClaimTypes.Email , manager.Email),
-                new Claim(ClaimTypes.Role , "Manager"),
-                // new Claim(ClaimTypes.NameIdentifier , 2.ToString()),
-                new Claim(ClaimTypes.NameIdentifier , manager.ManagerId)
-        
-            };
-
-            var claimsIdentity = new ClaimsIdentity(claims , CookieAuthenticationDefaults.AuthenticationScheme);
-            var authenticationProperties = new AuthenticationProperties();
-            var principal = new ClaimsPrincipal(claimsIdentity);
-            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme , principal, authenticationProperties);
-
-            // foreach(var item in roles)
-            // {
-            //     claims.Add(new Claim(ClaimTypes.Role , item));
-            // }
-            return RedirectToAction(nameof(ManageAdmins));
-            
-           
-            
         }
 
 
@@ -239,7 +180,7 @@ namespace MVC_MobileBankApp.Controllers
             {
                 return NotFound();
             }
-            var manager = _service.GetManagerById(managerId);
+            var manager =  _service.GetManagerById(managerId);
             if(manager == null)
             {
                 return NotFound();
@@ -253,14 +194,14 @@ namespace MVC_MobileBankApp.Controllers
         [ValidateAntiForgeryToken]
          public IActionResult UpdateProfile(ManagerRequestModel manager)
         {
-            _service.UpdateManager(manager);
+             _service.UpdateManager(manager);
             return RedirectToAction(nameof(Profile));
         }
 
          public IActionResult MyAdmins(string passCode)
          {
              passCode = User.FindFirst(ClaimTypes.Hash).Value;
-              var admins =_adminService.GetAdmins(int.Parse(passCode));
+              var admins = _adminService.GetAdmins(int.Parse(passCode));
             return View(admins);
 
          }

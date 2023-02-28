@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using MVC_MobileBankApp.ApplicationContext;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Repositories;
@@ -33,13 +34,8 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public CEO GetCEOById(string ceoId)
         {
-             var manager =_context.CEOs.SingleOrDefault(a => a.CEOId == ceoId);
+             var manager = _context.CEOs.SingleOrDefault(a => a.CEOId == ceoId);
             return manager;
-        }
-
-        public CEO Login(string email, string passWord)
-        {
-            return _context.CEOs.SingleOrDefault(a => a.Email == email && a.PassWord == passWord);
         }
 
         public CEO UpdateCEO(CEO ceo)

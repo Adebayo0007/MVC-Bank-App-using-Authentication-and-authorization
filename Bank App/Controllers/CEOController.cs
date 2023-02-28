@@ -1,6 +1,4 @@
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models;
@@ -47,7 +45,7 @@ namespace MVC_MobileBankApp.Controllers
             if(ceo != null)
             { 
                 _service.CreateCEO(ceo);
-                TempData["success"] = "Manager Created Successfully";
+                TempData["success"] = "CEO Created Successfully";
                 return RedirectToAction("LogIn", "Home");
             }
             else
@@ -94,66 +92,6 @@ namespace MVC_MobileBankApp.Controllers
         {
             _service.UpdateCEO(ceo);
             return RedirectToAction(nameof(CEOs));
-        }
-
-
-         public IActionResult LogInCEO()
-        {
-           return View();
-           
-        }
-
-        [HttpPost , ActionName("LogInCEO")]
-         public IActionResult LogInConfirmed(string email,string passWord)
-        {
-            if(email == null || passWord == null)
-            {
-                return NotFound();
-            }
-            var ceo = _service.Login(email,passWord);
-            if (ceo == null)
-            {
-                //  ViewBag.Error = "Invalid Email or PassWord";
-                return NotFound();
-            }
-            // else
-            // {
-            // return RedirectToAction(nameof(ManageManagers));
-            // }
-
-        //     //session
-
-        //      HttpContext.Session.SetString("Email", manager.Email);
-        //    HttpContext.Session.SetString("PassWord", manager.PassWord);
-        //    return RedirectToAction(nameof(ManageManagers));
-
-
-          //cookies
-
-               var roles = new List<string>();
-              var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name , ceo.LastName + " " +ceo.FirstName),
-                //new Claim(ClaimTypes.Name , lecturer.LastName + " " +lecturer.FirstName),
-                new Claim(ClaimTypes.Email , ceo.Email),
-                new Claim(ClaimTypes.Role , "CEO"),
-                // new Claim(ClaimTypes.NameIdentifier , 2.ToString()),
-                new Claim(ClaimTypes.NameIdentifier , ceo.CEOId)
-        
-            };
-
-            var claimsIdentity = new ClaimsIdentity(claims , CookieAuthenticationDefaults.AuthenticationScheme);
-            var authenticationProperties = new AuthenticationProperties();
-            var principal = new ClaimsPrincipal(claimsIdentity);
-            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme , principal, authenticationProperties);
-
-            // foreach(var item in roles)
-            // {
-            //     claims.Add(new Claim(ClaimTypes.Role , item));
-            // }
-            return RedirectToAction(nameof(ManageManagers));
-           
-            
         }
 
          [Authorize(Roles = "CEO")] 

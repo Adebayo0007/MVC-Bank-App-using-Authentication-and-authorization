@@ -56,7 +56,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                 
              };
            
-             _repo.CreateAdmin(legitAdmin);  
+              _repo.CreateAdmin(legitAdmin);  
              
              return admin; 
              
@@ -64,8 +64,9 @@ namespace MVC_MobileBankApp.Services.Implementations
 
         public AdminRequestModel DeleteAdminUsingId(string adminId)
         {
-            // var obj = _repo.DeleteAdminUsingId(adminId.StaffId);
-            var admin = _repo.GetAdminById(adminId);
+        
+
+            var admin =   _repo.GetAdminById(adminId);
             _userRepo.DeleteUserUsingId(admin.UserId);
             admin.IsActive = false;
            var adminn = _repo.DeleteAdminUsingId(admin);
@@ -110,12 +111,6 @@ namespace MVC_MobileBankApp.Services.Implementations
         {
             return _repo.GetAllAdmin();
         }
-
-        public Admin Login(string email, string passWord)
-        {
-              return _repo.Login(email,passWord);
-        }
-
         public void UpdateAdmin(AdminRequestModel admin)
         { 
             
@@ -131,7 +126,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                 PassWord = admin.PassWord
             
             };
-            _userRepo.UpdateUser(user,adminn.UserId);
+             _userRepo.UpdateUser(user,adminn.UserId);
             
             adminn.FirstName = admin.FirstName ?? adminn.FirstName;
             adminn.LastName = admin.LastName ?? adminn.LastName;
@@ -148,16 +143,15 @@ namespace MVC_MobileBankApp.Services.Implementations
              return _repo.GetAdmins(adminPass);  
          }
 
-         public  string NumberOfAdmin()
+         public string NumberOfAdmin()
          {
             return _repo.NumberOfAdmin();
          }
 
-           public Admin  GetAdminByEmail(string email)
+           public Admin GetAdminByEmail(string email)
          {
             return _repo.GetAdminByEmail(email);
          }
-
-       
+         
     }
 }

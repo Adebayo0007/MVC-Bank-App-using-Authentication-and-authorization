@@ -57,14 +57,14 @@ namespace MVC_MobileBankApp.Services.Implementations
                 AdminRegistrationCode = manager.AdminRegistrationCode,
                 ProfilePicture = manager.ProfilePicture
              };
-             _repo.CreateManager(legitManager);  
+               _repo.CreateManager(legitManager);  
              return manager;     
         }
 
         public ManagerRequestModel DeleteManager(string managerId)
         {
 
-              var manager = _repo.GetManagerById(managerId);
+              var manager =  _repo.GetManagerById(managerId);
                _userRepo.DeleteUserUsingId(manager.UserId);
                manager.IsActive = false;
               var managerr = _repo.DeleteManager(manager);
@@ -94,7 +94,7 @@ namespace MVC_MobileBankApp.Services.Implementations
 
         public ManagerRequestModel GetManagerById(string managerId)
         {
-            var manager =  _repo.GetManagerById(managerId);
+            var manager = _repo.GetManagerById(managerId);
                 return new ManagerRequestModel {
                  ManagerId = manager.ManagerId,
                 FirstName = manager.FirstName,
@@ -115,11 +115,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             };
         }
 
-        public Manager Login(string email, string passWord)
-        {
-             var manager = _repo.Login(email,passWord);
-             return manager;
-        }
+    
         public Manager Code(int code)
         {
              var manager = _repo.Code(code);
@@ -140,7 +136,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                 PassWord = manager.PassWord
             
             };
-            _userRepo.UpdateUser(user,managerr.UserId);
+             _userRepo.UpdateUser(user,managerr.UserId);
             
             
             managerr.FirstName = manager.FirstName ?? managerr.FirstName;
@@ -153,24 +149,24 @@ namespace MVC_MobileBankApp.Services.Implementations
              _repo.UpdateManager(managerr);
         }
 
+         public string NumberOfManager()
+        {
+           return _repo.NumberOfManager();
+        }
+
+          public Manager GetManagerByEmail(string email)
+         {
+            return _repo.GetManagerByEmail(email);
+         }
+
             public int AdminRegistrationCode()
         {
              
                 var code = new Random().Next(100,300);
-                return code;
-
-               
+                return code;   
 
         }
-        public string NumberOfManager()
-        {
-           return  _repo.NumberOfManager();
-        }
-
-          public Manager  GetManagerByEmail(string email)
-         {
-            return _repo.GetManagerByEmail(email);
-         }
+       
 
     }
 }
