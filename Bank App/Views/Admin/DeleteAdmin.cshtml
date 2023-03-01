@@ -1,5 +1,5 @@
-@using MVC_MobileBankApp.Models.DTOs
-@model AdminRequestModel
+@using MVC_MobileBankApp.Models.DTOs.AdminDto
+@model AdminResponseModel
 <head>
     <style>
      
@@ -117,6 +117,6 @@
 
         @* <button asp-controller="Admin" asp-action="DeleteAdmin" type = "Submit" class = "btn btn-danger" style = "width:150px">Delete</button> *@
         @* <input type="submit" value="DeleteAdmin" class="btn btn-danger" /> | *@
-        <a id="trans" asp-controller="Admin" asp-action="Admins"><i class="bi bi-card-checklist"></i>Back to List</a>
+        <a id="trans" asp-controller="Manager" asp-action="MyAdmins"><i class="bi bi-card-checklist"></i>Back to List</a>
     </form>
 @* </div> *@

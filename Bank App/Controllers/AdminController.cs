@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models.DTOs;
+using MVC_MobileBankApp.Models.DTOs.AdminDto;
 using MVC_MobileBankApp.Services.Interfaces;
 
 namespace MVC_MobileBankApp.Controllers
@@ -37,7 +38,7 @@ namespace MVC_MobileBankApp.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public IActionResult CreateAdmin(AdminDTO admin)
+         public IActionResult CreateAdmin(CreateAdminRequestModel admin)
         {
              admin.ManagerPass = int.Parse(User.FindFirst(ClaimTypes.Hash).Value);
            var user = _userService.GetUserByEmail(admin.Email);
@@ -166,10 +167,10 @@ namespace MVC_MobileBankApp.Controllers
            [Authorize]
         [HttpPost , ActionName("UpdateAdmin")]
         [ValidateAntiForgeryToken]
-         public IActionResult UpdateAdmin(AdminRequestModel admin)
+         public IActionResult UpdateAdmin(UpdateAdminRequestModel admin)
         {
             _service.UpdateAdmin(admin);
-            return RedirectToAction(nameof(Admins));
+            return RedirectToAction("MyAdmins", "Manager");
         }
 
           [Authorize(Roles = "Manager, CEO")] 
@@ -240,7 +241,7 @@ namespace MVC_MobileBankApp.Controllers
         [Authorize]
         [HttpPost , ActionName("UpdateProfile")]
         [ValidateAntiForgeryToken]
-         public IActionResult UpdateProfile(AdminRequestModel admin)
+         public IActionResult UpdateProfile(UpdateAdminRequestModel admin)
         {
              _service.UpdateAdmin(admin);
             return RedirectToAction(nameof(Profile));

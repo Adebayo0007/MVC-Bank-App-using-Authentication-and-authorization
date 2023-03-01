@@ -1,6 +1,6 @@
 
-@using MVC_MobileBankApp.Models.DTOs
-@model AdminRequestModel
+@using MVC_MobileBankApp.Models.DTOs.AdminDto
+@model AdminResponseModel
 @* @{
     Layout = null;
 } *@
@@ -97,7 +97,7 @@
         </dd><br>
    </dl><br><br>
 
-   <button id="trans" style="background-color:darkblue;"><a asp-controller= "Admin" asp-action="Admins">Back to List</a></button>
+   <button id="trans" style="background-color:darkblue;"><a asp-controller= "Manager" asp-action="MyAdmins">Back to List</a></button>
 
 
 

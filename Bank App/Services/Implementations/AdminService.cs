@@ -2,6 +2,7 @@ using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Repositories;
 using MVC_MobileBankApp.Services.Interfaces;
+using MVC_MobileBankApp.Models.DTOs.AdminDto;
 
 namespace MVC_MobileBankApp.Services.Implementations
 {
@@ -15,7 +16,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             _repo = repo;
             _userRepo = userRepo;
         }
-        public AdminDTO CreateAdmin(AdminDTO admin)
+        public CreateAdminRequestModel CreateAdmin(CreateAdminRequestModel admin)
         {
              var Age = DateTime.Now.Year - admin.DOB.Year;
               
@@ -33,13 +34,14 @@ namespace MVC_MobileBankApp.Services.Implementations
             };
             var use = _userRepo.CreateUser(user);
              var rand = new Random();
-             admin.StaffId = "ZENITH-ADMIN-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +admin.FirstName[0]+admin.FirstName[1]+admin.FirstName[2]+rand.Next(0,9).ToString();
-             admin.UserId = use.Id;
-             admin.IsActive = true;     
+            //  admin.StaffId = "ZENITH-ADMIN-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +admin.FirstName[0]+admin.FirstName[1]+admin.FirstName[2]+rand.Next(0,9).ToString();
+            //  admin.UserId = use.Id;
+            //  admin.IsActive = true;     
              
                var legitAdmin = new Admin {
-                StaffId = admin.StaffId,
-                IsActive = admin.IsActive,
+                StaffId = "ZENITH-ADMIN-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +admin.FirstName[0]+admin.FirstName[1]+admin.FirstName[2]+rand.Next(0,9).ToString(),
+
+                IsActive = true,
                 FirstName = admin.FirstName,
                 LastName = admin.LastName,
                 Address = admin.Address,
@@ -62,7 +64,7 @@ namespace MVC_MobileBankApp.Services.Implementations
              
         }
 
-        public AdminRequestModel DeleteAdminUsingId(string adminId)
+        public AdminResponseModel DeleteAdminUsingId(string adminId)
         {
         
 
@@ -70,7 +72,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             _userRepo.DeleteUserUsingId(admin.UserId);
             admin.IsActive = false;
            var adminn = _repo.DeleteAdminUsingId(admin);
-           return new AdminRequestModel{
+           return new AdminResponseModel{
                 StaffId = admin.StaffId,
                 FirstName = admin.FirstName,
                 LastName = admin.LastName,
@@ -86,10 +88,10 @@ namespace MVC_MobileBankApp.Services.Implementations
            };
         }
 
-        public AdminRequestModel GetAdminById(string adminId)
+        public AdminResponseModel GetAdminById(string adminId)
         {
             var admin = _repo.GetAdminById(adminId);
-            return new AdminRequestModel {
+            return new AdminResponseModel {
                 StaffId = admin.StaffId,
                 FirstName = admin.FirstName,
                 LastName = admin.LastName,
@@ -107,11 +109,30 @@ namespace MVC_MobileBankApp.Services.Implementations
             };
         }
 
-        public IList<Admin> GetAllAdmin()
+        public IList<AdminResponseModel> GetAllAdmin()
         {
-            return _repo.GetAllAdmin();
+            var admins = _repo.GetAllAdmin();
+        
+              return admins.Select(item => new AdminResponseModel{
+                StaffId = item.StaffId,
+                FirstName = item.FirstName,
+                LastName = item.LastName,
+                Address = item.Address,
+                Age = item.Age,
+                Gender = item.Gender,
+                MaritalStatus = item.MaritalStatus,
+                Email = item.Email,
+                PhoneNumber = item.PhoneNumber,
+                PassWord = item.PassWord,
+                DateCreated = item.DateCreated,
+                IsActive = item.IsActive,
+                ProfilePicture = item.ProfilePicture
+
+              }).ToList();
+           
+
         }
-        public void UpdateAdmin(AdminRequestModel admin)
+        public void UpdateAdmin(UpdateAdminRequestModel admin)
         { 
             
             var adminn = _repo.GetAdminById(admin.StaffId);
@@ -138,9 +159,25 @@ namespace MVC_MobileBankApp.Services.Implementations
             _repo.UpdateAdmin(adminn);
         }
 
-         public IList<Admin> GetAdmins(int adminPass)
+         public IList<AdminResponseModel> GetAdmins(int adminPass)
          {
-             return _repo.GetAdmins(adminPass);  
+             var admins = _repo.GetAdmins(adminPass); 
+             return admins.Select(item => new AdminResponseModel{
+                 StaffId = item.StaffId,
+                FirstName = item.FirstName,
+                LastName = item.LastName,
+                Address = item.Address,
+                Age = item.Age,
+                Gender = item.Gender,
+                MaritalStatus = item.MaritalStatus,
+                Email = item.Email,
+                PhoneNumber = item.PhoneNumber,
+                PassWord = item.PassWord,
+                DateCreated = item.DateCreated,
+                IsActive = item.IsActive,
+                ProfilePicture = item.ProfilePicture
+
+             }).ToList();
          }
 
          public string NumberOfAdmin()
@@ -148,9 +185,25 @@ namespace MVC_MobileBankApp.Services.Implementations
             return _repo.NumberOfAdmin();
          }
 
-           public Admin GetAdminByEmail(string email)
+           public AdminResponseModel GetAdminByEmail(string email)
          {
-            return _repo.GetAdminByEmail(email);
+            var admin = _repo.GetAdminByEmail(email);
+            return new AdminResponseModel{
+                 StaffId = admin.StaffId,
+                FirstName = admin.FirstName,
+                LastName = admin.LastName,
+                Address = admin.Address,
+                Age = admin.Age,
+                Gender = admin.Gender,
+                MaritalStatus = admin.MaritalStatus,
+                Email = admin.Email,
+                PhoneNumber = admin.PhoneNumber,
+                PassWord = admin.PassWord,
+                DateCreated = admin.DateCreated,
+                IsActive = admin.IsActive,
+                ProfilePicture = admin.ProfilePicture
+
+            };
          }
          
     }

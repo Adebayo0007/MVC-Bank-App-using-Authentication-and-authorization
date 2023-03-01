@@ -52,9 +52,23 @@ public class HomeController : Controller
                 return NotFound();
             }
             var user = _service.Login(email,passWord);
-            var admin = _adminService.GetAdminByEmail(user.Email);
-            var customer = _customerService.GetCustomerByEmail(user.Email);
-            var manager =  _managerService.GetManagerByEmail(user.Email);
+            dynamic admin = null;
+            dynamic customer = null;
+            dynamic manager = null;
+            if(user.Role == "Admin")
+            {
+                admin = _adminService.GetAdminByEmail(user.Email);
+            }
+              if(user.Role == "Customer")
+            {
+                customer = _customerService.GetCustomerByEmail(user.Email);
+            }
+            if(user.Role == "Manager")
+            {
+                 manager =  _managerService.GetManagerByEmail(user.Email);
+            }
+           
+           
             // if (user == null || user.IsActive == false)
             // {
             //       TempData["error"] = "Invalid Email or Password"; 
