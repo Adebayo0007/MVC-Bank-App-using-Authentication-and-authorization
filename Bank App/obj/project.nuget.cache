@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5OdwtKaXc5CalX443fdPqkHayMDCZTlKXDiCgbry+xdBeMC0qR1d4fwu2NfLKuKG5zJZ8jqqoje7f1tndJm9Fg==",
+  "dgSpecHash": "JEbORDbO7k5d/KvjQhnse4d5tC+JpYkRRSOPu2N9idnN2wUDw2Y5Di3xAlLZB1j9YHPjLYxcdIF6LvCJnvMvig==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\BAnk sessio\\Bank App\\MVC MobileBankApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\divergic.logging.xunit\\4.2.0\\divergic.logging.xunit.4.2.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\docker.dotnet\\3.125.12\\docker.dotnet.3.125.12.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "MVC MobileBankApp/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Core": "1.6.0",
           "Divergic.Logging.Xunit": "4.2.0",
           "Docker.DotNet": "3.125.12",
           "MailKit": "3.5.0",
@@ -21,6 +22,14 @@
         },
         "runtime": {
           "MVC MobileBankApp.dll": {}
+        }
+      },
+      "BCrypt.Net-Core/1.6.0": {
+        "runtime": {
+          "lib/netstandard2.0/BCrypt.Net-Core.dll": {
+            "assemblyVersion": "1.6.0.0",
+            "fileVersion": "1.6.0.0"
+          }
         }
       },
       "Divergic.Logging.Xunit/4.2.0": {
@@ -576,6 +585,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BCrypt.Net-Core/1.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hsKiHGjrnlDW05MzuzzlD9gNP8YOW2KbZ+FbvISrilsKJJ76tXKhWey6psZX5sd7DczNpSU2U6ldjPoblk8BLw==",
+      "path": "bcrypt.net-core/1.6.0",
+      "hashPath": "bcrypt.net-core.1.6.0.nupkg.sha512"
     },
     "Divergic.Logging.Xunit/4.2.0": {
       "type": "package",

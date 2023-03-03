@@ -1,6 +1,7 @@
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs;
-using MVC_MobileBankApp.Repositories;
+using MVC_MobileBankApp.Models.DTOs.UserDto;
+// using MVC_MobileBankApp.Repositories;
 using MVC_MobileBankApp.Repositories.Interfaces;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -14,12 +15,25 @@ namespace MVC_MobileBankApp.Services.Implementations
             _userRepository = userRepository;
         }
 
-        public User CreateUser(User user)
+        public CreateUserRequestModel CreateUser(CreateUserRequestModel user)
         {
-             return _userRepository.CreateUser(user);  
+            var userr = new User{
+                Email = user.Email,
+                PassWord = user.PassWord,
+                IsActive = true,
+                Role = user.Role,
+            };
+           var user2 = _userRepository.CreateUser(userr);  
+              return new CreateUserRequestModel{
+                Id = user2.Id,
+                Email = user.Email,
+                PassWord = user.PassWord,
+                IsActive = true,
+                Role = user.Role,
+            };
         }
 
-        public User DeleteUserUsingId(int userId)
+        public UserResponseModel DeleteUserUsingId(int userId)
         {
            var userr = _userRepository.GetUserById(userId);
             if(userr == null )
@@ -27,42 +41,60 @@ namespace MVC_MobileBankApp.Services.Implementations
                 throw new DirectoryNotFoundException();
             }
             userr.IsActive = false;
-            return _userRepository.DeleteUser(userr);
+            var user = _userRepository.DeleteUser(userr);
+            return new UserResponseModel{
+                Email = user.Email,
+                PassWord = user.PassWord,
+                IsActive = user.IsActive,
+                Role = user.Role
+            };
         }
 
-        public IList<User> GetAllUser()
+        public IList<UserResponseModel> GetAllUser()
         {
-            return _userRepository.GetAllUser();
+            var users = _userRepository.GetAllUser();
+            return users.Select(item => new UserResponseModel{
+                Id = item.Id,
+                IsActive = item.IsActive,
+                Email = item.Email,
+                Role = item.Role,
+                PassWord = item.PassWord,
+            }).ToList();
         }
 
-        public UserDTO Login(string email, string passWord)
+        public UserResponseModel Login(string email, string passWord)
         {
-           var userDto = new UserDTO();
-            var user = _userRepository.Login(email,passWord);
+           var userResponseModel = new UserResponseModel();
+            var user = _userRepository.Login(email);
              if(user == null)
             {
-                userDto.Message = $"Invalid Email or Password";
-                return userDto;
+                userResponseModel.Message = $"Invalid Email or Password";
+                return userResponseModel;
             }
             if(user.IsActive == false)
             {
-                userDto.Message = $"You are not an Active User";
-                return userDto;
+                userResponseModel.Message = $"You are not an Active User";
+                return userResponseModel;
 
             }
-            
-                    userDto.Id  = user.Id;
-                    userDto.Email  = user.Email;
-                    userDto.IsActive = user.IsActive;
-                    userDto.PassWord = user.PassWord;
-                    userDto.Role  = user.Role;
+             if( user!= null && BCrypt.Net.BCrypt.Verify(passWord, user.PassWord))
+             {
+                    userResponseModel.Id  = user.Id;
+                    userResponseModel.Email  = user.Email;
+                    userResponseModel.IsActive = user.IsActive;
+                    userResponseModel.PassWord = user.PassWord;
+                    userResponseModel.Role  = user.Role;
         
+
+             }
+            return userResponseModel;
             
-            return userDto;
+                    
+            
                 
         }
 
-        public User UpdateUser(User user,int userId)
+        public UpdateUserRequestModel UpdateUser(UpdateUserRequestModel user,int userId)
         {
              var userr = _userRepository.GetUserById(userId);
             if(userr == null )
@@ -71,9 +103,16 @@ namespace MVC_MobileBankApp.Services.Implementations
             }
             userr.Email = user.Email ?? userr.Email;
             userr.PassWord = user.PassWord ?? userr.PassWord;
-            return _userRepository.UpdateUser(userr);
+             var userUpdate = _userRepository.UpdateUser(userr);
+             return new UpdateUserRequestModel{
+                Email = userUpdate.Email,
+                PassWord = userUpdate.PassWord,
+                IsActive = userUpdate.IsActive
+
+             };
+
         }
-         public User GetUserByEmail(string email)
+         public bool GetUserByEmail(string email)
          {
             return _userRepository.GetUserByEmail(email);
          }

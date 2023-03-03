@@ -7,9 +7,9 @@ namespace MVC_MobileBankApp.Repositories.Interfaces
         User UpdateUser(User user);
         User DeleteUser(User user);
         User CreateUser(User user);
-        User Login(string email,string passWord);
+        User Login(string email);
         User GetUserById(int id);
-        User GetUserByEmail(string email);
+        bool GetUserByEmail(string email);
         IList<User> GetAllUser(); 
          string NumberOfUsers();
 

@@ -211,3 +211,4 @@ C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\xunit.runner.utility
 C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Divergic.Logging.Xunit.dll
 C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\xunit.abstractions.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\BCrypt.Net-Core.dll

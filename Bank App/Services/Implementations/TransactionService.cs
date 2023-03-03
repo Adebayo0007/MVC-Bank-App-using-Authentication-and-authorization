@@ -1,6 +1,7 @@
 
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs;
+using MVC_MobileBankApp.Models.DTOs.TransactionDto;
 using MVC_MobileBankApp.Repositories.Interfaces;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -20,7 +21,7 @@ namespace MVC_MobileBankApp.Services.Implementations
              _service = service;
         }
 
-        public TransactionDTO CreateTransaction(TransactionDTO transaction)
+        public CreateTransactionRequestModel CreateTransaction(CreateTransactionRequestModel transaction)
         {
             
             double charges = 0;
@@ -34,20 +35,20 @@ namespace MVC_MobileBankApp.Services.Implementations
              if((int)transaction.TransactType == 1)
             {
                 customer.AccountBalance+=transaction.Amount;
-                transaction.AccountBalance = customer.AccountBalance;
-                transaction.RefNum= RefNum();
+                // transaction.AccountBalance = customer.AccountBalance;
+                // transaction.RefNum= RefNum();
                 var transact = new Transaction{
                    AccountBalance = customer.AccountBalance,
                    AccountNumber = customer.AccountNumber,
-                   RefNum = transaction.RefNum,
+                   RefNum = RefNum(),
                    Amount = transaction.Amount,
                    RecipientAccountNumber = transaction.RecipientAccountNumber,
                    Pin = transaction.Pin,
-                   DateCreated = transaction.DateCreated,
+                   DateCreated = TransactionDate(),
                    Description = transaction.Description,
                    TransactType = transaction.TransactType
                 };
-                transaction.SuccessMessage = $"Tnx: Credit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n Amt: NGN {transaction.Amount}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
+                transaction.SuccessMessage = $"Tnx: Credit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n Amt: NGN {transaction.Amount}\\n Ref Number: {transact.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transact.DateCreated}";
                check =  _transactionRepo.CreateTransaction(transact);   
 
             }
@@ -65,20 +66,20 @@ namespace MVC_MobileBankApp.Services.Implementations
                                 customer.AccountBalance-=charges;   
                             }
                                     customer.AccountBalance-=transaction.Amount;
-                                    transaction.AccountBalance = customer.AccountBalance;
-                                    transaction.RefNum= RefNum();
+                                    // transaction.AccountBalance = customer.AccountBalance;
+                                    // transaction.RefNum= RefNum();
                                         var transact = new Transaction{
                                         AccountBalance = customer.AccountBalance,
                                         AccountNumber = customer.AccountNumber,
-                                        RefNum = transaction.RefNum,
+                                        RefNum = RefNum(),
                                         Amount = transaction.Amount,
                                         RecipientAccountNumber = transaction.RecipientAccountNumber,
                                         Pin = transaction.Pin,
-                                        DateCreated = transaction.DateCreated,
+                                        DateCreated = TransactionDate(),
                                         Description = transaction.Description,
                                         TransactType = transaction.TransactType
                              };
-                              transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
+                              transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transact.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transact.DateCreated}";
                              _transactionRepo.CreateTransaction(transact); 
 
                         }
@@ -108,20 +109,20 @@ namespace MVC_MobileBankApp.Services.Implementations
 
                         }
                             customer.AccountBalance-=transaction.Amount;
-                                transaction.AccountBalance = customer.AccountBalance;
-                                transaction.RefNum= RefNum();
+                                // transaction.AccountBalance = customer.AccountBalance;
+                                // transaction.RefNum= RefNum();
                                     var transact = new Transaction{
                                 AccountBalance = customer.AccountBalance,
                                 AccountNumber = customer.AccountNumber,
-                                RefNum = transaction.RefNum,
+                                RefNum = RefNum(),
                                 Amount = transaction.Amount,
                                 RecipientAccountNumber = transaction.RecipientAccountNumber,
                                 Pin = transaction.Pin,
-                                DateCreated = transaction.DateCreated,
+                                DateCreated = TransactionDate(),
                                 Description = transaction.Description,
                                 TransactType = transaction.TransactType
                            };
-                            transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
+                            transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transact.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transact.DateCreated}";
                              _transactionRepo.CreateTransaction(transact); 
                     }
                      else
@@ -151,20 +152,20 @@ namespace MVC_MobileBankApp.Services.Implementations
                                     }
                                     customer.AccountBalance-=transaction.Amount;
                                     reciever.AccountBalance+=transaction.Amount;
-                                    transaction.AccountBalance = customer.AccountBalance;
-                                    transaction.RefNum= RefNum();
+                                    // transaction.AccountBalance = customer.AccountBalance;
+                                    // transaction.RefNum= RefNum();
                                     var transact = new Transaction{
                                         AccountBalance = customer.AccountBalance,
                                         AccountNumber = customer.AccountNumber,
-                                        RefNum = transaction.RefNum,
+                                        RefNum = RefNum(),
                                         Amount = transaction.Amount,
                                         RecipientAccountNumber = transaction.RecipientAccountNumber,
                                         Pin = transaction.Pin,
-                                        DateCreated = transaction.DateCreated,
+                                        DateCreated = TransactionDate(),
                                         Description = transaction.Description,
                                         TransactType = transaction.TransactType
                                 };
-                                transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n To: {reciever.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
+                                transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n To: {reciever.AccountNumber}\\n Ref Number: {transact.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transact.DateCreated}";
                                 _transactionRepo.CreateTransfer(transact); 
 
                         }
@@ -195,20 +196,20 @@ namespace MVC_MobileBankApp.Services.Implementations
                         }
                            customer.AccountBalance-=transaction.Amount;
                            reciever.AccountBalance+=transaction.Amount;
-                             transaction.AccountBalance = customer.AccountBalance;
-                            transaction.RefNum= RefNum();
+                            //  transaction.AccountBalance = customer.AccountBalance;
+                            // transaction.RefNum= RefNum();
                               var transact = new Transaction{
                                 AccountBalance = customer.AccountBalance,
                                 AccountNumber = customer.AccountNumber,
-                                RefNum = transaction.RefNum,
+                                RefNum = RefNum(),
                                 Amount = transaction.Amount,
                                 RecipientAccountNumber = transaction.RecipientAccountNumber,
                                 Pin = transaction.Pin,
-                                DateCreated = transaction.DateCreated,
+                                DateCreated = TransactionDate(),
                                 Description = transaction.Description,
                                 TransactType = transaction.TransactType
                              };
-                              transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n  VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n To: {reciever.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
+                              transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n  VAT: NGN {charges}\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n To: {reciever.AccountNumber}\\n Ref Number: {transact.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transact.DateCreated}";
                               _transactionRepo.CreateTransfer(transact); 
                     }
                      else
@@ -230,20 +231,20 @@ namespace MVC_MobileBankApp.Services.Implementations
                         if(transaction.Amount <= customer.AccountBalance)
                         {
                              customer.AccountBalance-=transaction.Amount;
-                             transaction.AccountBalance = customer.AccountBalance;
-                            transaction.RefNum= RefNum();
+                            //  transaction.AccountBalance = customer.AccountBalance;
+                            // transaction.RefNum= RefNum();
                               var transact = new Transaction{
                                 AccountBalance = customer.AccountBalance,
                                 AccountNumber = customer.AccountNumber,
-                                RefNum = transaction.RefNum,
+                                RefNum = RefNum(),
                                 Amount = transaction.Amount,
                                 RecipientAccountNumber = transaction.RecipientAccountNumber,
                                 Pin = transaction.Pin,
-                                DateCreated = transaction.DateCreated,
+                                DateCreated = TransactionDate(),
                                 Description = transaction.Description,
                                 TransactType = transaction.TransactType
                             };
-                            transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n  Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Your balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
+                            transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n  Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transact.RefNum}\\n Your balance : # {customer.AccountBalance}\\n Date: {transact.DateCreated}";
                             _transactionRepo.CreateTransaction(transact); 
 
                         }
@@ -267,20 +268,20 @@ namespace MVC_MobileBankApp.Services.Implementations
                     if(transaction.Amount < customer.AccountBalance && customer.AccountBalance >= 500 )
                     {
                         customer.AccountBalance-=transaction.Amount;
-                             transaction.AccountBalance = customer.AccountBalance;
-                            transaction.RefNum= RefNum();
+                            //  transaction.AccountBalance = customer.AccountBalance;
+                            // transaction.RefNum= RefNum();
                               var transact = new Transaction{
                                 AccountBalance = customer.AccountBalance,
                                 AccountNumber = customer.AccountNumber,
-                                RefNum = transaction.RefNum,
+                                RefNum = RefNum(),
                                 Amount = transaction.Amount,
                                 RecipientAccountNumber = transaction.RecipientAccountNumber,
                                 Pin = transaction.Pin,
-                                DateCreated = transaction.DateCreated,
+                                DateCreated = TransactionDate(),
                                 Description = transaction.Description,
                                 TransactType = transaction.TransactType
                              };
-                             transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transaction.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transaction.DateCreated}";
+                             transaction.SuccessMessage = $"Tnx: Debit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n Amt: NGN {transaction.Amount}\\n From: {transaction.AccountNumber}\\n Ref Number: {transact.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transact.DateCreated}";
                              _transactionRepo.CreateTransaction(transact); 
                     }
                      else
@@ -297,14 +298,11 @@ namespace MVC_MobileBankApp.Services.Implementations
              return transaction;
            }
            
-             return new TransactionDTO{
-                                AccountBalance = customer.AccountBalance,
+             return new CreateTransactionRequestModel{
                                 AccountNumber = customer.AccountNumber,
-                                RefNum = transaction.RefNum,
                                 Amount = transaction.Amount,
                                 RecipientAccountNumber = transaction.RecipientAccountNumber,
                                 Pin = transaction.Pin,
-                                DateCreated = transaction.DateCreated,
                                 Description = transaction.Description,
                                 TransactType = transaction.TransactType,
                                 Message = transaction.Message,
@@ -330,21 +328,45 @@ namespace MVC_MobileBankApp.Services.Implementations
             _transactionRepo.DeleteTransactionUsingRefNum(transact);
         }
 
-        public IList<TransactionDTO> GetAllTransaction()
+        public IList<TransactionResponseModel> GetAllTransaction()
         {
-           return _transactionRepo.GetAllTransaction();
+           var transactions = _transactionRepo.GetAllTransaction();
+           return transactions.Select(item => new TransactionResponseModel{
+                                    AccountNumber = item.AccountNumber,
+                                    Amount = item.Amount,
+                                    RecipientAccountNumber = item.RecipientAccountNumber,
+                                    Pin = item.Pin,
+                                    Description = item.Description,
+                                    TransactType = item.TransactType,
+                                    AccountBalance = item.AccountBalance,
+                                    RefNum = item.RefNum,
+                                     DateCreated = item.DateCreated,
+
+           }).ToList();
         }
 
-        public IList<Transaction> GetAllTransactionUsingAccountNumber(string accountNumber)
+        public IList<TransactionResponseModel> GetAllTransactionUsingAccountNumber(string accountNumber)
         {
             var customer = _customerRepo.GetCustomerByAccountnumber(accountNumber);
-            return _transactionRepo.GetAllTransactionUsingAccountNumber(customer.AccountNumber);
+            var transactions = _transactionRepo.GetAllTransactionUsingAccountNumber(customer.AccountNumber);
+              return transactions.Select(item => new TransactionResponseModel{
+                                    AccountNumber = item.AccountNumber,
+                                    Amount = item.Amount,
+                                    RecipientAccountNumber = item.RecipientAccountNumber,
+                                    Pin = item.Pin,
+                                    Description = item.Description,
+                                    TransactType = item.TransactType,
+                                    AccountBalance = item.AccountBalance,
+                                    RefNum = item.RefNum,
+                                     DateCreated = item.DateCreated,
+
+           }).ToList();
         }
 
-        public TransactionRequestModel GetTransactionByRefNum(string refNum)
+        public TransactionResponseModel GetTransactionByRefNum(string refNum)
         {
             var transaction = _transactionRepo.GetTransactionByRefNum(refNum);
-                               return new TransactionRequestModel{
+                               return new TransactionResponseModel{
                                 AccountBalance = transaction.AccountBalance,
                                 AccountNumber = transaction.AccountNumber,
                                 RefNum = transaction.RefNum,
@@ -357,10 +379,10 @@ namespace MVC_MobileBankApp.Services.Implementations
                            };
             // return _transactionRepo.GetTransactionByRefNum(transaction.RefNum);
         }
-       public TransactionRequestModel GetTransactionByAccount(string accountNumber)
+       public TransactionResponseModel GetTransactionByAccount(string accountNumber)
        {
            var transaction =  _transactionRepo.GetTransactionByAccountNumber(accountNumber);
-                               return new TransactionRequestModel{
+                               return new TransactionResponseModel{
                                 AccountBalance = transaction.AccountBalance,
                                 AccountNumber = transaction.AccountNumber,
                                 RefNum = transaction.RefNum,
@@ -381,6 +403,12 @@ namespace MVC_MobileBankApp.Services.Implementations
                 var j = new Random().Next(25);
                 var k = new Random().Next(25,99);
                 return $"Ref{k}{i}{j}{alpha[i]}{alpha[j]}" ;
+
+        }
+
+         public string  TransactionDate()
+        {
+           return DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
 
         }
 

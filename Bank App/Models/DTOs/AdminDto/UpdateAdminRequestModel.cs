@@ -26,9 +26,8 @@ namespace MVC_MobileBankApp.Models.DTOs.AdminDto
          [DisplayName("Phone Number")]
         [Required]
         public string PhoneNumber {get;set;}
-        [DisplayName("Password")]
-        [Required]
-        public string PassWord {get;set;}
+         [DisplayName("Change Password")]
+        public string? PassWord {get;set;}
         
     }
 }

@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models.DTOs;
+using MVC_MobileBankApp.Models.DTOs.ManagerDto;
 using MVC_MobileBankApp.Services.Interfaces;
 
 namespace MVC_MobileBankApp.Controllers
@@ -37,10 +38,10 @@ namespace MVC_MobileBankApp.Controllers
         [Authorize] 
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public IActionResult CreateManager(ManagerDTO manager)
+         public IActionResult CreateManager(CreateManagerRequestModel manager)
         {
               var user =  _userService.GetUserByEmail(manager.Email);
-           if(user == null)
+           if(user == false)
            {
             if(manager != null)
             {
@@ -135,7 +136,7 @@ namespace MVC_MobileBankApp.Controllers
         [Authorize] 
         [HttpPost , ActionName("UpdateManager")]
         [ValidateAntiForgeryToken]
-         public IActionResult UpdateManager(ManagerRequestModel manager)
+         public IActionResult UpdateManager(UpdateManagerRequestModel manager)
         {
             _service.UpdateManager(manager);
             return RedirectToAction(nameof(Managers));
@@ -192,7 +193,7 @@ namespace MVC_MobileBankApp.Controllers
         [Authorize]
         [HttpPost , ActionName("UpdateProfile")]
         [ValidateAntiForgeryToken]
-         public IActionResult UpdateProfile(ManagerRequestModel manager)
+         public IActionResult UpdateProfile(UpdateManagerRequestModel manager)
         {
              _service.UpdateManager(manager);
             return RedirectToAction(nameof(Profile));

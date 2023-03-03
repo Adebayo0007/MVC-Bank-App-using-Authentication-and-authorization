@@ -1,16 +1,17 @@
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs;
+using MVC_MobileBankApp.Models.DTOs.TransactionDto;
 
 namespace MVC_MobileBankApp.Services.Interfaces
 {
     public interface ITransactionService
     {
-        TransactionDTO CreateTransaction(TransactionDTO transaction);
+        CreateTransactionRequestModel CreateTransaction(CreateTransactionRequestModel transaction);
         void DeleteTransactionUsingRefNum(string refNum);
-        TransactionRequestModel GetTransactionByRefNum(string refNum);
-        TransactionRequestModel GetTransactionByAccount(string accountNumber);
-        IList<Transaction> GetAllTransactionUsingAccountNumber(string accountNumber);
-        IList<TransactionDTO> GetAllTransaction(); 
+        TransactionResponseModel GetTransactionByRefNum(string refNum);
+        TransactionResponseModel GetTransactionByAccount(string accountNumber);
+        IList<TransactionResponseModel> GetAllTransactionUsingAccountNumber(string accountNumber);
+        IList<TransactionResponseModel> GetAllTransaction(); 
          
     }
 }

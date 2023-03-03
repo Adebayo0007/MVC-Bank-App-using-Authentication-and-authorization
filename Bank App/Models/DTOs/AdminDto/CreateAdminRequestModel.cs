@@ -45,7 +45,7 @@ namespace MVC_MobileBankApp.Models.DTOs.AdminDto
         public string PassWord {get;set;}
          public int ManagerPass {get;set;}
         public string? Message { get; set;}
-        public DateTime DateCreated {get; set;} = DateTime.Now;
+        // public DateTime DateCreated {get; set;} = DateTime.Now;
         
     }
 }

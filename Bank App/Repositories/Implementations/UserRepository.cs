@@ -31,7 +31,7 @@ namespace MVC_MobileBankApp.Repositories.Implementations
             return _context.Users.Where(u => u.IsActive == true).ToList();
         }
 
-        public MVC_MobileBankApp.Models.User Login(string email, string passWord)
+        public MVC_MobileBankApp.Models.User Login(string email)
         { 
             // return _context.Users
             //        .Include(x => x.Customer)
@@ -40,7 +40,8 @@ namespace MVC_MobileBankApp.Repositories.Implementations
             //        .Include(x =>x.Ceo)
             //        .SingleOrDefault(a => a.Email  == email && a.PassWord == passWord);
 
-                     return _context.Users.SingleOrDefault(a => a.Email  == email && a.PassWord == passWord);
+                    //  return _context.Users.SingleOrDefault(a => a.Email  == email && a.PassWord == passWord);
+                     return _context.Users.SingleOrDefault(a => a.Email  == email);
         }
         
 
@@ -56,9 +57,9 @@ namespace MVC_MobileBankApp.Repositories.Implementations
             // var use =_context.Users.Include(x => x.Ceo.CEOId);
             return user;
         }
-          public User GetUserByEmail(string email)
+          public bool GetUserByEmail(string email)
         {
-            var user =  _context.Users.SingleOrDefault(a => a.Email == email);
+            var user =  _context.Users.Any(a => a.Email == email);
             // var use =_context.Users.Include(x => x.Ceo.CEOId);
             return user;
         }

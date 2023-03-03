@@ -1,18 +1,19 @@
-using MVC_MobileBankApp.Models;
-using MVC_MobileBankApp.Models.DTOs;
+// using MVC_MobileBankApp.Models;
+// using MVC_MobileBankApp.Models.DTOs;
+using MVC_MobileBankApp.Models.DTOs.ManagerDto;
 
 namespace MVC_MobileBankApp.Services.Interfaces
 {
     public interface IManagerService
     {
-        ManagerDTO CreateManager (ManagerDTO manager);
-        void UpdateManager (ManagerRequestModel manager);
-        ManagerRequestModel DeleteManager(string managerId);
-        Manager Code(int code);
-        ManagerRequestModel GetManagerById(string managerId);
-        IList<Manager> GetAllManager();
+        CreateManagerRequestModel CreateManager (CreateManagerRequestModel manager);
+        void UpdateManager (UpdateManagerRequestModel manager);
+        ManagerResponseModel DeleteManager(string managerId);
+        ManagerResponseModel Code(int code);
+        ManagerResponseModel GetManagerById(string managerId);
+        IList<ManagerResponseModel> GetAllManager();
         string NumberOfManager();
-        Manager GetManagerByEmail(string email);
+        ManagerResponseModel GetManagerByEmail(string email);
          
     }
 }

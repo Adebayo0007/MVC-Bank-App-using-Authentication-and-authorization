@@ -3,6 +3,7 @@ using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Repositories;
 using MVC_MobileBankApp.Services.Interfaces;
 using MVC_MobileBankApp.Models.DTOs.AdminDto;
+using MVC_MobileBankApp.Models.DTOs.UserDto;
 
 namespace MVC_MobileBankApp.Services.Implementations
 {
@@ -25,18 +26,15 @@ namespace MVC_MobileBankApp.Services.Implementations
                 admin.Message = $"Manager under 18 Years old are not allowed in this Application";
                 return admin;
              }
-             var user = new User
+             var user = new CreateUserRequestModel
             {
                 Email = admin.Email,
-                PassWord = admin.PassWord,
+                PassWord =  BCrypt.Net.BCrypt.HashPassword(admin.PassWord),
                 IsActive = true,
                 Role = "Admin" 
             };
             var use = _userRepo.CreateUser(user);
-             var rand = new Random();
-            //  admin.StaffId = "ZENITH-ADMIN-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +admin.FirstName[0]+admin.FirstName[1]+admin.FirstName[2]+rand.Next(0,9).ToString();
-            //  admin.UserId = use.Id;
-            //  admin.IsActive = true;     
+             var rand = new Random();     
              
                var legitAdmin = new Admin {
                 StaffId = "ZENITH-ADMIN-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +admin.FirstName[0]+admin.FirstName[1]+admin.FirstName[2]+rand.Next(0,9).ToString(),
@@ -50,8 +48,8 @@ namespace MVC_MobileBankApp.Services.Implementations
                 MaritalStatus = admin.MaritalStatus,
                 Email = admin.Email,
                 PhoneNumber = admin.PhoneNumber,
-                PassWord = admin.PassWord,
-                DateCreated = admin.DateCreated,
+                // PassWord = BCrypt.Net.BCrypt.HashPassword(admin.PassWord),
+                DateCreated = DateTime.Now,
                 UserId = use.Id,
                 ManagerPass = admin.ManagerPass,
                 ProfilePicture = admin.ProfilePicture
@@ -82,7 +80,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                 MaritalStatus = admin.MaritalStatus,
                 Email = admin.Email,
                 PhoneNumber = admin.PhoneNumber,
-                PassWord = admin.PassWord,
+                // PassWord = admin.PassWord,
                 DateCreated = admin.DateCreated,
                 IsActive = admin.IsActive
            };
@@ -101,7 +99,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                 MaritalStatus = admin.MaritalStatus,
                 Email = admin.Email,
                 PhoneNumber = admin.PhoneNumber,
-                PassWord = admin.PassWord,
+                // PassWord = admin.PassWord,
                 DateCreated = admin.DateCreated,
                 IsActive = admin.IsActive,
                 ProfilePicture = admin.ProfilePicture
@@ -123,7 +121,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                 MaritalStatus = item.MaritalStatus,
                 Email = item.Email,
                 PhoneNumber = item.PhoneNumber,
-                PassWord = item.PassWord,
+                // PassWord = item.PassWord,
                 DateCreated = item.DateCreated,
                 IsActive = item.IsActive,
                 ProfilePicture = item.ProfilePicture
@@ -141,18 +139,19 @@ namespace MVC_MobileBankApp.Services.Implementations
                 throw new DirectoryNotFoundException();
             }
 
-             var user = new User
-            {
-                Email = admin.Email,
-                PassWord = admin.PassWord
+            var user = new UpdateUserRequestModel();
             
-            };
+                user.Email = admin.Email;
+                if(admin.PassWord != null)
+                {
+                   user.PassWord =  BCrypt.Net.BCrypt.HashPassword(admin.PassWord);
+                }
              _userRepo.UpdateUser(user,adminn.UserId);
             
             adminn.FirstName = admin.FirstName ?? adminn.FirstName;
             adminn.LastName = admin.LastName ?? adminn.LastName;
             adminn.Email = admin.Email ?? adminn.Email;
-            adminn.PassWord = admin.PassWord ?? adminn.PassWord;
+            // adminn.PassWord = admin.PassWord ?? adminn.PassWord;
             adminn.Age = admin.Age != adminn.Age? admin.Age : adminn.Age;
             adminn.Address = admin.Address ?? adminn.Address;
             adminn.MaritalStatus = admin.MaritalStatus;
@@ -172,7 +171,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                 MaritalStatus = item.MaritalStatus,
                 Email = item.Email,
                 PhoneNumber = item.PhoneNumber,
-                PassWord = item.PassWord,
+                // PassWord = item.PassWord,
                 DateCreated = item.DateCreated,
                 IsActive = item.IsActive,
                 ProfilePicture = item.ProfilePicture
@@ -198,7 +197,7 @@ namespace MVC_MobileBankApp.Services.Implementations
                 MaritalStatus = admin.MaritalStatus,
                 Email = admin.Email,
                 PhoneNumber = admin.PhoneNumber,
-                PassWord = admin.PassWord,
+                // PassWord = admin.PassWord,
                 DateCreated = admin.DateCreated,
                 IsActive = admin.IsActive,
                 ProfilePicture = admin.ProfilePicture

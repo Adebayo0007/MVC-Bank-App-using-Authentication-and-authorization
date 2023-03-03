@@ -1,5 +1,7 @@
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs;
+using MVC_MobileBankApp.Models.DTOs.ManagerDto;
+using MVC_MobileBankApp.Models.DTOs.UserDto;
 using MVC_MobileBankApp.Repositories.Interfaces;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -16,7 +18,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             _userRepo = userRepo;
 
         }
-        public ManagerDTO CreateManager(ManagerDTO manager)
+        public CreateManagerRequestModel CreateManager(CreateManagerRequestModel manager)
         {
              var Age = DateTime.Now.Year - manager.DOB.Year;
               
@@ -25,24 +27,21 @@ namespace MVC_MobileBankApp.Services.Implementations
                 manager.Message = $"Manager under 18 Years old are not allowed in this Application";
                 return manager;
              }
-
-              var user = new User
+             var user = new CreateUserRequestModel
             {
                 Email = manager.Email,
-                PassWord = manager.PassWord,
-                  IsActive = true,
-                  Role = "Manager"
+                PassWord =  BCrypt.Net.BCrypt.HashPassword(manager.PassWord),
+                IsActive = true,
+                Role = "Manager" 
             };
             var use = _userRepo.CreateUser(user);
-            var rand = new Random();
-             manager.ManagerId = "ZENITH-MANAGER-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +manager.FirstName[0]+manager.FirstName[1]+manager.FirstName[2]+rand.Next(0,9).ToString();
-             manager.AdminRegistrationCode = AdminRegistrationCode();
-             manager.UserId = use.Id;
-             manager.IsActive = true;
-
-              var legitManager = new Manager {
-                ManagerId = manager.ManagerId,
-                IsActive = manager.IsActive,
+           
+             var rand = new Random();     
+             
+               var legitManager = new Manager {
+                ManagerId = "ZENITH-MANAGER-"+rand.Next(0, 9).ToString()+rand.Next(50, 99).ToString()+"-" +manager.FirstName[0]+manager.FirstName[1]+manager.FirstName[2]+rand.Next(0,9).ToString(),
+                IsActive = true,
+                AdminRegistrationCode = AdminRegistrationCode(),
                 FirstName = manager.FirstName,
                 LastName = manager.LastName,
                 Address = manager.Address,
@@ -51,24 +50,25 @@ namespace MVC_MobileBankApp.Services.Implementations
                 MaritalStatus = manager.MaritalStatus,
                 Email = manager.Email,
                 PhoneNumber = manager.PhoneNumber,
-                PassWord = manager.PassWord,
-                DateCreated = manager.DateCreated,
+                DateCreated = DateTime.Now,
                 UserId = use.Id,
-                AdminRegistrationCode = manager.AdminRegistrationCode,
                 ProfilePicture = manager.ProfilePicture
+                
              };
-               _repo.CreateManager(legitManager);  
-             return manager;     
+           
+              _repo.CreateManager(legitManager);  
+             
+             return manager;    
         }
 
-        public ManagerRequestModel DeleteManager(string managerId)
+        public ManagerResponseModel DeleteManager(string managerId)
         {
 
               var manager =  _repo.GetManagerById(managerId);
                _userRepo.DeleteUserUsingId(manager.UserId);
                manager.IsActive = false;
               var managerr = _repo.DeleteManager(manager);
-              return new ManagerRequestModel {
+              return new ManagerResponseModel {
                  ManagerId = managerr.ManagerId,
                 FirstName = managerr.FirstName,
                 LastName = managerr.LastName,
@@ -78,7 +78,6 @@ namespace MVC_MobileBankApp.Services.Implementations
                 MaritalStatus = managerr.MaritalStatus,
                 Email = managerr.Email,
                 PhoneNumber = managerr.PhoneNumber,
-                PassWord = managerr.PassWord,
                 DateCreated = managerr.DateCreated,
                 IsActive = managerr.IsActive,
                 AdminRegistrationCode = managerr.AdminRegistrationCode
@@ -87,15 +86,30 @@ namespace MVC_MobileBankApp.Services.Implementations
             };
         }
 
-        public IList<Manager> GetAllManager()
+        public IList<ManagerResponseModel> GetAllManager()
         {
-             return _repo.GetAllManager();
+             var managers = _repo.GetAllManager();
+             return managers.Select(item => new ManagerResponseModel{
+                ManagerId = item.ManagerId,
+                FirstName = item.FirstName,
+                LastName = item.LastName,
+                Address = item.Address,
+                Age = item.Age,
+                Gender = item.Gender,
+                MaritalStatus = item.MaritalStatus,
+                Email = item.Email,
+                PhoneNumber = item.PhoneNumber,
+                DateCreated = item.DateCreated,
+                IsActive = item.IsActive,
+                AdminRegistrationCode = item.AdminRegistrationCode
+
+             }).ToList();
         }
 
-        public ManagerRequestModel GetManagerById(string managerId)
+        public ManagerResponseModel GetManagerById(string managerId)
         {
             var manager = _repo.GetManagerById(managerId);
-                return new ManagerRequestModel {
+                return new ManagerResponseModel {
                  ManagerId = manager.ManagerId,
                 FirstName = manager.FirstName,
                 LastName = manager.LastName,
@@ -105,7 +119,6 @@ namespace MVC_MobileBankApp.Services.Implementations
                 MaritalStatus = manager.MaritalStatus,
                 Email = manager.Email,
                 PhoneNumber = manager.PhoneNumber,
-                PassWord = manager.PassWord,
                 DateCreated = manager.DateCreated,
                 IsActive = manager.IsActive,
                 AdminRegistrationCode = manager.AdminRegistrationCode,
@@ -116,33 +129,48 @@ namespace MVC_MobileBankApp.Services.Implementations
         }
 
     
-        public Manager Code(int code)
+        public ManagerResponseModel Code(int code)
         {
              var manager = _repo.Code(code);
-             return manager;
+            return new ManagerResponseModel {
+                 ManagerId = manager.ManagerId,
+                FirstName = manager.FirstName,
+                LastName = manager.LastName,
+                Address = manager.Address,
+                Age = manager.Age,
+                Gender = manager.Gender,
+                MaritalStatus = manager.MaritalStatus,
+                Email = manager.Email,
+                PhoneNumber = manager.PhoneNumber,
+                DateCreated = manager.DateCreated,
+                IsActive = manager.IsActive,
+                AdminRegistrationCode = manager.AdminRegistrationCode,
+                ProfilePicture = manager.ProfilePicture
+                
+
+            };
 
         }
 
-        public void UpdateManager(ManagerRequestModel manager)
+        public void UpdateManager(UpdateManagerRequestModel manager)
         {
                var managerr = _repo.GetManagerById(manager.ManagerId);
             if(managerr == null )
             {
                 throw new DirectoryNotFoundException();
             }
-             var user = new User
-            {
-                Email = manager.Email,
-                PassWord = manager.PassWord
+           var user = new UpdateUserRequestModel();
             
-            };
+                user.Email = manager.Email;
+                if(manager.PassWord != null)
+                {
+                   user.PassWord =  BCrypt.Net.BCrypt.HashPassword(manager.PassWord);
+                }
              _userRepo.UpdateUser(user,managerr.UserId);
-            
             
             managerr.FirstName = manager.FirstName ?? managerr.FirstName;
             managerr.LastName = manager.LastName ?? managerr.LastName;
             managerr.Email = manager.Email ?? managerr.Email;
-            managerr.PassWord = manager.PassWord ?? managerr.PassWord;
             managerr.Age = manager.Age != managerr.Age? manager.Age : managerr.Age;
             managerr.Address = manager.Address ?? managerr.Address;
             managerr.MaritalStatus = manager.MaritalStatus;
@@ -154,9 +182,25 @@ namespace MVC_MobileBankApp.Services.Implementations
            return _repo.NumberOfManager();
         }
 
-          public Manager GetManagerByEmail(string email)
+          public ManagerResponseModel GetManagerByEmail(string email)
          {
-            return _repo.GetManagerByEmail(email);
+            var manager = _repo.GetManagerByEmail(email);
+             return new ManagerResponseModel {
+                 ManagerId = manager.ManagerId,
+                FirstName = manager.FirstName,
+                LastName = manager.LastName,
+                Address = manager.Address,
+                Age = manager.Age,
+                Gender = manager.Gender,
+                MaritalStatus = manager.MaritalStatus,
+                Email = manager.Email,
+                PhoneNumber = manager.PhoneNumber,
+                DateCreated = manager.DateCreated,
+                IsActive = manager.IsActive,
+                AdminRegistrationCode = manager.AdminRegistrationCode,
+                ProfilePicture = manager.ProfilePicture
+            };
+
          }
 
             public int AdminRegistrationCode()

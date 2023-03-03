@@ -57,9 +57,6 @@ namespace MVC_MobileBankApp.Migrations
                     b.Property<int>("MaritalStatus")
                         .HasColumnType("int");
 
-                    b.Property<string>("PassWord")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("longtext");
 
@@ -109,11 +106,11 @@ namespace MVC_MobileBankApp.Migrations
                     b.Property<int>("MaritalStatus")
                         .HasColumnType("int");
 
-                    b.Property<string>("PassWord")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("longtext");
+
+                    b.Property<byte[]>("ProfilePicture")
+                        .HasColumnType("longblob");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -163,9 +160,6 @@ namespace MVC_MobileBankApp.Migrations
 
                     b.Property<int>("MaritalStatus")
                         .HasColumnType("int");
-
-                    b.Property<string>("PassWord")
-                        .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("longtext");
@@ -221,9 +215,6 @@ namespace MVC_MobileBankApp.Migrations
 
                     b.Property<int>("MaritalStatus")
                         .HasColumnType("int");
-
-                    b.Property<string>("PassWord")
-                        .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("longtext");

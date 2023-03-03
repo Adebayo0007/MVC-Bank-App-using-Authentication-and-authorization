@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using MVC_MobileBankApp.Models.DTOs;
+using MVC_MobileBankApp.Models.DTOs.CustomerDto;
 
 namespace MVC_MobileBankApp.Models
 {
@@ -7,7 +8,7 @@ namespace MVC_MobileBankApp.Models
     {
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
-            var customer = (CustomerDTO)validationContext.ObjectInstance;
+            var customer = (CreateCustomerRequestModel)validationContext.ObjectInstance;
             return customer.Pin.Length != 4 ? new ValidationResult("Four digit Pin is required.") : ValidationResult.Success;
             
             //  if(customer.Pin.Length == 4)

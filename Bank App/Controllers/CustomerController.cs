@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models.DTOs;
+using MVC_MobileBankApp.Models.DTOs.CustomerDto;
 using MVC_MobileBankApp.Services.Interfaces;
 
 namespace MVC_MobileBankApp.Controllers
@@ -57,10 +58,10 @@ namespace MVC_MobileBankApp.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public IActionResult CreateCustomer(CustomerDTO customer)
+         public IActionResult CreateCustomer(CreateCustomerRequestModel customer)
         {
              var user = _userService.GetUserByEmail(customer.Email);
-           if(user == null)
+           if(user == false)
            {
             if(customer != null)
             {
@@ -159,7 +160,7 @@ namespace MVC_MobileBankApp.Controllers
         [Authorize]
         [HttpPost , ActionName("UpdateCustomer")]
         [ValidateAntiForgeryToken]
-         public IActionResult UpdateCustomer(CustomerRequestModel customer)
+         public IActionResult UpdateCustomer(UpdateCustomerRequestModel customer)
         {
             _service.UpdateCustomer(customer);
             return RedirectToAction(nameof(Customers)); 
@@ -221,7 +222,7 @@ namespace MVC_MobileBankApp.Controllers
         [Authorize]
         [HttpPost , ActionName("UpdateProfile")]
         [ValidateAntiForgeryToken]
-         public IActionResult UpdateProfile(CustomerRequestModel customer)
+         public IActionResult UpdateProfile(UpdateCustomerRequestModel customer)
         {
             _service.UpdateCustomer(customer);
             return RedirectToAction(nameof(Profile));

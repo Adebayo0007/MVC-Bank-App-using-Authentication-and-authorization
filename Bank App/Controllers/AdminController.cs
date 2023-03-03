@@ -42,7 +42,7 @@ namespace MVC_MobileBankApp.Controllers
         {
              admin.ManagerPass = int.Parse(User.FindFirst(ClaimTypes.Hash).Value);
            var user = _userService.GetUserByEmail(admin.Email);
-           if(user == null)
+           if(user == false)
            {
              var adminn = _managerService.Code(admin.ManagerPass);
            if(adminn == null)

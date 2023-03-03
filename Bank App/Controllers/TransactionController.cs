@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models.DTOs;
+using MVC_MobileBankApp.Models.DTOs.TransactionDto;
 using MVC_MobileBankApp.Services.Interfaces;
 
 namespace MVC_MobileBankApp.Controllers
@@ -29,7 +30,7 @@ namespace MVC_MobileBankApp.Controllers
           [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public IActionResult CreateTransaction(TransactionDTO transaction)
+         public IActionResult CreateTransaction(CreateTransactionRequestModel transaction)
         {
             transaction.AccountNumber = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             // var transac = _transactionService.CreateTransaction(transaction);

@@ -1,7 +1,9 @@
 using System.Security.Claims;
+using Bank_App.Models.DTOs.CEODto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models;
+using MVC_MobileBankApp.Models.DTOs.CEODto;
 using MVC_MobileBankApp.Services.Interfaces;
 
 namespace MVC_MobileBankApp.Controllers
@@ -40,7 +42,7 @@ namespace MVC_MobileBankApp.Controllers
         //  [Authorize] 
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public IActionResult CreateCEO(CEO ceo)
+         public IActionResult CreateCEO(CreateCeoRequestModel ceo)
         {
             if(ceo != null)
             { 
@@ -57,58 +59,58 @@ namespace MVC_MobileBankApp.Controllers
 
         //  [Authorize(Roles = "CEO")] 
        
-         public IActionResult DeleteCEO(string ceoId)
-        {            
-            var ceo = _service.GetCEOById(ceoId);
-            return View(ceo);          
-        }
-        [Authorize] 
-        [HttpPost , ActionName("DeleteCEO")]
-        [ValidateAntiForgeryToken]
-         public IActionResult DeleteCEOConfirmed(string ceoId)
-        {
-            _service.DeleteCEO(ceoId);
-            return RedirectToAction(nameof(CEOs));
-        }
-         [Authorize(Roles = "CEO")] 
-          [HttpGet]
-         public IActionResult UpdateCEO(string ceoId)
-        {       
-            if(ceoId == null)
-            {
-                return NotFound();
-            }
-            var ceo = _service.GetCEOById(ceoId);
-            if(ceo == null)
-            {
-                return NotFound();
-            }
-            return View(ceo);
-        }
-         [Authorize] 
-        [HttpPost , ActionName("UpdateCEO")]
-        [ValidateAntiForgeryToken]
-         public IActionResult UpdateCEO(CEO ceo)
-        {
-            _service.UpdateCEO(ceo);
-            return RedirectToAction(nameof(CEOs));
-        }
+        //  public IActionResult DeleteCEO(string ceoId)
+        // {            
+        //     var ceo = _service.GetCEOById(ceoId);
+        //     return View(ceo);          
+        // }
+        // [Authorize] 
+        // [HttpPost , ActionName("DeleteCEO")]
+        // [ValidateAntiForgeryToken]
+        //  public IActionResult DeleteCEOConfirmed(string ceoId)
+        // {
+        //     _service.DeleteCEO(ceoId);
+        //     return RedirectToAction(nameof(CEOs));
+        // }
+        //  [Authorize(Roles = "CEO")] 
+        //   [HttpGet]
+        //  public IActionResult UpdateCEO(string ceoId)
+        // {       
+        //     if(ceoId == null)
+        //     {
+        //         return NotFound();
+        //     }
+        //     var ceo = _service.GetCEOById(ceoId);
+        //     if(ceo == null)
+        //     {
+        //         return NotFound();
+        //     }
+        //     return View(ceo);
+        // }
+        //  [Authorize] 
+        // [HttpPost , ActionName("UpdateCEO")]
+        // [ValidateAntiForgeryToken]
+        //  public IActionResult UpdateCEO(CEO ceo)
+        // {
+        //     _service.UpdateCEO(ceo);
+        //     return RedirectToAction(nameof(CEOs));
+        // }
 
-         [Authorize(Roles = "CEO")] 
+        //  [Authorize(Roles = "CEO")] 
         
-         public IActionResult CEOs()
-        {
-            var ceos = _service.GetAllCEO();
-            return View(ceos);
-        }
+        //  public IActionResult CEOs()
+        // {
+        //     var ceos = _service.GetAllCEO();
+        //     return View(ceos);
+        // }
 
-          [Authorize(Roles = "CEO")] 
-         public IActionResult CEODetails(string ceoId)
-        {       
+        //   [Authorize(Roles = "CEO")] 
+        //  public IActionResult CEODetails(string ceoId)
+        // {       
             
-            var ceo = _service.GetCEOById(ceoId);
-            return View(ceo);
-        }
+        //     var ceo = _service.GetCEOById(ceoId);
+        //     return View(ceo);
+        // }
         
     }
 }

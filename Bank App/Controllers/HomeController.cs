@@ -106,7 +106,7 @@ public class HomeController : Controller
                       new Claim(ClaimTypes.Hash , (user.Role == "Manager") ? manager.AdminRegistrationCode.ToString():""),
                     //    new Claim(ClaimTypes.Dsa , (user.Role == "Manager") ? manager.ManagerId.ToString():""),
 
-                    new Claim(ClaimTypes.Anonymous, (user.Role == "Customer") ? customer.ProfilePicture.ToString():""),
+                    // new Claim(ClaimTypes.Anonymous, (user.Role == "Customer") ? customer.ProfilePicture.ToString():""),
                    
 
              
