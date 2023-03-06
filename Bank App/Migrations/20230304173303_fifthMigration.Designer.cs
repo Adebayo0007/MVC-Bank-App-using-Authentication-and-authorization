@@ -3,6 +3,7 @@ using System;
 using MVC_MobileBankApp.ApplicationContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_MobileBankApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230304173303_fifthMigration")]
+    partial class fifthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -127,23 +129,6 @@ namespace MVC_MobileBankApp.Migrations
                         .IsUnique();
 
                     b.ToTable("CEOs");
-
-                    b.HasData(
-                        new
-                        {
-                            CEOId = "ZENITH-CEO-100",
-                            Address = "10,Abayomi street",
-                            Age = 22,
-                            DateCreated = new DateTime(2023, 3, 6, 14, 5, 8, 62, DateTimeKind.Local).AddTicks(5794),
-                            Email = "ceo93@gmail.com",
-                            FirstName = "uthman",
-                            Gender = 1,
-                            IsActive = true,
-                            LastName = "Tijani",
-                            MaritalStatus = 2,
-                            PhoneNumber = "+2348087054632",
-                            UserId = 99
-                        });
                 });
 
             modelBuilder.Entity("MVC_MobileBankApp.Models.Customer", b =>
@@ -322,16 +307,6 @@ namespace MVC_MobileBankApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 99,
-                            Email = "ceo93@gmail.com",
-                            IsActive = true,
-                            PassWord = "Ceo0004",
-                            Role = "CEO"
-                        });
                 });
 
             modelBuilder.Entity("MVC_MobileBankApp.Models.Admin", b =>

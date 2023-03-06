@@ -103,11 +103,11 @@ namespace MVC_MobileBankApp.Services.Implementations
             }
             userr.Email = user.Email ?? userr.Email;
             userr.PassWord = user.PassWord ?? userr.PassWord;
-             var userUpdate = _userRepository.UpdateUser(userr);
+            //  var userUpdate = _userRepository.UpdateUser(userr);   //not neccessary
              return new UpdateUserRequestModel{
-                Email = userUpdate.Email,
-                PassWord = userUpdate.PassWord,
-                IsActive = userUpdate.IsActive
+                Email =  user.Email ?? userr.Email,
+                PassWord =  user.PassWord ?? userr.PassWord,
+                IsActive = userr.IsActive
 
              };
 

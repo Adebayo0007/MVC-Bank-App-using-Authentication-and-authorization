@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs;
+using MVC_MobileBankApp.Models.DTOs.UserDto;
 using MVC_MobileBankApp.Services.Interfaces;
 
 namespace MVC_MobileBankApp.Controllers;
@@ -155,7 +156,7 @@ public class HomeController : Controller
             return RedirectToAction(nameof(Index));
             
         }
-         public async Task<IActionResult> LogOut(UserDTO request)
+         public async Task<IActionResult> LogOut(UserResponseModel request)
         {
             HttpContext.Session.Clear();
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

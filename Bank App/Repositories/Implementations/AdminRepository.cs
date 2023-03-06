@@ -30,7 +30,6 @@ namespace MVC_MobileBankApp.Repositories.Implementations
         public Admin GetAdminById(string staffId)
         {
             var admin = _context.Admins.SingleOrDefault(a => a.StaffId == staffId);
-            // return _context.Admins.Find(adminId);
             return admin;
         }
 
@@ -46,7 +45,7 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public Admin UpdateAdmin(Admin admin)
         {
-             _context.Admins.Update(admin);
+             //_context.Admins.Update(admin);   //not neccessary
             _context.SaveChanges();
             return admin;
         }

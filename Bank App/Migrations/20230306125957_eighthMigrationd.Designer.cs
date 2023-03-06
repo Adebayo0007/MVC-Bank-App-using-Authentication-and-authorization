@@ -3,6 +3,7 @@ using System;
 using MVC_MobileBankApp.ApplicationContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_MobileBankApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230306125957_eighthMigrationd")]
+    partial class eighthMigrationd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,7 +136,7 @@ namespace MVC_MobileBankApp.Migrations
                             CEOId = "ZENITH-CEO-100",
                             Address = "10,Abayomi street",
                             Age = 22,
-                            DateCreated = new DateTime(2023, 3, 6, 14, 5, 8, 62, DateTimeKind.Local).AddTicks(5794),
+                            DateCreated = new DateTime(2023, 3, 6, 13, 59, 56, 701, DateTimeKind.Local).AddTicks(705),
                             Email = "ceo93@gmail.com",
                             FirstName = "uthman",
                             Gender = 1,

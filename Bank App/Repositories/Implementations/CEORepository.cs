@@ -41,7 +41,7 @@ namespace MVC_MobileBankApp.Repositories.Implementations
         public CEO UpdateCEO(CEO ceo)
         {
            
-            _context.CEOs.Update(ceo);
+           // _context.CEOs.Update(ceo);    //not neccessary
             _context.SaveChanges();
             return ceo;
         }

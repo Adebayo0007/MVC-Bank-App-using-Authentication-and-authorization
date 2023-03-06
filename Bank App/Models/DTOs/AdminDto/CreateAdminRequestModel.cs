@@ -4,7 +4,7 @@ using MVC_MobileBankApp.Enum;
 
 namespace MVC_MobileBankApp.Models.DTOs.AdminDto
 {
-    public class CreateAdminRequestModel
+    public class CreateAdminRequestModel : BaseResponse
     {
         
         [DisplayName("First Name")]
@@ -44,8 +44,6 @@ namespace MVC_MobileBankApp.Models.DTOs.AdminDto
         [Required]
         public string PassWord {get;set;}
          public int ManagerPass {get;set;}
-        public string? Message { get; set;}
-        // public DateTime DateCreated {get; set;} = DateTime.Now;
         
     }
 }

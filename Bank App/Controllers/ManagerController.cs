@@ -1,7 +1,6 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Models.DTOs.ManagerDto;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -45,7 +44,7 @@ namespace MVC_MobileBankApp.Controllers
            {
             if(manager != null)
             {
-                  //profile pix
+                 //profile pix
                 IFormFile file = Request.Form.Files.FirstOrDefault();
                 try{
                     
@@ -208,10 +207,6 @@ namespace MVC_MobileBankApp.Controllers
          }
 
 
-        
-
-
-
-        
+            
     }
 }

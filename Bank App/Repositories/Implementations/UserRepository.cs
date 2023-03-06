@@ -44,17 +44,18 @@ namespace MVC_MobileBankApp.Repositories.Implementations
                      return _context.Users.SingleOrDefault(a => a.Email  == email);
         }
         
+         
+         //not neccessary
 
-        public User UpdateUser(User user)
-        {
-            _context.Users.Update(user);
-            _context.SaveChanges();
-            return user;
-        }
+        // public User UpdateUser(User user)
+        // {
+        //     _context.Users.Update(user);
+        //     _context.SaveChanges();
+        //     return user;
+        // }
          public User GetUserById(int id)
         {
             var user = _context.Users.SingleOrDefault(a => a.Admin.UserId == id || a.Ceo.UserId == id || a.Manager.UserId == id || a.Customer.UserId == id);
-            // var use =_context.Users.Include(x => x.Ceo.CEOId);
             return user;
         }
           public bool GetUserByEmail(string email)

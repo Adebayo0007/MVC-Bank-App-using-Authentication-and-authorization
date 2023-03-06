@@ -1,5 +1,4 @@
 using MVC_MobileBankApp.Models;
-using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Models.DTOs.ManagerDto;
 using MVC_MobileBankApp.Models.DTOs.UserDto;
 using MVC_MobileBankApp.Repositories.Interfaces;
@@ -174,6 +173,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             managerr.Age = manager.Age != managerr.Age? manager.Age : managerr.Age;
             managerr.Address = manager.Address ?? managerr.Address;
             managerr.MaritalStatus = manager.MaritalStatus;
+            managerr.DateModified = DateTime.Now;
              _repo.UpdateManager(managerr);
         }
 

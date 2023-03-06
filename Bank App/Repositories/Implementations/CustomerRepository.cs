@@ -41,7 +41,7 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public Customer UpdateCustomer(Customer customer)
         {
-            _context.Customers.Update(customer);
+            // _context.Customers.Update(customer);   //not neccessary
             _context.SaveChanges();
             return customer;
         }

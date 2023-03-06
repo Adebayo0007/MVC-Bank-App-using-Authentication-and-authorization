@@ -44,7 +44,7 @@ namespace MVC_MobileBankApp.Repositories.Implementations
 
         public  Manager UpdateManager(Manager manager)
         {
-               _context.Managers.Update(manager);
+               //_context.Managers.Update(manager);  //not neccessary
               _context.SaveChanges();
             return manager;
         }

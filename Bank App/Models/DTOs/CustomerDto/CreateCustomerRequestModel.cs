@@ -5,7 +5,7 @@ using MVC_MobileBankApp.Models.Enum;
 
 namespace MVC_MobileBankApp.Models.DTOs.CustomerDto
 {
-    public class CreateCustomerRequestModel
+    public class CreateCustomerRequestModel : BaseResponse
     {
       
         [DisplayName("First Name")]
@@ -52,7 +52,7 @@ namespace MVC_MobileBankApp.Models.DTOs.CustomerDto
         [Compare("PassWord")]
         public string ConfirmPassWord {get;set;}
         //  public bool IsActive {get;set;} 
-         public string Message{get; set;}
+       
         // public DateTime DateCreated {get; set;} = DateTime.Now;
         
     }

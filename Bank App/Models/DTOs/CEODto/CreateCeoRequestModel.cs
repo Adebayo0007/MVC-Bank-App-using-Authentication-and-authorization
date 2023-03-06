@@ -4,7 +4,7 @@ using MVC_MobileBankApp.Enum;
 
 namespace MVC_MobileBankApp.Models.DTOs.CEODto
 {
-    public class CreateCeoRequestModel
+    public class CreateCeoRequestModel : BaseResponse
     {
         [DisplayName("First Name")]
         [Required(ErrorMessage = "The Admin's name is required")]
@@ -43,6 +43,6 @@ namespace MVC_MobileBankApp.Models.DTOs.CEODto
         [Required]
         public string PassWord {get;set;}
          public int ManagerPass {get;set;}
-        public string? Message { get; set;} 
+
     }
 }

@@ -1,6 +1,5 @@
 
 using MVC_MobileBankApp.Models;
-using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Models.DTOs.TransactionDto;
 using MVC_MobileBankApp.Repositories.Interfaces;
 using MVC_MobileBankApp.Services.Interfaces;
@@ -50,7 +49,6 @@ namespace MVC_MobileBankApp.Services.Implementations
                 };
                 transaction.SuccessMessage = $"Tnx: Credit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n Amt: NGN {transaction.Amount}\\n Ref Number: {transact.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transact.DateCreated}";
                check =  _transactionRepo.CreateTransaction(transact);   
-
             }
             else if((int)transaction.TransactType == 2)
             {

@@ -1,7 +1,6 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Models.DTOs.AdminDto;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -206,7 +205,6 @@ namespace MVC_MobileBankApp.Controllers
             //     return BadRequest();
             // }
             var admin = _service.GetAdminById(staffId);
-          
             return View(admin);
         }
 

@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Models.DTOs.CustomerDto;
 
 namespace MVC_MobileBankApp.Models

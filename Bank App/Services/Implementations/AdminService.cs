@@ -23,7 +23,7 @@ namespace MVC_MobileBankApp.Services.Implementations
               
               if(Age < 18)
              {
-                admin.Message = $"Manager under 18 Years old are not allowed in this Application";
+                admin.Message = $"Admin under 18 Years old are not allowed in this Application";
                 return admin;
              }
              var user = new CreateUserRequestModel
@@ -89,6 +89,7 @@ namespace MVC_MobileBankApp.Services.Implementations
         public AdminResponseModel GetAdminById(string adminId)
         {
             var admin = _repo.GetAdminById(adminId);
+            
             return new AdminResponseModel {
                 StaffId = admin.StaffId,
                 FirstName = admin.FirstName,
@@ -151,10 +152,10 @@ namespace MVC_MobileBankApp.Services.Implementations
             adminn.FirstName = admin.FirstName ?? adminn.FirstName;
             adminn.LastName = admin.LastName ?? adminn.LastName;
             adminn.Email = admin.Email ?? adminn.Email;
-            // adminn.PassWord = admin.PassWord ?? adminn.PassWord;
             adminn.Age = admin.Age != adminn.Age? admin.Age : adminn.Age;
             adminn.Address = admin.Address ?? adminn.Address;
             adminn.MaritalStatus = admin.MaritalStatus;
+            adminn.DateModified = DateTime.Now;
             _repo.UpdateAdmin(adminn);
         }
 

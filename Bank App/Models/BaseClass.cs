@@ -2,7 +2,7 @@ using MVC_MobileBankApp.Enum;
 
 namespace MVC_MobileBankApp
 {
-    public class BaseClass
+    public abstract class BaseClass
     {
         public string FirstName {get;set;}
         public string LastName {get;set;}
@@ -17,6 +17,7 @@ namespace MVC_MobileBankApp
         //  public string PassWord {get;set;}
          public bool IsActive {get;set;} 
         public DateTime DateCreated {get; set;} 
+         public DateTime? DateModified {get; set;} 
         
     }
 }

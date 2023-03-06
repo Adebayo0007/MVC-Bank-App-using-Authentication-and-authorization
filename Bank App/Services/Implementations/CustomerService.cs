@@ -1,5 +1,4 @@
 using MVC_MobileBankApp.Models;
-using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Models.DTOs.CustomerDto;
 using MVC_MobileBankApp.Models.DTOs.UserDto;
 using MVC_MobileBankApp.Repositories.Interfaces;
@@ -24,7 +23,7 @@ namespace MVC_MobileBankApp.Services.Implementations
               
               if(Age < 10)
              {
-                customer.Message = $"Manager under 10 Years old are not allowed in this Application";
+                customer.Message = $"Customer under 10 Years old are not allowed in this Application";
                 return customer;
              }
 
@@ -177,6 +176,7 @@ namespace MVC_MobileBankApp.Services.Implementations
             customerr.MaritalStatus = customer.MaritalStatus;
             customerr.AccountType = customer.AccountType;
             customerr.Pin = customer.Pin ?? customerr.Pin; 
+            customerr.DateModified = DateTime.Now;
             _repo.UpdateCustomer(customerr);
         }
 

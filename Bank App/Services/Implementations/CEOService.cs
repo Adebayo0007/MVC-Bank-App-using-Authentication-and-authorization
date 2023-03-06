@@ -23,7 +23,7 @@ namespace MVC_MobileBankApp.Services.Implementations
               
               if(Age < 18)
              {
-                ceo.Message = $"Manager under 18 Years old are not allowed in this Application";
+                ceo.Message = $"CEO under 18 Years old are not allowed in this Application";
                 return ceo;
              }
 
