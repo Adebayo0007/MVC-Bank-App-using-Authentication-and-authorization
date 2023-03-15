@@ -1,7 +1,6 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Models.DTOs.TransactionDto;
 using MVC_MobileBankApp.Services.Interfaces;
 
@@ -10,11 +9,14 @@ namespace MVC_MobileBankApp.Controllers
     public class TransactionController : Controller
     {
          private readonly ITransactionService _transactionService;
+    
         public TransactionController(ITransactionService transactionService)
         {
             _transactionService = transactionService;
         
+        
         }
+   
 
         [Authorize(Roles = "Admin, Manager, CEO")]
          [HttpGet]
@@ -33,7 +35,6 @@ namespace MVC_MobileBankApp.Controllers
          public IActionResult CreateTransaction(CreateTransactionRequestModel transaction)
         {
             transaction.AccountNumber = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            // var transac = _transactionService.CreateTransaction(transaction);
                 var transact = _transactionService.CreateTransaction(transaction);
             if(transact.Message != null )
             {
@@ -47,8 +48,9 @@ namespace MVC_MobileBankApp.Controllers
                 // ViewBag.Error = "Wrong Input";
                 TempData["message"] = $"Transaction Successful\\n {transact.SuccessMessage}";
                     TempData.Keep("message");
-                //      var reciever = new List<string>{"milajack5864@gmail.com","johnwilson5864@gmail.com", "tijaniadebayoabdllahi@gmail.com"};
-                //  Email.SendMail("tijaniadebayoabdllahi@gmail.com",null, reciever,null,null,transact.SuccessMessage,"Transaction Reciept",null,null );
+                    
+                    
+
                      return RedirectToAction("Reciept", "Customer");
                      
                      

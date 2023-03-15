@@ -134,7 +134,7 @@ namespace MVC_MobileBankApp.Migrations
                             CEOId = "ZENITH-CEO-100",
                             Address = "10,Abayomi street",
                             Age = 22,
-                            DateCreated = new DateTime(2023, 3, 6, 14, 5, 8, 62, DateTimeKind.Local).AddTicks(5794),
+                            DateCreated = new DateTime(2023, 3, 6, 15, 15, 36, 579, DateTimeKind.Local).AddTicks(8236),
                             Email = "ceo93@gmail.com",
                             FirstName = "uthman",
                             Gender = 1,
@@ -329,7 +329,7 @@ namespace MVC_MobileBankApp.Migrations
                             Id = 99,
                             Email = "ceo93@gmail.com",
                             IsActive = true,
-                            PassWord = "Ceo0004",
+                            PassWord = "$2b$10$TTLiRlERCsRl3OZR6kSua..OHido.lrlrxcASUyAUD602B3zcUkSG",
                             Role = "CEO"
                         });
                 });

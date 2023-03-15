@@ -5,21 +5,24 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_MobileBankApp.Models;
-using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Models.DTOs.UserDto;
 using MVC_MobileBankApp.Services.Interfaces;
+using Newtonsoft.Json.Linq;
+using sib_api_v3_sdk.Api;
+using sib_api_v3_sdk.Client;
+using sib_api_v3_sdk.Model;
 
 namespace MVC_MobileBankApp.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-     private readonly IUserService _service;
-       private readonly IAdminService _adminService;
-       private readonly ICustomerService _customerService;
-        private readonly IManagerService _managerService;
+    private readonly IUserService _service;
+    private readonly IAdminService _adminService;
+    private readonly ICustomerService _customerService;
+    private readonly IManagerService _managerService;
 
-    public HomeController(ILogger<HomeController> logger,IUserService service, IAdminService adminService, ICustomerService customerService, IManagerService managerService)
+    public HomeController(ILogger<HomeController> logger, IUserService service, IAdminService adminService, ICustomerService customerService, IManagerService managerService)
     {
         _logger = logger;
         _service = service;
@@ -39,61 +42,61 @@ public class HomeController : Controller
     }
 
 
-      public IActionResult LogIn()
+     public IActionResult LogIn()
+    {
+        return View();
+
+    }
+
+    [HttpPost, ActionName("LogIn")]
+    public IActionResult LogInConfirmed(string email, string passWord)
+    {
+        if (email == null || passWord == null)
         {
-           return View();
-           
+            return NotFound();
+        }
+        var user = _service.Login(email, passWord);
+        dynamic admin = null;
+        dynamic customer = null;
+        dynamic manager = null;
+        if (user.Role == "Admin")
+        {
+            admin = _adminService.GetAdminByEmail(user.Email);
+        }
+        if (user.Role == "Customer")
+        {
+            customer = _customerService.GetCustomerByEmail(user.Email);
+        }
+        if (user.Role == "Manager")
+        {
+            manager = _managerService.GetManagerByEmail(user.Email);
         }
 
-        [HttpPost , ActionName("LogIn")]
-         public IActionResult LogInConfirmed(string email,string passWord)
-        {
-            if(email == null || passWord == null)
-            {
-                return NotFound();
-            }
-            var user = _service.Login(email,passWord);
-            dynamic admin = null;
-            dynamic customer = null;
-            dynamic manager = null;
-            if(user.Role == "Admin")
-            {
-                admin = _adminService.GetAdminByEmail(user.Email);
-            }
-              if(user.Role == "Customer")
-            {
-                customer = _customerService.GetCustomerByEmail(user.Email);
-            }
-            if(user.Role == "Manager")
-            {
-                 manager =  _managerService.GetManagerByEmail(user.Email);
-            }
-           
-           
-            // if (user == null || user.IsActive == false)
-            // {
-            //       TempData["error"] = "Invalid Email or Password"; 
-            //    return View();
-                
-            // }
-            if(user.Message != null)
-            {
-                 TempData["logmessage"] = user.Message; 
-                 TempData.Keep();
-                  return View();
-            }
 
-            //session
+        // if (user == null || user.IsActive == false)
+        // {
+        //       TempData["error"] = "Invalid Email or Password"; 
+        //    return View();
+
+        // }
+        if (user.Message != null)
+        {
+            TempData["logmessage"] = user.Message;
+            TempData.Keep();
+            return View();
+        }
+
+        //session
         //     HttpContext.Session.SetString("Email", customer.Email);
         //    HttpContext.Session.SetString("PassWord", customer.PassWord);
         //     return RedirectToAction(nameof(ManageTransaction));
 
 
 
-              //cookies
+        //cookies
 
-            var roles = new List<string>();
-            var claims = new List<Claim>
+        var roles = new List<string>();
+        var claims = new List<Claim>
             {
                 // new Claim(ClaimTypes.Name , user.Id + " " +user.Id),
                 //new Claim(ClaimTypes.Name , lecturer.LastName + " " +lecturer.FirstName),
@@ -117,63 +120,63 @@ public class HomeController : Controller
                   new Claim(ClaimTypes.Role , (user.Role == "CEO") ? "CEO":""),
                 // new Claim(ClaimTypes.NameIdentifier , 2.ToString()),
                 new Claim(ClaimTypes.NameIdentifier , user.Id.ToString())
-        
+
             };
 
-            var claimsIdentity = new ClaimsIdentity(claims , CookieAuthenticationDefaults.AuthenticationScheme);
-            var authenticationProperties = new AuthenticationProperties();
-            var principal = new ClaimsPrincipal(claimsIdentity);
-             HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme , principal, authenticationProperties);
+        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var authenticationProperties = new AuthenticationProperties();
+        var principal = new ClaimsPrincipal(claimsIdentity);
+        HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authenticationProperties);
 
-            // foreach(var item in roles)
-            // {
-            //     claims.Add(new Claim(ClaimTypes.Role , item));
-            // }
-             if(user.Role == "CEO")
-            {
-                TempData["success"] = "Login Successfully";
-                 return RedirectToAction("ManageManagers", "CEO");
-
-            }
-             if(user.Role == "Manager")
-            {
-                TempData["success"] = "Login Successfully";
-                 return RedirectToAction("ManageAdmins", "Manager");
-
-            }
-            if(user.Role == "Admin")
-            {
-                TempData["success"] = "Login Successfully";
-                 return RedirectToAction("ManageCustomer", "Admin");
-
-            }
-             if(user.Role == "Customer")
-            {
-                TempData["success"] = "Login Successfully";
-                 return RedirectToAction("ManageTransaction", "Customer");
-
-            }
-            return RedirectToAction(nameof(Index));
-            
-        }
-         public async Task<IActionResult> LogOut(UserResponseModel request)
+        // foreach(var item in roles)
+        // {
+        //     claims.Add(new Claim(ClaimTypes.Role , item));
+        // }
+        if (user.Role == "CEO")
         {
-            HttpContext.Session.Clear();
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-             TempData["success"] = $"{request.Email} Logged out Successfully";
-                TempData.Keep();
-            return RedirectToAction(nameof(LogIn));
-        }
+            TempData["success"] = "Login Successfully";
+            return RedirectToAction("ManageManagers", "CEO");
 
-            [Authorize(Roles = "CEO")] 
-         public IActionResult Users()
-        {
-            var users =  _service.GetAllUser();
-            string user =  _service.NumberOfUsers();
-             TempData["users"] = user;
-                TempData.Keep();
-            return View(users);
         }
+        if (user.Role == "Manager")
+        {
+            TempData["success"] = "Login Successfully";
+            return RedirectToAction("ManageAdmins", "Manager");
+
+        }
+        if (user.Role == "Admin")
+        {
+            TempData["success"] = "Login Successfully";
+            return RedirectToAction("ManageCustomer", "Admin");
+
+        }
+        if (user.Role == "Customer")
+        {
+            TempData["success"] = "Login Successfully";
+            return RedirectToAction("ManageTransaction", "Customer");
+
+        }
+        return RedirectToAction(nameof(Index));
+
+    }
+    public async Task<IActionResult> LogOut(UserResponseModel request)
+    {
+        HttpContext.Session.Clear();
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        TempData["success"] = $"{request.Email} Logged out Successfully";
+        TempData.Keep();
+        return RedirectToAction(nameof(LogIn));
+    }
+
+    [Authorize(Roles = "CEO")]
+    public IActionResult Users()
+    {
+        var users = _service.GetAllUser();
+        string user = _service.NumberOfUsers();
+        TempData["users"] = user;
+        TempData.Keep();
+        return View(users);
+    }
 
 
 
@@ -182,5 +185,5 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
-    
+
 }

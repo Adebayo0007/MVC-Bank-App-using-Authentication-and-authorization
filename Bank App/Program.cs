@@ -12,10 +12,12 @@ using MVC_MobileBankApp.Services.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-// var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));   
-// builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySql("Server=localhost;port=3306;Database=LegitbankappMVC;Uid=root;Pwd=Adebayo58641999", serverVersion));
-builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseMySql(
+  builder.Services.AddControllersWithViews();
+  
+  // var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));   
+  // builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySql("Server=localhost;port=3306;Database=LegitbankappMVC;Uid=root;Pwd=Adebayo58641999", serverVersion));
+
+  builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseMySql(
   builder.Configuration.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
   ));
     builder.Services.AddScoped<IAdminRepository , AdminRepository>();
@@ -44,10 +46,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseMySql(
     options.Cookie.Name = "BankApp.Session";
     options.IdleTimeout = TimeSpan.FromSeconds(10);
     });
+     //email injection
+     
+    // builder.Services
+    // .AddFluentEmail("tijaniadebayoabdllahi@gmail.com")
+    // .AddRazorRenderer()
+    // .AddSmtpSender("localhost", 25);
   
   
-  // builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
-  builder.Services.AddRazorPages();
+     // builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+     builder.Services.AddRazorPages();
 
 
 
@@ -60,6 +68,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

@@ -1,4 +1,3 @@
-using MVC_MobileBankApp.Models.DTOs;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Repositories;
 using MVC_MobileBankApp.Services.Interfaces;
@@ -9,7 +8,7 @@ namespace MVC_MobileBankApp.Services.Implementations
 {
     public class AdminService : IAdminService
     {
-        private readonly IAdminRepository _repo;
+         private readonly IAdminRepository _repo;
          private readonly IUserService _userRepo;
 
         public AdminService(IAdminRepository repo,IUserService userRepo)
@@ -64,8 +63,6 @@ namespace MVC_MobileBankApp.Services.Implementations
 
         public AdminResponseModel DeleteAdminUsingId(string adminId)
         {
-        
-
             var admin =   _repo.GetAdminById(adminId);
             _userRepo.DeleteUserUsingId(admin.UserId);
             admin.IsActive = false;
@@ -104,7 +101,6 @@ namespace MVC_MobileBankApp.Services.Implementations
                 DateCreated = admin.DateCreated,
                 IsActive = admin.IsActive,
                 ProfilePicture = admin.ProfilePicture
-
             };
         }
 

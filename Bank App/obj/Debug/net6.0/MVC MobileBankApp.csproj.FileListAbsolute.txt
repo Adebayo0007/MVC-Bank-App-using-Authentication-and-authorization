@@ -200,11 +200,7 @@ C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\refint\MVC MobileBan
 C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.pdb
 C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\MVC MobileBankApp.genruntimeconfig.cache
 C:\Users\user\Desktop\BAnk sessio\Bank App\obj\Debug\net6.0\ref\MVC MobileBankApp.dll
-C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Docker.DotNet.dll
 C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\MailKit.dll
-C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\MimeKit.dll
-C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\xunit.runner.reporters.netcoreapp10.dll
 C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\xunit.runner.utility.netcoreapp10.dll
@@ -212,3 +208,7 @@ C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\Divergic.Logging.Xun
 C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\xunit.abstractions.dll
 C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\BCrypt.Net-Core.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\FubarCoder.RestSharp.Portable.Core.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\FubarCoder.RestSharp.Portable.HttpClient.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\JsonSubTypes.dll
+C:\Users\user\Desktop\BAnk sessio\Bank App\bin\Debug\net6.0\sib_api_v3_sdk.dll

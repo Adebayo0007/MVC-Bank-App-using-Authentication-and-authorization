@@ -40,7 +40,6 @@ namespace MVC_MobileBankApp.Services.Implementations
                 // customer.AccountNumber = $"{random.Next(300,700).ToString()}{random.Next(100, 900).ToString()}{rand.Next(100,400).ToString()}0";
                 // customer.UserId = use.Id;
                 // customer.IsActive = true;
-        
                  var legitCustomer = new Customer {
 
                 IsActive = true,

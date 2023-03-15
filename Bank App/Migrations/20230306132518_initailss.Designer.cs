@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_MobileBankApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230126222126_change")]
-    partial class change
+    [Migration("20230306132518_initailss")]
+    partial class initailss
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,7 +27,6 @@ namespace MVC_MobileBankApp.Migrations
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Age")
@@ -36,37 +35,38 @@ namespace MVC_MobileBankApp.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
-                    b.Property<string>("Identity")
-                        .HasColumnType("longtext");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<int>("ManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ManagerPass")
+                        .HasColumnType("int");
 
                     b.Property<int>("MaritalStatus")
                         .HasColumnType("int");
 
-                    b.Property<string>("PassWord")
-                        .IsRequired()
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<byte[]>("ProfilePicture")
+                        .HasColumnType("longblob");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -85,7 +85,6 @@ namespace MVC_MobileBankApp.Migrations
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Age")
@@ -94,12 +93,13 @@ namespace MVC_MobileBankApp.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Gender")
@@ -109,19 +109,16 @@ namespace MVC_MobileBankApp.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("MaritalStatus")
                         .HasColumnType("int");
 
-                    b.Property<string>("PassWord")
-                        .IsRequired()
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<byte[]>("ProfilePicture")
+                        .HasColumnType("longblob");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -132,6 +129,23 @@ namespace MVC_MobileBankApp.Migrations
                         .IsUnique();
 
                     b.ToTable("CEOs");
+
+                    b.HasData(
+                        new
+                        {
+                            CEOId = "ZENITH-CEO-100",
+                            Address = "10,Abayomi street",
+                            Age = 22,
+                            DateCreated = new DateTime(2023, 3, 6, 14, 25, 17, 416, DateTimeKind.Local).AddTicks(1439),
+                            Email = "ceo93@gmail.com",
+                            FirstName = "uthman",
+                            Gender = 1,
+                            IsActive = true,
+                            LastName = "Tijani",
+                            MaritalStatus = 2,
+                            PhoneNumber = "+2348087054632",
+                            UserId = 99
+                        });
                 });
 
             modelBuilder.Entity("MVC_MobileBankApp.Models.Customer", b =>
@@ -146,7 +160,6 @@ namespace MVC_MobileBankApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Age")
@@ -155,12 +168,13 @@ namespace MVC_MobileBankApp.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Gender")
@@ -170,23 +184,19 @@ namespace MVC_MobileBankApp.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("MaritalStatus")
                         .HasColumnType("int");
 
-                    b.Property<string>("PassWord")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Pin")
-                        .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<byte[]>("ProfilePicture")
+                        .HasColumnType("longblob");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -205,8 +215,10 @@ namespace MVC_MobileBankApp.Migrations
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<int>("AdminRegistrationCode")
+                        .HasColumnType("int");
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
@@ -214,12 +226,13 @@ namespace MVC_MobileBankApp.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Gender")
@@ -229,19 +242,16 @@ namespace MVC_MobileBankApp.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("MaritalStatus")
                         .HasColumnType("int");
 
-                    b.Property<string>("PassWord")
-                        .IsRequired()
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<byte[]>("ProfilePicture")
+                        .HasColumnType("longblob");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -263,7 +273,6 @@ namespace MVC_MobileBankApp.Migrations
                         .HasColumnType("double");
 
                     b.Property<string>("AccountNumber")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<double>("Amount")
@@ -272,14 +281,13 @@ namespace MVC_MobileBankApp.Migrations
                     b.Property<string>("CustomerAccountNumber")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime(6)");
+                    b.Property<string>("DateCreated")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Pin")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("RecipientAccountNumber")
@@ -302,23 +310,30 @@ namespace MVC_MobileBankApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("PassWord")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Role")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 99,
+                            Email = "ceo93@gmail.com",
+                            IsActive = true,
+                            PassWord = "Ceo0004",
+                            Role = "CEO"
+                        });
                 });
 
             modelBuilder.Entity("MVC_MobileBankApp.Models.Admin", b =>
@@ -368,17 +383,13 @@ namespace MVC_MobileBankApp.Migrations
 
             modelBuilder.Entity("MVC_MobileBankApp.Models.User", b =>
                 {
-                    b.Navigation("Admin")
-                        .IsRequired();
+                    b.Navigation("Admin");
 
-                    b.Navigation("Ceo")
-                        .IsRequired();
+                    b.Navigation("Ceo");
 
-                    b.Navigation("Customer")
-                        .IsRequired();
+                    b.Navigation("Customer");
 
-                    b.Navigation("Manager")
-                        .IsRequired();
+                    b.Navigation("Manager");
                 });
 #pragma warning restore 612, 618
         }

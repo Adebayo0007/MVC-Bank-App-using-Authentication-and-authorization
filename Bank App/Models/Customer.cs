@@ -15,6 +15,7 @@ namespace MVC_MobileBankApp.Models
          [Key]
         public string AccountNumber {get; set;}
         public string Pin           {get; set;}
+    
           
     }
 }

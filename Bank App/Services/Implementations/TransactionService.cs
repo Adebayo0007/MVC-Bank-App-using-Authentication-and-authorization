@@ -1,4 +1,5 @@
 
+using MVC_MobileBankApp.Email;
 using MVC_MobileBankApp.Models;
 using MVC_MobileBankApp.Models.DTOs.TransactionDto;
 using MVC_MobileBankApp.Repositories.Interfaces;
@@ -48,6 +49,8 @@ namespace MVC_MobileBankApp.Services.Implementations
                    TransactType = transaction.TransactType
                 };
                 transaction.SuccessMessage = $"Tnx: Credit\\n Acc: {transaction.AccountNumber[0]}{transaction.AccountNumber[1]}*****{transaction.AccountNumber[7]}{transaction.AccountNumber[8]}*\\n Amt: NGN {transaction.Amount}\\n Ref Number: {transact.RefNum}\\n Balance : # {customer.AccountBalance}\\n Date: {transact.DateCreated}";
+
+                
                check =  _transactionRepo.CreateTransaction(transact);   
             }
             else if((int)transaction.TransactType == 2)
@@ -294,6 +297,13 @@ namespace MVC_MobileBankApp.Services.Implementations
            {
             transaction.Message = $"Oops!\\nWrong pin";
              return transaction;
+           }
+
+           //sending mail
+           if(transaction.SuccessMessage != null)
+           {
+             string name = $"{customer.FirstName} {customer.LastName}";
+             EmailConfiguration.EmailSending(customer.Email,name,"Transaction Successful",transaction.SuccessMessage);
            }
            
              return new CreateTransactionRequestModel{

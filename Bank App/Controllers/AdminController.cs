@@ -55,23 +55,24 @@ namespace MVC_MobileBankApp.Controllers
             {
                  //profile pix
                     try{
-
+                        // var pix = Convert.ToBase64String(admin.ProfilePicture);
                         IFormFile file = Request.Form.Files.FirstOrDefault();
                         using (var dataStream = new MemoryStream())
                         {
                           file.CopyToAsync(dataStream);
                             admin.ProfilePicture = dataStream.ToArray();
                         }
-                  }
-                  catch(Exception ex)
-                  {
-                                          var mess = ex.Message.ToString();
-                                            // TempData["pix"] = mess;
-                                         TempData["pix"] = $"Profile picture is required";
-                                    TempData.Keep();
-                                    return View();
+                    
+                       }
+                        catch(Exception ex)
+                        {
+                                                var mess = ex.Message.ToString();
+                                                    // TempData["pix"] = mess;
+                                                TempData["pix"] = $"Profile picture is required";
+                                            TempData.Keep();
+                                            return View();
 
-                  }
+                        }
 
                 var check = _service.CreateAdmin(admin);
                 if(check.Message == null)

@@ -16,33 +16,34 @@ namespace MVC_MobileBankApp.ApplicationContext
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<User> Users { get; set; }
-        protected override void OnModelCreating (ModelBuilder modelBuilder){
+        protected override void OnModelCreating (ModelBuilder modelBuilder)
+        {
 
-              modelBuilder.Entity<User>().HasData(
+                modelBuilder.Entity<User>().HasData(
                 new User
                 {
-                       Id = 99,
-                       Email = "ceo93@gmail.com",
+                       Id = 1,
+                       Email = "ceo1@gmail.com",
                        Role = "CEO",
                       IsActive = true,
-                      PassWord = "Ceo0004"
+                      PassWord = BCrypt.Net.BCrypt.HashPassword("Ceo0002")
                 }
               );
 
-
             
-            modelBuilder.Entity<CEO>().HasData(
+
+                 modelBuilder.Entity<CEO>().HasData(
                 new CEO
                 {
                     CEOId = "ZENITH-CEO-100",
                     FirstName = "uthman",
                     LastName = "Tijani",
                     Address = "10,Abayomi street",
-                    UserId = 99,
+                    UserId = 1,
                     Age = 22,
                     Gender = Enum.GenderType.Male,
                     MaritalStatus = Enum.MaritalStatusType.Married,
-                    Email = "ceo93@gmail.com",
+                    Email = "ceo1@gmail.com",
                     PhoneNumber = "+2348087054632",
                     IsActive = true, 
                     DateCreated = DateTime.Now
